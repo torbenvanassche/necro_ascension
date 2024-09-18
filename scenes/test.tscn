@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl0nqrte7vyns"]
+
+[ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
+[ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_ud2qd"]
+[ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
+[ext_resource type="Script" path="res://scripts/utils/camera.gd" id="4_0gajg"]
+
+[node name="root" type="Node"]
+script = ExtResource("1_qqdqb")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="floor-small-square" parent="Level" instance=ExtResource("1_ud2qd")]
+
+[node name="floor-small-square2" parent="Level" instance=ExtResource("1_ud2qd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="floor-small-square3" parent="Level" instance=ExtResource("1_ud2qd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="floor-small-square4" parent="Level" instance=ExtResource("1_ud2qd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="floor-small-square5" parent="Level" instance=ExtResource("1_ud2qd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="floor-small-square7" parent="Level" instance=ExtResource("1_ud2qd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="floor-small-square9" parent="Level" instance=ExtResource("1_ud2qd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+
+[node name="floor-small-square13" parent="Level" instance=ExtResource("1_ud2qd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="floor-small-square14" parent="Level" instance=ExtResource("1_ud2qd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+
+[node name="character" parent="Level" instance=ExtResource("2_sf220")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.8713, -0.00344813, -0.117502)
+speed = 1.0
+rotation_speed = 0.2
+
+[node name="Camera3D" type="Camera3D" parent="Level" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 1.8713, 0.496552, 0.882498)
+script = ExtResource("4_0gajg")
+target = NodePath("../character")

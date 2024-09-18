@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc1qxbru5n4ek"]
+
+[ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_0gv8e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8fikw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6clw"]
+
+[node name="character" type="CharacterBody3D"]
+script = ExtResource("1_0gv8e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_8fikw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_x6clw")
