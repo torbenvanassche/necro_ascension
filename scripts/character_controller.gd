@@ -7,6 +7,7 @@ extends CharacterBody3D
 #rotation
 var current_rotation_y: float = 0;
 @export var rotation_speed: float = 3.0;
+@export var camera_relative: bool = false;
 
 @export var interaction_range: Area3D;
 var player_state: String;
@@ -51,10 +52,12 @@ func _physics_process(delta):
 		velocity.y = 0;
 		
 	if do_processing:
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
+		var direction: Vector3;
 		var input_dir = Input.get_vector("left", "right", "back", "forward").normalized()
-		var direction = (Manager.instance.camera.global_basis * Vector3(input_dir.x, 0, -input_dir.y)).normalized()
+		if camera_relative:
+			direction = (Manager.instance.camera.global_basis * Vector3(input_dir.x, 0, -input_dir.y)).normalized()
+		else:
+			direction = Vector3(input_dir.x, 0, -input_dir.y).normalized()
 		if direction:
 			player_state = "walk";
 			velocity.x = direction.x * speed
