@@ -8,6 +8,7 @@ extends CharacterBody3D
 var current_rotation_y: float = 0;
 @export var rotation_speed: float = 3.0;
 @export var camera_relative: bool = false;
+@export var rotate_player_on_input: bool = false;
 
 @export var interaction_range: Area3D;
 var player_state: String;
@@ -24,7 +25,7 @@ var current_triggers: Array[Area3D];
 var do_processing: bool = true;
 var can_transform: bool = false;
 
-var animation_controller: StateMachineController;
+var animation_controller: AnimationMachine;
 
 func _init():
 	Manager.instance.player = self;
@@ -36,6 +37,12 @@ func _ready():
 	if interaction_range:
 		interaction_range.area_entered.connect(_on_enter);
 		interaction_range.area_exited.connect(_on_leave);
+		
+	var sprite: AnimatedSprite3D = $CollisionShape3D/AnimatedSprite3D;
+	var animations: Array[AnimationControllerState];
+	for anim_name in sprite.sprite_frames.get_animation_names():
+		animations.append(AnimationControllerState.new(anim_name))
+	animation_controller = AnimationMachine.new(sprite, animations)
 
 func _physics_process(delta):	
 	if Input.is_action_just_pressed("open_inventory"):
@@ -48,7 +55,7 @@ func _physics_process(delta):
 		velocity.y += get_custom_gravity() * delta;
 
 	if is_on_floor():
-		player_state = "idle"
+		player_state = "idle_down"
 		velocity.y = 0;
 		
 	if do_processing:
@@ -59,26 +66,20 @@ func _physics_process(delta):
 		else:
 			direction = Vector3(input_dir.x, 0, -input_dir.y).normalized()
 		if direction:
-			player_state = "walk";
+			player_state = "walk_left" if direction.x < 0 else "walk_right"
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 		
-			var target_rotation_y = atan2(-direction.x, -direction.z)
-			current_rotation_y = lerp_angle(current_rotation_y, target_rotation_y, rotation_speed * delta)
-			rotation.y = current_rotation_y
+			if rotate_player_on_input:
+				var target_rotation_y = atan2(-direction.x, -direction.z)
+				current_rotation_y = lerp_angle(current_rotation_y, target_rotation_y, rotation_speed * delta)
+				rotation.y = current_rotation_y
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 			velocity.z = move_toward(velocity.z, 0, speed)
-		
-	if Input.is_action_just_pressed("dodge") and is_on_floor():
-		player_state = "dodge"
-		velocity.y = jump_velocity;
-		pass
-		
-	if not is_on_floor() && velocity.y < 0:
-		player_state = "falling"
-		
 	move_and_slide()
+	
+	animation_controller.animation_state = player_state;
 	
 func interact():
 	if current_triggers.size() != 0:
