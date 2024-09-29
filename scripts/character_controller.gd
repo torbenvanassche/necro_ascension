@@ -11,6 +11,7 @@ var current_rotation_y: float = 0;
 @export var rotate_player_on_input: bool = false;
 
 @export var interaction_range: Area3D;
+@export var sprite3D: AnimatedSprite3D;
 var player_state: String;
 
 @export_group("Jump")
@@ -37,12 +38,14 @@ func _ready():
 	if interaction_range:
 		interaction_range.area_entered.connect(_on_enter);
 		interaction_range.area_exited.connect(_on_leave);
+	
+	if not sprite3D:
+		Debug.warn("Sprite target to animate was not defined.")
 		
-	var sprite: AnimatedSprite3D = $CollisionShape3D/AnimatedSprite3D;
 	var animations: Array[AnimationControllerState];
-	for anim_name in sprite.sprite_frames.get_animation_names():
+	for anim_name in sprite3D.sprite_frames.get_animation_names():
 		animations.append(AnimationControllerState.new(anim_name))
-	animation_controller = AnimationMachine.new(sprite, animations)
+	animation_controller = AnimationMachine.new(sprite3D, animations)
 
 func _physics_process(delta):	
 	if Input.is_action_just_pressed("open_inventory"):
@@ -66,9 +69,11 @@ func _physics_process(delta):
 		else:
 			direction = Vector3(input_dir.x, 0, -input_dir.y).normalized()
 		if direction:
-			player_state = "walk_left" if direction.x < 0 else "walk_right"
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
+			player_state = "walk_left" if direction.x < 0 else "walk_right"
+			if velocity.z != 0:
+				player_state = "walk_up" if direction.z < 0 else "walk_down"
 		
 			if rotate_player_on_input:
 				var target_rotation_y = atan2(-direction.x, -direction.z)
