@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://dc1qxbru5n4ek"]
+[gd_scene load_steps=98 format=3 uid="uid://dc1qxbru5n4ek"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_0gv8e"]
 [ext_resource type="Texture2D" uid="uid://bkar1blwvpkbp" path="res://imported_data/animations/1_Template_Idle_Down-Sheet.png" id="2_cuk5e"]
@@ -365,7 +365,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_down",
-"speed": 15.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -394,7 +394,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_left",
-"speed": 15.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -423,7 +423,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_right",
-"speed": 15.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -452,7 +452,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_up",
-"speed": 15.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -639,8 +639,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="character" type="CharacterBody3D" node_paths=PackedStringArray("sprite3D")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_kds2e"]
+size = Vector3(1, 1, 0.954956)
+
+[sub_resource type="BoxMesh" id="BoxMesh_20a60"]
+
+[node name="character" type="CharacterBody3D" node_paths=PackedStringArray("attack_area", "sprite3D")]
 script = ExtResource("1_0gv8e")
+attack_area = NodePath("attack_area")
 sprite3D = NodePath("CollisionShape3D/sprite3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -651,4 +657,17 @@ shape = SubResource("BoxShape3D_x6clw")
 pixel_size = 0.03
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_cs3b5")
-animation = &"attack_down"
+animation = &"attack_up"
+frame = 5
+
+[node name="attack_area" type="Area3D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="attack_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.522522)
+shape = SubResource("BoxShape3D_kds2e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="attack_area/CollisionShape3D"]
+mesh = SubResource("BoxMesh_20a60")
+skeleton = NodePath("../..")

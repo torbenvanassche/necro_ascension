@@ -8,6 +8,7 @@ extends CharacterBody3D
 var heading: String = "down";
 
 @export var interaction_range: Area3D;
+@export var attack_area: Area3D;
 @export var sprite3D: AnimatedSprite3D;
 var player_state: String;
 
@@ -33,6 +34,9 @@ func _ready():
 		animations.append(AnimationControllerState.new(anim_name))
 	animation_controller = AnimationMachine.new(sprite3D, animations)
 	animation_controller.one_shot_ended.connect(func(): do_processing = true)
+	
+	if attack_area:
+		attack_area.body_entered.connect(attack);
 
 func _physics_process(delta):
 	player_state = "idle"
@@ -67,15 +71,28 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if Input.is_action_just_pressed(("attack")):
-		animation_controller.one_shot("%s_%s" % ["attack", heading])
-		velocity = Vector3.ZERO;
-		do_processing = false;
+		play_one_shot("attack");
+		set_attack_monitoring(true)
+		animation_controller.one_shot_ended.connect(set_attack_monitoring.bind(false), CONNECT_ONE_SHOT);
+
 	animation_controller.animation_state = "%s_%s" % [player_state, heading];
+	
+func play_one_shot(anim_name: String):
+	animation_controller.one_shot("%s_%s" % [anim_name, heading])
+	velocity = Vector3.ZERO;
+	do_processing = false;
+	
+func set_attack_monitoring(is_attacking: bool):
+	attack_area.monitorable = is_attacking;
+	attack_area.monitoring = is_attacking;
 	
 func interact():
 	if current_triggers.size() != 0:
 		if current_triggers[0].has_method("on_interact"):
 			current_triggers[0].on_interact();
+			
+func attack(body: Node3D):
+	print(body.name)
 	
 func sort_areas_by_distance():
 	current_triggers.sort_custom(func(a: Node3D, b: Node3D): return global_position.distance_squared_to(a.global_position) > global_position.distance_squared_to(b.global_position));

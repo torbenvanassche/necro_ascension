@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=7 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_ud2qd"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
 [ext_resource type="Script" path="res://scripts/utils/camera.gd" id="4_0gajg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uyi4d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_otjxv"]
 
 [node name="root" type="Node"]
 script = ExtResource("1_qqdqb")
@@ -45,3 +49,12 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 script = ExtResource("4_0gajg")
 target = NodePath("../character")
 follow_speed = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.78178, 0.0676402, -0.627654)
+mesh = SubResource("BoxMesh_uyi4d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_otjxv")

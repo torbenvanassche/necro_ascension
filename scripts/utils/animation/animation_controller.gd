@@ -21,10 +21,11 @@ func _init(anim_tree: AnimatedSprite3D, animation_controller_states: Array[Anima
 	process_mode = PROCESS_MODE_INHERIT;
 		
 func one_shot(state: String, on_end: String = animation_state):
-	one_shot_active = true;
-	animation_player.animation = get_state(state).state_name;
-	animation_state = get_state(state).state_name;
-	animation_player.animation_finished.connect(_on_one_shot_end.bind(on_end), CONNECT_ONE_SHOT);
+	if not animation_player.animation_finished.is_connected(_on_one_shot_end):
+		one_shot_active = true;
+		animation_player.animation = get_state(state).state_name;
+		animation_state = get_state(state).state_name;
+		animation_player.animation_finished.connect(_on_one_shot_end.bind(on_end), CONNECT_ONE_SHOT);
 	
 func _on_one_shot_end(on_end: String):
 	one_shot_active = false;
