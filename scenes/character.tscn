@@ -657,7 +657,7 @@ shape = SubResource("BoxShape3D_x6clw")
 pixel_size = 0.03
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_cs3b5")
-animation = &"walk_up"
+animation = &"attack_down"
 
 [node name="attack_area" type="Area3D" parent="."]
 monitoring = false
