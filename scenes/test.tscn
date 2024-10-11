@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=9 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_ud2qd"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
-[ext_resource type="Script" path="res://scripts/utils/camera.gd" id="4_0gajg"]
+[ext_resource type="Script" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
+[ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
+[ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/basic_attack.tres" id="6_3tnfq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uyi4d"]
 
@@ -13,6 +15,7 @@
 script = ExtResource("1_qqdqb")
 
 [node name="Level" type="Node3D" parent="."]
+visible = false
 
 [node name="floor-small-square" parent="Level" instance=ExtResource("1_ud2qd")]
 
@@ -58,3 +61,8 @@ mesh = SubResource("BoxMesh_uyi4d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/MeshInstance3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_otjxv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ability_button" parent="CanvasLayer" instance=ExtResource("5_rrglt")]
+ability_data = ExtResource("6_3tnfq")

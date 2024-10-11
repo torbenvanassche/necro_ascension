@@ -1,5 +1,4 @@
-extends Resource
-class_name Unit
+class_name UnitResource extends ValidatedResource
 
 enum Role{
 	NONE,
@@ -14,9 +13,7 @@ enum Role{
 @export var custom_properties: Dictionary = {};
 @export var animations: AnimationLibrary = null;
 @export var role: Role = Role.NONE;
-
-
-var is_valid = false;
+@export var abilities: Array[AbilityResource] = [];
 
 func validate():
 	is_valid = (name != "") && (animations != null) && (role != Role.NONE);

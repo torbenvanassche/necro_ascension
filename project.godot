@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Debug="*res://scripts/utils/debug.gd"
-Settings="*res://scripts/utils/settings.gd"
+Debug="*res://scripts/utils/helpers/debug.gd"
+Settings="*res://scripts/utils/helpers/settings.gd"
 
 [input]
 

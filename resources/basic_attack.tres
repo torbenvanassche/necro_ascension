@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=4 format=3 uid="uid://dufidrrdpcb5l"]
+
+[ext_resource type="Script" path="res://scripts/data/ability_resource.gd" id="1_sm47n"]
+[ext_resource type="Script" path="res://scripts/abilities/attack.gd" id="1_sx14c"]
+[ext_resource type="Texture2D" uid="uid://cjl5kpqatojqn" path="res://icon.svg" id="3_20hxh"]
+
+[resource]
+script = ExtResource("1_sm47n")
+cooldown = 1.0
+ui_sprite = ExtResource("3_20hxh")
+ability_script = ExtResource("1_sx14c")
