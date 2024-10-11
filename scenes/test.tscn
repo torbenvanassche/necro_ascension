@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=13 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_ud2qd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://50t1h1fsnuwj" path="res://resources/ability_1.tres" id="6_f27us"]
 [ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/ability_2.tres" id="7_mvnkc"]
 [ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/ability_3.tres" id="8_qvldv"]
+[ext_resource type="PackedScene" uid="uid://1fur5hvgokap" path="res://scenes/fill_bar.tscn" id="10_q2euc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uyi4d"]
 
@@ -69,34 +70,41 @@ shape = SubResource("BoxShape3D_otjxv")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -50.0
-offset_right = 212.0
+offset_top = 578.0
+offset_right = 500.0
+offset_bottom = 648.0
 grow_vertical = 0
 theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ability_1" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
+[node name="ability_1" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
 layout_mode = 2
 ability_data = ExtResource("6_f27us")
 keybind_action = "ability_1"
 
-[node name="ability_2" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
+[node name="ability_2" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
 layout_mode = 2
 ability_data = ExtResource("7_mvnkc")
 keybind_action = "ability_2"
 
-[node name="ability_3" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
+[node name="ability_3" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
 layout_mode = 2
 ability_data = ExtResource("8_qvldv")
 keybind_action = "ability_3"
 
-[node name="ability_4" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
+[node name="ability_4" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
 layout_mode = 2
 ability_data = ExtResource("6_3tnfq")
 keybind_action = "ability_4"
+
+[node name="ProgressBar" parent="CanvasLayer/MarginContainer/VBoxContainer" instance=ExtResource("10_q2euc")]
+layout_mode = 2
