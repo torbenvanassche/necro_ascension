@@ -40,9 +40,6 @@ func _ready():
 
 func _physics_process(delta):
 	player_state = "idle"
-	if Input.is_action_just_pressed("open_inventory"):
-		SceneManager.instance.set_active_scene("inventory", SceneConfig.new())
-		
 	if Input.is_action_just_pressed(("interact")):
 		interact();
 		
@@ -73,7 +70,7 @@ func _physics_process(delta):
 	animation_controller.animation_state = "%s_%s" % [player_state, heading];
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed(("attack")):
+	if Input.is_action_just_pressed("attack") && not attack_area.monitorable:
 		play_one_shot("attack");
 		set_attack_monitoring(true)
 		animation_controller.one_shot_ended.connect(set_attack_monitoring.bind(false), CONNECT_ONE_SHOT);

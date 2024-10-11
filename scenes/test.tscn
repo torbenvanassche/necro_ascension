@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=12 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_ud2qd"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
 [ext_resource type="Script" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
-[ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/basic_attack.tres" id="6_3tnfq"]
+[ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/ability_4.tres" id="6_3tnfq"]
+[ext_resource type="Resource" uid="uid://50t1h1fsnuwj" path="res://resources/ability_1.tres" id="6_f27us"]
+[ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/ability_2.tres" id="7_mvnkc"]
+[ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/ability_3.tres" id="8_qvldv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uyi4d"]
 
@@ -57,17 +60,43 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.78178, 0.0676402, -0.
 mesh = SubResource("BoxMesh_uyi4d")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/MeshInstance3D"]
+collision_layer = 3
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/MeshInstance3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_otjxv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ability_button" parent="CanvasLayer" instance=ExtResource("5_rrglt")]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 60.0
-offset_bottom = 60.0
-ability_data = ExtResource("6_3tnfq")
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 212.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="Timer" type="Timer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="ability_1" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
+layout_mode = 2
+ability_data = ExtResource("6_f27us")
+keybind_action = "ability_1"
+
+[node name="ability_2" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
+layout_mode = 2
+ability_data = ExtResource("7_mvnkc")
+keybind_action = "ability_2"
+
+[node name="ability_3" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
+layout_mode = 2
+ability_data = ExtResource("8_qvldv")
+keybind_action = "ability_3"
+
+[node name="ability_4" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
+layout_mode = 2
+ability_data = ExtResource("6_3tnfq")
+keybind_action = "ability_4"

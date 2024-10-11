@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://u174e626pg4g"]
+[gd_scene load_steps=4 format=3 uid="uid://u174e626pg4g"]
 
 [ext_resource type="Script" path="res://scripts/runtime/ability_slot.gd" id="1_q3as8"]
-[ext_resource type="Texture2D" uid="uid://dnkvflu6wdf0d" path="res://sprites/abilities/tile_0273.png" id="2_d0se1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rwyh"]
 bg_color = Color(0.572549, 0.572549, 0.572549, 0)
@@ -40,7 +39,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(25, 25)
-texture = ExtResource("2_d0se1")
 
 [node name="cooldown_overlay" type="ProgressBar" parent="border_texture/ability_texture"]
 layout_mode = 1
@@ -53,6 +51,6 @@ mouse_filter = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_1rwyh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_nbg6a")
 max_value = 1.0
-value = 0.61
+value = 1.0
 fill_mode = 3
 show_percentage = false
