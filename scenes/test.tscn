@@ -15,7 +15,6 @@
 script = ExtResource("1_qqdqb")
 
 [node name="Level" type="Node3D" parent="."]
-visible = false
 
 [node name="floor-small-square" parent="Level" instance=ExtResource("1_ud2qd")]
 
@@ -65,4 +64,10 @@ shape = SubResource("BoxShape3D_otjxv")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ability_button" parent="CanvasLayer" instance=ExtResource("5_rrglt")]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 60.0
 ability_data = ExtResource("6_3tnfq")
+
+[node name="Timer" type="Timer" parent="."]

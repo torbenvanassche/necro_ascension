@@ -68,14 +68,15 @@ func _physics_process(delta):
 			heading = "up" if direction.z < 0 else "down"
 	else:
 		player_state = "idle";
-	move_and_slide()
+	move_and_slide();
+
+	animation_controller.animation_state = "%s_%s" % [player_state, heading];
 	
+func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed(("attack")):
 		play_one_shot("attack");
 		set_attack_monitoring(true)
 		animation_controller.one_shot_ended.connect(set_attack_monitoring.bind(false), CONNECT_ONE_SHOT);
-
-	animation_controller.animation_state = "%s_%s" % [player_state, heading];
 	
 func play_one_shot(anim_name: String):
 	animation_controller.one_shot("%s_%s" % [anim_name, heading])
