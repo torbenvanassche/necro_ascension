@@ -4,7 +4,7 @@ var animation_player: AnimatedSprite3D;
 var animation_state: String = "":
 	set(value):
 		current_state = get_state(value)
-		if current_state && animation_state != value && not one_shot_active:
+		if current_state && animation_player.animation != value && not one_shot_active:
 			animation_player.animation = current_state.state_name;
 			animation_player.play(animation_player.animation)
 		animation_state = value;

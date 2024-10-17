@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://dc1qxbru5n4ek"]
+[gd_scene load_steps=99 format=3 uid="uid://dc1qxbru5n4ek"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_0gv8e"]
 [ext_resource type="Texture2D" uid="uid://csdpne7p11ps1" path="res://imported_data/animations/Sword/Sword_1_Template_Idle_Down-Sheet.png" id="6_kn4b6"]
@@ -13,8 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://bh2ujrl66ykbc" path="res://imported_data/animations/Sword/Sword_2_Template_Run_Left-Sheet.png" id="11_kmkyb"]
 [ext_resource type="Texture2D" uid="uid://bq24pkjhjd4ae" path="res://imported_data/animations/Sword/Sword_2_Template_Run_Right-Sheet.png" id="12_568yo"]
 [ext_resource type="Texture2D" uid="uid://bx1g4bv78c5j1" path="res://imported_data/animations/Sword/Sword_2_Template_Run_Up-Sheet.png" id="13_wsy52"]
+[ext_resource type="Script" path="res://scenes/combat_handler.gd" id="14_uqwjx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6clw"]
+size = Vector3(1, 1, 0.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tex1b"]
 atlas = ExtResource("6_md4ug")
@@ -640,13 +642,16 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kds2e"]
-size = Vector3(1, 1, 0.954956)
+size = Vector3(1, 0.1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_20a60"]
+size = Vector3(1, 0.1, 1)
 
-[node name="character" type="CharacterBody3D" node_paths=PackedStringArray("attack_area", "sprite3D")]
+[node name="character" type="CharacterBody3D" node_paths=PackedStringArray("combat_system", "sprite3D")]
 script = ExtResource("1_0gv8e")
-attack_area = NodePath("attack_area")
+speed = null
+camera_relative = null
+combat_system = NodePath("attack_area")
 sprite3D = NodePath("CollisionShape3D/sprite3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -664,6 +669,7 @@ collision_layer = 2
 collision_mask = 2
 monitoring = false
 monitorable = false
+script = ExtResource("14_uqwjx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="attack_area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.522522)

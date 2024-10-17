@@ -6,9 +6,6 @@ extends ProgressBar
 
 signal is_depleted()
 
-func _process(delta: float) -> void:
-	decrease_health(1)
-
 func set_data(curr_health: float = max_fill):
 	current_fill = curr_health
 	

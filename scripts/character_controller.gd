@@ -8,13 +8,15 @@ extends CharacterBody3D
 var heading: String = "down";
 
 @export var interaction_range: Area3D;
-@export var attack_area: Area3D;
+@export var combat_system: CombatHandler;
 @export var sprite3D: AnimatedSprite3D;
 var player_state: String;
 
 var current_triggers: Array[Area3D];
 var do_processing: bool = true;
 var can_transform: bool = false;
+
+var direction: Vector3 = Vector3.ZERO;
 
 var animation_controller: AnimationMachine;
 
@@ -34,16 +36,12 @@ func _ready():
 		animations.append(AnimationControllerState.new(anim_name))
 	animation_controller = AnimationMachine.new(sprite3D, animations)
 	animation_controller.one_shot_ended.connect(func(): do_processing = true)
-	
-	if attack_area:
-		attack_area.body_entered.connect(attack);
 
 func _physics_process(delta):
 	player_state = "idle"
 	if Input.is_action_just_pressed(("interact")):
 		interact();
 		
-	var direction: Vector3 = Vector3.ZERO;
 	if do_processing:
 		var input_dir = Input.get_vector("left", "right", "back", "forward").normalized()
 		if camera_relative:
@@ -70,27 +68,20 @@ func _physics_process(delta):
 	animation_controller.animation_state = "%s_%s" % [player_state, heading];
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("attack") && not attack_area.monitorable:
+	if Input.is_action_just_pressed("attack") && not combat_system.attacking:
+		animation_controller.one_shot_ended.connect(func(): combat_system.attacking = false, CONNECT_ONE_SHOT);
+		combat_system.attack(heading);
 		play_one_shot("attack");
-		set_attack_monitoring(true)
-		animation_controller.one_shot_ended.connect(set_attack_monitoring.bind(false), CONNECT_ONE_SHOT);
 	
 func play_one_shot(anim_name: String):
 	animation_controller.one_shot("%s_%s" % [anim_name, heading])
 	velocity = Vector3.ZERO;
 	do_processing = false;
 	
-func set_attack_monitoring(is_attacking: bool):
-	attack_area.monitorable = is_attacking;
-	attack_area.monitoring = is_attacking;
-	
 func interact():
 	if current_triggers.size() != 0:
 		if current_triggers[0].has_method("on_interact"):
 			current_triggers[0].on_interact();
-			
-func attack(body: Node3D):
-	print(body.name)
 	
 func sort_areas_by_distance():
 	current_triggers.sort_custom(func(a: Node3D, b: Node3D): return global_position.distance_squared_to(a.global_position) > global_position.distance_squared_to(b.global_position));
