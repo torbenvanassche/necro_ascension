@@ -649,8 +649,6 @@ size = Vector3(1, 0.1, 1)
 
 [node name="character" type="CharacterBody3D" node_paths=PackedStringArray("combat_system", "sprite3D")]
 script = ExtResource("1_0gv8e")
-speed = null
-camera_relative = null
 combat_system = NodePath("attack_area")
 sprite3D = NodePath("CollisionShape3D/sprite3D")
 

@@ -37,11 +37,8 @@ func _ready():
 	animation_controller = AnimationMachine.new(sprite3D, animations)
 	animation_controller.one_shot_ended.connect(func(): do_processing = true)
 
-func _physics_process(delta):
-	player_state = "idle"
-	if Input.is_action_just_pressed(("interact")):
-		interact();
-		
+func _physics_process(_delta):
+	player_state = "idle"		
 	if do_processing:
 		var input_dir = Input.get_vector("left", "right", "back", "forward").normalized()
 		if camera_relative:
@@ -68,10 +65,13 @@ func _physics_process(delta):
 	animation_controller.animation_state = "%s_%s" % [player_state, heading];
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("attack") && not combat_system.attacking:
+	if event.is_action_pressed("attack") && not combat_system.attacking:
 		animation_controller.one_shot_ended.connect(func(): combat_system.attacking = false, CONNECT_ONE_SHOT);
 		combat_system.attack(heading);
 		play_one_shot("attack");
+		
+	if event.is_action_pressed("interact"):
+		interact();
 	
 func play_one_shot(anim_name: String):
 	animation_controller.one_shot("%s_%s" % [anim_name, heading])
