@@ -24,7 +24,6 @@ func attack(direction: String):
 			self.global_rotation_degrees = Vector3(0, 0, 0);
 		"down":
 			self.global_rotation_degrees = Vector3(0, 180, 0);
-	print(self.global_rotation_degrees)
 	attacking = true;
 
 func _on_attack(body: Node3D):

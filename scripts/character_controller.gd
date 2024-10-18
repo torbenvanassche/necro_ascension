@@ -65,7 +65,7 @@ func _physics_process(_delta):
 	animation_controller.animation_state = "%s_%s" % [player_state, heading];
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack") && not combat_system.attacking:
+	if event.is_action_pressed("primary_action") && not combat_system.attacking:
 		animation_controller.one_shot_ended.connect(func(): combat_system.attacking = false, CONNECT_ONE_SHOT);
 		combat_system.attack(heading);
 		play_one_shot("attack");
