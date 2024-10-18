@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=14 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_ud2qd"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/ability_2.tres" id="7_mvnkc"]
 [ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/ability_3.tres" id="8_qvldv"]
 [ext_resource type="PackedScene" uid="uid://1fur5hvgokap" path="res://scenes/fill_bar.tscn" id="10_q2euc"]
+[ext_resource type="PackedScene" uid="uid://cuv8y2t3rkmvx" path="res://scenes/text_container.tscn" id="11_kvsgj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uyi4d"]
 
@@ -49,7 +50,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
 [node name="character" parent="Level" instance=ExtResource("2_sf220")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.8713, -0.00344813, -0.117502)
 speed = 2.0
-camera_relative = false
 
 [node name="Camera3D" type="Camera3D" parent="Level" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 1.8713, 0.496552, 0.882498)
@@ -108,4 +108,17 @@ ability_data = ExtResource("6_3tnfq")
 keybind_action = "ability_4"
 
 [node name="ProgressBar" parent="CanvasLayer/MarginContainer/VBoxContainer" instance=ExtResource("10_q2euc")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" parent="CanvasLayer/MarginContainer2" instance=ExtResource("11_kvsgj")]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
