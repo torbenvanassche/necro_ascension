@@ -10,8 +10,11 @@ var _is_printing = false
 
 func _ready():
 	visible = false;
+	finished_indicator.visible = false;
 	
-func print(txt: String):
+	show_text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+	
+func show_text(txt: String):
 	_is_printing = true
 	visible = true;
 	text_box.visible_characters = 0
@@ -21,14 +24,17 @@ func print(txt: String):
 	print_tween.tween_property(text_box, "visible_characters", txt.length(), print_delay * txt.length())
 	print_tween.finished.connect(_on_tween_complete)
 	
-func _input(_event):
-	if Input.is_action_just_pressed("primary_click"):
+func _gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("primary_action"):
 		if _is_printing:
-			print_tween.stop();
-			text_box.visible_ratio = 1;
-			print_tween.finished.emit()
+			fast_forward()
 		else:
 			visible = false;
+
+func fast_forward():
+	print_tween.stop();
+	text_box.visible_ratio = 1;
+	print_tween.finished.emit()
 
 func _on_tween_complete():
 	finished_indicator.visible = true;
