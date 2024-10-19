@@ -4,3 +4,5 @@
 
 [resource]
 albedo_texture = ExtResource("1_ql6dh")
+distance_fade_min_distance = 0.2
+distance_fade_max_distance = 5.0

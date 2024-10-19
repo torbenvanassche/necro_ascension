@@ -12,8 +12,6 @@ func _ready():
 	visible = false;
 	finished_indicator.visible = false;
 	
-	show_text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-	
 func show_text(txt: String):
 	_is_printing = true
 	visible = true;

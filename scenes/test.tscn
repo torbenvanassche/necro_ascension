@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=16 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_ud2qd"]
@@ -11,6 +11,8 @@
 [ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/ability_3.tres" id="8_qvldv"]
 [ext_resource type="PackedScene" uid="uid://1fur5hvgokap" path="res://scenes/fill_bar.tscn" id="10_q2euc"]
 [ext_resource type="PackedScene" uid="uid://cuv8y2t3rkmvx" path="res://scenes/text_container.tscn" id="11_kvsgj"]
+[ext_resource type="PackedScene" uid="uid://dr8b3dtn874iy" path="res://imported_data/meshes/wall-corner.glb" id="12_kh771"]
+[ext_resource type="PackedScene" uid="uid://bxy8gylwf0c2t" path="res://imported_data/meshes/wall.glb" id="13_8euel"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uyi4d"]
 
@@ -21,52 +23,98 @@ script = ExtResource("1_qqdqb")
 
 [node name="Level" type="Node3D" parent="."]
 
-[node name="floor-small-square" parent="Level" instance=ExtResource("1_ud2qd")]
+[node name="floor" type="Node3D" parent="Level"]
 
-[node name="floor-small-square2" parent="Level" instance=ExtResource("1_ud2qd")]
+[node name="floor-small-square" parent="Level/floor" instance=ExtResource("1_ud2qd")]
+
+[node name="floor-small-square2" parent="Level/floor" instance=ExtResource("1_ud2qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
-[node name="floor-small-square3" parent="Level" instance=ExtResource("1_ud2qd")]
+[node name="floor-small-square3" parent="Level/floor" instance=ExtResource("1_ud2qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="floor-small-square4" parent="Level" instance=ExtResource("1_ud2qd")]
+[node name="floor-small-square4" parent="Level/floor" instance=ExtResource("1_ud2qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 
-[node name="floor-small-square5" parent="Level" instance=ExtResource("1_ud2qd")]
+[node name="floor-small-square5" parent="Level/floor" instance=ExtResource("1_ud2qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
-[node name="floor-small-square7" parent="Level" instance=ExtResource("1_ud2qd")]
+[node name="floor-small-square7" parent="Level/floor" instance=ExtResource("1_ud2qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
 
-[node name="floor-small-square9" parent="Level" instance=ExtResource("1_ud2qd")]
+[node name="floor-small-square9" parent="Level/floor" instance=ExtResource("1_ud2qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
 
-[node name="floor-small-square13" parent="Level" instance=ExtResource("1_ud2qd")]
+[node name="floor-small-square13" parent="Level/floor" instance=ExtResource("1_ud2qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
-[node name="floor-small-square14" parent="Level" instance=ExtResource("1_ud2qd")]
+[node name="floor-small-square14" parent="Level/floor" instance=ExtResource("1_ud2qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
 
-[node name="character" parent="Level" instance=ExtResource("2_sf220")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.8713, -0.00344813, -0.117502)
-speed = 2.0
+[node name="walls" type="Node3D" parent="Level"]
 
-[node name="Camera3D" type="Camera3D" parent="Level" node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 1.8713, 0.496552, 0.882498)
-script = ExtResource("4_0gajg")
-target = NodePath("../character")
-follow_speed = 10.0
+[node name="wall-corner2" parent="Level/walls" instance=ExtResource("12_kh771")]
+transform = Transform3D(-0.999999, 0.000901472, 0.00137705, 0.000903501, 0.999999, 0.00145777, -0.00137572, 0.00145903, -0.999998, -0.25, 0, 0.25)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.78178, 0.0676402, -0.627654)
-mesh = SubResource("BoxMesh_uyi4d")
+[node name="wall-corner3" parent="Level/walls" instance=ExtResource("12_kh771")]
+transform = Transform3D(-0.00137568, 0.00145903, -0.999998, 0.000903501, 0.999999, 0.00145777, 0.999999, -0.000901472, -0.00137701, 2.25, 0, 0.25)
 
-[node name="test_collider" type="StaticBody3D" parent="Level/MeshInstance3D"]
-collision_layer = 3
-collision_mask = 2
+[node name="wall2" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.25, 0, 0.25)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/MeshInstance3D/test_collider"]
-shape = SubResource("BoxShape3D_otjxv")
+[node name="wall3" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.75, 0, 0.25)
+
+[node name="wall4" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.25, 0, 0.25)
+
+[node name="wall5" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.75, 0, 0.25)
+
+[node name="wall10" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.25, 0, -1.75)
+
+[node name="wall11" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.25, 0, -1.25)
+
+[node name="wall12" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.25, 0, -0.75)
+
+[node name="wall13" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.25, 0, -0.25)
+
+[node name="wall14" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 2.25, 0, -0.25)
+
+[node name="wall15" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 2.25, 0, -0.75)
+
+[node name="wall16" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 2.25, 0, -1.25)
+
+[node name="wall17" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 2.25, 0, -1.75)
+
+[node name="wall-corner4" parent="Level/walls" instance=ExtResource("12_kh771")]
+transform = Transform3D(0.999999, -0.000901472, -0.00137714, 0.000903501, 0.999999, 0.00145777, 0.00137581, -0.00145903, 0.999998, 2.25, 0, -2.25)
+
+[node name="wall-corner5" parent="Level/walls" instance=ExtResource("12_kh771")]
+transform = Transform3D(0.00137577, -0.00145903, 0.999998, 0.000903501, 0.999999, 0.00145777, -0.999999, 0.000901472, 0.0013771, -0.25, 0, -2.25)
+
+[node name="wall6" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1.75, 0, -2.25)
+
+[node name="wall7" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1.25, 0, -2.25)
+
+[node name="wall8" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.75, 0, -2.25)
+
+[node name="wall9" parent="Level/walls" instance=ExtResource("13_8euel")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.25, 0, -2.25)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 0.480147, 0.877188, 0, -0.877188, 0.480147, 0.894948, 1.56563, -0.636818)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -122,3 +170,25 @@ theme_override_constants/margin_bottom = 10
 [node name="ColorRect" parent="CanvasLayer/MarginContainer2" instance=ExtResource("11_kvsgj")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+
+[node name="character" parent="." instance=ExtResource("2_sf220")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.8713, -0.00344813, -0.117502)
+speed = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 1.8713, 0.496552, 0.882498)
+script = ExtResource("4_0gajg")
+target = NodePath("../character")
+follow_speed = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.78178, 0.0676402, -0.627654)
+mesh = SubResource("BoxMesh_uyi4d")
+skeleton = NodePath("../Level")
+
+[node name="test_collider" type="StaticBody3D" parent="MeshInstance3D"]
+collision_layer = 3
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/test_collider"]
+shape = SubResource("BoxShape3D_otjxv")
