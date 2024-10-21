@@ -1,18 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=18 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_ud2qd"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
 [ext_resource type="Script" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
-[ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/ability_4.tres" id="6_3tnfq"]
-[ext_resource type="Resource" uid="uid://50t1h1fsnuwj" path="res://resources/ability_1.tres" id="6_f27us"]
-[ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/ability_2.tres" id="7_mvnkc"]
-[ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/ability_3.tres" id="8_qvldv"]
+[ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/abilities/ability_4.tres" id="6_3tnfq"]
+[ext_resource type="Resource" uid="uid://50t1h1fsnuwj" path="res://resources/abilities/ability_1.tres" id="6_f27us"]
+[ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/abilities/ability_2.tres" id="7_mvnkc"]
+[ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/abilities/ability_3.tres" id="8_qvldv"]
 [ext_resource type="PackedScene" uid="uid://1fur5hvgokap" path="res://scenes/fill_bar.tscn" id="10_q2euc"]
 [ext_resource type="PackedScene" uid="uid://cuv8y2t3rkmvx" path="res://scenes/text_container.tscn" id="11_kvsgj"]
+[ext_resource type="Script" path="res://scripts/utils/helpers/dialogue_printer.gd" id="12_4aqmg"]
 [ext_resource type="PackedScene" uid="uid://dr8b3dtn874iy" path="res://imported_data/meshes/wall-corner.glb" id="12_kh771"]
 [ext_resource type="PackedScene" uid="uid://bxy8gylwf0c2t" path="res://imported_data/meshes/wall.glb" id="13_8euel"]
+[ext_resource type="JSON" path="res://resources/dialogue/test.json" id="13_ligp2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uyi4d"]
 
@@ -171,6 +173,8 @@ theme_override_constants/margin_bottom = 10
 [node name="ColorRect" parent="CanvasLayer/MarginContainer2" instance=ExtResource("11_kvsgj")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+script = ExtResource("12_4aqmg")
+dialogue = ExtResource("13_ligp2")
 
 [node name="character" parent="." instance=ExtResource("2_sf220")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.8713, -0.00344813, -0.117502)
