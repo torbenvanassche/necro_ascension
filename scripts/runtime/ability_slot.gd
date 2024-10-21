@@ -20,7 +20,7 @@ func _ready():
 		Debug.err("%s is not a valid keymapping." % keybind_action)
 		process_mode = PROCESS_MODE_DISABLED
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	cooldown_overlay.value = ability_runtime.cooldown_timer.time_left / ability_runtime.cooldown_timer.wait_time;
 
 func _input(event: InputEvent) -> void:

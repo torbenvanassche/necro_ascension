@@ -9,6 +9,7 @@ var is_printing = false
 @onready var text_box: Label = $MarginContainer2/text_box;
 
 signal print_done();
+signal dialogue_ended();
 
 func _ready():
 	visible = false;
@@ -17,6 +18,7 @@ func _ready():
 func show_text(txt: String):
 	if txt == "":
 		clear();
+		dialogue_ended.emit();
 		return;
 	
 	is_printing = true
