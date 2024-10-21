@@ -8,11 +8,17 @@ var is_printing = false
 @onready var finished_indicator: TextureRect = $Sprite2D;
 @onready var text_box: Label = $MarginContainer2/text_box;
 
+signal print_done();
+
 func _ready():
 	visible = false;
 	finished_indicator.visible = false;
 	
 func show_text(txt: String):
+	if txt == "":
+		clear();
+		return;
+	
 	is_printing = true
 	visible = true;
 	text_box.visible_characters = 0
@@ -27,7 +33,14 @@ func _gui_input(event: InputEvent) -> void:
 		if is_printing:
 			fast_forward()
 		else:
-			visible = false;
+			print_done.emit();
+			
+func clear():
+	visible = false;
+	is_printing = false;
+	text_box.visible_characters = 0
+	if print_tween && print_tween.is_running():
+		print_tween.stop();
 
 func fast_forward():
 	print_tween.stop();
