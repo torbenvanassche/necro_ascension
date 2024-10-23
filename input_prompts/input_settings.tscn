@@ -1,14 +1,16 @@
 [gd_scene load_steps=2 format=3 uid="uid://d2jcsx4wopdry"]
 
-[ext_resource type="PackedScene" uid="uid://kikgjf07aidw" path="res://input_prompts/action_setter.tscn" id="1_po0b5"]
+[ext_resource type="Script" path="res://input_prompts/input_settings.gd" id="1_q3ke4"]
 
-[node name="input_settings" type="Control"]
+[node name="input_settings" type="Control" node_paths=PackedStringArray("keybind_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_q3ke4")
+keybind_container = NodePath("PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -35,6 +37,3 @@ size_flags_vertical = 3
 [node name="action_list" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="action_setter" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/action_list" instance=ExtResource("1_po0b5")]
-layout_mode = 2

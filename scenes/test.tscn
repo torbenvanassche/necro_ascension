@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=19 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_ud2qd"]
+[ext_resource type="Script" path="res://scripts/utils/managers/input_manager.gd" id="2_6x5j3"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
 [ext_resource type="Script" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
@@ -24,6 +25,7 @@
 script = ExtResource("1_qqdqb")
 
 [node name="Level" type="Node3D" parent="."]
+script = ExtResource("2_6x5j3")
 
 [node name="floor" type="Node3D" parent="Level"]
 

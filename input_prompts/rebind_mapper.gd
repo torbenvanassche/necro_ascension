@@ -1,23 +1,15 @@
 class_name InputDisplayer extends Button
 
-@export_file("*.json") var dictionary_path: String;
-@onready var action_name: Label = $MarginContainer/HBoxContainer/action_label;
-@onready var action_image: TextureRect = $MarginContainer/HBoxContainer/action_prompt;
-
-var _keys: Dictionary:
-	get:
-		if !_keys:
-			_keys = FileUtils.load_json(dictionary_path)
-		return _keys;
-
-@export var key: String;
+@export var action_name: Label;
+@export var action_image: TextureRect;
 			
-func set_rect(r: Rect2):
-	(action_image.texture as AtlasTexture).region = r;
+func set_key(str: String):
+	var entry = InputManager.keys.keyboard.get(str)
+	if entry:
+		(action_image.texture as AtlasTexture).region = Rect2(entry[0] * InputManager.keys.rect_size[0], entry[1] * InputManager.keys.rect_size[1], InputManager.keys.rect_size[0] * entry[2], InputManager.keys.rect_size[1] * entry[3]);
+
+func set_label(str: String):
+	action_name.text = str;
 
 func _ready():
-	(action_image.texture as AtlasTexture).atlas = (action_image.texture as AtlasTexture).atlas.duplicate();
-	
-	var entry = _keys.keyboard.get(key)
-	if entry:
-		set_rect(Rect2(entry[0] * _keys.rect_size[0], entry[1] * _keys.rect_size[1], _keys.rect_size[0] * entry[2], _keys.rect_size[1] * entry[3]))
+	action_image.texture = action_image.texture.duplicate(true);
