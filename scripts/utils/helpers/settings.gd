@@ -1,8 +1,8 @@
 extends Node
 	
 #camera sensitivity
-var camera_rotation_sensitivity = 0.01;
-var camera_zoom_sensitivity = 0.5;
+var camera_rotation_sensitivity: float = 0.01;
+var camera_zoom_sensitivity: float = 0.5;
 
 #menu options
 var close_context_on_mouse_exit: bool = true;
@@ -19,7 +19,7 @@ func _ready() -> void:
 func _deferred_ready() -> void:
 	volume_changed.connect(_change_volume);
 	
-func _change_volume(value: float, bus_name: String):
+func _change_volume(value: float, bus_name: String) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus_name), linear_to_db(value));
 	master_volume = value;
 	settings_changed.emit();

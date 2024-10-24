@@ -10,8 +10,8 @@ func set_data(curr_health: float = max_fill) -> void:
 	current_fill = curr_health
 	
 	if has_theme_stylebox("background"):
-		var value_padding_left = get_theme_stylebox("background").get("border_width_left") * 2;
-		var value_padding_right = get_theme_stylebox("background").get("border_width_right") * 2;
+		var value_padding_left: float = get_theme_stylebox("background").get("border_width_left") * 2;
+		var value_padding_right: float = get_theme_stylebox("background").get("border_width_right") * 2;
 		max_value = max_fill + value_padding_left + value_padding_right;
 	
 	mouse_filter = Control.MOUSE_FILTER_IGNORE;

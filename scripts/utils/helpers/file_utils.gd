@@ -1,31 +1,31 @@
 class_name FileUtils
 
-static func load_json(file_path: String):
+static func load_json(file_path: String) -> Dictionary:
 	if(FileAccess.file_exists(file_path)):
-		var data_file = FileAccess.open(file_path, FileAccess.READ)
-		var parsed_result = JSON.parse_string(data_file.get_as_text())
+		var data_file := FileAccess.open(file_path, FileAccess.READ)
+		var parsed_result: Dictionary = JSON.parse_string(data_file.get_as_text())
 		return parsed_result
-	return null;
+	return {};
 
-static func load_items(file_path: String):
+static func load_items(file_path: String) -> Dictionary:
 	if(FileAccess.file_exists(file_path)):
-		var data_file = FileAccess.open(file_path, FileAccess.READ)
-		var parsed_result = JSON.parse_string(data_file.get_as_text())
+		var data_file := FileAccess.open(file_path, FileAccess.READ)
+		var parsed_result: Dictionary = JSON.parse_string(data_file.get_as_text())
 		
 		if parsed_result is Dictionary:
-			for item in parsed_result:
+			for item: Dictionary in parsed_result:
 				parsed_result[item].id = item;
 				pass
 			return parsed_result
 		else:
 			printerr("Error reading file.")
-			return null
+			return {}
 	else:
 		printerr("File does not exist!")
-		return null;
+		return {};
 	
-static func get_item(dict: Dictionary, item_name: String):
-	for item in dict.values():
+static func get_item(dict: Dictionary, item_name: String) -> Dictionary:
+	for item: Dictionary in dict.values():
 		if item["name"] == item_name:
 			return item["name"]
-	return null
+	return {}

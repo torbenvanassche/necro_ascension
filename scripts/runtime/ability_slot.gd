@@ -9,7 +9,7 @@ var ability_runtime: AbilityRuntime;
 
 func _ready() -> void:
 	ability_runtime = AbilityRuntime.new(ability_data);
-	pressed.connect(func(): ability_runtime.execute())
+	pressed.connect(func() -> void: ability_runtime.execute())
 	self.add_child(ability_runtime)
 	cooldown_overlay.value = 0;
 	

@@ -33,7 +33,7 @@ func _on_one_shot_end(on_end: String) -> void:
 	one_shot_ended.emit();
 		
 func get_state(state: String = animation_state) -> AnimationControllerState:
-	var items: Array[AnimationControllerState] = state_holder.filter(func(x: AnimationControllerState): return x.state_name == state);
+	var items: Array[AnimationControllerState] = state_holder.filter(func(x: AnimationControllerState) -> bool: return x.state_name == state);
 	if items.size() != 0:
 		return items[0];
 	else:

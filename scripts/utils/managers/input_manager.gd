@@ -27,14 +27,14 @@ var keys: Dictionary:
 		return keys;
 
 func get_key(key: String) -> Array:
-	var result = keys.keyboard.get(key);
+	var result: Array = keys.keyboard.get(key);
 	return result if result != null else []
 
-func set_action(action, event) -> void:
+func set_action(action: StringName, event: InputEvent) -> void:
 	InputMap.action_erase_events(action);
 	InputMap.action_add_event(action, event)
 
-func replace_action(action, event) -> void:
+func replace_action(action: StringName, event: InputEvent) -> void:
 	set_action(action, event)
 	remapping_button.set_key(event.as_text().trim_suffix(" (Physical)").to_lower(), event)
 	Config.change_keybinding(action_to_remap, event)

@@ -2,7 +2,7 @@ class_name Printer
 extends Control
 
 var print_tween: Tween
-var is_printing = false
+var is_printing: bool = false
 
 @export var print_delay: float = 0.5
 @onready var finished_indicator: TextureRect = $Sprite2D;
@@ -11,7 +11,7 @@ var is_printing = false
 signal print_done();
 signal dialogue_ended();
 
-func _ready():
+func _ready() -> void:
 	visible = false;
 	finished_indicator.visible = false;
 	

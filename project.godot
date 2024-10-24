@@ -22,6 +22,10 @@ Settings="*res://scripts/utils/helpers/settings.gd"
 InputManager="*res://scripts/utils/managers/input_manager.gd"
 Config="*res://scripts/utils/managers/config.gd"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+
 [display]
 
 window/stretch/mode="canvas_items"

@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 #movement
-@export var speed = 5.0
+@export var speed: float = 5.0
 
 @export var camera_relative: bool = false;
 var heading: String = "down";
@@ -32,15 +32,15 @@ func _ready() -> void:
 		Debug.warn("Sprite target to animate was not defined.")
 		
 	var animations: Array[AnimationControllerState];
-	for anim_name in sprite3D.sprite_frames.get_animation_names():
-		animations.append(AnimationControllerState.new(anim_name))
-	animation_controller = AnimationMachine.new(sprite3D, animations)
-	animation_controller.one_shot_ended.connect(func(): do_processing = true)
+	for anim_name: String in sprite3D.sprite_frames.get_animation_names():
+		animations.append(AnimationControllerState.new(anim_name));
+	animation_controller = AnimationMachine.new(sprite3D, animations);
+	animation_controller.one_shot_ended.connect(func() -> void: do_processing = true);
 
-func _physics_process(_delta) -> void:
+func _physics_process(_delta: float) -> void:
 	player_state = "idle"
 	if do_processing:
-		var input_dir = Input.get_vector("left", "right", "back", "forward").normalized()
+		var input_dir := Input.get_vector("left", "right", "back", "forward").normalized()
 		if camera_relative:
 			direction = (Manager.instance.camera.global_basis * Vector3(input_dir.x, 0, -input_dir.y)).normalized()
 		else:
@@ -66,7 +66,7 @@ func _physics_process(_delta) -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("primary_action") && not combat_system.attacking:
-		animation_controller.one_shot_ended.connect(func(): combat_system.attacking = false, CONNECT_ONE_SHOT);
+		animation_controller.one_shot_ended.connect(func() -> void: combat_system.attacking = false, CONNECT_ONE_SHOT);
 		combat_system.attack(heading);
 		play_one_shot("attack");
 		
@@ -84,7 +84,7 @@ func interact() -> void:
 			current_triggers[0].on_interact();
 	
 func sort_areas_by_distance() -> void:
-	current_triggers.sort_custom(func(a: Node3D, b: Node3D): return global_position.distance_squared_to(a.global_position) > global_position.distance_squared_to(b.global_position));
+	current_triggers.sort_custom(func(a: Node3D, b: Node3D) -> float: return global_position.distance_squared_to(a.global_position) > global_position.distance_squared_to(b.global_position));
 
 func _on_enter(body: Area3D) -> void:
 	if !current_triggers.has(body):

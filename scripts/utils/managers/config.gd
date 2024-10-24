@@ -1,15 +1,15 @@
 class_name GameConfig extends Node
 
-var config = ConfigFile.new();
+var config := ConfigFile.new();
 const FILE_PATH = "user://settings.ini"
 const KEYBIND = "keybinds"
 
 func _ready() -> void:
 	if !FileAccess.file_exists(FILE_PATH):
-		for keybind in InputManager.mappable_actions:
+		for keybind: String in InputManager.mappable_actions:
 			var events: Array[InputEvent] = InputMap.action_get_events(keybind);
 			if events.size() > 0:
-				var key;
+				var key: String;
 				if events[0] is InputEventKey:
 					key = OS.get_keycode_string(events[0].physical_keycode).to_lower()
 				elif events[0] is InputEventMouseButton:
@@ -20,7 +20,7 @@ func _ready() -> void:
 		config.load(FILE_PATH)
 		
 func change_keybinding(action: StringName, event: InputEvent) -> void:
-	var event_str;
+	var event_str: String;
 	if event is InputEventKey:
 		event_str = OS.get_keycode_string(event.physical_keycode);
 	elif event is InputEventMouseButton:
@@ -31,11 +31,11 @@ func save() -> void:
 	config.save(FILE_PATH);
 
 func load_keybindings() -> Dictionary:
-	var keybindings = {};
-	var keys = config.get_section_keys(KEYBIND);
+	var keybindings: Dictionary = {};
+	var keys: PackedStringArray = config.get_section_keys(KEYBIND);
 	for key in keys:
-		var input_event;
-		var event_str = config.get_value(KEYBIND, key);
+		var input_event: InputEvent;
+		var event_str: String = config.get_value(KEYBIND, key);
 		
 		if event_str.contains("mouse_"):
 			input_event = InputEventMouseButton.new();

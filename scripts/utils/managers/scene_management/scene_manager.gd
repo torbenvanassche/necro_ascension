@@ -31,7 +31,7 @@ var active_scene: Node:
 		scene_entered.emit(active_scene);
 			
 func get_or_create_scene(scene_name: String) -> Node:	
-	var filtered: Array = scenes.filter(func(scene: SceneInfo): return scene != null && scene.id == scene_name);
+	var filtered: Array = scenes.filter(func(scene: SceneInfo) -> bool: return scene != null && scene.id == scene_name);
 	if filtered.size() == 0:
 		Debug.err(scene_name + " was not found, unable to instantiate!")
 	elif filtered.size() == 1:
@@ -39,7 +39,7 @@ func get_or_create_scene(scene_name: String) -> Node:
 		if is_instance_valid(scene_info.node):
 			return scene_info.node;
 		else:
-			var node = scene_info.packed_scene.instantiate();
+			var node: Node = scene_info.packed_scene.instantiate();
 			if scene_info.is_ui:
 				ui_root.add_child(node)
 			else:
@@ -52,14 +52,14 @@ func get_or_create_scene(scene_name: String) -> Node:
 	return null;
 		
 func node_to_info(node: Node) -> SceneInfo:
-	var filtered = scenes.filter(func(x: SceneInfo): return x.node == node);
+	var filtered: Array = scenes.filter(func(x: SceneInfo) -> bool: return x.node == node);
 	if filtered.size() == 1:
 		return filtered[0];
 	Debug.err("Could not find " + node.name + " in scenes.")
 	return null
 	
 func get_scene_info(id: String) -> SceneInfo:
-	var filtered = scenes.filter(func(x: SceneInfo): return x.id == id);
+	var filtered: Array  = scenes.filter(func(x: SceneInfo) -> bool: return x.id == id);
 	if filtered.size() == 1:
 		return filtered[0];
 	Debug.err("Could not find " + id + " in scenes.")
@@ -101,7 +101,7 @@ func to_previous_scene(hide_current: bool = false, stop_processing_current: bool
 		set_active_scene(scene_stack[scene_stack.size() - 1].id, SceneConfig.new(hide_current, stop_processing_current, remove_current), false);
 		
 func ui_is_open(exceptions: Array[String] = ["pause"]) -> bool:
-	return get_children().all(func(x: Node): return node_to_info(x).is_ui && x.visible && !exceptions.has(node_to_info(x).id));
+	return get_children().all(func(x: Node) -> bool: return node_to_info(x).is_ui && x.visible && !exceptions.has(node_to_info(x).id));
 	
 func remove_ui() -> void:
 	for scene_info in scenes:
