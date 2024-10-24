@@ -29,4 +29,17 @@ func get_key(key: String) -> Array:
 
 var is_remapping: bool = false;
 var action_to_remap = null;
-var remapping_button = null;
+var remapping_button: InputDisplayer = null;
+
+func set_action(action, event):
+	InputMap.action_erase_events(action);
+	InputMap.action_add_event(action, event)
+
+func replace_action(action, event):
+	set_action(action, event)
+	remapping_button.set_key(event.as_text().trim_suffix(" (Physical)").to_lower(), event)
+	Config.change_keybinding(action_to_remap, event)
+	
+	is_remapping = false;
+	action_to_remap = null;
+	remapping_button = null;

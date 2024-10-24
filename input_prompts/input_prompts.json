@@ -127,5 +127,11 @@
 		"forward": [31, 6, 1, 1],
 		"previous": [32, 6, 1, 1],
 		"next": [33, 6, 1, 1],
+	},
+	
+	"mouse": {
+		"left mouse button": [9, 2, 1, 1],
+		"right mouse button": [10, 2, 1, 1],
+		"middle mouse button": [11, 2, 1, 1]
 	}
 }

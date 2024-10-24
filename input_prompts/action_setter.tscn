@@ -5,13 +5,19 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bnle"]
 atlas = ExtResource("2_p5kdy")
-region = Rect2(1, 1, 1, 1)
+region = Rect2(0, 0, 16, 16)
 
-[node name="action_setter" type="Button" node_paths=PackedStringArray("action_name", "action_image")]
-custom_minimum_size = Vector2(0, 20)
+[node name="action_setter" type="Button" node_paths=PackedStringArray("action_name", "action_image", "rebinding_text")]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_yigko")
 action_name = NodePath("MarginContainer/HBoxContainer/action_label")
 action_image = NodePath("MarginContainer/HBoxContainer/action_prompt")
+rebinding_text = NodePath("MarginContainer/HBoxContainer/rebind_prompt")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -40,3 +46,9 @@ vertical_alignment = 1
 layout_mode = 2
 texture = SubResource("AtlasTexture_6bnle")
 expand_mode = 2
+stretch_mode = 4
+
+[node name="rebind_prompt" type="Label" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Press key to bind..."
