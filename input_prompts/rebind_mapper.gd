@@ -9,6 +9,7 @@ func set_key(str: String, event: InputEvent):
 	if event is InputEventKey:
 		entry = InputManager.keys.keyboard.get(str)
 	elif event is InputEventMouseButton:
+		str = str.trim_suffix(" (double click)")
 		entry = InputManager.keys.mouse.get(str);
 	if entry:
 		rebinding_text.visible = false;
