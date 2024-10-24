@@ -14,7 +14,7 @@ func _ready() -> void:
 	body_entered.connect(_on_attack);
 	collider.visible = false;
 	
-func attack(direction: String):
+func attack(direction: String) -> void:
 	match direction:
 		"left":
 			self.global_rotation_degrees = Vector3(0, 90, 0);
@@ -26,5 +26,5 @@ func attack(direction: String):
 			self.global_rotation_degrees = Vector3(0, 180, 0);
 	attacking = true;
 
-func _on_attack(body: Node3D):
+func _on_attack(body: Node3D) -> void:
 	print(body.name)

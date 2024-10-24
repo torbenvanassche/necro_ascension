@@ -15,6 +15,9 @@ extends Node
 	"secondary_action": tr("KEYBIND_SECONDARY_ACTION"),
 }
 
+var action_to_remap: StringName;
+var is_remapping: bool = false;
+var remapping_button: InputDisplayer = null;
 var dictionary_path: String = "res://input_prompts/input_prompts.json"
 
 var keys: Dictionary:
@@ -27,19 +30,15 @@ func get_key(key: String) -> Array:
 	var result = keys.keyboard.get(key);
 	return result if result != null else []
 
-var is_remapping: bool = false;
-var action_to_remap = null;
-var remapping_button: InputDisplayer = null;
-
-func set_action(action, event):
+func set_action(action, event) -> void:
 	InputMap.action_erase_events(action);
 	InputMap.action_add_event(action, event)
 
-func replace_action(action, event):
+func replace_action(action, event) -> void:
 	set_action(action, event)
 	remapping_button.set_key(event.as_text().trim_suffix(" (Physical)").to_lower(), event)
 	Config.change_keybinding(action_to_remap, event)
 	
 	is_remapping = false;
-	action_to_remap = null;
+	action_to_remap = "";
 	remapping_button = null;

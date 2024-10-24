@@ -20,10 +20,10 @@ var direction: Vector3 = Vector3.ZERO;
 
 var animation_controller: AnimationMachine;
 
-func _init():
+func _init() -> void:
 	Manager.instance.player = self;
 	
-func _ready():
+func _ready() -> void:
 	if interaction_range:
 		interaction_range.area_entered.connect(_on_enter);
 		interaction_range.area_exited.connect(_on_leave);
@@ -37,8 +37,8 @@ func _ready():
 	animation_controller = AnimationMachine.new(sprite3D, animations)
 	animation_controller.one_shot_ended.connect(func(): do_processing = true)
 
-func _physics_process(_delta):
-	player_state = "idle"		
+func _physics_process(_delta) -> void:
+	player_state = "idle"
 	if do_processing:
 		var input_dir = Input.get_vector("left", "right", "back", "forward").normalized()
 		if camera_relative:
@@ -73,27 +73,27 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		interact();
 	
-func play_one_shot(anim_name: String):
+func play_one_shot(anim_name: String) -> void:
 	animation_controller.one_shot("%s_%s" % [anim_name, heading])
 	velocity = Vector3.ZERO;
 	do_processing = false;
 	
-func interact():
+func interact() -> void:
 	if current_triggers.size() != 0:
 		if current_triggers[0].has_method("on_interact"):
 			current_triggers[0].on_interact();
 	
-func sort_areas_by_distance():
+func sort_areas_by_distance() -> void:
 	current_triggers.sort_custom(func(a: Node3D, b: Node3D): return global_position.distance_squared_to(a.global_position) > global_position.distance_squared_to(b.global_position));
 
-func _on_enter(body: Area3D):
+func _on_enter(body: Area3D) -> void:
 	if !current_triggers.has(body):
 		current_triggers.push_back(body);
 		sort_areas_by_distance();
 		if body.has_method("on_area_enter"):
 			body.on_area_enter();
 	
-func _on_leave(body: Area3D):
+func _on_leave(body: Area3D) -> void:
 	current_triggers.erase(body);
 	if body.has_method("on_area_leave"):
 		body.on_area_leave();

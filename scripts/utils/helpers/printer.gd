@@ -15,7 +15,7 @@ func _ready():
 	visible = false;
 	finished_indicator.visible = false;
 	
-func show_text(txt: String):
+func show_text(txt: String) -> void:
 	if txt == "":
 		clear();
 		dialogue_ended.emit();
@@ -37,18 +37,18 @@ func _gui_input(event: InputEvent) -> void:
 		else:
 			print_done.emit();
 			
-func clear():
+func clear() -> void:
 	visible = false;
 	is_printing = false;
 	text_box.visible_characters = 0
 	if print_tween && print_tween.is_running():
 		print_tween.stop();
 
-func fast_forward():
+func fast_forward() -> void:
 	print_tween.stop();
 	text_box.visible_ratio = 1;
 	print_tween.finished.emit()
 
-func _on_tween_complete():
+func _on_tween_complete() -> void:
 	finished_indicator.visible = true;
 	is_printing = false

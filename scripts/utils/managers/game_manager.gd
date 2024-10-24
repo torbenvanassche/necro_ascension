@@ -14,19 +14,19 @@ var input_mode_is_keyboard: bool = true:
 		input_mode_is_keyboard = value;
 		input_mode_changed.emit(value)
 
-func _init():
+func _init() -> void:
 	Manager.instance = self;
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-func _input(event):
+func _input(event) -> void:
 	input_mode_is_keyboard = event is InputEventKey || event is InputEventMouse;
 	
-func _unhandled_input(event):
+func _unhandled_input(event) -> void:
 	if event.is_action_pressed("cancel"):
 		get_viewport().set_input_as_handled()
 		pause();
 		
-func pause(pause_game = !get_tree().paused):
+func pause(pause_game = !get_tree().paused) -> void:
 	get_tree().paused = pause_game
 	if pause_game:
 		SceneManager.instance.set_active_scene("paused", SceneConfig.new(false));

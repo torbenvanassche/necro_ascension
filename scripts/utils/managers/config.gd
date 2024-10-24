@@ -19,19 +19,18 @@ func _ready() -> void:
 	else:
 		config.load(FILE_PATH)
 		
-func change_keybinding(action: StringName, event: InputEvent):
+func change_keybinding(action: StringName, event: InputEvent) -> void:
 	var event_str;
 	if event is InputEventKey:
 		event_str = OS.get_keycode_string(event.physical_keycode);
 	elif event is InputEventMouseButton:
 		event_str = "mouse_" + str(event.button_index);
 	config.set_value(KEYBIND, action, event_str);
-	print(action, event_str)
 	
-func save():
+func save() -> void:
 	config.save(FILE_PATH);
 
-func load_keybindings():
+func load_keybindings() -> Dictionary:
 	var keybindings = {};
 	var keys = config.get_section_keys(KEYBIND);
 	for key in keys:

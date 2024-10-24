@@ -6,7 +6,7 @@ extends ProgressBar
 
 signal is_depleted()
 
-func set_data(curr_health: float = max_fill):
+func set_data(curr_health: float = max_fill) -> void:
 	current_fill = curr_health
 	
 	if has_theme_stylebox("background"):
@@ -18,12 +18,12 @@ func set_data(curr_health: float = max_fill):
 	value = current_fill;
 	visible = true;
 
-func decrease_health(amount: float):
+func decrease_health(amount: float) -> void:
 	current_fill -= amount;
 	value = current_fill;
 	
 	if current_fill <= 0:
 		is_depleted.emit()
 		
-func is_empty():
+func is_empty() -> bool:
 	return current_fill > 0;

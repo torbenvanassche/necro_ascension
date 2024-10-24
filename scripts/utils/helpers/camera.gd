@@ -8,7 +8,7 @@ var initial_offset: Vector3
 var initial_rotation: Quaternion;
 var rotation_difference: Quaternion;
 
-func _ready():
+func _ready() -> void:
 	Manager.instance.camera = self;
 	
 	if target:
@@ -19,7 +19,7 @@ func _ready():
 		var new_rotation = global_transform.basis.get_rotation_quaternion()
 		rotation_difference = initial_rotation.inverse() * new_rotation;
 
-func _process(delta):
+func _process(delta) -> void:
 	if target:
 		var target_position = target.global_transform.origin + initial_offset
 		global_transform.origin = global_transform.origin.lerp(target_position, delta * follow_speed)

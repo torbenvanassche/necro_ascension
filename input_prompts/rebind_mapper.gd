@@ -4,7 +4,7 @@ class_name InputDisplayer extends Button
 @export var action_image: TextureRect;
 @export var rebinding_text: Label;
 			
-func set_key(str: String, event: InputEvent):
+func set_key(str: String, event: InputEvent) -> void:
 	var entry: Array;
 	if event is InputEventKey:
 		entry = InputManager.keys.keyboard.get(str)
@@ -16,12 +16,12 @@ func set_key(str: String, event: InputEvent):
 		action_image.visible = true;
 		(action_image.texture as AtlasTexture).region = Rect2(entry[0] * InputManager.keys.rect_size[0], entry[1] * InputManager.keys.rect_size[1], InputManager.keys.rect_size[0] * entry[2], InputManager.keys.rect_size[1] * entry[3]);
 
-func set_label(str: String):
+func set_label(str: String) -> void:
 	action_name.text = str;
 	
-func set_rebinding():
+func set_rebinding() -> void:
 	rebinding_text.visible = true;
 	action_image.visible = false;
 
-func _ready():
+func _ready() -> void:
 	action_image.texture = action_image.texture.duplicate(true);

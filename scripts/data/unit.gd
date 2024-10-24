@@ -15,6 +15,6 @@ enum Role{
 @export var role: Role = Role.NONE;
 @export var abilities: Array[AbilityResource] = [];
 
-func validate():
+func validate() -> bool:
 	is_valid = (name != "") && (animations != null) && (role != Role.NONE);
 	return is_valid;

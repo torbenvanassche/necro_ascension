@@ -7,7 +7,7 @@ class_name AbilitySlot extends Button
 @onready var ability_texture: TextureRect = $border_texture/ability_texture;
 var ability_runtime: AbilityRuntime;
 
-func _ready():
+func _ready() -> void:
 	ability_runtime = AbilityRuntime.new(ability_data);
 	pressed.connect(func(): ability_runtime.execute())
 	self.add_child(ability_runtime)

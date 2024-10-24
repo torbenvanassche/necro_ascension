@@ -1,4 +1,4 @@
 extends Node
 
-func execute(options: Dictionary = {}):
+func execute(options: Dictionary = {}) -> void:
 	print("attack")

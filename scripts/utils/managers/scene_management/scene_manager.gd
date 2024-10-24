@@ -13,7 +13,7 @@ var game_loaded_timestamp: Dictionary;
 signal scene_entered(scene: Node)
 signal scene_exited(scene: Node)
 
-func _ready():
+func _ready() -> void:
 	SceneManager.instance = self;
 	set_active_scene(initial_scene.id, SceneConfig.new(true, true, true))
 
@@ -30,7 +30,7 @@ var active_scene: Node:
 		active_scene.visible = true;
 		scene_entered.emit(active_scene);
 			
-func get_or_create_scene(scene_name: String):	
+func get_or_create_scene(scene_name: String) -> Node:	
 	var filtered: Array = scenes.filter(func(scene: SceneInfo): return scene != null && scene.id == scene_name);
 	if filtered.size() == 0:
 		Debug.err(scene_name + " was not found, unable to instantiate!")
@@ -48,6 +48,8 @@ func get_or_create_scene(scene_name: String):
 			return node;
 	else:
 		Debug.err(scene_name + " was invalid.")
+		return null;
+	return null;
 		
 func node_to_info(node: Node) -> SceneInfo:
 	var filtered = scenes.filter(func(x: SceneInfo): return x.node == node);
@@ -63,7 +65,7 @@ func get_scene_info(id: String) -> SceneInfo:
 	Debug.err("Could not find " + id + " in scenes.")
 	return null;
 
-func set_scene_reference(id: String, target: Node):
+func set_scene_reference(id: String, target: Node) -> void:
 	get_scene_info(id).node = target;
 		
 func set_active_scene(scene_name: String, config: SceneConfig, set_on_stack: bool = true) -> Node:
@@ -87,13 +89,13 @@ func set_active_scene(scene_name: String, config: SceneConfig, set_on_stack: boo
 			active_scene.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 	return active_scene;
 	
-func reset_to_scene(scene_name: String):
+func reset_to_scene(scene_name: String) -> void:
 	for sceneInfo in scenes:
 		if sceneInfo.id != scene_name && sceneInfo.node != null:
 			sceneInfo.node.queue_free()
 	set_active_scene(scene_name, SceneConfig.new())
 		
-func to_previous_scene(hide_current: bool = false, stop_processing_current: bool = false, remove_current: bool = false):
+func to_previous_scene(hide_current: bool = false, stop_processing_current: bool = false, remove_current: bool = false) -> void:
 	if scene_stack.size() != 0:
 		scene_stack.pop_back();
 		set_active_scene(scene_stack[scene_stack.size() - 1].id, SceneConfig.new(hide_current, stop_processing_current, remove_current), false);
@@ -101,12 +103,12 @@ func to_previous_scene(hide_current: bool = false, stop_processing_current: bool
 func ui_is_open(exceptions: Array[String] = ["pause"]) -> bool:
 	return get_children().all(func(x: Node): return node_to_info(x).is_ui && x.visible && !exceptions.has(node_to_info(x).id));
 	
-func remove_ui():
+func remove_ui() -> void:
 	for scene_info in scenes:
 		if scene_info.is_ui && scene_info.node != null:
 			scene_info.node.visible = false;
 			
-func is_active(scene_name: String):
+func is_active(scene_name: String) -> bool:
 	for sceneInfo in scenes:
 		if sceneInfo.id != scene_name && sceneInfo.node != null && sceneInfo.node.visible == true:
 			return true;

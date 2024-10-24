@@ -5,6 +5,7 @@ static func load_json(file_path: String):
 		var data_file = FileAccess.open(file_path, FileAccess.READ)
 		var parsed_result = JSON.parse_string(data_file.get_as_text())
 		return parsed_result
+	return null;
 
 static func load_items(file_path: String):
 	if(FileAccess.file_exists(file_path)):
@@ -18,8 +19,10 @@ static func load_items(file_path: String):
 			return parsed_result
 		else:
 			printerr("Error reading file.")
+			return null
 	else:
 		printerr("File does not exist!")
+		return null;
 	
 static func get_item(dict: Dictionary, item_name: String):
 	for item in dict.values():

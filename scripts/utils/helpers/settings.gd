@@ -13,10 +13,10 @@ signal settings_changed();
 var master_volume: float = 1;
 signal volume_changed(new_value: float, bus_name: String);
 
-func _ready():
+func _ready() -> void:
 	_deferred_ready.call_deferred();
 
-func _deferred_ready():
+func _deferred_ready() -> void:
 	volume_changed.connect(_change_volume);
 	
 func _change_volume(value: float, bus_name: String):

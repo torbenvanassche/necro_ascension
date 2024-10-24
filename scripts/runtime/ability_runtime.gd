@@ -8,7 +8,7 @@ var _action: Node;
 
 signal executed();
 
-func _init(resource: AbilityResource = null):
+func _init(resource: AbilityResource = null) -> void:
 	if resource != null:
 		data = resource.duplicate();
 		if resource.cooldown != 0:
@@ -21,7 +21,7 @@ func _init(resource: AbilityResource = null):
 		if not _action.has_method("execute"):
 			assert("%s is missing an execute function on ability: " % resource.resource_name)
 			
-func execute(options: Dictionary = {}):
+func execute(options: Dictionary = {}) -> void:
 	if not cooldown_timer.is_stopped():
 		return;
 	

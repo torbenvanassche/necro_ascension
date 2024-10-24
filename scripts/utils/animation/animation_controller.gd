@@ -15,19 +15,19 @@ var one_shot_active: bool = false;
 
 signal one_shot_ended(anim_name: String);
 
-func _init(anim_tree: AnimatedSprite3D, animation_controller_states: Array[AnimationControllerState]):
+func _init(anim_tree: AnimatedSprite3D, animation_controller_states: Array[AnimationControllerState]) -> void:
 	animation_player = anim_tree;
 	state_holder = animation_controller_states
 	process_mode = PROCESS_MODE_INHERIT;
 		
-func one_shot(state: String, on_end: String = animation_state):
+func one_shot(state: String, on_end: String = animation_state) -> void:
 	if not animation_player.animation_finished.is_connected(_on_one_shot_end):
 		one_shot_active = true;
 		animation_player.animation = get_state(state).state_name;
 		animation_state = get_state(state).state_name;
 		animation_player.animation_finished.connect(_on_one_shot_end.bind(on_end), CONNECT_ONE_SHOT);
 	
-func _on_one_shot_end(on_end: String):
+func _on_one_shot_end(on_end: String) -> void:
 	one_shot_active = false;
 	animation_player.play(on_end);
 	one_shot_ended.emit();
