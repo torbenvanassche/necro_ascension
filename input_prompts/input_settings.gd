@@ -1,7 +1,7 @@
 extends Node
 
 @export var keybind_container: Node;
-@onready var keybind_template = preload("res://input_prompts/action_setter.tscn")
+@onready var keybind_template: PackedScene = preload("res://input_prompts/action_setter.tscn")
 @onready var reset_button: Button = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/reset;
 @onready var confirm_button: Button = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/confirm;
 
@@ -18,10 +18,10 @@ func _load_default() -> void:
 	InputMap.load_from_project_settings();
 	_reset_bindings();
 	
-	for action in InputManager.mappable_actions:
+	for action: String in InputManager.mappable_actions:
 		var events: Array[InputEvent] = InputMap.action_get_events(action);
 		if events.size() > 0:
-			var key = events[0].as_text().trim_suffix(" (Physical)").to_lower();
+			var key: String = events[0].as_text().trim_suffix(" (Physical)").to_lower();
 			Config.change_keybinding(action, events[0]);
 	
 func _on_save() -> void:
@@ -31,30 +31,30 @@ func _reset_bindings() -> void:
 	for item in keybind_container.get_children():
 		item.queue_free()
 
-	for action in InputManager.mappable_actions:
+	for action: String in InputManager.mappable_actions:
 		var btn: InputDisplayer = keybind_template.instantiate();
 		btn.set_label(InputManager.mappable_actions[action]);
 		var events: Array[InputEvent] = InputMap.action_get_events(action);
 		if events.size() > 0:
-			var key = events[0].as_text().to_lower();
+			var key: String = events[0].as_text().to_lower();
 			btn.set_key(key, events[0]);
 		
 		keybind_container.add_child(btn);
 		btn.pressed.connect(_on_rebind_key.bind(btn, action))
 		
 func _load_bindings() -> void:
-	var keybindings = Config.load_keybindings();
-	for action in keybindings.keys():
+	var keybindings: Dictionary = Config.load_keybindings();
+	for action: String in keybindings.keys():
 		InputManager.set_action(action, keybindings[action])
 
-func _on_rebind_key(button: InputDisplayer, action) -> void:
+func _on_rebind_key(button: InputDisplayer, action: String) -> void:
 	if not InputManager.is_remapping:
 		InputManager.is_remapping = true;
 		InputManager.action_to_remap = action;
 		InputManager.remapping_button = button;
 		button.set_rebinding()
 		
-func _input(event) -> void:
+func _input(event: InputEvent) -> void:
 	if InputManager.is_remapping:
 		if event is InputEventKey || (event is InputEventMouseButton && event.pressed):
 			InputManager.replace_action(InputManager.action_to_remap, event)
