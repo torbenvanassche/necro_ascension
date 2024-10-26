@@ -19,7 +19,7 @@ func _ready() -> void:
 		var new_rotation: Quaternion = global_transform.basis.get_rotation_quaternion()
 		rotation_difference = initial_rotation.inverse() * new_rotation;
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if target:
 		var target_position: Vector3 = target.global_transform.origin + initial_offset
 		global_transform.origin = global_transform.origin.lerp(target_position, delta * follow_speed)

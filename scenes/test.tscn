@@ -187,6 +187,7 @@ transform = Transform3D(1, 0, 0, 0, 0.78043, 0.625243, 0, -0.625243, 0.78043, 1.
 script = ExtResource("4_0gajg")
 target = NodePath("../character")
 follow_speed = 10.0
+rotation_speed = 0.1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.78178, 0.0676402, -0.627654)
