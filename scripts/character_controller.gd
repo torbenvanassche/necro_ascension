@@ -9,7 +9,8 @@ var heading: String = "down";
 
 @export var interaction_range: Area3D;
 @export var combat_system: CombatHandler;
-@export var sprite3D: AnimatedSprite3D;
+@onready var sprite3D: Sprite3D = $CollisionShape3D/Sprite3D;
+@onready var animation_player: AnimationPlayer = $AnimationPlayer;
 var player_state: String;
 
 var current_triggers: Array[Area3D];
@@ -32,10 +33,9 @@ func _ready() -> void:
 		Debug.warn("Sprite target to animate was not defined.")
 		
 	var animations: Array[AnimationControllerState];
-	for anim_name: String in sprite3D.sprite_frames.get_animation_names():
+	for anim_name: StringName in animation_player.get_animation_library("").get_animation_list():
 		animations.append(AnimationControllerState.new(anim_name));
-	animation_controller = AnimationMachine.new(sprite3D, animations);
-	animation_controller.one_shot_ended.connect(func() -> void: do_processing = true);
+	animation_controller = AnimationMachine.new(animation_player, animations);
 
 func _physics_process(_delta: float) -> void:
 	player_state = "idle"
@@ -68,15 +68,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("primary_action") && not combat_system.attacking:
 		animation_controller.one_shot_ended.connect(func() -> void: combat_system.attacking = false, CONNECT_ONE_SHOT);
 		combat_system.attack(heading);
-		play_one_shot("attack");
 		
 	if event.is_action_pressed("interact"):
 		interact();
-	
-func play_one_shot(anim_name: String) -> void:
-	animation_controller.one_shot("%s_%s" % [anim_name, heading])
-	velocity = Vector3.ZERO;
-	do_processing = false;
 	
 func interact() -> void:
 	if current_triggers.size() != 0:
