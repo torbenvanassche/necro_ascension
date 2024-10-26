@@ -66,8 +66,8 @@ func _physics_process(_delta: float) -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("primary_action") && not combat_system.attacking:
-		animation_controller.one_shot_ended.connect(func() -> void: combat_system.attacking = false, CONNECT_ONE_SHOT);
-		combat_system.attack(heading);
+		#combat_system.attack(heading);
+		pass
 		
 	if event.is_action_pressed("interact"):
 		interact();

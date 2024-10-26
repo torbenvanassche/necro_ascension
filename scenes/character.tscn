@@ -45,23 +45,6 @@ tracks/0/keys = {
 "values": [4, 5, 6]
 }
 
-[sub_resource type="Animation" id="Animation_4prnv"]
-resource_name = "idle_up"
-length = 1.3
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D/Sprite3D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4356, 0.8712),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [4, 5, 6]
-}
-
 [sub_resource type="Animation" id="Animation_2hvel"]
 resource_name = "idle_left"
 length = 1.3
@@ -96,9 +79,9 @@ tracks/0/keys = {
 "values": [4, 5, 6]
 }
 
-[sub_resource type="Animation" id="Animation_pxvfq"]
-resource_name = "walk_down"
-length = 0.9
+[sub_resource type="Animation" id="Animation_4prnv"]
+resource_name = "idle_up"
+length = 1.3
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -107,14 +90,14 @@ tracks/0/path = NodePath("CollisionShape3D/Sprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2178, 0.4356, 0.6534),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4356, 0.8712),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 4]
+"values": [4, 5, 6]
 }
 
-[sub_resource type="Animation" id="Animation_k4tfo"]
-resource_name = "walk_up"
+[sub_resource type="Animation" id="Animation_pxvfq"]
+resource_name = "walk_down"
 length = 0.9
 loop_mode = 1
 tracks/0/type = "value"
@@ -149,6 +132,23 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_m7l5t"]
 resource_name = "walk_right"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D/Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2178, 0.4356, 0.6534),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 4]
+}
+
+[sub_resource type="Animation" id="Animation_k4tfo"]
+resource_name = "walk_up"
 length = 0.9
 loop_mode = 1
 tracks/0/type = "value"
