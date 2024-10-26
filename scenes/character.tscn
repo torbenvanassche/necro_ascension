@@ -98,7 +98,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_pxvfq"]
 resource_name = "walk_down"
-length = 0.9
+length = 1.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -107,15 +107,15 @@ tracks/0/path = NodePath("CollisionShape3D/Sprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2178, 0.4356, 0.6534),
+"times": PackedFloat32Array(0, 0.4, 0.833333, 1.16667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 4]
+"values": [8, 9, 10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_k37yr"]
 resource_name = "walk_left"
-length = 0.9
+length = 1.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -124,15 +124,15 @@ tracks/0/path = NodePath("CollisionShape3D/Sprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2178, 0.4356, 0.6534),
+"times": PackedFloat32Array(0, 0.4, 0.833333, 1.16667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 4]
+"values": [8, 9, 10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_m7l5t"]
 resource_name = "walk_right"
-length = 0.9
+length = 1.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -141,15 +141,15 @@ tracks/0/path = NodePath("CollisionShape3D/Sprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2178, 0.4356, 0.6534),
+"times": PackedFloat32Array(0, 0.4, 0.833333, 1.16667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 4]
+"values": [8, 9, 10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_k4tfo"]
 resource_name = "walk_up"
-length = 0.9
+length = 1.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -158,10 +158,10 @@ tracks/0/path = NodePath("CollisionShape3D/Sprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2178, 0.4356, 0.6534),
+"times": PackedFloat32Array(0, 0.4, 0.833333, 1.16667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 4]
+"values": [8, 9, 10, 11]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xqkoq"]
