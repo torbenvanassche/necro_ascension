@@ -142,6 +142,7 @@ layout_mode = 2
 
 [node name="ability_1" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
 layout_mode = 2
+size_flags_horizontal = 0
 ability_data = ExtResource("6_f27us")
 keybind_action = "ability_1"
 
@@ -164,6 +165,7 @@ keybind_action = "ability_4"
 layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
+visible = false
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2

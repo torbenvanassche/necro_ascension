@@ -9,12 +9,11 @@ enum Role{
 	SPECIALIST
 }
 
+@export var role: Role = Role.NONE;
 @export var name: String = "";
 @export var custom_properties: Dictionary = {};
-@export var animations: AnimationLibrary = null;
-@export var role: Role = Role.NONE;
-@export var abilities: Array[AbilityResource] = [];
+@export var creatures: Array[CreatureResource]
 
 func validate() -> bool:
-	is_valid = (name != "") && (animations != null) && (role != Role.NONE);
+	is_valid = (name != "") && (role != Role.NONE);
 	return is_valid;

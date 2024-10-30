@@ -3,8 +3,8 @@ class_name AbilitySlot extends Button
 @export var ability_data: AbilityResource;
 @export var keybind_action: String;
 
-@onready var cooldown_overlay: ProgressBar = $border_texture/ability_texture/cooldown_overlay;
-@onready var ability_texture: TextureRect = $border_texture/ability_texture;
+@onready var cooldown_overlay: ProgressBar = $ability_texture/cooldown_overlay;
+@onready var ability_texture: TextureRect = $ability_texture;
 var ability_runtime: AbilityRuntime;
 
 func _ready() -> void:
