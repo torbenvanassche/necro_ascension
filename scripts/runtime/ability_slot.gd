@@ -1,6 +1,11 @@
 class_name AbilitySlot extends Button
 
-@export var ability_data: AbilityResource;
+@export var ability_data: AbilityResource:
+	set(value):
+		if value != null:
+			ability_data = value;
+			_ready();
+
 @export var keybind_action: String;
 
 @onready var cooldown_overlay: ProgressBar = $ability_texture/cooldown_overlay;
@@ -8,6 +13,11 @@ class_name AbilitySlot extends Button
 var ability_runtime: AbilityRuntime;
 
 func _ready() -> void:
+	process_mode = PROCESS_MODE_INHERIT;
+	if not ability_data or not InputMap.has_action(keybind_action):
+		process_mode = PROCESS_MODE_DISABLED
+		return
+		
 	ability_runtime = AbilityRuntime.new(ability_data);
 	pressed.connect(func() -> void: ability_runtime.execute())
 	self.add_child(ability_runtime)
@@ -15,11 +25,7 @@ func _ready() -> void:
 	
 	if ability_texture != null:
 		ability_texture.texture = ability_data.ui_sprite
-		
-	if not InputMap.has_action(keybind_action):
-		Debug.err("%s is not a valid keymapping." % keybind_action)
-		process_mode = PROCESS_MODE_DISABLED
-		
+
 func _process(_delta: float) -> void:
 	cooldown_overlay.value = ability_runtime.cooldown_timer.time_left / ability_runtime.cooldown_timer.wait_time;
 

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CreatureResource" load_steps=2 format=3 uid="uid://bi3axq2j7ao48"]
+
+[ext_resource type="Script" path="res://scripts/data/creature.gd" id="1_lpie6"]
+
+[resource]
+script = ExtResource("1_lpie6")
+translation_key = "GUARDIAN_SPIRIT"
+role = 3
+custom_properties = {}

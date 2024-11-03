@@ -1,21 +1,26 @@
-[gd_scene load_steps=19 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=15 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_ud2qd"]
-[ext_resource type="Script" path="res://scripts/utils/managers/input_manager.gd" id="2_6x5j3"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
 [ext_resource type="Script" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
-[ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/abilities/ability_4.tres" id="6_3tnfq"]
-[ext_resource type="Resource" uid="uid://50t1h1fsnuwj" path="res://resources/abilities/ability_1.tres" id="6_f27us"]
-[ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/abilities/ability_2.tres" id="7_mvnkc"]
-[ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/abilities/ability_3.tres" id="8_qvldv"]
 [ext_resource type="PackedScene" uid="uid://1fur5hvgokap" path="res://scenes/fill_bar.tscn" id="10_q2euc"]
 [ext_resource type="PackedScene" uid="uid://cuv8y2t3rkmvx" path="res://scenes/text_container.tscn" id="11_kvsgj"]
 [ext_resource type="Script" path="res://scripts/utils/helpers/dialogue_printer.gd" id="12_4aqmg"]
 [ext_resource type="PackedScene" uid="uid://dr8b3dtn874iy" path="res://imported_data/meshes/wall-corner.glb" id="12_kh771"]
 [ext_resource type="PackedScene" uid="uid://bxy8gylwf0c2t" path="res://imported_data/meshes/wall.glb" id="13_8euel"]
 [ext_resource type="JSON" path="res://resources/dialogue/test.json" id="13_ligp2"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
+vertices = PackedVector3Array(-0.301073, 0.0197048, -2.30107, -0.301073, 0.0197048, 0.298927, 2.29893, 0.0197048, 0.298927, 2.29893, 0.0197048, -2.30107)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+cell_size = 0.05
+cell_height = 0.01
+agent_height = 0.2
+agent_radius = 0.2
+region_min_size = 1.0
+region_merge_size = 10.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_uyi4d"]
 
@@ -24,8 +29,8 @@
 [node name="root" type="Node"]
 script = ExtResource("1_qqdqb")
 
-[node name="Level" type="Node3D" parent="."]
-script = ExtResource("2_6x5j3")
+[node name="Level" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_klivp")
 
 [node name="floor" type="Node3D" parent="Level"]
 
@@ -118,9 +123,6 @@ transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.75, 0,
 [node name="wall9" parent="Level/walls" instance=ExtResource("13_8euel")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.25, 0, -2.25)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 0.480147, 0.877188, 0, -0.877188, 0.480147, 0.894948, 1.56563, -0.636818)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
@@ -143,22 +145,18 @@ layout_mode = 2
 [node name="ability_1" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
 layout_mode = 2
 size_flags_horizontal = 0
-ability_data = ExtResource("6_f27us")
 keybind_action = "ability_1"
 
 [node name="ability_2" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
 layout_mode = 2
-ability_data = ExtResource("7_mvnkc")
 keybind_action = "ability_2"
 
 [node name="ability_3" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
 layout_mode = 2
-ability_data = ExtResource("8_qvldv")
 keybind_action = "ability_3"
 
 [node name="ability_4" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
 layout_mode = 2
-ability_data = ExtResource("6_3tnfq")
 keybind_action = "ability_4"
 
 [node name="ProgressBar" parent="CanvasLayer/MarginContainer/VBoxContainer" instance=ExtResource("10_q2euc")]
@@ -181,7 +179,7 @@ script = ExtResource("12_4aqmg")
 dialogue = ExtResource("13_ligp2")
 
 [node name="character" parent="." instance=ExtResource("2_sf220")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.8713, -0.00344813, -0.117502)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.8713, 0.00916165, -0.117502)
 speed = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
@@ -202,3 +200,6 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/test_collider"]
 shape = SubResource("BoxShape3D_otjxv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.480147, 0.877188, 0, -0.877188, 0.480147, 0.894948, 1.56563, -0.636818)

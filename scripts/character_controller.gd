@@ -8,7 +8,6 @@ extends CharacterBody3D
 var heading: String = "down";
 
 @export var interaction_range: Area3D;
-@export var combat_system: CombatHandler;
 @onready var sprite3D: Sprite3D = $CollisionShape3D/Sprite3D;
 @onready var animation_player: AnimationPlayer = $AnimationPlayer;
 var player_state: String;
@@ -64,11 +63,7 @@ func _physics_process(_delta: float) -> void:
 
 	animation_controller.animation_state = "%s_%s" % [player_state, heading];
 	
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("primary_action") && not combat_system.attacking:
-		#combat_system.attack(heading);
-		pass
-		
+func _unhandled_input(event: InputEvent) -> void:		
 	if event.is_action_pressed("interact"):
 		interact();
 	

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CreatureResource" load_steps=2 format=3 uid="uid://bstaajitcy7es"]
+
+[ext_resource type="Script" path="res://scripts/data/creature.gd" id="1_gvk61"]
+
+[resource]
+script = ExtResource("1_gvk61")
+translation_key = "NIDHOGG"
+role = 5
+custom_properties = {}

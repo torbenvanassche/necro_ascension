@@ -46,7 +46,6 @@ mouse_filter = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_1rwyh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_nbg6a")
 max_value = 1.0
-value = 1.0
 fill_mode = 3
 show_percentage = false
 

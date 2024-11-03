@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CreatureResource" load_steps=2 format=3 uid="uid://07dwk5t2h0nv"]
+
+[ext_resource type="Script" path="res://scripts/data/creature.gd" id="1_ir4m2"]
+
+[resource]
+script = ExtResource("1_ir4m2")
+translation_key = ""
+role = 0
+custom_properties = {}

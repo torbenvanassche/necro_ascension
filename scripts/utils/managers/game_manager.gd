@@ -5,7 +5,6 @@ var player: Player;
 var camera: Camera3D;
 
 static var instance: Manager;
-
 var scroll_in_use: bool = false;
 
 signal input_mode_changed(is_keyboard: bool);

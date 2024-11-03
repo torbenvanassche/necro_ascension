@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CreatureResource" load_steps=2 format=3 uid="uid://chxxb7d7btkmb"]
+
+[ext_resource type="Script" path="res://scripts/data/creature.gd" id="1_jhef8"]
+
+[resource]
+script = ExtResource("1_jhef8")
+translation_key = "TROLL"
+role = 2
+custom_properties = {}

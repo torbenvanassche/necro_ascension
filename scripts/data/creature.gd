@@ -1,10 +1,19 @@
 class_name CreatureResource extends ValidatedResource
 
-@export var name: String = "";
+enum Role{
+	NONE,
+	THRALL,
+	ARTILLERY,
+	WARDEN,
+	MONSTROSITY,
+	SPECIALIST
+}
+
+@export var translation_key: String = "";
+@export var role: Role = Role.NONE;
 @export var custom_properties: Dictionary = {};
-@export var animations: AnimationLibrary = null;
-@export var abilities: Array[AbilityResource] = [];
+@export var creature: PackedScene = null;
 
 func validate() -> bool:
-	is_valid = (name != "") && (animations != null);
+	is_valid = (resource_name != "") && (translation_key != "") && (creature != null) && (role != Role.NONE);
 	return is_valid;
