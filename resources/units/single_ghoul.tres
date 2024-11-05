@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://bnmdudh0i8bas"]
+
+[ext_resource type="Script" path="res://scripts/data/creature.gd" id="1_dklw6"]
+[ext_resource type="Script" path="res://scripts/data/unit.gd" id="2_vigoa"]
+
+[resource]
+script = ExtResource("2_vigoa")
+translated_key = ""
+custom_properties = {}
+creatures = Array[ExtResource("1_dklw6")]([])
