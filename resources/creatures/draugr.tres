@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/creature.gd" id="1_fu3th"]
 
 [resource]
+resource_name = "draugr"
 script = ExtResource("1_fu3th")
 translation_key = "DRAUGR"
 role = 1

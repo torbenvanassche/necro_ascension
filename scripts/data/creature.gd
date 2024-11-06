@@ -11,7 +11,6 @@ enum Role{
 
 @export var translation_key: String = "";
 @export var role: Role = Role.NONE;
-@export var custom_properties: Dictionary = {};
 @export var creature: PackedScene = null;
 
 func validate() -> bool:
