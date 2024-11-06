@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsv67arenohqp"]
+[gd_scene load_steps=3 format=3 uid="uid://bsv67arenohqp"]
+
+[ext_resource type="Script" path="res://scripts/runtime/creature_instance.gd" id="1_7p5ic"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_oma1u"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_7p5ic")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 

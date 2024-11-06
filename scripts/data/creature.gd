@@ -15,6 +15,5 @@ enum Role{
 @export var creature: PackedScene = null;
 
 func validate() -> bool:
-	set_name(resource_path.get_file().get_basename())
 	is_valid = (resource_name != "") && (translation_key != "") && (creature != null) && (role != Role.NONE);
 	return is_valid;

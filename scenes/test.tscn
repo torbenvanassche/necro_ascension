@@ -48,9 +48,16 @@ region_merge_size = 10.0
 
 [node name="root" type="Node" node_paths=PackedStringArray("resource_manager")]
 script = ExtResource("1_qqdqb")
-resource_manager = NodePath("ResourceManager")
+resource_manager = NodePath("resource_manager")
 
-[node name="game_components" type="Node" parent="."]
+[node name="resource_manager" type="Node" parent="."]
+script = ExtResource("12_qwovd")
+creatures = Array[ExtResource("13_jchai")]([ExtResource("14_1trlt"), ExtResource("15_7kbfn"), ExtResource("16_0kmfq"), ExtResource("17_0hnj1"), ExtResource("18_wg1vk"), ExtResource("19_bihef"), ExtResource("20_riedr"), ExtResource("21_0r6i3"), ExtResource("22_malwl"), ExtResource("23_kpesu"), ExtResource("24_nimil"), ExtResource("25_uh104"), ExtResource("26_ie1dr"), ExtResource("27_dhe3e"), ExtResource("28_48071"), ExtResource("29_wh41k")])
+units = Array[ExtResource("30_5fem4")]([ExtResource("31_n2keu")])
+
+[node name="game_components" type="Node" parent="." node_paths=PackedStringArray("resource_manager")]
+script = ExtResource("1_qqdqb")
+resource_manager = NodePath("../resource_manager")
 
 [node name="Level" type="NavigationRegion3D" parent="game_components"]
 navigation_mesh = SubResource("NavigationMesh_klivp")
@@ -226,8 +233,3 @@ shape = SubResource("BoxShape3D_otjxv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="game_components"]
 transform = Transform3D(1, 0, 0, 0, 0.480147, 0.877188, 0, -0.877188, 0.480147, 0.894948, 1.56563, -0.636818)
-
-[node name="ResourceManager" type="Node" parent="."]
-script = ExtResource("12_qwovd")
-creatures = Array[ExtResource("13_jchai")]([ExtResource("14_1trlt"), ExtResource("15_7kbfn"), ExtResource("16_0kmfq"), ExtResource("17_0hnj1"), ExtResource("18_wg1vk"), ExtResource("19_bihef"), ExtResource("20_riedr"), ExtResource("21_0r6i3"), ExtResource("22_malwl"), ExtResource("23_kpesu"), ExtResource("24_nimil"), ExtResource("25_uh104"), ExtResource("26_ie1dr"), ExtResource("27_dhe3e"), ExtResource("28_48071"), ExtResource("29_wh41k")])
-units = Array[ExtResource("30_5fem4")]([ExtResource("31_n2keu")])
