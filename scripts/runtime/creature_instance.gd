@@ -3,6 +3,10 @@ class_name CreatureInstance extends CharacterBody3D
 @export var nav_agent: NavigationAgent3D;
 var player_offset: Vector3;
 var data: CreatureResource;
+
+func _ready() -> void:
+	process_mode = PROCESS_MODE_DISABLED;
+	NavigationServer3D.map_changed.connect(func(map: RID) -> void: process_mode = PROCESS_MODE_INHERIT)
 	
 func setup(c_data: CreatureResource, offset: Vector3) -> void:
 	tree_entered.connect(_teleport_start)
@@ -22,4 +26,4 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	
 func update_target(target: Vector3) -> void:
-	nav_agent.target_position = target;
+	nav_agent.target_position = NavigationServer3D.map_get_closest_point(get_world_3d().navigation_map, target)
