@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=34 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_ud2qd"]
@@ -31,6 +31,7 @@
 [ext_resource type="Resource" uid="uid://b47eawrf10eqq" path="res://resources/creatures/witch.tres" id="29_wh41k"]
 [ext_resource type="Script" path="res://scripts/data/unit.gd" id="30_5fem4"]
 [ext_resource type="Resource" uid="uid://bnmdudh0i8bas" path="res://resources/units/single_ghoul.tres" id="31_n2keu"]
+[ext_resource type="Script" path="res://scripts/unit_controller.gd" id="32_q0hui"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
 vertices = PackedVector3Array(-0.301073, 0.0197048, -2.30107, -0.301073, 0.0197048, 0.298927, 2.29893, 0.0197048, 0.298927, 2.29893, 0.0197048, -2.30107)
@@ -42,22 +43,29 @@ agent_radius = 0.2
 region_min_size = 1.0
 region_merge_size = 10.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_uyi4d"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_otjxv"]
-
-[node name="root" type="Node" node_paths=PackedStringArray("resource_manager")]
-script = ExtResource("1_qqdqb")
-resource_manager = NodePath("resource_manager")
+[node name="root" type="Node"]
 
 [node name="resource_manager" type="Node" parent="."]
 script = ExtResource("12_qwovd")
 creatures = Array[ExtResource("13_jchai")]([ExtResource("14_1trlt"), ExtResource("15_7kbfn"), ExtResource("16_0kmfq"), ExtResource("17_0hnj1"), ExtResource("18_wg1vk"), ExtResource("19_bihef"), ExtResource("20_riedr"), ExtResource("21_0r6i3"), ExtResource("22_malwl"), ExtResource("23_kpesu"), ExtResource("24_nimil"), ExtResource("25_uh104"), ExtResource("26_ie1dr"), ExtResource("27_dhe3e"), ExtResource("28_48071"), ExtResource("29_wh41k")])
 units = Array[ExtResource("30_5fem4")]([ExtResource("31_n2keu")])
 
-[node name="game_components" type="Node" parent="." node_paths=PackedStringArray("resource_manager")]
+[node name="game_components" type="Node" parent="." node_paths=PackedStringArray("resource_manager", "unit_controller")]
 script = ExtResource("1_qqdqb")
 resource_manager = NodePath("../resource_manager")
+unit_controller = NodePath("unit_controller")
+
+[node name="camera&lights" type="Node" parent="game_components"]
+
+[node name="Camera3D" type="Camera3D" parent="game_components/camera&lights" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.78043, 0.625243, 0, -0.625243, 0.78043, 1.8713, 0.704448, 0.642489)
+script = ExtResource("4_0gajg")
+target = NodePath("../../character")
+follow_speed = 10.0
+rotation_speed = 0.1
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="game_components/camera&lights"]
+transform = Transform3D(1, 0, 0, 0, 0.480147, 0.877188, 0, -0.877188, 0.480147, 0.894948, 1.56563, -0.636818)
 
 [node name="Level" type="NavigationRegion3D" parent="game_components"]
 navigation_mesh = SubResource("NavigationMesh_klivp")
@@ -212,24 +220,6 @@ dialogue = ExtResource("13_ligp2")
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.8713, 0.00916165, -0.117502)
 speed = 2.0
 
-[node name="Camera3D" type="Camera3D" parent="game_components" node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.78043, 0.625243, 0, -0.625243, 0.78043, 1.8713, 0.704448, 0.642489)
-script = ExtResource("4_0gajg")
-target = NodePath("../character")
-follow_speed = 10.0
-rotation_speed = 0.1
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="game_components"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.78178, 0.0676402, -0.627654)
-mesh = SubResource("BoxMesh_uyi4d")
-skeleton = NodePath("../Level")
-
-[node name="test_collider" type="StaticBody3D" parent="game_components/MeshInstance3D"]
-collision_layer = 3
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game_components/MeshInstance3D/test_collider"]
-shape = SubResource("BoxShape3D_otjxv")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="game_components"]
-transform = Transform3D(1, 0, 0, 0, 0.480147, 0.877188, 0, -0.877188, 0.480147, 0.894948, 1.56563, -0.636818)
+[node name="unit_controller" type="Node3D" parent="game_components"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+script = ExtResource("32_q0hui")

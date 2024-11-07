@@ -8,6 +8,7 @@ static var instance: Manager;
 var scroll_in_use: bool = false;
 
 @export var resource_manager: ResourceManager;
+@export var unit_controller: UnitController;
 
 signal input_mode_changed(is_keyboard: bool);
 var input_mode_is_keyboard: bool = true:

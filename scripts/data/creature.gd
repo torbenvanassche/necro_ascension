@@ -12,6 +12,7 @@ enum Role{
 @export var translation_key: String = "";
 @export var role: Role = Role.NONE;
 @export var creature: PackedScene = null;
+@export var move_speed: float = 1;
 
 func validate() -> bool:
 	is_valid = (resource_name != "") && (translation_key != "") && (creature != null) && (role != Role.NONE);
