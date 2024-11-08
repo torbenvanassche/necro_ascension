@@ -1,8 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bsv67arenohqp"]
 
 [ext_resource type="Script" path="res://scripts/runtime/creature_instance.gd" id="1_7p5ic"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_oma1u"]
+[ext_resource type="Texture2D" uid="uid://dhxk3d5i47yt2" path="res://imported_data/animations/ghoul.png" id="2_2rxvs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e65qy"]
 size = Vector3(0.25, 0.25, 0.25)
@@ -15,10 +14,12 @@ nav_agent = NodePath("NavigationAgent3D")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.125, 0)
-mesh = SubResource("BoxMesh_oma1u")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
 shape = SubResource("BoxShape3D_e65qy")
+
+[node name="Sprite3D" type="Sprite3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.156158, 0)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_2rxvs")

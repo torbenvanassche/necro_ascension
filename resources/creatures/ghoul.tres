@@ -8,5 +8,5 @@ resource_name = "ghoul"
 script = ExtResource("2_fb3ut")
 translation_key = "GHOUL"
 role = 1
-custom_properties = {}
 creature = ExtResource("1_x0bim")
+move_speed = 1.0
