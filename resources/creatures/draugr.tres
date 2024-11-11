@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CreatureResource" load_steps=2 format=3 uid="uid://bipom52v3asvm"]
 
-[ext_resource type="Script" path="res://scripts/data/creature.gd" id="1_fu3th"]
+[ext_resource type="Script" path="res://scripts/data/creature_resource.gd" id="1_fu3th"]
 
 [resource]
 resource_name = "draugr"

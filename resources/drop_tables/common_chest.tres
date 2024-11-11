@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemDropPoolResource" load_steps=3 format=3 uid="uid://c2is324w4g2ly"]
+
+[ext_resource type="Script" path="res://scripts/data/item_resource.gd" id="1_awphp"]
+[ext_resource type="Script" path="res://scripts/data/item_drop_resource.gd" id="1_ucujb"]
+
+[resource]
+script = ExtResource("1_ucujb")
+drop_pool = Array[ExtResource("1_awphp")]([])

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dr8b3dtn874iy" path="res://imported_data/meshes/wall-corner.glb" id="12_kh771"]
 [ext_resource type="Script" path="res://scripts/utils/managers/resource_manager.gd" id="12_qwovd"]
 [ext_resource type="PackedScene" uid="uid://bxy8gylwf0c2t" path="res://imported_data/meshes/wall.glb" id="13_8euel"]
-[ext_resource type="Script" path="res://scripts/data/creature.gd" id="13_jchai"]
+[ext_resource type="Script" path="res://scripts/data/creature_resource.gd" id="13_jchai"]
 [ext_resource type="JSON" path="res://resources/dialogue/test.json" id="13_ligp2"]
 [ext_resource type="Resource" uid="uid://bipom52v3asvm" path="res://resources/creatures/draugr.tres" id="14_1trlt"]
 [ext_resource type="Resource" uid="uid://b2dn2xwam1prm" path="res://resources/creatures/einherjar.tres" id="15_7kbfn"]
@@ -29,7 +29,7 @@
 [ext_resource type="Resource" uid="uid://chxxb7d7btkmb" path="res://resources/creatures/troll.tres" id="27_dhe3e"]
 [ext_resource type="Resource" uid="uid://bes567hhyyn0f" path="res://resources/creatures/valkyrie.tres" id="28_48071"]
 [ext_resource type="Resource" uid="uid://b47eawrf10eqq" path="res://resources/creatures/witch.tres" id="29_wh41k"]
-[ext_resource type="Script" path="res://scripts/data/unit.gd" id="30_5fem4"]
+[ext_resource type="Script" path="res://scripts/data/unit_resource.gd" id="30_5fem4"]
 [ext_resource type="Resource" uid="uid://bnmdudh0i8bas" path="res://resources/units/single_ghoul.tres" id="31_n2keu"]
 [ext_resource type="Script" path="res://scripts/unit_controller.gd" id="32_q0hui"]
 
@@ -47,6 +47,7 @@ region_merge_size = 10.0
 
 [node name="resource_manager" type="Node" parent="."]
 script = ExtResource("12_qwovd")
+populate = true
 creatures = Array[ExtResource("13_jchai")]([ExtResource("14_1trlt"), ExtResource("15_7kbfn"), ExtResource("16_0kmfq"), ExtResource("17_0hnj1"), ExtResource("18_wg1vk"), ExtResource("19_bihef"), ExtResource("20_riedr"), ExtResource("21_0r6i3"), ExtResource("22_malwl"), ExtResource("23_kpesu"), ExtResource("24_nimil"), ExtResource("25_uh104"), ExtResource("26_ie1dr"), ExtResource("27_dhe3e"), ExtResource("28_48071"), ExtResource("29_wh41k")])
 units = Array[ExtResource("30_5fem4")]([ExtResource("31_n2keu")])
 

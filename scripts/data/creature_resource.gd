@@ -15,5 +15,6 @@ enum Role{
 @export var move_speed: float = 1;
 
 func validate() -> bool:
+	_setup();
 	is_valid = (resource_name != "") && (translation_key != "") && (creature != null) && (role != Role.NONE);
 	return is_valid;

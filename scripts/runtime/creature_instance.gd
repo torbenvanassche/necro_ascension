@@ -6,7 +6,7 @@ var data: CreatureResource;
 
 func _ready() -> void:
 	process_mode = PROCESS_MODE_DISABLED;
-	NavigationServer3D.map_changed.connect(func(map: RID) -> void: process_mode = PROCESS_MODE_INHERIT)
+	NavigationServer3D.map_changed.connect(func(_map: RID) -> void: process_mode = PROCESS_MODE_INHERIT)
 	
 func setup(c_data: CreatureResource, offset: Vector3) -> void:
 	tree_entered.connect(_teleport_start)
@@ -16,7 +16,7 @@ func setup(c_data: CreatureResource, offset: Vector3) -> void:
 func _teleport_start() -> void:
 	global_position = Manager.instance.player.global_position + player_offset;
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	update_target(Manager.instance.player.global_position + player_offset)
 	if global_position.distance_to(nav_agent.target_position) > 0.05:
 		var curr_location := global_transform.origin;
