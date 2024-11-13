@@ -1,0 +1,3 @@
+Weapon of choice for the player to cast their spells and control their army.
+
+A gnarled, black staff hewn from the branches of the Cursed Tree. At the top is a tangle wrapped loosely around a pulsating black sap core that writhes restlessly within the grasping fingers of wood that imprison it. Despite having been severed from the Cursed Tree, it maintains a weak connection to its spawn and draws an unlimited, if metered, stream of unholy power into its fiber to be utilized by those with the ability and knowledge to harness the might of the underworld. 

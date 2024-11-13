@@ -1,0 +1,3 @@
+In Norse myth, necromancy (or "[[Seidhr]]") is tied to deep knowledge of death and destiny, realms connected to Hel. The player's powers can be seen as forbidden or secret magic, something even the gods approach with caution. Their abilities are more than just tools; they are gifts sharpened in the dark of [[Helheim]], connected to the endless cycle of life, death, and rebirth in Norse tradition.
+
+This view makes the player’s time in Helheim more than just a way to escape—it becomes a mythic training, transforming them into a dark, powerful figure. When they emerge, they are no longer an ordinary soul but a necromantic warrior, ready to wield the powers of death itself in the final battle.

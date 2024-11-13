@@ -1,0 +1,1 @@
+The player can find different amulets while they are progressing through the game. These can have all kinds of different effects and can affect the player themselves, the minions they control or the enemies they face.
