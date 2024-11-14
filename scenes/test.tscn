@@ -1,16 +1,13 @@
-[gd_scene load_steps=34 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=32 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
-[ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_ud2qd"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
 [ext_resource type="Script" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
 [ext_resource type="PackedScene" uid="uid://1fur5hvgokap" path="res://scenes/fill_bar.tscn" id="10_q2euc"]
 [ext_resource type="PackedScene" uid="uid://cuv8y2t3rkmvx" path="res://scenes/text_container.tscn" id="11_kvsgj"]
 [ext_resource type="Script" path="res://scripts/utils/helpers/dialogue_printer.gd" id="12_4aqmg"]
-[ext_resource type="PackedScene" uid="uid://dr8b3dtn874iy" path="res://imported_data/meshes/wall-corner.glb" id="12_kh771"]
 [ext_resource type="Script" path="res://scripts/utils/managers/resource_manager.gd" id="12_qwovd"]
-[ext_resource type="PackedScene" uid="uid://bxy8gylwf0c2t" path="res://imported_data/meshes/wall.glb" id="13_8euel"]
 [ext_resource type="Script" path="res://scripts/data/creature_resource.gd" id="13_jchai"]
 [ext_resource type="JSON" path="res://resources/dialogue/test.json" id="13_ligp2"]
 [ext_resource type="Resource" uid="uid://bipom52v3asvm" path="res://resources/creatures/draugr.tres" id="14_1trlt"]
@@ -22,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://0gqf3uxv3fqn" path="res://resources/creatures/giant.tres" id="20_riedr"]
 [ext_resource type="Resource" uid="uid://xlmahqxgw6c0" path="res://resources/creatures/gullinbursti.tres" id="21_0r6i3"]
 [ext_resource type="Resource" uid="uid://c2x0y5phqglji" path="res://resources/creatures/nidhogg.tres" id="22_malwl"]
+[ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/room_square_small.tscn" id="23_k4ojf"]
 [ext_resource type="Resource" uid="uid://bstaajitcy7es" path="res://resources/creatures/nixie.tres" id="23_kpesu"]
 [ext_resource type="Resource" uid="uid://cymc30xafeer8" path="res://resources/creatures/priest.tres" id="24_nimil"]
 [ext_resource type="Resource" uid="uid://07dwk5t2h0nv" path="res://resources/creatures/ratatoskr.tres" id="25_uh104"]
@@ -34,8 +32,8 @@
 [ext_resource type="Script" path="res://scripts/unit_controller.gd" id="32_q0hui"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
-vertices = PackedVector3Array(-0.301073, 0.0197048, -2.30107, -0.301073, 0.0197048, 0.298927, 2.29893, 0.0197048, 0.298927, 2.29893, 0.0197048, -2.30107)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+vertices = PackedVector3Array(3.59979, 0.0199398, -2.05006, 3.79979, 0.0199398, -2.20006, 3.79979, 0.0199398, -2.75006, 3.59979, 0.0199398, -2.90006, 1.94979, 0.0199398, -3.55006, 0.199786, 0.0199398, -1.75006, 0.199786, 0.0199398, -1.20006, 0.449787, 0.0199398, -1.05006, 0.449787, 0.0199398, -1.90006, 1.79979, 0.0199398, -3.80006, 1.24979, 0.0199398, -3.80006, 1.09979, 0.0199398, -3.55006, 3.59979, 0.0199398, -3.55006, 0.449787, 0.0199398, -3.55006, 0.449787, 0.0199398, -0.400061, 3.59979, 0.0199398, -0.400061)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(5, 8, 6), PackedInt32Array(6, 8, 7), PackedInt32Array(9, 4, 10), PackedInt32Array(10, 4, 11), PackedInt32Array(11, 4, 8), PackedInt32Array(8, 4, 7), PackedInt32Array(4, 12, 3), PackedInt32Array(8, 13, 11), PackedInt32Array(14, 7, 15), PackedInt32Array(15, 7, 0), PackedInt32Array(0, 7, 4)]
 cell_size = 0.05
 cell_height = 0.01
 agent_height = 0.2
@@ -72,96 +70,10 @@ transform = Transform3D(1, 0, 0, 0, 0.480147, 0.877188, 0, -0.877188, 0.480147, 
 [node name="Level" type="NavigationRegion3D" parent="game_components"]
 navigation_mesh = SubResource("NavigationMesh_klivp")
 
-[node name="floor" type="Node3D" parent="game_components/Level"]
+[node name="Node3D" parent="game_components/Level" instance=ExtResource("23_k4ojf")]
 
-[node name="floor-small-square" parent="game_components/Level/floor" instance=ExtResource("1_ud2qd")]
-
-[node name="floor-small-square2" parent="game_components/Level/floor" instance=ExtResource("1_ud2qd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-
-[node name="floor-small-square3" parent="game_components/Level/floor" instance=ExtResource("1_ud2qd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-
-[node name="floor-small-square4" parent="game_components/Level/floor" instance=ExtResource("1_ud2qd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
-
-[node name="floor-small-square5" parent="game_components/Level/floor" instance=ExtResource("1_ud2qd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-
-[node name="floor-small-square7" parent="game_components/Level/floor" instance=ExtResource("1_ud2qd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
-
-[node name="floor-small-square9" parent="game_components/Level/floor" instance=ExtResource("1_ud2qd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
-
-[node name="floor-small-square13" parent="game_components/Level/floor" instance=ExtResource("1_ud2qd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-
-[node name="floor-small-square14" parent="game_components/Level/floor" instance=ExtResource("1_ud2qd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
-
-[node name="walls" type="Node3D" parent="game_components/Level"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="wall-corner2" parent="game_components/Level/walls" instance=ExtResource("12_kh771")]
-transform = Transform3D(-0.999999, 0.000901472, 0.00137705, 0.000903501, 0.999999, 0.00145777, -0.00137572, 0.00145903, -0.999998, -0.25, 0, 0.25)
-
-[node name="wall-corner3" parent="game_components/Level/walls" instance=ExtResource("12_kh771")]
-transform = Transform3D(-0.00137568, 0.00145903, -0.999998, 0.000903501, 0.999999, 0.00145777, 0.999999, -0.000901472, -0.00137701, 2.25, 0, 0.25)
-
-[node name="wall2" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.25, 0, 0.25)
-
-[node name="wall3" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.75, 0, 0.25)
-
-[node name="wall4" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.25, 0, 0.25)
-
-[node name="wall5" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.75, 0, 0.25)
-
-[node name="wall10" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.25, 0, -1.75)
-
-[node name="wall11" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.25, 0, -1.25)
-
-[node name="wall12" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.25, 0, -0.75)
-
-[node name="wall13" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.25, 0, -0.25)
-
-[node name="wall14" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 2.25, 0, -0.25)
-
-[node name="wall15" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 2.25, 0, -0.75)
-
-[node name="wall16" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 2.25, 0, -1.25)
-
-[node name="wall17" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 2.25, 0, -1.75)
-
-[node name="wall-corner4" parent="game_components/Level/walls" instance=ExtResource("12_kh771")]
-transform = Transform3D(0.999999, -0.000901472, -0.00137714, 0.000903501, 0.999999, 0.00145777, 0.00137581, -0.00145903, 0.999998, 2.25, 0, -2.25)
-
-[node name="wall-corner5" parent="game_components/Level/walls" instance=ExtResource("12_kh771")]
-transform = Transform3D(0.00137577, -0.00145903, 0.999998, 0.000903501, 0.999999, 0.00145777, -0.999999, 0.000901472, 0.0013771, -0.25, 0, -2.25)
-
-[node name="wall6" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1.75, 0, -2.25)
-
-[node name="wall7" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1.25, 0, -2.25)
-
-[node name="wall8" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.75, 0, -2.25)
-
-[node name="wall9" parent="game_components/Level/walls" instance=ExtResource("13_8euel")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.25, 0, -2.25)
+[node name="Node3D2" parent="game_components/Level" instance=ExtResource("23_k4ojf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -6)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="game_components"]
 

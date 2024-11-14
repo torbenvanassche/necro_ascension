@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cylfsd42mkdps"
-path="res://.godot/imported/floor-small-square.glb-ebc88e82c0e03891c1abdaf9dd9b76ee.scn"
+uid="uid://dkc61jqi37v3y"
+path="res://.godot/imported/wall-corner-low.glb-25efe8017446aaf221008f8d2f595d09.scn"
 
 [deps]
 
-source_file="res://imported_data/meshes/floor-small-square.glb"
-dest_files=["res://.godot/imported/floor-small-square.glb-ebc88e82c0e03891c1abdaf9dd9b76ee.scn"]
+source_file="res://imported_data/meshes/wall-corner-low.glb"
+dest_files=["res://.godot/imported/wall-corner-low.glb-25efe8017446aaf221008f8d2f595d09.scn"]
 
 [params]
 
@@ -31,6 +31,19 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"colormap": {
+"use_external/enabled": true,
+"use_external/path": "res://imported_data/materials/base_material.tres"
+}
+},
+"nodes": {
+"PATH:floor-small-square": {
+"generate/physics": true,
+"physics/shape_type": 0
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=0

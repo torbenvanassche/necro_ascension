@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cylfsd42mkdps"
-path="res://.godot/imported/floor-small-square.glb-ebc88e82c0e03891c1abdaf9dd9b76ee.scn"
+uid="uid://dk6lald65n7pa"
+path="res://.godot/imported/wall-low.glb-8139f80e3f361108593cf1520af041e7.scn"
 
 [deps]
 
-source_file="res://imported_data/meshes/floor-small-square.glb"
-dest_files=["res://.godot/imported/floor-small-square.glb-ebc88e82c0e03891c1abdaf9dd9b76ee.scn"]
+source_file="res://imported_data/meshes/wall-low.glb"
+dest_files=["res://.godot/imported/wall-low.glb-8139f80e3f361108593cf1520af041e7.scn"]
 
 [params]
 
@@ -31,6 +31,13 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"colormap": {
+"use_external/enabled": true,
+"use_external/path": "res://imported_data/materials/look_through.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=0
