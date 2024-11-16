@@ -33,7 +33,11 @@ static func get_item(dict: Dictionary, item_name: String) -> Dictionary:
 static func get_resource_paths(folder_path: String) -> Array[String]:
 	var file_paths: Array[String] = []  
 	var dir := DirAccess.open(folder_path)  
-	dir.list_dir_begin()  
+	
+	if dir == null:
+		return file_paths;
+	
+	dir.list_dir_begin()
 	var file_name := dir.get_next()  
 	while file_name != "":  
 		var file_path: String = folder_path + "/" + file_name  
