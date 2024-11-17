@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgakhxogrjn2u"]
 
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_s00yc"]
-[ext_resource type="Script" path="res://scripts/rooms/room.gd" id="1_tjvsl"]
+[ext_resource type="Script" path="res://scripts/levels/room.gd" id="1_tjvsl"]
 [ext_resource type="PackedScene" uid="uid://dkc61jqi37v3y" path="res://imported_data/meshes/wall-corner-low.glb" id="2_cgu2e"]
 [ext_resource type="PackedScene" uid="uid://dk6lald65n7pa" path="res://imported_data/meshes/wall-low.glb" id="2_ee4gc"]
 [ext_resource type="PackedScene" uid="uid://cfpdbxp5m8ebg" path="res://imported_data/meshes/wall-doorway.glb" id="4_kfkm6"]
-[ext_resource type="Script" path="res://scripts/rooms/entrance.gd" id="5_u0hoa"]
+[ext_resource type="Script" path="res://scripts/levels/entrance.gd" id="5_u0hoa"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_tjvsl")

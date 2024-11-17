@@ -35,13 +35,12 @@ _subresources={
 "materials": {
 "colormap": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
+"use_external/path": "res://imported_data/materials/look_through.tres"
 }
 },
 "nodes": {
-"PATH:floor-small-square": {
-"generate/physics": true,
-"physics/shape_type": 0
+"PATH:wall-corner-low": {
+"generate/physics": true
 }
 }
 }

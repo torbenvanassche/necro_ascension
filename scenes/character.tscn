@@ -178,6 +178,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.283555, 0)
 shape = SubResource("BoxShape3D_x6clw")
 
 [node name="Sprite3D" type="Sprite3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0010559, 0)
 billboard = 2
 texture_filter = 0
 texture = ExtResource("2_vipfw")
