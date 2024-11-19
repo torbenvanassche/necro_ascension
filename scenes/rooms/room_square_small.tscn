@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cfpdbxp5m8ebg" path="res://imported_data/meshes/wall-doorway.glb" id="4_kfkm6"]
 [ext_resource type="Script" path="res://scripts/levels/entrance.gd" id="5_u0hoa"]
 
-[node name="Node3D" type="Node3D"]
+[node name="room" type="Node3D"]
 script = ExtResource("1_tjvsl")
 
 [node name="floor" type="Node3D" parent="."]
@@ -91,6 +91,10 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5000
 
 [node name="doors" type="Node3D" parent="."]
 
-[node name="wall-doorway2" parent="doors" instance=ExtResource("4_kfkm6")]
+[node name="wall-doorway2" parent="doors" node_paths=PackedStringArray("_floor_tile") instance=ExtResource("4_kfkm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0999695, 4.82618e-05, -1.49998)
 script = ExtResource("5_u0hoa")
+_floor_tile = NodePath("floor-small-square18")
+
+[node name="floor-small-square18" parent="doors/wall-doorway2" instance=ExtResource("1_s00yc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59997, -4.82618e-05, -2.00272e-05)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=34 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://0gqf3uxv3fqn" path="res://resources/creatures/giant.tres" id="20_riedr"]
 [ext_resource type="Resource" uid="uid://xlmahqxgw6c0" path="res://resources/creatures/gullinbursti.tres" id="21_0r6i3"]
 [ext_resource type="Resource" uid="uid://c2x0y5phqglji" path="res://resources/creatures/nidhogg.tres" id="22_malwl"]
+[ext_resource type="Script" path="res://scripts/levels/level.gd" id="23_b83jc"]
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/room_square_small.tscn" id="23_k4ojf"]
 [ext_resource type="Resource" uid="uid://bstaajitcy7es" path="res://resources/creatures/nixie.tres" id="23_kpesu"]
 [ext_resource type="Resource" uid="uid://cymc30xafeer8" path="res://resources/creatures/priest.tres" id="24_nimil"]
@@ -29,11 +30,10 @@
 [ext_resource type="Resource" uid="uid://b47eawrf10eqq" path="res://resources/creatures/witch.tres" id="29_wh41k"]
 [ext_resource type="Script" path="res://scripts/data/unit_resource.gd" id="30_5fem4"]
 [ext_resource type="Resource" uid="uid://bnmdudh0i8bas" path="res://resources/units/single_ghoul.tres" id="31_n2keu"]
+[ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="32_lkwvm"]
 [ext_resource type="Script" path="res://scripts/unit_controller.gd" id="32_q0hui"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
-vertices = PackedVector3Array(3.59979, 0.0199398, -2.05006, 3.79979, 0.0199398, -2.20006, 3.79979, 0.0199398, -2.75006, 3.59979, 0.0199398, -2.90006, 1.94979, 0.0199398, -3.55006, 0.199786, 0.0199398, -1.75006, 0.199786, 0.0199398, -1.20006, 0.449787, 0.0199398, -1.05006, 0.449787, 0.0199398, -1.90006, 1.79979, 0.0199398, -3.80006, 1.24979, 0.0199398, -3.80006, 1.09979, 0.0199398, -3.55006, 3.59979, 0.0199398, -3.55006, 0.449787, 0.0199398, -3.55006, 0.449787, 0.0199398, -0.400061, 3.59979, 0.0199398, -0.400061)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(5, 8, 6), PackedInt32Array(6, 8, 7), PackedInt32Array(9, 4, 10), PackedInt32Array(10, 4, 11), PackedInt32Array(11, 4, 8), PackedInt32Array(8, 4, 7), PackedInt32Array(4, 12, 3), PackedInt32Array(8, 13, 11), PackedInt32Array(14, 7, 15), PackedInt32Array(15, 7, 0), PackedInt32Array(0, 7, 4)]
 cell_size = 0.05
 cell_height = 0.01
 agent_height = 0.2
@@ -67,14 +67,17 @@ rotation_speed = 0.1
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="game_components/camera&lights"]
 transform = Transform3D(1, 0, 0, 0, 0.480147, 0.877188, 0, -0.877188, 0.480147, 0.894948, 1.56563, -0.636818)
 
-[node name="Level" type="NavigationRegion3D" parent="game_components"]
+[node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("rooms")]
 navigation_mesh = SubResource("NavigationMesh_klivp")
+script = ExtResource("23_b83jc")
+rooms = [NodePath("Node3D"), NodePath("Node3D2")]
+floor_tile = ExtResource("32_lkwvm")
 
 [node name="Node3D" parent="game_components/Level" instance=ExtResource("23_k4ojf")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.74846e-07, 0, -4)
 
 [node name="Node3D2" parent="game_components/Level" instance=ExtResource("23_k4ojf")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, -7)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 0, -12)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="game_components"]
 

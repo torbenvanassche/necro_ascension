@@ -6,7 +6,7 @@
       {
         "id": "225642867f710442",
         "type": "tabs",
-        "dimension": 58.22603719599427,
+        "dimension": 58.22603719599428,
         "children": [
           {
             "id": "beeda783b0f0cbae",
@@ -21,8 +21,21 @@
               "icon": "lucide-file",
               "title": "Prelude"
             }
+          },
+          {
+            "id": "2675557469edba33",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.7"
+              },
+              "icon": "lucide-file",
+              "title": "Release Notes 1.7.7"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "a1f03ad827646464",
@@ -177,11 +190,13 @@
               "title": "Outline of Prelude"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -193,7 +208,7 @@
       "graph:Open graph view": false
     }
   },
-  "active": "beeda783b0f0cbae",
+  "active": "2675557469edba33",
   "lastOpenFiles": [
     "Concepts/Seidhr.md",
     "Concepts/Yggdrasil.md",

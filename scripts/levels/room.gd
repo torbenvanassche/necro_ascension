@@ -1,4 +1,4 @@
-extends Node
+class_name Room extends Node
 
 var entrances: Array[Entrance];
 
