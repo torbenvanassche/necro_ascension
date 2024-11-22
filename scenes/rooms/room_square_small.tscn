@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgakhxogrjn2u"]
+[gd_scene load_steps=8 format=3 uid="uid://bgakhxogrjn2u"]
 
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_s00yc"]
 [ext_resource type="Script" path="res://scripts/levels/room.gd" id="1_tjvsl"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dk6lald65n7pa" path="res://imported_data/meshes/wall-low.glb" id="2_ee4gc"]
 [ext_resource type="PackedScene" uid="uid://cfpdbxp5m8ebg" path="res://imported_data/meshes/wall-doorway.glb" id="4_kfkm6"]
 [ext_resource type="Script" path="res://scripts/levels/entrance.gd" id="5_u0hoa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m0n5n"]
+size = Vector3(5.7, 1, 5.7)
 
 [node name="room" type="Node3D"]
 script = ExtResource("1_tjvsl")
@@ -98,3 +101,10 @@ _floor_tile = NodePath("floor-small-square18")
 
 [node name="floor-small-square18" parent="doors/wall-doorway2" instance=ExtResource("1_s00yc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59997, -4.82618e-05, -2.00272e-05)
+visible = false
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99139, 0, -1.98328)
+shape = SubResource("BoxShape3D_m0n5n")

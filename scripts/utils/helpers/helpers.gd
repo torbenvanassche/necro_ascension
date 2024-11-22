@@ -11,3 +11,6 @@ static func flatten_hierarchy(node: Node, internal: bool = false) -> Array[Node]
 		if c.get_child_count() > 0:
 			arr.append_array(flatten_hierarchy(c));
 	return arr;
+
+static func vector2_to_id(vector: Vector2) -> int:
+	return int(roundf(vector.x) * 1_000 + roundf(vector.y) + 1_000_000)
