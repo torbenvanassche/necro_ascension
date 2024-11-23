@@ -17,8 +17,7 @@ func _ready() -> void:
 		var tile: Node3D = floor_tile.instantiate();
 		add_child(tile);
 		tile.global_position = Vector3(node.x, 0, node.y)
-		
-	print(path.size())
+		tile.scale *= 0.9
 
 func find_path(pathfinder: AStar2D, start: Vector2, end: Vector2) -> PackedVector2Array:
 	# Generate IDs for the start and end positions
@@ -61,7 +60,7 @@ func connect_rooms(room1: Room, room2: Room) -> void:
 			var pos: Vector2 = Vector2(x / _floating_point_factor, y / _floating_point_factor)
 			if rooms.all(func(r: Room) -> bool: return not r.is_point_inside(Vector3(pos.x, 0, pos.y))):
 				var id: int = Helpers.vector2_to_id(pos)
-				if not pathfinder.has_point(id):  # Convert ID to integer for AStar2D
+				if not pathfinder.has_point(id): 
 					pathfinder.add_point(id, pos)
 				positions[id] = pos
 
