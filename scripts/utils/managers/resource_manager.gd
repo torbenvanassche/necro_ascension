@@ -34,7 +34,7 @@ class_name ResourceManager extends Node
 func get_unit(unit_name: String) -> UnitResource:
 	var valid_units := units.filter(func(x: UnitResource) -> bool: return x.resource_name == unit_name);
 	if valid_units.size() == 1:
-		return valid_units[0];
+		return valid_units[0]; 
 	else:
 		Debug.err("Tried to fetch a unit that doesn't exist: %s" % unit_name)
 		return null;

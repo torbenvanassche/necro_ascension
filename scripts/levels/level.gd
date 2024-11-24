@@ -28,6 +28,7 @@ func find_path(pathfinder: AStar2D, start: Vector2, end: Vector2) -> PackedVecto
 	if pathfinder.has_point(start_id) and pathfinder.has_point(end_id):
 		return pathfinder.get_point_path(start_id, end_id)
 	else:
+		print("No path found")
 		return PackedVector2Array()
 
 func connect_rooms(room1: Room, room2: Room) -> void:
