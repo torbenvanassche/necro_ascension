@@ -20,7 +20,7 @@ func _compute_cost(u: int, v: int) -> float:
 	if directions.has(u): #Check if we have previous node in dictionary
 		var previous_direction: Vector2 = directions[u] #Get direction
 		if !movement_direction.is_equal_approx(previous_direction): #If its not a match we penalize the cost
-			base_cost*=1.5
+			base_cost += 2
 	#Add visited node's direction to dictionary
 	directions[v] = movement_direction
 	
