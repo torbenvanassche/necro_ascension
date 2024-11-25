@@ -5,6 +5,7 @@ extends Node
 var pathfinder: PathGenerator;
 
 var _floating_point_factor: float = 10.0
+var path_margin: int = 2;
 
 func _ready() -> void:
 	pathfinder = PathGenerator.new()
@@ -17,7 +18,6 @@ func _ready() -> void:
 		var tile: Node3D = floor_tile.instantiate();
 		add_child(tile);
 		tile.global_position = Vector3(node.x, 0, node.y)
-		tile.scale *= 0.9
 
 func find_path(pathfinder: AStar2D, start: Vector2, end: Vector2) -> PackedVector2Array:
 	# Generate IDs for the start and end positions
@@ -40,6 +40,11 @@ func connect_rooms(room1: Room, room2: Room) -> void:
 	var end_x: float = roundf(maxf(entrance1.x, entrance2.x) * _floating_point_factor)
 	var start_y: float = roundf(minf(entrance1.y, entrance2.y) * _floating_point_factor)
 	var end_y: float = roundf(maxf(entrance1.y, entrance2.y) * _floating_point_factor)
+	
+	start_x -= path_margin * _floating_point_factor;
+	start_y -= path_margin * _floating_point_factor;
+	end_x += path_margin * _floating_point_factor;
+	end_y += path_margin * _floating_point_factor;
 
 	var positions: Dictionary = {}  # Map unique IDs to positions
 	
