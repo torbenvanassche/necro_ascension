@@ -59,18 +59,11 @@ navigation_region = NodePath("Level")
 
 [node name="Camera3D" type="Camera3D" parent="game_components/camera&lights" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 0.759271, 0.650774, 0, -0.650774, 0.759271, 1.871, 1.484, -0.47)
-visible = false
+current = true
 script = ExtResource("4_0gajg")
 target = NodePath("../../character")
 follow_speed = 10.0
 rotation_speed = 0.1
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="game_components/camera&lights"]
-transform = Transform3D(1, 0, 0, 0, 0.480147, 0.877188, 0, -0.877188, 0.480147, 0.894948, 1.56563, -0.636818)
-
-[node name="Camera3D2" type="Camera3D" parent="game_components/camera&lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7.54162, -1)
-current = true
 
 [node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("rooms")]
 navigation_mesh = SubResource("NavigationMesh_klivp")
@@ -142,6 +135,11 @@ dialogue = ExtResource("13_ligp2")
 [node name="character" parent="game_components" instance=ExtResource("2_sf220")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8713, 0.00284886, -1.8202)
 speed = 2.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="game_components/character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111315, 0.839765, -0.06558)
+light_color = Color(0.966667, 1, 0, 1)
+omni_range = 3.0
 
 [node name="unit_controller" type="Node3D" parent="game_components"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)

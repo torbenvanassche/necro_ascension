@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cylfsd42mkdps"
-path="res://.godot/imported/floor-small-square.glb-ebc88e82c0e03891c1abdaf9dd9b76ee.scn"
+uid="uid://ctj054g4dew5o"
+path="res://.godot/imported/wall_pillar.glb-0278f7702c552001d7507f8baf1debc4.scn"
 
 [deps]
 
-source_file="res://imported_data/meshes/floor-small-square.glb"
-dest_files=["res://.godot/imported/floor-small-square.glb-ebc88e82c0e03891c1abdaf9dd9b76ee.scn"]
+source_file="res://imported_data/meshes/wall_pillar.glb"
+dest_files=["res://.godot/imported/wall_pillar.glb-0278f7702c552001d7507f8baf1debc4.scn"]
 
 [params]
 
@@ -33,9 +33,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"colormap": {
+"standardSurface1": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
+"use_external/path": "res://materials/light_dither.tres"
 }
 }
 }

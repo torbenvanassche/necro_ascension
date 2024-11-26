@@ -1,8 +1,10 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://5hllkb18x5vg"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://5hllkb18x5vg"]
 
 [ext_resource type="Texture2D" uid="uid://dlhnxaw20dnge" path="res://imported_data/textures/lookup.png" id="1_ql6dh"]
+[ext_resource type="Material" uid="uid://c1vrcmhw3grx6" path="res://materials/light_dither.tres" id="2_2o020"]
 
 [resource]
+next_pass = ExtResource("2_2o020")
 albedo_texture = ExtResource("1_ql6dh")
 distance_fade_min_distance = 0.2
 distance_fade_max_distance = 5.0
