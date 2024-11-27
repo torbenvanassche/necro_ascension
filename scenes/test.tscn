@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=33 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
@@ -20,7 +20,6 @@
 [ext_resource type="Resource" uid="uid://xlmahqxgw6c0" path="res://resources/creatures/gullinbursti.tres" id="21_0r6i3"]
 [ext_resource type="Resource" uid="uid://c2x0y5phqglji" path="res://resources/creatures/nidhogg.tres" id="22_malwl"]
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="23_b83jc"]
-[ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/room_square_small.tscn" id="23_k4ojf"]
 [ext_resource type="Resource" uid="uid://bstaajitcy7es" path="res://resources/creatures/nixie.tres" id="23_kpesu"]
 [ext_resource type="Resource" uid="uid://cymc30xafeer8" path="res://resources/creatures/priest.tres" id="24_nimil"]
 [ext_resource type="Resource" uid="uid://07dwk5t2h0nv" path="res://resources/creatures/ratatoskr.tres" id="25_uh104"]
@@ -65,17 +64,10 @@ target = NodePath("../../character")
 follow_speed = 10.0
 rotation_speed = 0.1
 
-[node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("rooms")]
+[node name="Level" type="NavigationRegion3D" parent="game_components"]
 navigation_mesh = SubResource("NavigationMesh_klivp")
 script = ExtResource("23_b83jc")
-rooms = [NodePath("Node3D"), NodePath("Node3D2")]
 floor_tile = ExtResource("32_lkwvm")
-
-[node name="Node3D" parent="game_components/Level" instance=ExtResource("23_k4ojf")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.74846e-07, 0, -4)
-
-[node name="Node3D2" parent="game_components/Level" instance=ExtResource("23_k4ojf")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, -4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="game_components"]
 
@@ -137,7 +129,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8713, 0.00284886, -1.8202)
 speed = 2.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="game_components/character"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111315, 0.839765, -0.06558)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0682514, 0.839765, -0.06558)
+light_color = Color(0.801501, 0.551725, 0.68676, 1)
+light_energy = 0.482
+omni_range = 3.0
+omni_attenuation = 0.4
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="game_components/character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52283, 0.839765, -0.06558)
 light_color = Color(0.0858, 0.72215, 0.78, 1)
 light_energy = 0.482
 omni_range = 3.0
