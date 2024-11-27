@@ -138,8 +138,10 @@ speed = 2.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="game_components/character"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111315, 0.839765, -0.06558)
-light_color = Color(0.966667, 1, 0, 1)
+light_color = Color(0.0858, 0.72215, 0.78, 1)
+light_energy = 5.0
 omni_range = 3.0
+omni_attenuation = 0.4
 
 [node name="unit_controller" type="Node3D" parent="game_components"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
