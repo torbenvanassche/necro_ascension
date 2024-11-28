@@ -1,8 +1,15 @@
 extends Node
 
-var rooms: Array[Room] = [];
+@export_group("Room Options")
+@export var room_options: Array[PackedScene];
 @export var floor_tile: PackedScene
-@onready var pathfinder: PathGenerator;
+
+@export_group("Generation parameters")
+@export var level_area: AABB;
+@export var room_amount: int = 1;
+
+var rooms: Array[Room] = [];
+var pathfinder: PathGenerator;
 
 func _ready() -> void:
 	_generate_rooms();
@@ -10,7 +17,8 @@ func _ready() -> void:
 	
 #step 1: Generate rooms.
 func _generate_rooms() -> void:
-	pass
+	for i in range(room_amount):
+		print(i)
 	
 func _connect_rooms() -> void:
 	pathfinder = PathGenerator.new(rooms)
