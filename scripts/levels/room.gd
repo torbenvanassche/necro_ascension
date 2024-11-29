@@ -1,8 +1,8 @@
-class_name Room extends Node
+class_name Room extends Node3D
 
 var entrances: Array[Entrance];
 
-@onready var _no_floor_area: Area3D = $Area3D;
+@export var no_floor_area: Area3D;
 @onready var _collision_shape: CollisionShape3D = $Area3D/CollisionShape3D;
 
 var _extents: Vector3;
@@ -19,7 +19,13 @@ func get_floor_positions() -> Array[Vector3]:
 	return r_arr;
 
 func is_point_inside(point: Vector3) -> bool:
-	var local_point := _no_floor_area.to_local(point)
+	var local_point := no_floor_area.to_local(point)
 	if _collision_shape.shape is BoxShape3D:
 		return local_point.x >= _position.x - _extents.x and local_point.x <= _position.x + _extents.x and local_point.z >= _position.z - _extents.z and local_point.z <= _position.z + _extents.z
 	return false;
+	
+func is_overlapping() -> bool:
+	return no_floor_area.get_overlapping_bodies().size() > 0
+	
+func _process(_delta: float) -> void:
+	print(no_floor_area.get_overlapping_bodies().size())

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=35 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://c2x0y5phqglji" path="res://resources/creatures/nidhogg.tres" id="22_malwl"]
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="23_b83jc"]
 [ext_resource type="Resource" uid="uid://bstaajitcy7es" path="res://resources/creatures/nixie.tres" id="23_kpesu"]
+[ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/room_square_small.tscn" id="24_6rwh1"]
 [ext_resource type="Resource" uid="uid://cymc30xafeer8" path="res://resources/creatures/priest.tres" id="24_nimil"]
 [ext_resource type="Resource" uid="uid://07dwk5t2h0nv" path="res://resources/creatures/ratatoskr.tres" id="25_uh104"]
 [ext_resource type="Resource" uid="uid://crk8hsljk36b8" path="res://resources/creatures/Svartalfar.tres" id="26_ie1dr"]
@@ -39,6 +40,9 @@ agent_height = 0.2
 agent_radius = 0.2
 region_min_size = 1.0
 region_merge_size = 10.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mwqxe"]
+size = Vector3(30, 1, 30)
 
 [node name="root" type="Node"]
 
@@ -64,10 +68,23 @@ target = NodePath("../../character")
 follow_speed = 10.0
 rotation_speed = 0.1
 
-[node name="Level" type="NavigationRegion3D" parent="game_components"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="game_components/camera&lights"]
+transform = Transform3D(1, 0, 0, 0, 0.888225, 0.459409, 0, -0.459409, 0.888225, 0, 7.39252, 0)
+light_color = Color(1, 0.988, 0.82, 1)
+shadow_enabled = true
+
+[node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("level_area")]
 navigation_mesh = SubResource("NavigationMesh_klivp")
 script = ExtResource("23_b83jc")
+room_options = Array[PackedScene]([ExtResource("24_6rwh1")])
 floor_tile = ExtResource("32_lkwvm")
+level_area = NodePath("Area3D")
+room_amount = 10
+
+[node name="Area3D" type="Area3D" parent="game_components/Level"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="game_components/Level/Area3D"]
+shape = SubResource("BoxShape3D_mwqxe")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="game_components"]
 

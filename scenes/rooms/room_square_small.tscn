@@ -10,8 +10,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0n5n"]
 size = Vector3(5.7, 1, 5.7)
 
-[node name="room" type="Node3D"]
+[node name="room" type="Node3D" node_paths=PackedStringArray("no_floor_area")]
 script = ExtResource("1_tjvsl")
+no_floor_area = NodePath("Area3D")
 
 [node name="floor" type="Node3D" parent="."]
 
