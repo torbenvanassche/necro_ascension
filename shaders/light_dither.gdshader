@@ -6,6 +6,11 @@ shader_type spatial;
 uniform sampler2D DitherMap;
 
 /**
+ * The Base texture, affects how the material is visualized.
+ */
+uniform sampler2D BaseTexture;
+
+/**
  * The intensity of dithering effect, where higher values produce more visible dithering noise.
  */
 uniform float DitherStrength : hint_range(0.0, 0.5) = 0.1;
@@ -44,6 +49,12 @@ uniform float BlendStart : hint_range(0.0, 1.0) = 0.5;
  * Maximum brightness cap to control bloom intensity.
  */
 uniform float MaxBrightness : hint_range(0.0, 10.0) = 2.0;
+
+void fragment() {
+    vec4 base_texture_color = texture(BaseTexture, UV);
+    ALBEDO = base_texture_color.rgb;
+    ALPHA = base_texture_color.a;
+}
 
 void light() {
     // Base light intensity based on angle and attenuation
