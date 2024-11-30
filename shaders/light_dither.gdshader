@@ -40,6 +40,11 @@ uniform vec4 TargetColor : source_color = vec4(1.0, 1.0, 1.0, 1.0);
  */
 uniform float BlendStart : hint_range(0.0, 1.0) = 0.5;
 
+/**
+ * Maximum brightness cap to control bloom intensity.
+ */
+uniform float MaxBrightness : hint_range(0.0, 10.0) = 2.0;
+
 void light() {
     // Base light intensity based on angle and attenuation
     float light_intensity = max(0.0, dot(NORMAL, LIGHT)) * ATTENUATION;
@@ -57,6 +62,12 @@ void light() {
 
     // Quantize light intensity to the specified color depth
     light_intensity = round(light_intensity * ColorDepth) / ColorDepth;
+
+    // Clamp light intensity to control excessive brightness
+    light_intensity = min(light_intensity, MaxBrightness);
+
+    // Apply a simple tone-mapping function to compress bright values
+    light_intensity = light_intensity / (1.0 + light_intensity);
 
     // Blend light color with target color based on a smoother blend factor
     float transition = (1.0 - BlendStart);

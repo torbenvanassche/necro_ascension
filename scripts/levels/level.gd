@@ -14,7 +14,6 @@ var pathfinder: PathGenerator;
 
 func _ready() -> void:
 	_generate_rooms();
-	print(rooms)
 	_connect_rooms();
 	
 func _generate_rooms() -> void:

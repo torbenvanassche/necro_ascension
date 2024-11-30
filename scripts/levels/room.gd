@@ -26,6 +26,3 @@ func is_point_inside(point: Vector3) -> bool:
 	
 func is_overlapping() -> bool:
 	return no_floor_area.get_overlapping_bodies().size() > 0
-	
-func _process(_delta: float) -> void:
-	print(no_floor_area.get_overlapping_bodies().size())

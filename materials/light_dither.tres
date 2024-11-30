@@ -13,4 +13,5 @@ shader_parameter/FalloffStrength = 1.359
 shader_parameter/LightSaturation = 0.009
 shader_parameter/TargetColor = Color(0.207892, 0.656091, 0.732875, 1)
 shader_parameter/BlendStart = 0.456
+shader_parameter/MaxBrightness = 0.4
 shader_parameter/DitherMap = ExtResource("2_cpc0u")
