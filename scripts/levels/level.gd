@@ -29,7 +29,6 @@ func _generate_rooms() -> void:
 			room_instance.global_transform.origin = random_position
 			
 			var overlap := rooms.any(func(r: Room) -> bool: return room_instance.is_overlapping(r));
-			print(not overlap && _is_within_bounds(room_instance))
 			if not overlap and _is_within_bounds(room_instance):
 				print("attempt " + str(attempts) + " was succesful!")
 				rooms.append(room_instance)
