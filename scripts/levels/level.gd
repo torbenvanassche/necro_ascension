@@ -28,14 +28,18 @@ func _generate_rooms() -> void:
 			add_child(room_instance)
 			room_instance.global_transform.origin = random_position
 			
-			var no_overlap := rooms.all(func(r: Room) -> bool: return not room_instance.is_overlapping(r));
-			if no_overlap and _is_within_bounds(room_instance):
-				print("attempts " + str(attempts) + " was succesful!")
+			var overlap := rooms.any(func(r: Room) -> bool: return room_instance.is_overlapping(r));
+			print(not overlap && _is_within_bounds(room_instance))
+			if not overlap and _is_within_bounds(room_instance):
+				print("attempt " + str(attempts) + " was succesful!")
 				rooms.append(room_instance)
 				placed = true
 			else:
 				room_instance.queue_free()
 			attempts += 1
+			
+			if attempts == max_attempts:
+				print("generation failed.")
 	
 func _connect_rooms() -> void:
 	pathfinder = PathGenerator.new(rooms)
@@ -44,4 +48,4 @@ func _is_within_bounds(room_instance: Room) -> bool:
 	var aabb: AABB = Helpers.get_aabb(level_area)
 	var room_aabb: AABB = Helpers.get_aabb(room_instance.no_floor_area)
 	var global_room_aabb := AABB(room_instance.global_transform.origin + room_aabb.position, room_aabb.size)
-	return aabb.encloses(global_room_aabb)
+	return aabb.intersects(global_room_aabb)

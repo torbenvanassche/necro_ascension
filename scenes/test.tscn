@@ -42,7 +42,7 @@ region_min_size = 1.0
 region_merge_size = 10.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mwqxe"]
-size = Vector3(30, 10, 30)
+size = Vector3(10, 20, 10)
 
 [node name="root" type="Node"]
 
@@ -79,18 +79,13 @@ script = ExtResource("23_b83jc")
 room_options = Array[PackedScene]([ExtResource("24_6rwh1")])
 floor_tile = ExtResource("32_lkwvm")
 level_area = NodePath("Area3D")
-room_amount = 4
+room_amount = 10
+max_attempts = 20
 
 [node name="Area3D" type="Area3D" parent="game_components/Level"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="game_components/Level/Area3D"]
 shape = SubResource("BoxShape3D_mwqxe")
-
-[node name="room" parent="game_components/Level" instance=ExtResource("24_6rwh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
-
-[node name="room2" parent="game_components/Level" instance=ExtResource("24_6rwh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="game_components"]
 
