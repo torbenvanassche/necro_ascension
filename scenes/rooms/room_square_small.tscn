@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scripts/levels/entrance.gd" id="5_u0hoa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0n5n"]
-size = Vector3(5.7, 1, 5.7)
+size = Vector3(5.7, 2, 5.7)
 
 [node name="room" type="Node3D" node_paths=PackedStringArray("no_floor_area")]
 script = ExtResource("1_tjvsl")
@@ -107,5 +107,5 @@ visible = false
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99139, 0, -1.98328)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99139, 0.5, -1.98328)
 shape = SubResource("BoxShape3D_m0n5n")

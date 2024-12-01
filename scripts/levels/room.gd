@@ -5,6 +5,8 @@ var entrances: Array[Entrance];
 @export var no_floor_area: Area3D;
 @onready var _collision_shape: CollisionShape3D = $Area3D/CollisionShape3D;
 
+var _overlap_count: int = 0;
+
 var _extents: Vector3;
 var _position: Vector3;
 
@@ -24,5 +26,8 @@ func is_point_inside(point: Vector3) -> bool:
 		return local_point.x >= _position.x - _extents.x and local_point.x <= _position.x + _extents.x and local_point.z >= _position.z - _extents.z and local_point.z <= _position.z + _extents.z
 	return false;
 	
-func is_overlapping() -> bool:
-	return no_floor_area.get_overlapping_bodies().size() > 0
+func is_overlapping(other_room: Room) -> bool:
+	var aabb: AABB = Helpers.get_aabb(no_floor_area)
+	var room_aabb: AABB = Helpers.get_aabb(other_room.no_floor_area)
+	var global_room_aabb := AABB(other_room.global_transform.origin + room_aabb.position, room_aabb.size)
+	return aabb.intersects(global_room_aabb)

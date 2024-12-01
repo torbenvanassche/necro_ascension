@@ -15,6 +15,7 @@ var pathfinder: PathGenerator;
 func _ready() -> void:
 	_generate_rooms();
 	_connect_rooms();
+	pass
 	
 func _generate_rooms() -> void:
 	for i in range(room_amount):
@@ -26,8 +27,10 @@ func _generate_rooms() -> void:
 			
 			add_child(room_instance)
 			room_instance.global_transform.origin = random_position
-
-			if not room_instance.is_overlapping() and _is_within_bounds(room_instance):
+			
+			var no_overlap := rooms.all(func(r: Room) -> bool: return not room_instance.is_overlapping(r));
+			if no_overlap and _is_within_bounds(room_instance):
+				print("attempts " + str(attempts) + " was succesful!")
 				rooms.append(room_instance)
 				placed = true
 			else:
