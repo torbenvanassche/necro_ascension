@@ -29,4 +29,5 @@ func is_point_inside(point: Vector3) -> bool:
 func is_overlapping(other_room: Room) -> bool:
 	var aabb: AABB = Helpers.get_aabb(no_floor_area)
 	var room_aabb: AABB = Helpers.get_aabb(other_room.no_floor_area)
+	print(aabb.intersects(room_aabb))
 	return aabb.intersects(room_aabb)

@@ -42,7 +42,7 @@ region_min_size = 1.0
 region_merge_size = 10.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mwqxe"]
-size = Vector3(10, 20, 10)
+size = Vector3(25, 5, 25)
 
 [node name="root" type="Node"]
 
@@ -80,7 +80,7 @@ room_options = Array[PackedScene]([ExtResource("24_6rwh1")])
 floor_tile = ExtResource("32_lkwvm")
 level_area = NodePath("Area3D")
 room_amount = 10
-max_attempts = 20
+max_attempts = 25
 
 [node name="Area3D" type="Area3D" parent="game_components/Level"]
 

@@ -26,11 +26,11 @@ func _generate_rooms() -> void:
 			var random_position: Vector3 = Helpers.get_random_position_within_aabb(Helpers.get_aabb(level_area))
 			
 			add_child(room_instance)
-			room_instance.global_transform.origin = random_position
+			room_instance.global_position = random_position
 			
 			var overlap := rooms.any(func(r: Room) -> bool: return room_instance.is_overlapping(r));
+			print(random_position)
 			if not overlap and _is_within_bounds(room_instance):
-				print("attempt " + str(attempts) + " was succesful!")
 				rooms.append(room_instance)
 				placed = true
 			else:
