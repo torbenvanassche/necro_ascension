@@ -13,8 +13,10 @@ var rooms: Array[Room] = [];
 var pathfinder: PathGenerator;
 
 func _ready() -> void:
-	_generate_rooms();
-	_connect_rooms();
+	print($Area3D2.overlaps_area($Area3D3))
+	
+	#_generate_rooms();
+	#_connect_rooms();
 	pass
 	
 func _generate_rooms() -> void:
@@ -29,8 +31,8 @@ func _generate_rooms() -> void:
 			room_instance.global_position = random_position
 			
 			var overlap := rooms.any(func(r: Room) -> bool: return room_instance.is_overlapping(r));
-			print(random_position)
 			if not overlap and _is_within_bounds(room_instance):
+				print("generation success.")
 				rooms.append(room_instance)
 				placed = true
 			else:

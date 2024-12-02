@@ -23,7 +23,7 @@ static func vector2_to_id(vector: Vector2) -> int:
 	return unique_id
 	
 static func get_aabb(area: Area3D) -> AABB:
-	var global_aabb: AABB = AABB(Vector3.INF, Vector3(0, 0, 0))
+	var global_aabb: AABB = AABB(Vector3(0, 0, 0), Vector3(0, 0, 0))
 	
 	for child in area.get_children():
 		if child is CollisionShape3D and child.shape and child.shape is BoxShape3D:
@@ -45,9 +45,8 @@ static func _transform_aabb(aabb: AABB, transform: Transform3D) -> AABB:
 	for corner in corners:
 		mi = mi.min(corner)
 		ma = ma.max(corner)
-	
+		
 	return AABB(mi, ma - mi)
-
 	
 static func get_random_position_within_aabb(aabb: AABB) -> Vector3:
 	var min: Vector3 = aabb.position
