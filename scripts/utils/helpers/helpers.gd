@@ -29,24 +29,8 @@ static func get_aabb(area: Area3D) -> AABB:
 		if child is CollisionShape3D and child.shape and child.shape is BoxShape3D:
 			var collision_shape: CollisionShape3D = child
 			var local_aabb: AABB = Helpers.get_shape_aabb(collision_shape.shape)
-			
-			var global_transform: Transform3D = collision_shape.global_transform
-			var transformed_aabb: AABB = _transform_aabb(local_aabb, global_transform)
-			global_aabb = global_aabb.merge(transformed_aabb)
+			global_aabb = collision_shape.global_transform * local_aabb
 	return global_aabb
-	
-static func _transform_aabb(aabb: AABB, transform: Transform3D) -> AABB:
-	var corners: Array[Vector3] = []
-	for i in range(8):
-		corners.append(transform * aabb.get_endpoint(i))
-		
-	var mi: Vector3 = corners[0]
-	var ma: Vector3 = corners[0]
-	for corner in corners:
-		mi = mi.min(corner)
-		ma = ma.max(corner)
-		
-	return AABB(mi, ma - mi)
 	
 static func get_random_position_within_aabb(aabb: AABB) -> Vector3:
 	var min: Vector3 = aabb.position

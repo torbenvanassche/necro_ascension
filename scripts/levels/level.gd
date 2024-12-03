@@ -13,10 +13,8 @@ var rooms: Array[Room] = [];
 var pathfinder: PathGenerator;
 
 func _ready() -> void:
-	print($Area3D2.overlaps_area($Area3D3))
-	
-	#_generate_rooms();
-	#_connect_rooms();
+	_generate_rooms();
+	_connect_rooms();
 	pass
 	
 func _generate_rooms() -> void:

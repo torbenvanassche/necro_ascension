@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=35 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
@@ -44,8 +44,6 @@ region_merge_size = 10.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_mwqxe"]
 size = Vector3(25, 5, 25)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_p47db"]
-
 [node name="root" type="Node"]
 
 [node name="resource_manager" type="Node" parent="."]
@@ -81,24 +79,13 @@ script = ExtResource("23_b83jc")
 room_options = Array[PackedScene]([ExtResource("24_6rwh1")])
 floor_tile = ExtResource("32_lkwvm")
 level_area = NodePath("room_bounds")
-room_amount = 10
-max_attempts = 15
+room_amount = 15
+max_attempts = 30
 
 [node name="room_bounds" type="Area3D" parent="game_components/Level"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="game_components/Level/room_bounds"]
 shape = SubResource("BoxShape3D_mwqxe")
-
-[node name="Area3D2" type="Area3D" parent="game_components/Level"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game_components/Level/Area3D2"]
-shape = SubResource("BoxShape3D_p47db")
-
-[node name="Area3D3" type="Area3D" parent="game_components/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425157, 0.354679, 0.575845)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game_components/Level/Area3D3"]
-shape = SubResource("BoxShape3D_p47db")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="game_components"]
 
