@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=37 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
@@ -23,8 +23,10 @@
 [ext_resource type="Resource" uid="uid://bstaajitcy7es" path="res://resources/creatures/nixie.tres" id="23_kpesu"]
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/room_square_small.tscn" id="24_6rwh1"]
 [ext_resource type="Resource" uid="uid://cymc30xafeer8" path="res://resources/creatures/priest.tres" id="24_nimil"]
+[ext_resource type="PackedScene" uid="uid://h6s7erou5jys" path="res://scenes/rooms/room_narrow.tscn" id="25_lihcd"]
 [ext_resource type="Resource" uid="uid://07dwk5t2h0nv" path="res://resources/creatures/ratatoskr.tres" id="25_uh104"]
 [ext_resource type="Resource" uid="uid://crk8hsljk36b8" path="res://resources/creatures/Svartalfar.tres" id="26_ie1dr"]
+[ext_resource type="PackedScene" uid="uid://gugieq0u4vuu" path="res://scenes/rooms/room_L_shape.tscn" id="26_wovo4"]
 [ext_resource type="Resource" uid="uid://chxxb7d7btkmb" path="res://resources/creatures/troll.tres" id="27_dhe3e"]
 [ext_resource type="Resource" uid="uid://bes567hhyyn0f" path="res://resources/creatures/valkyrie.tres" id="28_48071"]
 [ext_resource type="Resource" uid="uid://b47eawrf10eqq" path="res://resources/creatures/witch.tres" id="29_wh41k"]
@@ -62,7 +64,7 @@ navigation_region = NodePath("Level")
 
 [node name="Camera3D" type="Camera3D" parent="game_components/camera&lights" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 0.759271, 0.650774, 0, -0.650774, 0.759271, 1.871, 1.484, -0.47)
-current = true
+visible = false
 script = ExtResource("4_0gajg")
 target = NodePath("../../character")
 follow_speed = 10.0
@@ -73,14 +75,18 @@ transform = Transform3D(1, 0, 0, 0, 0.888225, 0.459409, 0, -0.459409, 0.888225, 
 light_color = Color(1, 0.988, 0.82, 1)
 shadow_enabled = true
 
+[node name="Camera3D2" type="Camera3D" parent="game_components/camera&lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
+current = true
+
 [node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("level_area")]
 navigation_mesh = SubResource("NavigationMesh_klivp")
 script = ExtResource("23_b83jc")
-room_options = Array[PackedScene]([ExtResource("24_6rwh1")])
+room_options = Array[PackedScene]([ExtResource("24_6rwh1"), ExtResource("25_lihcd"), ExtResource("26_wovo4")])
 floor_tile = ExtResource("32_lkwvm")
 level_area = NodePath("room_bounds")
-room_amount = 15
-max_attempts = 30
+room_amount = 10
+max_attempts = 75
 
 [node name="room_bounds" type="Area3D" parent="game_components/Level"]
 
