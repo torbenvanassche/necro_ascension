@@ -6,7 +6,7 @@
       {
         "id": "225642867f710442",
         "type": "tabs",
-        "dimension": 58.22603719599428,
+        "dimension": 48.601083032490976,
         "children": [
           {
             "id": "beeda783b0f0cbae",
@@ -14,33 +14,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Prelude.md",
+                "file": "Locations/Lyngvi.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Prelude"
-            }
-          },
-          {
-            "id": "2675557469edba33",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.7.7"
-              },
-              "icon": "lucide-file",
-              "title": "Release Notes 1.7.7"
+              "title": "Lyngvi"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "a1f03ad827646464",
         "type": "tabs",
-        "dimension": 41.77396280400572,
+        "dimension": 51.398916967509024,
         "children": [
           {
             "id": "b95824511ef42c00",
@@ -208,25 +195,28 @@
       "graph:Open graph view": false
     }
   },
-  "active": "2675557469edba33",
+  "active": "b95824511ef42c00",
   "lastOpenFiles": [
+    "Locations/Lyngvi.md",
+    "Characters/Skol and Hati.md",
+    "Characters/Ratatoskr.md",
+    "Characters/Player.md",
+    "Prelude.md",
+    "Concepts/Items/Amulets.md",
+    "Characters/Nidhogg.md",
+    "Locations/Untitled.md",
+    "Locations",
     "Concepts/Seidhr.md",
     "Concepts/Yggdrasil.md",
     "Concepts/Realms/Helheim.md",
     "Concepts/Realms",
-    "Prelude.md",
-    "Characters/Player.md",
     "Concepts/Items/Staff.md",
-    "Concepts/Items/Amulets.md",
     "Concepts/Items/Ritual Dagger.md",
     "Events/Ragnarök.md",
     "Characters/Hel.md",
-    "Characters/Nidhogg.md",
-    "Characters/Ratatoskr.md",
     "Concepts/Items/Satchel.md",
     "Concepts/Stories/Nidhogg and the eagle.md",
     "Concepts/Items",
-    "Characters/Skol and Hati.md",
     "Concepts/Stories",
     "Concepts",
     "Lore items/Characters.md",
