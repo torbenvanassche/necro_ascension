@@ -64,7 +64,7 @@ navigation_region = NodePath("Level")
 
 [node name="Camera3D" type="Camera3D" parent="game_components/camera&lights" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 0.759271, 0.650774, 0, -0.650774, 0.759271, 1.871, 1.484, -0.47)
-visible = false
+current = true
 script = ExtResource("4_0gajg")
 target = NodePath("../../character")
 follow_speed = 10.0
@@ -72,12 +72,13 @@ rotation_speed = 0.1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="game_components/camera&lights"]
 transform = Transform3D(1, 0, 0, 0, 0.888225, 0.459409, 0, -0.459409, 0.888225, 0, 7.39252, 0)
+visible = false
 light_color = Color(1, 0.988, 0.82, 1)
 shadow_enabled = true
 
 [node name="Camera3D2" type="Camera3D" parent="game_components/camera&lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
-current = true
+visible = false
 
 [node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("level_area")]
 navigation_mesh = SubResource("NavigationMesh_klivp")

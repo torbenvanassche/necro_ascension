@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/player_sheet.png-2b591e6b41b330bd93b79a766a8c
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
