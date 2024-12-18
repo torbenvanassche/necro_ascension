@@ -180,7 +180,9 @@ shape = SubResource("BoxShape3D_x6clw")
 
 [node name="Sprite3D" type="Sprite3D" parent="CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0010559, 0)
-billboard = 2
+layers = 32
+shaded = true
+double_sided = false
 texture_filter = 1
 texture = ExtResource("2_vipfw")
 hframes = 4
@@ -194,6 +196,7 @@ libraries = {
 }
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231615, 0.403105, 0.0195355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.188997, 0.318751, 0.0235858)
+light_color = Color(1, 0, 0, 1)
 shadow_enabled = true
-omni_range = 3.0
+omni_range = 1.0

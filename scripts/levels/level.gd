@@ -13,8 +13,8 @@ var rooms: Array[Room] = [];
 var pathfinder: PathGenerator;
 
 func _ready() -> void:
-	_generate_rooms();
-	_connect_rooms();
+	#_generate_rooms();
+	#_connect_rooms();
 	pass
 	
 func _generate_rooms() -> void:

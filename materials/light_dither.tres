@@ -1,26 +1,20 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c1vrcmhw3grx6"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c1vrcmhw3grx6"]
 
-[ext_resource type="Shader" path="res://shaders/light_dither.gdshader" id="1_fbvwk"]
+[ext_resource type="Shader" path="res://shaders/light_dither_with_alpha.gdshader" id="1_eiwa2"]
+[ext_resource type="Texture2D" uid="uid://dlhnxaw20dnge" path="res://imported_data/textures/lookup.png" id="2_6j0fu"]
 [ext_resource type="Texture2D" uid="uid://c4kf3iiyflyfh" path="res://imported_data/textures/bayer_matrix.jpg" id="2_cpc0u"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_bijb1"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3fte0"]
-width = 1
-height = 2
-invert = true
-noise = SubResource("FastNoiseLite_bijb1")
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_fbvwk")
-shader_parameter/DitherStrength = 0.074
+shader = ExtResource("1_eiwa2")
+shader_parameter/DitherStrength = 0.059
 shader_parameter/ColorDepth = 9.171
-shader_parameter/DitherScale = 12.628
-shader_parameter/FalloffStrength = 1.359
+shader_parameter/DitherScale = 16.295
+shader_parameter/FalloffStrength = 0.1
 shader_parameter/LightSaturation = 0.009
 shader_parameter/TargetColor = Color(0.207892, 0.656091, 0.732875, 1)
-shader_parameter/BlendStart = 0.456
+shader_parameter/BlendStart = 0.37
 shader_parameter/MaxBrightness = 0.25
+shader_parameter/Transparent = true
 shader_parameter/DitherMap = ExtResource("2_cpc0u")
-shader_parameter/BaseTexture = SubResource("NoiseTexture2D_3fte0")
+shader_parameter/BaseTexture = ExtResource("2_6j0fu")
