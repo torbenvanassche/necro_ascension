@@ -1,0 +1,5 @@
+The Norns, **Urd**, **Verdandi**, and **Skuld** are the Norse equivalents of the Greek Fates, representing the past, present, and future. They live at the base of [[Yggdrasil]] and are responsible for weaving the destinies of all beings while caring for the tree. By drawing water from the **Well of Urd**, they ensure Yggdrasil stays strong, symbolizing their role in maintaining cosmic balance.
+
+At **Ragnarök**, Yggdrasil is destroyed, unraveling the threads of fate and ending the current cycle of existence. Yet, Norse myths tell of a rebirth—a new world rising from the ashes of the old. In this new cycle, the Norns continue their role, shifting from weavers of destiny to guides for survivors.
+
+They help the player rebuild and navigate the new world, offering wisdom from past cycles. Their guidance reflects the Norse belief in resilience and renewal, showing that even in destruction, there is an opportunity to create something new and meaningful.

@@ -1,1 +1,6 @@
 a serpent-like dragon that dwells around Lyngvi after leaving Niflheim. It gnaws at the roots of Yggdrasil, threatening its stability, and is often seen as a symbol of destruction and chaos. Nidhogg is also associated with the afterlife, feeding on the corpses of the wicked in Náströnd, the shore of corpses. This fearsome creature plays a pivotal role in the cosmic balance of Norse cosmology, embodying the darker forces of the mythological world.
+
+## Interaction with the player
+Nidhogg will be found on [[Lyngvi]], where the player can interact with them to unlock knowledge on how to summon some of the minions. The dragon has grown old, as it has been dictated by [[The Norns]]. This has caused its body to deteriorate and as a result, scales of the dragon have been scattered around. 
+
+The scattering of the scales has an impact on what can be encountered between the realms. The scales have been absorbed into the realms and need to be extracted from powerful beings encountered by the player. This gives us the opportunity to have bosses drop scale fragments and use those a progression system.
