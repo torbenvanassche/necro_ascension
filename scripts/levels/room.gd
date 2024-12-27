@@ -5,6 +5,9 @@ var entrances: Array[Entrance];
 var colliders: Node3D;
 var forbidden_areas: Array[Area3D];
 
+@export var decoration_options: ItemSelectorResource;
+@export var decoration_spawn_positions: Array[Node3D];
+
 func _ready() -> void:
 	colliders = get_node("collision_container");
 	forbidden_areas.assign(colliders.get_children())
