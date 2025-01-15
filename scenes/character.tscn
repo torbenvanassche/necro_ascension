@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dc1qxbru5n4ek"]
+[gd_scene load_steps=15 format=3 uid="uid://dc1qxbru5n4ek"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_0gv8e"]
 [ext_resource type="Texture2D" uid="uid://b5nxfcd6rf687" path="res://imported_data/animations/player_sheet.png" id="2_vipfw"]
+[ext_resource type="Script" path="res://scripts/runtime/dithered_sprite.gd" id="4_pgows"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6clw"]
 size = Vector3(0.425659, 0.579102, 0.360291)
@@ -179,14 +180,23 @@ shape = SubResource("BoxShape3D_x6clw")
 
 [node name="Sprite3D" type="Sprite3D" parent="CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0010559, 0)
-billboard = 2
-texture_filter = 0
+layers = 32
+shaded = true
+double_sided = false
+texture_filter = 1
 texture = ExtResource("2_vipfw")
 hframes = 4
 vframes = 4
 frame = 1
+script = ExtResource("4_pgows")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xqkoq")
 }
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.188997, 0.318751, 0.0235858)
+light_color = Color(1, 0, 0, 1)
+shadow_enabled = true
+omni_range = 1.0

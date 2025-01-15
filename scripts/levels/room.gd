@@ -1,17 +1,17 @@
-class_name Room extends Node
+class_name Room extends Node3D
 
 var entrances: Array[Entrance];
 
-@onready var _no_floor_area: Area3D = $Area3D;
-@onready var _collision_shape: CollisionShape3D = $Area3D/CollisionShape3D;
+var colliders: Node3D;
+var forbidden_areas: Array[Area3D];
 
-var _extents: Vector3;
-var _position: Vector3;
+@export var decoration_options: ItemSelectorResource;
+@export var decoration_spawn_positions: Array[Node3D];
 
 func _ready() -> void:
+	colliders = get_node("collision_container");
+	forbidden_areas.assign(colliders.get_children())
 	entrances.assign(Helpers.flatten_hierarchy(self, false).filter(func(n: Node) -> bool: return n is Entrance));
-	_extents = _collision_shape.shape.size / 2;
-	_position = _collision_shape.position;
 
 func get_floor_positions() -> Array[Vector3]:
 	var r_arr: Array[Vector3];
@@ -19,7 +19,22 @@ func get_floor_positions() -> Array[Vector3]:
 	return r_arr;
 
 func is_point_inside(point: Vector3) -> bool:
-	var local_point := _no_floor_area.to_local(point)
-	if _collision_shape.shape is BoxShape3D:
-		return local_point.x >= _position.x - _extents.x and local_point.x <= _position.x + _extents.x and local_point.z >= _position.z - _extents.z and local_point.z <= _position.z + _extents.z
+	var is_inside: bool = false;
+	for area in forbidden_areas:
+		var local_point := area.to_local(point)
+		var _collision_shape: CollisionShape3D = area.get_node("CollisionShape3D");
+		if _collision_shape.shape is BoxShape3D:
+			var _extents: Vector3 = _collision_shape.shape.size / 2;
+			var _position: Vector3 = _collision_shape.position;
+			if local_point.x >= _position.x - _extents.x and local_point.x <= _position.x + _extents.x and local_point.z >= _position.z - _extents.z and local_point.z <= _position.z + _extents.z:
+				return true;
+	return false;
+	
+func is_overlapping(other_room: Room) -> bool:
+	for area in forbidden_areas:
+		var aabb: AABB = Helpers.get_aabb(area)
+		for other_area in other_room.forbidden_areas:
+			var room_aabb: AABB = Helpers.get_aabb(other_area)
+			if aabb.intersects(room_aabb):
+				return true;
 	return false;

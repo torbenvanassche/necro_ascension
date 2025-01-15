@@ -6,3 +6,7 @@ Ratatoskr feels guilty about [[Nidhogg]] having gnawed through the world tree as
 ## Goal: Reseeding the world tree
 [[Ratatoskr]] is looking to revive the world tree so that they can travel between the branches of the realms. They are trying to achieve this by acting as a shopkeeper using seeds as currency. While Hel is responsible for him having instigated [[Nidhogg]] and getting things in motion for [[Ragnarök]], he still feels guilty and is going on a journey of redemption.
 
+## Interaction with the player
+They are still mischievous, but will aid the player as an NPC and act as the fast-travel point between the realms in later versions. This will allow players to access the different realms and levels without having to clear every level every time.
+
+

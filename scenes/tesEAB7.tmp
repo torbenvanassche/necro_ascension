@@ -42,7 +42,7 @@ region_min_size = 1.0
 region_merge_size = 10.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mwqxe"]
-size = Vector3(25, 5, 25)
+size = Vector3(30, 1, 30)
 
 [node name="root" type="Node"]
 
@@ -61,7 +61,7 @@ navigation_region = NodePath("Level")
 [node name="camera&lights" type="Node" parent="game_components"]
 
 [node name="Camera3D" type="Camera3D" parent="game_components/camera&lights" node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.759271, 0.650774, 0, -0.650774, 0.759271, -0.129, 1.55416, 1.32895)
+transform = Transform3D(1, 0, 0, 0, 0.759271, 0.650774, 0, -0.650774, 0.759271, 1.871, 1.484, -0.47)
 current = true
 script = ExtResource("4_0gajg")
 target = NodePath("../../character")
@@ -69,26 +69,21 @@ follow_speed = 10.0
 rotation_speed = 0.1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="game_components/camera&lights"]
-transform = Transform3D(0.953743, 0, 0.300623, -0.138109, 0.888225, 0.438158, -0.26702, -0.459409, 0.847139, 2.38291, 2.08883, 2.74318)
-light_energy = 0.667
+transform = Transform3D(1, 0, 0, 0, 0.888225, 0.459409, 0, -0.459409, 0.888225, 0, 7.39252, 0)
+light_color = Color(1, 0.988, 0.82, 1)
 shadow_enabled = true
-
-[node name="Camera3D2" type="Camera3D" parent="game_components/camera&lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
-visible = false
 
 [node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("level_area")]
 navigation_mesh = SubResource("NavigationMesh_klivp")
 script = ExtResource("23_b83jc")
 room_options = Array[PackedScene]([ExtResource("24_6rwh1")])
 floor_tile = ExtResource("32_lkwvm")
-level_area = NodePath("room_bounds")
+level_area = NodePath("Area3D")
 room_amount = 10
-max_attempts = 75
 
-[node name="room_bounds" type="Area3D" parent="game_components/Level"]
+[node name="Area3D" type="Area3D" parent="game_components/Level"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game_components/Level/room_bounds"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="game_components/Level/Area3D"]
 shape = SubResource("BoxShape3D_mwqxe")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="game_components"]
@@ -147,12 +142,9 @@ script = ExtResource("12_4aqmg")
 dialogue = ExtResource("13_ligp2")
 
 [node name="character" parent="game_components" instance=ExtResource("2_sf220")]
-transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.21147)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8713, 0.00284886, -1.8202)
 speed = 2.0
 
 [node name="unit_controller" type="Node3D" parent="game_components"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 script = ExtResource("32_q0hui")
-
-[node name="room" parent="game_components" instance=ExtResource("24_6rwh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32898, 0, 1.51133)
