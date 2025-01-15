@@ -1,5 +1,7 @@
 extends Node
 
+@export var starting_room: Room;
+
 @export_group("Room Options")
 @export var room_options: Array[PackedScene];
 @export var floor_tile: PackedScene
@@ -7,12 +9,12 @@ extends Node
 @export_group("Generation parameters")
 @export var level_area: Area3D;
 @export var room_amount: int = 1;
-@export var max_attempts: int = 50;
+@export var max_attempts: int = 10;
 
 var rooms: Array[Room] = [];
 var pathfinder: PathGenerator;
 	
-#function that will create and connect the rooms
+#function that will create and connect the rooms. carving; not random placing and connecting
 func _generate_rooms() -> void:
 	pass
 	
