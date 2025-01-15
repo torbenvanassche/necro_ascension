@@ -23,17 +23,17 @@ uniform float DitherScale : hint_range(1.0, 100.0) = 16.0;
 /**
  * Determines how rapidly the light intensity decreases with distance.
  */
-uniform float FalloffStrength : hint_range(0.1, 10.0) = 1.0; 
+uniform float FalloffStrength : hint_range(0.1, 10.0) = 1.0;
 
 /**
  * Controls the vibrancy of the light color before blending into the target color.
  */
-uniform float LightSaturation : hint_range(0.0, 1.0) = 1.0; 
+uniform float LightSaturation : hint_range(0.0, 1.0) = 1.0;
 
 /**
  * The target color that the light will blend into as it fades out.
  */
-uniform vec4 TargetColor : source_color = vec4(1.0, 1.0, 1.0, 1.0); 
+uniform vec4 TargetColor : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 
 /**
  * The point at which the light starts blending into the target color.
