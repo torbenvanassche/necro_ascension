@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgakhxogrjn2u"]
+[gd_scene load_steps=7 format=3 uid="uid://bgakhxogrjn2u"]
 
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="1_s00yc"]
 [ext_resource type="Script" path="res://scripts/levels/room.gd" id="1_tjvsl"]
 [ext_resource type="PackedScene" uid="uid://dkc61jqi37v3y" path="res://imported_data/meshes/wall-corner-low.glb" id="2_cgu2e"]
-[ext_resource type="PackedScene" uid="uid://dk6lald65n7pa" path="res://imported_data/meshes/wall-low.glb" id="2_ee4gc"]
 [ext_resource type="PackedScene" uid="uid://cfpdbxp5m8ebg" path="res://imported_data/meshes/wall-doorway.glb" id="4_kfkm6"]
 [ext_resource type="Script" path="res://scripts/levels/entrance.gd" id="5_u0hoa"]
 
@@ -56,12 +55,6 @@ transform = Transform3D(1, -5.9537e-05, 6.12057e-05, 5.9537e-05, 1, 6.08014e-05,
 [node name="wall-corner-low5" parent="walls" instance=ExtResource("2_cgu2e")]
 transform = Transform3D(6.11583e-05, -5.9537e-05, -1, 6.08088e-05, 1, -5.95369e-05, 1, -6.08014e-05, 6.11656e-05, 2.5, 0.000182404, -1.5)
 
-[node name="wall-low3" parent="walls" instance=ExtResource("2_ee4gc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89997, 0.000181768, -2.50003)
-
-[node name="wall-low6" parent="walls" instance=ExtResource("2_ee4gc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.50002, 0.000170879, -1.09997)
-
 [node name="doors" type="Node3D" parent="."]
 
 [node name="wall-doorway2" parent="doors" node_paths=PackedStringArray("_floor_tile") instance=ExtResource("4_kfkm6")]
@@ -70,6 +63,33 @@ script = ExtResource("5_u0hoa")
 _floor_tile = NodePath("floor-small-square18")
 
 [node name="floor-small-square18" parent="doors/wall-doorway2" instance=ExtResource("1_s00yc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59997, -4.82618e-05, -2.00272e-05)
+visible = false
+
+[node name="wall-doorway3" parent="doors" node_paths=PackedStringArray("_floor_tile") instance=ExtResource("4_kfkm6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.89997, 0.000169861, -2.50002)
+script = ExtResource("5_u0hoa")
+_floor_tile = NodePath("floor-small-square18")
+
+[node name="floor-small-square18" parent="doors/wall-doorway3" instance=ExtResource("1_s00yc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59997, -4.82618e-05, -2.00272e-05)
+visible = false
+
+[node name="wall-doorway4" parent="doors" node_paths=PackedStringArray("_floor_tile") instance=ExtResource("4_kfkm6")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 1.4998, -4.80089e-05, -3.89997)
+script = ExtResource("5_u0hoa")
+_floor_tile = NodePath("floor-small-square18")
+
+[node name="floor-small-square18" parent="doors/wall-doorway4" instance=ExtResource("1_s00yc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59997, -4.82618e-05, -2.00272e-05)
+visible = false
+
+[node name="wall-doorway5" parent="doors" node_paths=PackedStringArray("_floor_tile") instance=ExtResource("4_kfkm6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 0, -1.1)
+script = ExtResource("5_u0hoa")
+_floor_tile = NodePath("floor-small-square18")
+
+[node name="floor-small-square18" parent="doors/wall-doorway5" instance=ExtResource("1_s00yc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59997, -4.82618e-05, -2.00272e-05)
 visible = false
 

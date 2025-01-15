@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=36 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/character.tscn" id="2_sf220"]
@@ -21,7 +21,7 @@
 [ext_resource type="Resource" uid="uid://c2x0y5phqglji" path="res://resources/creatures/nidhogg.tres" id="22_malwl"]
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="23_b83jc"]
 [ext_resource type="Resource" uid="uid://bstaajitcy7es" path="res://resources/creatures/nixie.tres" id="23_kpesu"]
-[ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/room_square_small.tscn" id="24_6rwh1"]
+[ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="24_6rwh1"]
 [ext_resource type="Resource" uid="uid://cymc30xafeer8" path="res://resources/creatures/priest.tres" id="24_nimil"]
 [ext_resource type="Resource" uid="uid://07dwk5t2h0nv" path="res://resources/creatures/ratatoskr.tres" id="25_uh104"]
 [ext_resource type="Resource" uid="uid://crk8hsljk36b8" path="res://resources/creatures/Svartalfar.tres" id="26_ie1dr"]
@@ -32,6 +32,7 @@
 [ext_resource type="Resource" uid="uid://bnmdudh0i8bas" path="res://resources/units/single_ghoul.tres" id="31_n2keu"]
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="32_lkwvm"]
 [ext_resource type="Script" path="res://scripts/unit_controller.gd" id="32_q0hui"]
+[ext_resource type="PackedScene" uid="uid://chpsxu61vsu0q" path="res://scenes/rooms/unique/room_entrance_1.tscn" id="33_kw0tk"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
 cell_size = 0.05
@@ -156,3 +157,6 @@ script = ExtResource("32_q0hui")
 
 [node name="room" parent="game_components" instance=ExtResource("24_6rwh1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32898, 0, 1.51133)
+
+[node name="spawn_room" parent="." instance=ExtResource("33_kw0tk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0.5)

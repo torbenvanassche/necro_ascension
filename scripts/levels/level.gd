@@ -11,32 +11,10 @@ extends Node
 
 var rooms: Array[Room] = [];
 var pathfinder: PathGenerator;
-
-func _ready() -> void:
-	#_generate_rooms();
-	#_connect_rooms();
-	pass
 	
+#function that will create and connect the rooms
 func _generate_rooms() -> void:
-	for i in range(room_amount):
-		var attempts: int = 0
-		var placed: bool = false
-		while attempts < max_attempts and not placed:
-			var room_instance: Room = room_options.pick_random().instantiate()
-			var random_position: Vector3 = Helpers.get_random_position_within_aabb(Helpers.get_aabb(level_area))
-			var random_rotation: float = randi() % 4 * 90
-			
-			add_child(room_instance)
-			room_instance.global_position = random_position
-			room_instance.rotation_degrees.y = random_rotation
-			
-			var overlap := rooms.any(func(r: Room) -> bool: return room_instance.is_overlapping(r));
-			if not overlap and _is_within_bounds(room_instance):
-				rooms.append(room_instance)
-				placed = true
-			else:
-				room_instance.queue_free()
-			attempts += 1
+	pass
 	
 func _connect_rooms() -> void:
 	pathfinder = PathGenerator.new(rooms)
