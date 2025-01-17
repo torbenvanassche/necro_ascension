@@ -1,12 +1,14 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c1vrcmhw3grx6"]
 
-[ext_resource type="Shader" path="res://shaders/light_dither_with_alpha.gdshader" id="1_eiwa2"]
+[ext_resource type="Shader" uid="uid://cewgst0wt31xs" path="res://shaders/light_dither_with_alpha.gdshader" id="1_eiwa2"]
 [ext_resource type="Texture2D" uid="uid://dlhnxaw20dnge" path="res://imported_data/textures/lookup.png" id="2_6j0fu"]
 [ext_resource type="Texture2D" uid="uid://c4kf3iiyflyfh" path="res://imported_data/textures/bayer_matrix.jpg" id="2_cpc0u"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_eiwa2")
+shader_parameter/DitherMap = ExtResource("2_cpc0u")
+shader_parameter/BaseTexture = ExtResource("2_6j0fu")
 shader_parameter/DitherStrength = 0.059
 shader_parameter/ColorDepth = 9.171
 shader_parameter/DitherScale = 16.295
@@ -16,5 +18,3 @@ shader_parameter/TargetColor = Color(0.207892, 0.656091, 0.732875, 1)
 shader_parameter/BlendStart = 0.37
 shader_parameter/MaxBrightness = 0.25
 shader_parameter/Transparent = true
-shader_parameter/DitherMap = ExtResource("2_cpc0u")
-shader_parameter/BaseTexture = ExtResource("2_6j0fu")

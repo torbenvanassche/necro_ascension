@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://dc1qxbru5n4ek"]
 
-[ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_0gv8e"]
+[ext_resource type="Script" uid="uid://b4wkanyvxmbvk" path="res://scripts/character_controller.gd" id="1_0gv8e"]
 [ext_resource type="Texture2D" uid="uid://b5nxfcd6rf687" path="res://imported_data/animations/player_sheet.png" id="2_vipfw"]
-[ext_resource type="Script" path="res://scripts/runtime/dithered_sprite.gd" id="4_pgows"]
+[ext_resource type="Script" uid="uid://bjweuv52bjt7p" path="res://scripts/runtime/dithered_sprite.gd" id="4_pgows"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6clw"]
 size = Vector3(0.425659, 0.579102, 0.360291)
@@ -160,15 +160,15 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xqkoq"]
 _data = {
-"RESET": SubResource("Animation_gsm0w"),
-"idle_down": SubResource("Animation_hkpyr"),
-"idle_left": SubResource("Animation_2hvel"),
-"idle_right": SubResource("Animation_dpklj"),
-"idle_up": SubResource("Animation_4prnv"),
-"walk_down": SubResource("Animation_pxvfq"),
-"walk_left": SubResource("Animation_k37yr"),
-"walk_right": SubResource("Animation_m7l5t"),
-"walk_up": SubResource("Animation_k4tfo")
+&"RESET": SubResource("Animation_gsm0w"),
+&"idle_down": SubResource("Animation_hkpyr"),
+&"idle_left": SubResource("Animation_2hvel"),
+&"idle_right": SubResource("Animation_dpklj"),
+&"idle_up": SubResource("Animation_4prnv"),
+&"walk_down": SubResource("Animation_pxvfq"),
+&"walk_left": SubResource("Animation_k37yr"),
+&"walk_right": SubResource("Animation_m7l5t"),
+&"walk_up": SubResource("Animation_k4tfo")
 }
 
 [node name="character" type="CharacterBody3D"]
@@ -192,7 +192,7 @@ script = ExtResource("4_pgows")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_xqkoq")
+&"": SubResource("AnimationLibrary_xqkoq")
 }
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]

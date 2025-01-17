@@ -1,17 +1,18 @@
 [gd_scene load_steps=8 format=3 uid="uid://chpsxu61vsu0q"]
 
-[ext_resource type="Script" path="res://scripts/levels/room.gd" id="1_exqbm"]
+[ext_resource type="Script" uid="uid://3vu8c3mlwv01" path="res://scripts/levels/room.gd" id="1_exqbm"]
 [ext_resource type="PackedScene" uid="uid://cylfsd42mkdps" path="res://imported_data/meshes/floor-small-square.glb" id="2_gsvtl"]
 [ext_resource type="PackedScene" uid="uid://dkc61jqi37v3y" path="res://imported_data/meshes/wall-corner-low.glb" id="3_bxqee"]
 [ext_resource type="PackedScene" uid="uid://dk6lald65n7pa" path="res://imported_data/meshes/wall-low.glb" id="4_622oi"]
 [ext_resource type="PackedScene" uid="uid://cfpdbxp5m8ebg" path="res://imported_data/meshes/wall-doorway.glb" id="5_hwv7k"]
-[ext_resource type="Script" path="res://scripts/levels/entrance.gd" id="6_ovwwf"]
+[ext_resource type="Script" uid="uid://duwbgk002cpqu" path="res://scripts/levels/entrance.gd" id="6_ovwwf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0n5n"]
 size = Vector3(4.58893, 1, 4.60779)
 
-[node name="spawn_room" type="Node3D"]
+[node name="spawn_room" type="Node3D" node_paths=PackedStringArray("entrances")]
 script = ExtResource("1_exqbm")
+entrances = [NodePath("doors/wall-doorway2")]
 
 [node name="floor" type="Node3D" parent="."]
 

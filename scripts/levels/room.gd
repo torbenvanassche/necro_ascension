@@ -1,16 +1,20 @@
 class_name Room extends Node3D
 
-var entrances: Array[Entrance];
+@export var entrances: Array[Entrance];
 
 var colliders: Node3D;
+
+#used to define the space other rooms cannot spawn
 var forbidden_areas: Array[Area3D];
 
+#used to set options for decoration and spawn positions
 @export var decoration_options: ItemSelectorResource;
 @export var decoration_spawn_positions: Array[Node3D];
 
 func _ready() -> void:
 	colliders = get_node("collision_container");
-	forbidden_areas.assign(colliders.get_children())
+	if colliders != null:
+		forbidden_areas.assign(colliders.get_children())
 	entrances.assign(Helpers.flatten_hierarchy(self, false).filter(func(n: Node) -> bool: return n is Entrance));
 
 func get_floor_positions() -> Array[Vector3]:
@@ -19,7 +23,6 @@ func get_floor_positions() -> Array[Vector3]:
 	return r_arr;
 
 func is_point_inside(point: Vector3) -> bool:
-	var is_inside: bool = false;
 	for area in forbidden_areas:
 		var local_point := area.to_local(point)
 		var _collision_shape: CollisionShape3D = area.get_node("CollisionShape3D");
