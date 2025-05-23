@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CreatureResource" load_steps=3 format=3 uid="uid://d4juyywcf4ymp"]
 
 [ext_resource type="PackedScene" uid="uid://bsv67arenohqp" path="res://scenes/creatures/creature.tscn" id="1_x0bim"]
-[ext_resource type="Script" path="res://scripts/data/creature_resource.gd" id="2_fb3ut"]
+[ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="2_fb3ut"]
 
 [resource]
 resource_name = "ghoul"

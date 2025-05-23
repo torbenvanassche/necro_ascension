@@ -1,3 +1,0 @@
-The catastrophic end of an age—the moment where the realms unravel and ancient forces clash. It begins when [[Nidhogg]], the great dragon at [[Yggdrasil]]’s roots gnawed through the World Tree, destabilizing its branches and sending the realms into chaos. Driven by messages from [[Ratatoskr]], who was unknowingly acting under [[Hel]]’s manipulative influence, [[Nidhogg]] finally severs [[Yggdrasil]]’s life-sustaining connections.
-
-With the Tree weakened, the monstrous wolves [Skol and Hati](Skol%20and%20Hati.md) reach the moon and sun, swallowing them and plunging the world into an endless night. As the realms descend into darkness and conflict, the dead rise, and the gods themselves fall in battle.

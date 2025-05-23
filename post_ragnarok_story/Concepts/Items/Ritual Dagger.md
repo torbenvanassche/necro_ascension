@@ -1,5 +1,0 @@
-From other worlds come beasts inconceivable by the mortal mind. It was from one of these unnamable creatures that this bone knife was ripped and hewn by something not fully human, nor fully alien. 
-
-The blade, curved like a sickle, has been refined to a deadly keen on both the exterior and interior edges; coming to a point so fine that the human eye can almost feel its bite. The hilt, curved gently so that the blade angles subtly down when held in hands, is wrapped in blackened leather, dried from the skin of the countless human sacrifices the blade has claimed at the altar, and in battle. The wraps are held in place by glittering silver studs that give off an otherworldly glint, even in the lowest light. 
-
-Whispers float gently upon the air around this cursed blade, infesting and warping mortal minds, compelling them to take it up; to take their own lives with it. To sate its unending bloodlust, to commit their souls to the otherworldly forces that demand their servitude.

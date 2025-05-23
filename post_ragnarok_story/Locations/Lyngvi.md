@@ -1,7 +1,0 @@
-The island of Lyngvi is a blend of Jotunheim’s jagged cliffs and rocky terrain with Midgard’s meadows and ancient trees. Frost-covered roots twist through the rocks, and glowing cracks emit faint, spectral blue light. Shallow marshes shimmer with unearthly hues, and a perpetual mist drifts through the landscape, carrying ghostly silhouettes.
-
-A colossal bridge connects Lyngvi to Helheim, merging cracked Jotun stone, frost-covered vines, and glowing runes. Jagged ice spikes line its edges, and the closer it gets to Helheim, the darker and colder it becomes. Whispers echo faintly in the air, adding to the ominous feeling.
-
-At the far end of the bridge, massive roots rise from the frozen ground, twisting together to form a tunnel-like passage into Helheim. The roots glow faintly with blue-green light, their frost-covered surfaces etched with ancient runes. Jagged ice hangs from them, and ghostly lights drift within the tunnel, marking the boundary to the underworld.
-
-The setting is bathed in haunting twilight, where golden hues of fading light mix with stormy skies. As it nears Helheim, the light dims to a cold, spectral glow, with floating orbs and swirling mists creating an atmosphere of eerie beauty and dread.

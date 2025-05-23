@@ -1,6 +1,0 @@
-The first of the 9 realms, also the residence of the player after death. After the battle at [[Ragnarök]] the player returns to the realm to find it somewhat changed while still retaining a lot of the original features of the realm from eons past. 
-
-## Change
-This world would have a shadowy, mournful quality, always feeling a bit like twilight. Human cities would be shrouded in a gray mist, and there would be a sense of solemnity hanging over the landscape. Helheim, the realm of the dead, would lend this world a quietness, where spirits of the dead might be seen wandering. The living would be deeply spiritual, constantly reminded of the thin veil between life and death. 
-
-The landscape consists of a frozen wasteland with water in all directions.  Condemned souls are drowning in the water and Sirens can be heard singing in the distance, luring men to go into the water. The terrain is barren and sparse, with ice and permafrost covering the terrain. There are ships in the water that have gotten stuck, looking like some damned souls were trying to escape to no avail.
