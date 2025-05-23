@@ -33,9 +33,9 @@ static func get_aabb(area: Area3D) -> AABB:
 	return global_aabb
 	
 static func get_random_position_within_aabb(aabb: AABB) -> Vector3:
-	var min: Vector3 = aabb.position
-	var max: Vector3 = aabb.position + aabb.size
-	return Vector3(randi_range(int(min.x), int(max.x)), 0, randi_range(int(min.z), int(max.z)))
+	var min_value: Vector3 = aabb.position
+	var max_value: Vector3 = aabb.position + aabb.size
+	return Vector3(randi_range(int(min_value.x), int(max_value.x)), 0, randi_range(int(min_value.z), int(max_value.z)))
 	
 static func get_shape_aabb(shape: BoxShape3D) -> AABB:
 	return AABB(-shape.extents, shape.extents * 2)

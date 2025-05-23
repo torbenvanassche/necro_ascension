@@ -2,14 +2,13 @@ class_name Player
 extends CharacterBody3D
 
 #movement
-@export var speed: float = 5.0
+@export var movement_speed: float = 1.25
 
+@export_range(0.1, 1, 0.1, "Higher value means snappier rotation") var rotation_speed: float = 0.1;
 @export var camera_relative: bool = false;
-var heading: String = "down";
 
 @export var interaction_range: Area3D;
-@onready var sprite3D: Sprite3D = $CollisionShape3D/Sprite3D;
-@onready var animation_player: AnimationPlayer = $AnimationPlayer;
+@onready var animation_player: AnimationPlayer = $Necromancer/AnimationPlayer;
 var player_state: String;
 
 var current_triggers: Array[Area3D];
@@ -28,16 +27,10 @@ func _ready() -> void:
 		interaction_range.area_entered.connect(_on_enter);
 		interaction_range.area_exited.connect(_on_leave);
 		
-	if not sprite3D:
-		Debug.warn("Sprite target to animate was not defined.")
-		
-	var animations: Array[AnimationControllerState];
-	for anim_name: StringName in animation_player.get_animation_library("").get_animation_list():
-		animations.append(AnimationControllerState.new(anim_name));
-	animation_controller = AnimationMachine.new(animation_player, animations);
+	animation_controller = AnimationMachine.new(animation_player);
 
 func _physics_process(_delta: float) -> void:
-	player_state = "idle"
+	player_state = "Idle"
 	if do_processing:
 		var input_dir := Input.get_vector("left", "right", "back", "forward").normalized()
 		if camera_relative:
@@ -45,25 +38,23 @@ func _physics_process(_delta: float) -> void:
 		else:
 			direction = Vector3(input_dir.x, 0, -input_dir.y).normalized()
 		if direction:
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
+			velocity.x = direction.x * movement_speed
+			velocity.z = direction.z * movement_speed
 		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
-			velocity.z = move_toward(velocity.z, 0, speed)
+			velocity.x = move_toward(velocity.x, 0, movement_speed)
+			velocity.z = move_toward(velocity.z, 0, movement_speed)
 			
 	if velocity != Vector3.ZERO:
-		player_state = "walk";
-		if velocity.x != 0:
-			heading = "left" if direction.x < 0 else "right"
-		if velocity.z != 0:
-			heading = "up" if direction.z < 0 else "down"
+		player_state = "Running_A";
+		var target_rotation := atan2(direction.x, direction.z);
+		rotation.y = lerp_angle(rotation.y, target_rotation, rotation_speed);
 	else:
-		player_state = "idle";
+		player_state = "Idle";
 	move_and_slide();
 
-	animation_controller.animation_state = "%s_%s" % [player_state, heading];
+	animation_controller.animation_state = player_state;
 	
-func _unhandled_input(event: InputEvent) -> void:		
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		interact();
 	

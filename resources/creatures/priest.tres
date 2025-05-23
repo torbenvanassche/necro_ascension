@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CreatureResource" load_steps=2 format=3 uid="uid://cymc30xafeer8"]
-
-[ext_resource type="Script" path="res://scripts/data/creature_resource.gd" id="1_eipyk"]
-
-[resource]
-script = ExtResource("1_eipyk")
-translation_key = "Fylgja"
-role = 3
-custom_properties = {}

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CreatureResource" load_steps=2 format=3 uid="uid://b47eawrf10eqq"]
-
-[ext_resource type="Script" path="res://scripts/data/creature_resource.gd" id="1_862ms"]
-
-[resource]
-script = ExtResource("1_862ms")
-translation_key = "Elven Archer"
-role = 2
-custom_properties = {}

@@ -12,9 +12,11 @@ var animation_state: String = "":
 var state_holder: Array[AnimationControllerState];
 var current_state: AnimationControllerState;
 
-func _init(anim_player: AnimationPlayer, animation_controller_states: Array[AnimationControllerState]) -> void:
+func _init(anim_player: AnimationPlayer) -> void:
 	animation_player = anim_player;
-	state_holder = animation_controller_states
+	
+	for anim in anim_player.get_animation_list():
+		state_holder.append(AnimationControllerState.new(anim));
 	process_mode = PROCESS_MODE_INHERIT;
 		
 func get_state(state: String = animation_state) -> AnimationControllerState:

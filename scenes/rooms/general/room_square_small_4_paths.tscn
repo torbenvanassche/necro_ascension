@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bfs5n021klhng" path="res://imported_data/meshes/static/floors/floor_dirt_small_C.glb" id="2_4iyd2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0n5n"]
-size = Vector3(4.5, 2, 4.5)
+size = Vector3(7.42577, 2, 7.44308)
 
 [node name="room" type="Node3D"]
 script = ExtResource("1_tjvsl")
@@ -14,9 +14,34 @@ script = ExtResource("1_tjvsl")
 [node name="Area3D" type="Area3D" parent="collision_container"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collision_container/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39139, 0.5, -2.58328)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05596, 0.5, 1.0041)
 shape = SubResource("BoxShape3D_m0n5n")
 
 [node name="floor" type="Node3D" parent="."]
 
 [node name="floor_dirt_small_C2" parent="floor" instance=ExtResource("2_4iyd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="floor_dirt_small_C5" parent="floor" instance=ExtResource("2_4iyd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="floor_dirt_small_C3" parent="floor" instance=ExtResource("2_4iyd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="floor_dirt_small_C8" parent="floor" instance=ExtResource("2_4iyd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+
+[node name="floor_dirt_small_C9" parent="floor" instance=ExtResource("2_4iyd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="floor_dirt_small_C4" parent="floor" instance=ExtResource("2_4iyd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="floor_dirt_small_C14" parent="floor" instance=ExtResource("2_4iyd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+
+[node name="floor_dirt_small_C16" parent="floor" instance=ExtResource("2_4iyd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+
+[node name="floor_dirt_small_C17" parent="floor" instance=ExtResource("2_4iyd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
