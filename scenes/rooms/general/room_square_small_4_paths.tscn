@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgakhxogrjn2u"]
+[gd_scene load_steps=9 format=3 uid="uid://bgakhxogrjn2u"]
 
 [ext_resource type="Script" uid="uid://3vu8c3mlwv01" path="res://scripts/levels/room.gd" id="1_tjvsl"]
 [ext_resource type="PackedScene" uid="uid://bfs5n021klhng" path="res://imported_data/meshes/static/floors/floor_dirt_small_C.glb" id="2_4iyd2"]
+[ext_resource type="PackedScene" uid="uid://cxdqxroab4pjo" path="res://imported_data/meshes/static/floors/floor_dirt_small_weeds.glb" id="3_ixohj"]
+[ext_resource type="PackedScene" uid="uid://bob5rvd16gq3k" path="res://imported_data/meshes/static/floors/floor_dirt_large_rocky.glb" id="4_d6uqw"]
+[ext_resource type="PackedScene" uid="uid://87pahmcc6lak" path="res://imported_data/meshes/static/floors/floor_dirt_small_B.glb" id="5_mm3un"]
+[ext_resource type="PackedScene" uid="uid://iq6estmg6xj6" path="res://imported_data/meshes/static/floors/floor_dirt_large.glb" id="6_fti5j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0n5n"]
-size = Vector3(7.42577, 2, 7.44308)
+size = Vector3(9.39953, 2, 9.46129)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_act6e"]
+size = Vector3(8, 0.1, 8)
 
 [node name="room" type="Node3D"]
 script = ExtResource("1_tjvsl")
@@ -14,34 +21,33 @@ script = ExtResource("1_tjvsl")
 [node name="Area3D" type="Area3D" parent="collision_container"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collision_container/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05596, 0.5, 1.0041)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0690798, 0.5, -0.00500333)
 shape = SubResource("BoxShape3D_m0n5n")
 
 [node name="floor" type="Node3D" parent="."]
 
-[node name="floor_dirt_small_C2" parent="floor" instance=ExtResource("2_4iyd2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+[node name="floor_dirt_small_C4" parent="floor" instance=ExtResource("2_4iyd2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 1)
 
-[node name="floor_dirt_small_C5" parent="floor" instance=ExtResource("2_4iyd2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+[node name="floor_dirt_small_C10" parent="floor" instance=ExtResource("2_4iyd2")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 3)
 
-[node name="floor_dirt_small_C3" parent="floor" instance=ExtResource("2_4iyd2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
-
-[node name="floor_dirt_small_C8" parent="floor" instance=ExtResource("2_4iyd2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
-
-[node name="floor_dirt_small_C9" parent="floor" instance=ExtResource("2_4iyd2")]
+[node name="floor_dirt_small_weeds2" parent="floor" instance=ExtResource("3_ixohj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
 
-[node name="floor_dirt_small_C4" parent="floor" instance=ExtResource("2_4iyd2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+[node name="floor_dirt_large_rocky2" parent="floor" instance=ExtResource("4_d6uqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
 
-[node name="floor_dirt_small_C14" parent="floor" instance=ExtResource("2_4iyd2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+[node name="floor_dirt_large_rocky3" parent="floor" instance=ExtResource("4_d6uqw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, -2)
 
-[node name="floor_dirt_small_C16" parent="floor" instance=ExtResource("2_4iyd2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+[node name="floor_dirt_small_B2" parent="floor" instance=ExtResource("5_mm3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
 
-[node name="floor_dirt_small_C17" parent="floor" instance=ExtResource("2_4iyd2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
+[node name="floor_dirt_large2" parent="floor" instance=ExtResource("6_fti5j")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, 2)
+
+[node name="floor_collider" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_collider"]
+shape = SubResource("BoxShape3D_act6e")

@@ -16,5 +16,5 @@ enum Role{
 
 func validate() -> bool:
 	_setup();
-	is_valid = (resource_name != "") && (translation_key != "") && (creature != null) && (role != Role.NONE);
+	is_valid = translation_key != "" && creature != null && role != Role.NONE;
 	return is_valid;
