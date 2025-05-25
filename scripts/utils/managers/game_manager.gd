@@ -10,6 +10,7 @@ var scroll_in_use: bool = false;
 @export var resource_manager: ResourceManager;
 @export var unit_controller: UnitController;
 @export var navigation_region: NavigationRegion3D;
+@export var cursor_list: Dictionary[String, Texture2D];
 
 signal input_mode_changed(is_keyboard: bool);
 var input_mode_is_keyboard: bool = true:
@@ -33,3 +34,7 @@ func pause(pause_game: bool = !get_tree().paused) -> void:
 	get_tree().paused = pause_game
 	if pause_game:
 		SceneManager.instance.set_active_scene("paused", SceneConfig.new(false));
+		
+func set_cursor(cursor: String) -> void:
+	if cursor_list.has(cursor):
+		Input.set_custom_mouse_cursor(cursor_list[cursor]);

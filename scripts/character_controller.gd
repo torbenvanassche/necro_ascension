@@ -12,12 +12,12 @@ var player_state: String;
 
 var current_triggers: Array[Area3D];
 var do_processing: bool = true;
-var can_transform: bool = false;
 
 var direction: Vector3 = Vector3.ZERO;
 
 var animation_controller: AnimationMachine;
 var unit_controller: UnitController = UnitController.new();
+@onready var creature_container: Node = $creature_holder;
 
 func _init() -> void:
 	Manager.instance.player = self;
@@ -33,8 +33,12 @@ func _ready() -> void:
 func _setup_animations() -> void:
 	animation_controller.add_state(AnimationControllerState.new("idle_&_walk", "parameters/idle_walk_blend/blend_position", AnimationControllerState.StateType.BLEND))
 	animation_controller.add_state(AnimationControllerState.new("summon", "parameters/summon/request", AnimationControllerState.StateType.ONESHOT))
+	animation_controller.add_state(AnimationControllerState.new("attack_melee", "parameters/attack_melee/request", AnimationControllerState.StateType.ONESHOT))
 	
-	animation_controller.add_callback("summon", func() -> void: print("summon complete"));
+	animation_controller.add_callback("attack_melee", update_movement.bind(true));
+	
+func update_movement(b: bool) -> void:
+	do_processing = b;
 
 func _physics_process(delta: float) -> void:
 	player_state = "idle"
@@ -44,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		direction = Vector3(input_dir.x, 0, -input_dir.y).normalized()
 	
-	if direction:
+	if direction && do_processing:
 		velocity.x = direction.x * movement_speed
 		velocity.z = direction.z * movement_speed
 		
@@ -68,8 +72,7 @@ func _physics_process(delta: float) -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		animation_controller.one_shot("summon");
-		#interact();
+		interact();
 	
 func interact() -> void:
 	if current_triggers.size() != 0:

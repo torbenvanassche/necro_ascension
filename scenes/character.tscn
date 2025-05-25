@@ -1,11 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://dc1qxbru5n4ek"]
+[gd_scene load_steps=14 format=3 uid="uid://dc1qxbru5n4ek"]
 
 [ext_resource type="Script" uid="uid://b4wkanyvxmbvk" path="res://scripts/character_controller.gd" id="1_0gv8e"]
 [ext_resource type="PackedScene" uid="uid://b82435qvhgiy4" path="res://imported_data/meshes/animated/Necromancer.glb" id="2_rkhd4"]
+[ext_resource type="PackedScene" uid="uid://bkcvgrk6qj3v2" path="res://imported_data/meshes/animated/other/Skeleton_Staff.glb" id="3_lrhn5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrhn5"]
 radius = 0.166496
 height = 0.583245
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_rkhd4"]
+fadein_time = 0.1
+fadeout_time = 0.1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dp8ca"]
+animation = &"2H_Melee_Attack_Chop"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rkhd4"]
 animation = &"Idle"
@@ -30,15 +38,19 @@ blend_point_2/pos = -1.0
 animation = &"Spellcast_Raise"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0lw5n"]
-graph_offset = Vector2(-498, -15)
+graph_offset = Vector2(-539.091, 14.8182)
+nodes/attack_melee/node = SubResource("AnimationNodeOneShot_rkhd4")
+nodes/attack_melee/position = Vector2(460, 160)
+nodes/attack_melee_anim/node = SubResource("AnimationNodeAnimation_dp8ca")
+nodes/attack_melee_anim/position = Vector2(180, 340)
 nodes/idle_walk_blend/node = SubResource("AnimationNodeBlendSpace1D_dp8ca")
-nodes/idle_walk_blend/position = Vector2(60, 20)
-nodes/output/position = Vector2(580, 100)
+nodes/idle_walk_blend/position = Vector2(-20, 20)
+nodes/output/position = Vector2(780, 40)
 nodes/summon/node = SubResource("AnimationNodeOneShot_0lw5n")
-nodes/summon/position = Vector2(320, 60)
+nodes/summon/position = Vector2(200, 40)
 nodes/summon_anim/node = SubResource("AnimationNodeAnimation_2cgup")
-nodes/summon_anim/position = Vector2(60, 220)
-node_connections = [&"output", 0, &"summon", &"summon", 0, &"idle_walk_blend", &"summon", 1, &"summon_anim"]
+nodes/summon_anim/position = Vector2(-20, 220)
+node_connections = [&"attack_melee", 0, &"summon", &"attack_melee", 1, &"attack_melee_anim", &"output", 0, &"attack_melee", &"summon", 0, &"idle_walk_blend", &"summon", 1, &"summon_anim"]
 
 [node name="character" type="CharacterBody3D"]
 script = ExtResource("1_0gv8e")
@@ -51,7 +63,7 @@ shape = SubResource("CapsuleShape3D_lrhn5")
 [node name="Necromancer" parent="." instance=ExtResource("2_rkhd4")]
 
 [node name="Skeleton3D" parent="Necromancer/Rig" index="0"]
-bones/1/position = Vector3(0, 0.196032, 0)
+bones/1/position = Vector3(0, 0.194045, 0)
 bones/1/rotation = Quaternion(-1.11123e-10, 0.0431578, 2.57241e-09, 0.999068)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/rotation = Quaternion(-6.93889e-18, 1.42109e-14, 9.86076e-32, 1)
@@ -59,46 +71,46 @@ bones/2/scale = Vector3(1, 1, 1)
 bones/3/rotation = Quaternion(8.27181e-25, 3.72529e-09, -2.75506e-40, 1)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/position = Vector3(0.106004, 0.067066, 3.96498e-08)
-bones/4/rotation = Quaternion(-0.559906, -0.0608803, -0.643974, 0.517779)
+bones/4/rotation = Quaternion(-0.558653, -0.0598951, -0.64218, 0.521464)
 bones/4/scale = Vector3(0.999999, 0.999999, 1)
-bones/5/rotation = Quaternion(3.65498e-08, -4.88301e-08, -0.494719, 0.869053)
+bones/5/rotation = Quaternion(3.55814e-08, -5.86578e-08, -0.499842, 0.866116)
 bones/5/scale = Vector3(1, 0.999999, 1)
 bones/6/rotation = Quaternion(1.44633e-08, 1.26672e-08, 0.0266581, 0.999645)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(-0.321065, -0.325319, 0.145726, 0.87741)
+bones/7/rotation = Quaternion(-0.321344, -0.327752, 0.147157, 0.876163)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/position = Vector3(4.17422e-10, 0.0480626, -0.02875)
-bones/8/rotation = Quaternion(-3.6586e-09, 6.87811e-09, -0.707107, 0.707107)
+bones/8/rotation = Quaternion(0.000166214, 0.000166203, -0.706497, 0.707717)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/position = Vector3(-0.106004, 0.067066, 4.3407e-08)
-bones/9/rotation = Quaternion(-0.768256, 0.0941877, 0.503459, 0.383979)
+bones/9/rotation = Quaternion(-0.61699, 0.0798759, 0.616586, 0.482458)
 bones/9/scale = Vector3(0.999999, 0.999999, 1)
-bones/10/rotation = Quaternion(2.02852e-08, 6.39264e-08, 0.517939, 0.855417)
+bones/10/rotation = Quaternion(2.18464e-08, 4.72885e-08, 0.522816, 0.852445)
 bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(7.15194e-09, -7.34811e-09, -0.0266581, 0.999645)
+bones/11/rotation = Quaternion(-4.94615e-10, -1.45974e-08, -0.0266581, 0.999645)
 bones/11/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(-0.352221, 0.108902, -0.310808, 0.876059)
+bones/12/rotation = Quaternion(-0.319724, 0.303189, -0.228877, 0.868025)
 bones/12/scale = Vector3(1, 1, 1)
-bones/13/position = Vector3(7.03317e-09, 0.0480626, -0.02875)
-bones/13/rotation = Quaternion(1.60974e-09, -1.60973e-09, 0.707107, 0.707107)
+bones/13/position = Vector3(-7.868e-09, 0.0480626, -0.02875)
+bones/13/rotation = Quaternion(0.000466814, 0.000549835, 0.706623, 0.70759)
 bones/13/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(-5.80608e-11, -0.0313417, -1.88012e-09, 0.999509)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/position = Vector3(0.0854725, 0.0567936, 7.99705e-09)
-bones/15/rotation = Quaternion(0.993715, 0.0837146, 0.0735038, 0.0109185)
+bones/15/rotation = Quaternion(0.993298, 0.08331, 0.0747885, 0.0287347)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/rotation = Quaternion(0.195602, 6.26228e-08, -1.32239e-07, 0.980683)
+bones/16/rotation = Quaternion(0.241908, 6.34469e-08, -1.69417e-07, 0.970299)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(-0.517564, -0.209497, 0.0436549, 0.828452)
+bones/17/rotation = Quaternion(-0.541627, -0.208046, 0.0507525, 0.812884)
 bones/17/scale = Vector3(1, 1, 0.999999)
-bones/18/rotation = Quaternion(0.000111777, 0.920258, -0.391313, -2.52241e-05)
+bones/18/rotation = Quaternion(6.63434e-05, 0.920217, -0.391409, -1.49389e-05)
 bones/18/scale = Vector3(1, 0.999998, 1)
 bones/19/position = Vector3(-0.0854725, 0.0567937, 7.78775e-09)
-bones/19/rotation = Quaternion(0.997322, -0.0294574, 0.0315293, 0.0590483)
+bones/19/rotation = Quaternion(0.996419, -0.0301902, 0.0311787, 0.0725663)
 bones/19/scale = Vector3(1, 1, 1)
-bones/20/rotation = Quaternion(0.274008, -6.38135e-08, 1.92761e-07, 0.961727)
+bones/20/rotation = Quaternion(0.308781, -6.392e-08, 2.14703e-07, 0.951133)
 bones/20/scale = Vector3(1, 1, 1)
-bones/21/rotation = Quaternion(-0.559039, 0.114513, -0.00862766, 0.82115)
+bones/21/rotation = Quaternion(-0.57753, 0.11426, -0.0115403, 0.808252)
 bones/21/scale = Vector3(1, 1, 0.999999)
 bones/22/rotation = Quaternion(-8.93315e-05, 0.920222, -0.391398, 2.03357e-05)
 bones/22/scale = Vector3(1, 0.999998, 1)
@@ -127,21 +139,33 @@ bones/35/rotation = Quaternion(1, 6.04583e-09, 7.05515e-08, 4.56448e-16)
 bones/36/rotation = Quaternion(1.00614e-16, -6.74098e-17, -1.57416e-08, 1)
 bones/36/scale = Vector3(1, 1, 1)
 bones/37/rotation = Quaternion(-0.707107, -7.27951e-08, -7.27951e-08, 0.707107)
-bones/38/position = Vector3(0.26042, 0.394156, -0.0288187)
+bones/38/position = Vector3(0.26042, 0.393125, -0.0288187)
 bones/38/rotation = Quaternion(0.794627, -1.11759e-07, 0.607098, -5.96046e-08)
-bones/39/position = Vector3(-0.226754, 0.359257, -0.29443)
 bones/39/rotation = Quaternion(-0.707107, -7.27951e-08, -7.27951e-08, 0.707107)
-bones/40/position = Vector3(-0.255422, 0.394156, 0.0298685)
+bones/40/position = Vector3(-0.255422, 0.393124, 0.0298685)
 bones/40/rotation = Quaternion(-0.758253, -1.52737e-07, 0.651961, -1.11759e-08)
 bones/40/scale = Vector3(1, 1, 1)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Necromancer/Rig/Skeleton3D" index="7"]
+transform = Transform3D(0.262863, -6.55651e-07, 0.964833, 2.38419e-07, -0.999999, 3.57628e-07, 0.964832, -1.49012e-07, -0.262864, 0.281591, 0.365528, -0.0166602)
+bone_name = "hand.l"
+bone_idx = 7
+
+[node name="Skeleton_Staff2" parent="Necromancer/Rig/Skeleton3D/BoneAttachment3D" instance=ExtResource("3_lrhn5")]
+transform = Transform3D(0.0961868, 0.995225, 0.0165718, -0.974616, 0.0907872, 0.204646, 0.202165, -0.0358354, 0.978696, -0.00145842, 0.0663107, -0.00500413)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Necromancer")
 tree_root = SubResource("AnimationNodeBlendTree_0lw5n")
 anim_player = NodePath("../Necromancer/AnimationPlayer")
+parameters/attack_melee/active = false
+parameters/attack_melee/internal_active = false
+parameters/attack_melee/request = 0
 parameters/idle_walk_blend/blend_position = 0.0
 parameters/summon/active = false
 parameters/summon/internal_active = false
 parameters/summon/request = 0
+
+[node name="creature_holder" type="Node" parent="."]
 
 [editable path="Necromancer"]

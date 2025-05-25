@@ -13,7 +13,9 @@ func _init(anim_tree: AnimationTree) -> void:
 	animation_tree.animation_finished.connect(_on_animation_completed)
 	
 func _on_animation_completed(anim_name: String) -> void:
-	search_state_by_meta("animation_name", anim_name).execute_anim_ended();
+	var state := search_state_by_meta("animation_name", anim_name);
+	if state:
+		state.execute_anim_ended();
 	
 func add_state(state: AnimationControllerState) -> void:
 	_state_holder.append(state);
@@ -48,3 +50,5 @@ func one_shot(state: String) -> void:
 	var s := get_state(state);
 	if s.state_type == AnimationControllerState.StateType.ONESHOT:
 		animation_tree.set(s.blend_path, true);
+	else:
+		Debug.message("Animation %s is not a one-shot." % s.state_name)
