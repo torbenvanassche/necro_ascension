@@ -32,11 +32,13 @@ func _ready() -> void:
 	
 func _setup_animations() -> void:
 	animation_controller.add_state(AnimationControllerState.new("IWR", "parameters/IWR/blend_position", AnimationControllerState.StateType.BLEND))
-	animation_controller.add_state(AnimationControllerState.new("attack_swing", "2H_Melee_Attack_Slice", AnimationControllerState.StateType.STATE))
+	animation_controller.add_state(AnimationControllerState.new("attack_chop", "2H_Melee_Attack_Slice", AnimationControllerState.StateType.STATE))
 	animation_controller.add_state(AnimationControllerState.new("summon", "Spellcast_Summon", AnimationControllerState.StateType.STATE))
+	animation_controller.add_state(AnimationControllerState.new("interact", "Interact", AnimationControllerState.StateType.STATE))
 
-	animation_controller.add_animation_end_callback("2H_Melee_Attack_Slice", update_movement.bind(true));
-	animation_controller.add_animation_end_callback("Spellcast_Summon", update_movement.bind(true));
+	animation_controller.add_animation_end_callback(animation_controller.get_state("attack_chop").blend_path, update_movement.bind(true));
+	animation_controller.add_animation_end_callback(animation_controller.get_state("summon").blend_path, update_movement.bind(true));
+	animation_controller.add_animation_end_callback(animation_controller.get_state("interact").blend_path, update_movement.bind(true));
 	
 func update_movement(b: bool) -> void:
 	do_processing = b;
@@ -61,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	var horizontal_speed := Vector3(velocity.x, 0, velocity.z).length();
-	animation_controller.blend_state("IWR", clampf(horizontal_speed / movement_speed, 0.0, 1.0), delta)
+	animation_controller.blend_state("IWR", clampf(horizontal_speed, 0.0, 2.0), delta)
 
 	if horizontal_speed > 0.1:
 		player_state = "running"
@@ -78,7 +80,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func interact() -> void:
 	if current_triggers.size() != 0:
 		if current_triggers[0].has_method("on_interact"):
+			animation_controller.set_state_on_machine("interact");
 			current_triggers[0].on_interact();
+			do_processing = false;
 	
 func sort_areas_by_distance() -> void:
 	current_triggers.sort_custom(func(a: Node3D, b: Node3D) -> float: return global_position.distance_squared_to(a.global_position) > global_position.distance_squared_to(b.global_position));
