@@ -1,24 +1,4 @@
-@tool
 class_name ResourceManager extends Node
-
-@export var populate: bool:
-	set(value):
-		creatures.clear();
-		items.clear();
-		populate = value;
-		
-		#creatures
-		var creature_paths := FileUtils.get_resource_paths("resources/creatures");
-		for path in creature_paths:
-			var r := ResourceLoader.load("res://" + path);
-			creatures.append(r)
-			
-		#items
-		var item_paths := FileUtils.get_resource_paths("resources/items");
-		for path in item_paths:
-			var r := ResourceLoader.load("res://" + path);
-			items.append(r)
-		notify_property_list_changed()
 
 @export var creatures: Array[CreatureResource];
 @export var items: Array[ItemResource];

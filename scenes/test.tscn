@@ -38,7 +38,6 @@ size = Vector3(25, 5, 25)
 
 [node name="resource_manager" type="Node" parent="."]
 script = ExtResource("12_qwovd")
-populate = true
 creatures = Array[ExtResource("2_7mbro")]([ExtResource("3_ff6ho")])
 
 [node name="game_components" type="Node" parent="." node_paths=PackedStringArray("resource_manager", "navigation_region")]

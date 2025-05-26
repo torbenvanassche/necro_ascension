@@ -31,11 +31,12 @@ func _ready() -> void:
 	_setup_animations()
 	
 func _setup_animations() -> void:
-	animation_controller.add_state(AnimationControllerState.new("idle_&_walk", "parameters/idle_walk_blend/blend_position", AnimationControllerState.StateType.BLEND))
-	animation_controller.add_state(AnimationControllerState.new("summon", "parameters/summon/request", AnimationControllerState.StateType.ONESHOT))
-	animation_controller.add_state(AnimationControllerState.new("attack_melee", "parameters/attack_melee/request", AnimationControllerState.StateType.ONESHOT))
-	
-	animation_controller.add_callback("attack_melee", update_movement.bind(true));
+	animation_controller.add_state(AnimationControllerState.new("IWR", "parameters/IWR/blend_position", AnimationControllerState.StateType.BLEND))
+	animation_controller.add_state(AnimationControllerState.new("attack_swing", "2H_Melee_Attack_Slice", AnimationControllerState.StateType.STATE))
+	animation_controller.add_state(AnimationControllerState.new("summon", "Spellcast_Summon", AnimationControllerState.StateType.STATE))
+
+	animation_controller.add_animation_end_callback("2H_Melee_Attack_Slice", update_movement.bind(true));
+	animation_controller.add_animation_end_callback("Spellcast_Summon", update_movement.bind(true));
 	
 func update_movement(b: bool) -> void:
 	do_processing = b;
@@ -60,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	var horizontal_speed := Vector3(velocity.x, 0, velocity.z).length();
-	animation_controller.blend_state("idle_&_walk", clampf(horizontal_speed / movement_speed, 0.0, 1.0), delta)
+	animation_controller.blend_state("IWR", clampf(horizontal_speed / movement_speed, 0.0, 1.0), delta)
 
 	if horizontal_speed > 0.1:
 		player_state = "running"

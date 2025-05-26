@@ -6,12 +6,13 @@ class_name AnimationControllerState extends Resource
 @export var blend_smooth_speed: float = 10.0
 var state_type: StateType = StateType.NONE;
 var blend_value: float = 0.0;
-var animation_ended_callables: Array[Callable];
 
 enum StateType {
 	NONE,
 	BLEND,
-	ONESHOT
+	ONESHOT,
+	TRANSITION,
+	STATE
 }
 
 func _init(id: String, blend_key: String, type: StateType) -> void:
@@ -23,7 +24,3 @@ func set_blend_value(target: float, delta: float) -> float:
 	if state_type == StateType.BLEND:
 		blend_value = lerp(blend_value, target, blend_smooth_speed * delta)
 	return blend_value;
-
-func execute_anim_ended() -> void:
-	for c: Callable in animation_ended_callables:
-		c.call();

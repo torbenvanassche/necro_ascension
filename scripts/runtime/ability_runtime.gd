@@ -25,6 +25,6 @@ func execute(options: Dictionary = {}) -> void:
 	if not cooldown_timer.is_stopped():
 		return;
 	
-	_action.execute(options);
-	executed.emit();
-	cooldown_timer.start()
+	if _action.execute(options):
+		executed.emit();
+		cooldown_timer.start()

@@ -6,33 +6,48 @@ var animation_tree: AnimationTree
 var animation_state: String = "";
 var _state_holder: Array[AnimationControllerState]
 var current_state: AnimationControllerState
+var anim_state: AnimationNodeStateMachinePlayback;
+
+var _on_end_callbacks: Dictionary[String, Array];
 
 func _init(anim_tree: AnimationTree) -> void:
 	animation_tree = anim_tree
 	animation_player = anim_tree.get_node(anim_tree.anim_player)
 	animation_tree.animation_finished.connect(_on_animation_completed)
+	anim_state = animation_tree.get("parameters/playback");
 	
 func _on_animation_completed(anim_name: String) -> void:
-	var state := search_state_by_meta("animation_name", anim_name);
-	if state:
-		state.execute_anim_ended();
+	if _on_end_callbacks.has(anim_name):
+		for c: Callable in _on_end_callbacks[anim_name]:
+			c.call();
 	
 func add_state(state: AnimationControllerState) -> void:
 	_state_holder.append(state);
 	
-func add_callback(state: String, c: Callable) -> void:
-	var s := get_state(state);
-	s.set_meta("animation_name", get_animation_name_from_node("%s_anim" % s.state_name));
-	s.animation_ended_callables.append(c);
+func add_animation_end_callback(animation_name: String, c: Callable) -> void:
+	if animation_tree.has_animation(animation_name):
+		if _on_end_callbacks.has(animation_name):
+			_on_end_callbacks[animation_name].append(c);
+		else:
+			_on_end_callbacks.set(animation_name, [c])
 	
 func get_animation_name_from_node(node_name: String) -> String:
-	return (animation_tree.tree_root.get_node(node_name) as AnimationNodeAnimation).animation;
+	var anim_node: AnimationRootNode = animation_tree.tree_root.get_node(node_name);
+	if anim_node && anim_node is AnimationNodeAnimation:
+		return anim_node.animation;
+	else:
+		return "";
 	
 func search_state_by_meta(meta_id: String, to_match: Variant) -> AnimationControllerState:
 	for s in _state_holder:
 		if s.has_meta(meta_id) && s.get_meta(meta_id) == to_match:
 			return s;
 	return null;
+	
+func set_state_on_machine(state: String) -> void:
+	var s := get_state(state);
+	if s && s.state_type == AnimationControllerState.StateType.STATE:
+		anim_state.travel(s.blend_path)
 
 func get_state(state: String = animation_state) -> AnimationControllerState:
 	var items := _state_holder.filter(func(x: AnimationControllerState) -> bool: return x.state_name == state)
@@ -52,3 +67,8 @@ func one_shot(state: String) -> void:
 		animation_tree.set(s.blend_path, true);
 	else:
 		Debug.message("Animation %s is not a one-shot." % s.state_name)
+		
+func simple_transition(state: String, transition_to: String) -> void:
+	var s := get_state(state);
+	if s.state_type == AnimationControllerState.StateType.TRANSITION:
+		animation_tree.set(s.blend_path, transition_to)
