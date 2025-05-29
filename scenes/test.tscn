@@ -21,7 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="24_6rwh1"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
-cell_size = 0.05
+vertices = PackedVector3Array(-5.07898, 0.07, -2.23867, -5.07898, 0.07, 5.26133, 2.42102, 0.07, 5.26133, 2.42102, 0.07, -2.23867)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_parsed_geometry_type = 1
 cell_height = 0.01
 agent_height = 0.2
 agent_radius = 0.2
@@ -68,12 +70,14 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
 visible = false
 
-[node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("level_area")]
+[node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("starting_room", "level_area")]
 navigation_mesh = SubResource("NavigationMesh_klivp")
 script = ExtResource("23_b83jc")
+starting_room = NodePath("rooms/spawn_room")
 room_options = Array[PackedScene]([ExtResource("24_6rwh1")])
 floor_tile = SubResource("Resource_ghpyy")
 level_area = NodePath("room_bounds")
+room_amount = 0
 
 [node name="room_bounds" type="Area3D" parent="game_components/Level"]
 

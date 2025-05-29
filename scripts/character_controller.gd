@@ -16,8 +16,7 @@ var do_processing: bool = true;
 var direction: Vector3 = Vector3.ZERO;
 
 var animation_controller: AnimationMachine;
-var unit_controller: UnitController = UnitController.new();
-@onready var creature_container: Node = $creature_holder;
+@onready var creature_controller: CreatureController = CreatureController.new($creature_holder);
 
 func _init() -> void:
 	Manager.instance.player = self;
@@ -32,7 +31,7 @@ func _ready() -> void:
 	
 func _setup_animations() -> void:
 	animation_controller.add_state(AnimationControllerState.new("IWR", "parameters/IWR/blend_position", AnimationControllerState.StateType.BLEND))
-	animation_controller.add_state(AnimationControllerState.new("attack_chop", "2H_Melee_Attack_Slice", AnimationControllerState.StateType.STATE))
+	animation_controller.add_state(AnimationControllerState.new("attack_chop", "2H_Melee_Attack_Chop", AnimationControllerState.StateType.STATE))
 	animation_controller.add_state(AnimationControllerState.new("summon", "Spellcast_Summon", AnimationControllerState.StateType.STATE))
 	animation_controller.add_state(AnimationControllerState.new("interact", "Interact", AnimationControllerState.StateType.STATE))
 
