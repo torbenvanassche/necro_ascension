@@ -8,7 +8,8 @@ func execute(options: Dictionary = {}) -> bool:
 		Manager.instance.player.animation_controller.set_state_on_machine("summon");
 		var skeleton_instance: Skeleton = skeleton.creature.instantiate();
 		skeleton_instance.data = skeleton;
-		Manager.instance.player.creature_controller.add_unit(skeleton_instance);
+		if not Manager.instance.player.creature_controller.add_creature(skeleton_instance):
+			return false;
 		skeleton_instance.position = ray_result.position;
 		return true;
 	return false;

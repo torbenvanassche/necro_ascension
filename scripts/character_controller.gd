@@ -16,7 +16,7 @@ var do_processing: bool = true;
 var direction: Vector3 = Vector3.ZERO;
 
 var animation_controller: AnimationMachine;
-@onready var creature_controller: CreatureController = CreatureController.new($creature_holder);
+@onready var creature_controller: CreatureController = $creature_holder;
 
 func _init() -> void:
 	Manager.instance.player = self;
