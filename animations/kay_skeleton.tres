@@ -1,0 +1,196 @@
+[gd_resource type="AnimationLibrary" load_steps=96 format=3 uid="uid://b827a18iq2vj4"]
+
+[ext_resource type="Animation" uid="uid://b08xeumcvj3g7" path="res://animations/imported/1H_Melee_Attack_Chop.res" id="1_m0s0l"]
+[ext_resource type="Animation" uid="uid://dxt3ek3br8x8" path="res://animations/imported/1H_Melee_Attack_Jump_Chop.res" id="2_6lnuv"]
+[ext_resource type="Animation" uid="uid://cn8vaegpn0nb4" path="res://animations/imported/1H_Melee_Attack_Slice_Diagonal.res" id="3_3wfw0"]
+[ext_resource type="Animation" uid="uid://di2vaphmht1g5" path="res://animations/imported/1H_Melee_Attack_Slice_Horizontal.res" id="4_m7vkm"]
+[ext_resource type="Animation" uid="uid://6rgvac7c4lrq" path="res://animations/imported/1H_Melee_Attack_Stab.res" id="5_36kv2"]
+[ext_resource type="Animation" uid="uid://c7hxbosi4m64l" path="res://animations/imported/1H_Ranged_Aiming.res" id="6_3p4wl"]
+[ext_resource type="Animation" uid="uid://b7h0gj55d5f55" path="res://animations/imported/1H_Ranged_Reload.res" id="7_53q5k"]
+[ext_resource type="Animation" uid="uid://bq6lq5xrbtj3n" path="res://animations/imported/1H_Ranged_Shoot.res" id="8_jr3sn"]
+[ext_resource type="Animation" uid="uid://7y8kbdhqi7lq" path="res://animations/imported/1H_Ranged_Shooting.res" id="9_u0inh"]
+[ext_resource type="Animation" uid="uid://dlfyt17u8akua" path="res://animations/imported/2H_Melee_Attack_Chop.res" id="10_lkbla"]
+[ext_resource type="Animation" uid="uid://cipx4pjruai82" path="res://animations/imported/2H_Melee_Attack_Slice.res" id="11_njxl7"]
+[ext_resource type="Animation" uid="uid://blliioyh8e55j" path="res://animations/imported/2H_Melee_Attack_Spin.res" id="12_f7r18"]
+[ext_resource type="Animation" uid="uid://bv66odeoi16uk" path="res://animations/imported/2H_Melee_Attack_Spinning.res" id="13_g1c40"]
+[ext_resource type="Animation" uid="uid://c77nbke8v1xtj" path="res://animations/imported/2H_Melee_Attack_Stab.res" id="14_mfytb"]
+[ext_resource type="Animation" uid="uid://bgocrlgmi2c13" path="res://animations/imported/2H_Melee_Idle.res" id="15_d0qt4"]
+[ext_resource type="Animation" uid="uid://d1pfofppgfyp8" path="res://animations/imported/2H_Ranged_Aiming.res" id="16_7bkhu"]
+[ext_resource type="Animation" uid="uid://cgmogvp5duwew" path="res://animations/imported/2H_Ranged_Reload.res" id="17_ji7cl"]
+[ext_resource type="Animation" uid="uid://b5obojng0vnsh" path="res://animations/imported/2H_Ranged_Shoot.res" id="18_68tdb"]
+[ext_resource type="Animation" uid="uid://bm2qi04diwwng" path="res://animations/imported/2H_Ranged_Shooting.res" id="19_cj2t3"]
+[ext_resource type="Animation" uid="uid://dkvwlhsb867ib" path="res://animations/imported/Block.res" id="20_6mxwo"]
+[ext_resource type="Animation" uid="uid://bgf3tq6dje4vi" path="res://animations/imported/Block_Attack.res" id="21_13lgx"]
+[ext_resource type="Animation" uid="uid://xsdc0o2nq8w1" path="res://animations/imported/Block_Hit.res" id="22_odwro"]
+[ext_resource type="Animation" uid="uid://bbo3l5pl8leam" path="res://animations/imported/Blocking.res" id="23_dlscx"]
+[ext_resource type="Animation" uid="uid://bpg41egxnybj4" path="res://animations/imported/Cheer.res" id="24_scoi2"]
+[ext_resource type="Animation" uid="uid://dmmu1sg4ai8l7" path="res://animations/imported/Death_A.res" id="25_hf107"]
+[ext_resource type="Animation" uid="uid://ba1kgsilwf07i" path="res://animations/imported/Death_A_Pose.res" id="26_f8slp"]
+[ext_resource type="Animation" uid="uid://bjs05wpoqve3b" path="res://animations/imported/Death_B.res" id="27_0c45k"]
+[ext_resource type="Animation" uid="uid://7jyb1vcogxvn" path="res://animations/imported/Death_B_Pose.res" id="28_42pq1"]
+[ext_resource type="Animation" uid="uid://b27jso5xpdiiy" path="res://animations/imported/Death_C_Pose.res" id="29_ob3b5"]
+[ext_resource type="Animation" uid="uid://dvsdjipgfl4e0" path="res://animations/imported/Death_C_Skeletons.res" id="30_hwvw0"]
+[ext_resource type="Animation" uid="uid://bic2cdw8r8884" path="res://animations/imported/Death_C_Skeletons_Resurrect.res" id="31_ae6m3"]
+[ext_resource type="Animation" uid="uid://dspr6fwy5xeqm" path="res://animations/imported/Dodge_Backward.res" id="32_ewrsy"]
+[ext_resource type="Animation" uid="uid://do288p1p0hrkm" path="res://animations/imported/Dodge_Forward.res" id="33_2gxkj"]
+[ext_resource type="Animation" uid="uid://djwmohfm0rbpq" path="res://animations/imported/Dodge_Left.res" id="34_bpcdp"]
+[ext_resource type="Animation" uid="uid://ceby64prfgyvm" path="res://animations/imported/Dodge_Right.res" id="35_25tn7"]
+[ext_resource type="Animation" uid="uid://xd1mshbbj81v" path="res://animations/imported/Dualwield_Melee_Attack_Chop.res" id="36_6ml5w"]
+[ext_resource type="Animation" uid="uid://c5smqiaer7w7k" path="res://animations/imported/Dualwield_Melee_Attack_Slice.res" id="37_7i7wn"]
+[ext_resource type="Animation" uid="uid://gexo3mnwjwtx" path="res://animations/imported/Dualwield_Melee_Attack_Stab.res" id="38_nx7b1"]
+[ext_resource type="Animation" uid="uid://b3i34e8pm87aa" path="res://animations/imported/Hit_A.res" id="39_fq7x4"]
+[ext_resource type="Animation" uid="uid://b0m5lfrbkxi83" path="res://animations/imported/Hit_B.res" id="40_ojya4"]
+[ext_resource type="Animation" uid="uid://c8eoinfrd3lev" path="res://animations/imported/Idle.res" id="41_xw6ym"]
+[ext_resource type="Animation" uid="uid://ctyi1u32ew3gl" path="res://animations/imported/Idle_B.res" id="42_li30k"]
+[ext_resource type="Animation" uid="uid://b4q1xxbad5auo" path="res://animations/imported/Idle_Combat.res" id="43_3f8ts"]
+[ext_resource type="Animation" uid="uid://buugvbs008m80" path="res://animations/imported/Interact.res" id="44_2if42"]
+[ext_resource type="Animation" uid="uid://cfry7rsj1naup" path="res://animations/imported/Jump_Full_Long.res" id="45_aswe8"]
+[ext_resource type="Animation" uid="uid://dfy5r88s4enqr" path="res://animations/imported/Jump_Full_Short.res" id="46_lombw"]
+[ext_resource type="Animation" uid="uid://bximrphxe5rcm" path="res://animations/imported/Jump_Idle.res" id="47_jcg61"]
+[ext_resource type="Animation" uid="uid://c1ugb0jl0lh8a" path="res://animations/imported/Jump_Land.res" id="48_ba2bc"]
+[ext_resource type="Animation" uid="uid://cp21f6fgyjw7o" path="res://animations/imported/Jump_Start.res" id="49_ivhe2"]
+[ext_resource type="Animation" uid="uid://b6xx7dlgge64o" path="res://animations/imported/Lie_Down.res" id="50_vk4xe"]
+[ext_resource type="Animation" uid="uid://c67kis61hi11o" path="res://animations/imported/Lie_Idle.res" id="51_ggm5b"]
+[ext_resource type="Animation" uid="uid://dvre0vrwank4k" path="res://animations/imported/Lie_Pose.res" id="52_t6buo"]
+[ext_resource type="Animation" uid="uid://br1xejm78gh2w" path="res://animations/imported/Lie_StandUp.res" id="53_25u4q"]
+[ext_resource type="Animation" uid="uid://b2e6o5ba88nfs" path="res://animations/imported/PickUp.res" id="54_nehxu"]
+[ext_resource type="Animation" uid="uid://bw6jpo6db37ej" path="res://animations/imported/Running_A.res" id="55_g5y63"]
+[ext_resource type="Animation" uid="uid://b6mpppvjsrm3q" path="res://animations/imported/Running_B.res" id="56_u4lu6"]
+[ext_resource type="Animation" uid="uid://dsmdaxxkdhgug" path="res://animations/imported/Running_C.res" id="57_crtsi"]
+[ext_resource type="Animation" uid="uid://b2f2j212j55wr" path="res://animations/imported/Running_Strafe_Left.res" id="58_fo0p6"]
+[ext_resource type="Animation" uid="uid://cct4gnatuya34" path="res://animations/imported/Running_Strafe_Right.res" id="59_yqwhk"]
+[ext_resource type="Animation" uid="uid://crjh06ok5u7x1" path="res://animations/imported/Sit_Chair_Down.res" id="60_4nwdp"]
+[ext_resource type="Animation" uid="uid://jorw0ksr7jy8" path="res://animations/imported/Sit_Chair_Idle.res" id="61_qi8wj"]
+[ext_resource type="Animation" uid="uid://c88pm1qjt8pga" path="res://animations/imported/Sit_Chair_Pose.res" id="62_vysol"]
+[ext_resource type="Animation" uid="uid://bmhwixtur3ek7" path="res://animations/imported/Sit_Chair_StandUp.res" id="63_t287e"]
+[ext_resource type="Animation" uid="uid://bvnkqtkfx5nvv" path="res://animations/imported/Sit_Floor_Down.res" id="64_ue2aj"]
+[ext_resource type="Animation" uid="uid://b65tgh5g1dcpg" path="res://animations/imported/Sit_Floor_Idle.res" id="65_1evei"]
+[ext_resource type="Animation" uid="uid://c6wpx71bc56kg" path="res://animations/imported/Sit_Floor_Pose.res" id="66_j61pf"]
+[ext_resource type="Animation" uid="uid://c0cdi4wmsala5" path="res://animations/imported/Sit_Floor_StandUp.res" id="67_ugrmw"]
+[ext_resource type="Animation" uid="uid://c7stetjvi7gw3" path="res://animations/imported/Skeleton_Inactive_Standing_Pose.res" id="68_osmwt"]
+[ext_resource type="Animation" uid="uid://bxwmbl03bwvh2" path="res://animations/imported/Skeletons_Awaken_Floor.res" id="69_ao1kg"]
+[ext_resource type="Animation" uid="uid://bk26cl11f0van" path="res://animations/imported/Skeletons_Awaken_Floor_Long.res" id="70_tc0jy"]
+[ext_resource type="Animation" uid="uid://wic7kpja5cmf" path="res://animations/imported/Skeletons_Awaken_Standing.res" id="71_jgofa"]
+[ext_resource type="Animation" uid="uid://n77fcejr0iu6" path="res://animations/imported/Skeletons_Inactive_Floor_Pose.res" id="72_q0d7w"]
+[ext_resource type="Animation" uid="uid://3q7ns36gkt5p" path="res://animations/imported/Spawn_Air.res" id="73_e5a6n"]
+[ext_resource type="Animation" uid="uid://ctpsi8148gwjo" path="res://animations/imported/Spawn_Ground.res" id="74_sywfs"]
+[ext_resource type="Animation" uid="uid://w64d01wqlyh7" path="res://animations/imported/Spawn_Ground_Skeletons.res" id="75_dkdur"]
+[ext_resource type="Animation" uid="uid://2wtgcobu6kpj" path="res://animations/imported/Spellcast_Long.res" id="76_817rx"]
+[ext_resource type="Animation" uid="uid://c4gh4y4t1ylcu" path="res://animations/imported/Spellcast_Raise.res" id="77_10nti"]
+[ext_resource type="Animation" uid="uid://bbjxmqyra6j7b" path="res://animations/imported/Spellcast_Shoot.res" id="78_3qcgm"]
+[ext_resource type="Animation" uid="uid://b3cj7t6nwtp0j" path="res://animations/imported/Spellcast_Summon.res" id="79_onthd"]
+[ext_resource type="Animation" uid="uid://du6kqainurrvt" path="res://animations/imported/Spellcasting.res" id="80_bjwiy"]
+[ext_resource type="Animation" uid="uid://dectr6g8fsosw" path="res://animations/imported/T-Pose.res" id="81_x23nb"]
+[ext_resource type="Animation" uid="uid://ctcax8f12ryjk" path="res://animations/imported/Taunt.res" id="82_6g0x8"]
+[ext_resource type="Animation" uid="uid://cssuqvkcbm5t8" path="res://animations/imported/Taunt_Longer.res" id="83_ceg1d"]
+[ext_resource type="Animation" uid="uid://bw5vmybd67vee" path="res://animations/imported/Throw.res" id="84_3vouu"]
+[ext_resource type="Animation" uid="uid://c5e0mg7opjbfi" path="res://animations/imported/Unarmed_Idle.res" id="85_oq4xf"]
+[ext_resource type="Animation" uid="uid://cuxk3urof3bix" path="res://animations/imported/Unarmed_Melee_Attack_Kick.res" id="86_t7o31"]
+[ext_resource type="Animation" uid="uid://ftu2cjjt61xg" path="res://animations/imported/Unarmed_Melee_Attack_Punch_A.res" id="87_c8w70"]
+[ext_resource type="Animation" uid="uid://bp374v33b1tax" path="res://animations/imported/Unarmed_Melee_Attack_Punch_B.res" id="88_h0bcg"]
+[ext_resource type="Animation" uid="uid://cj16ohqx45ehg" path="res://animations/imported/Unarmed_Pose.res" id="89_obt53"]
+[ext_resource type="Animation" uid="uid://cytivfvoosdq5" path="res://animations/imported/Use_Item.res" id="90_1e6tg"]
+[ext_resource type="Animation" uid="uid://hr5mp1nxwnm0" path="res://animations/imported/Walking_A.res" id="91_fxrbc"]
+[ext_resource type="Animation" uid="uid://bf2armld5gtly" path="res://animations/imported/Walking_B.res" id="92_gsa2x"]
+[ext_resource type="Animation" uid="uid://cc8kuwm6keqh0" path="res://animations/imported/Walking_Backwards.res" id="93_7s2lm"]
+[ext_resource type="Animation" uid="uid://3uowjunuaqtp" path="res://animations/imported/Walking_C.res" id="94_55iml"]
+[ext_resource type="Animation" uid="uid://bk7d2dd0rsix7" path="res://animations/imported/Walking_D_Skeletons.res" id="95_jyqbd"]
+
+[resource]
+_data = {
+&"1H_Melee_Attack_Chop": ExtResource("1_m0s0l"),
+&"1H_Melee_Attack_Jump_Chop": ExtResource("2_6lnuv"),
+&"1H_Melee_Attack_Slice_Diagonal": ExtResource("3_3wfw0"),
+&"1H_Melee_Attack_Slice_Horizontal": ExtResource("4_m7vkm"),
+&"1H_Melee_Attack_Stab": ExtResource("5_36kv2"),
+&"1H_Ranged_Aiming": ExtResource("6_3p4wl"),
+&"1H_Ranged_Reload": ExtResource("7_53q5k"),
+&"1H_Ranged_Shoot": ExtResource("8_jr3sn"),
+&"1H_Ranged_Shooting": ExtResource("9_u0inh"),
+&"2H_Melee_Attack_Chop": ExtResource("10_lkbla"),
+&"2H_Melee_Attack_Slice": ExtResource("11_njxl7"),
+&"2H_Melee_Attack_Spin": ExtResource("12_f7r18"),
+&"2H_Melee_Attack_Spinning": ExtResource("13_g1c40"),
+&"2H_Melee_Attack_Stab": ExtResource("14_mfytb"),
+&"2H_Melee_Idle": ExtResource("15_d0qt4"),
+&"2H_Ranged_Aiming": ExtResource("16_7bkhu"),
+&"2H_Ranged_Reload": ExtResource("17_ji7cl"),
+&"2H_Ranged_Shoot": ExtResource("18_68tdb"),
+&"2H_Ranged_Shooting": ExtResource("19_cj2t3"),
+&"Block": ExtResource("20_6mxwo"),
+&"Block_Attack": ExtResource("21_13lgx"),
+&"Block_Hit": ExtResource("22_odwro"),
+&"Blocking": ExtResource("23_dlscx"),
+&"Cheer": ExtResource("24_scoi2"),
+&"Death_A": ExtResource("25_hf107"),
+&"Death_A_Pose": ExtResource("26_f8slp"),
+&"Death_B": ExtResource("27_0c45k"),
+&"Death_B_Pose": ExtResource("28_42pq1"),
+&"Death_C_Pose": ExtResource("29_ob3b5"),
+&"Death_C_Skeletons": ExtResource("30_hwvw0"),
+&"Death_C_Skeletons_Resurrect": ExtResource("31_ae6m3"),
+&"Dodge_Backward": ExtResource("32_ewrsy"),
+&"Dodge_Forward": ExtResource("33_2gxkj"),
+&"Dodge_Left": ExtResource("34_bpcdp"),
+&"Dodge_Right": ExtResource("35_25tn7"),
+&"Dualwield_Melee_Attack_Chop": ExtResource("36_6ml5w"),
+&"Dualwield_Melee_Attack_Slice": ExtResource("37_7i7wn"),
+&"Dualwield_Melee_Attack_Stab": ExtResource("38_nx7b1"),
+&"Hit_A": ExtResource("39_fq7x4"),
+&"Hit_B": ExtResource("40_ojya4"),
+&"Idle": ExtResource("41_xw6ym"),
+&"Idle_B": ExtResource("42_li30k"),
+&"Idle_Combat": ExtResource("43_3f8ts"),
+&"Interact": ExtResource("44_2if42"),
+&"Jump_Full_Long": ExtResource("45_aswe8"),
+&"Jump_Full_Short": ExtResource("46_lombw"),
+&"Jump_Idle": ExtResource("47_jcg61"),
+&"Jump_Land": ExtResource("48_ba2bc"),
+&"Jump_Start": ExtResource("49_ivhe2"),
+&"Lie_Down": ExtResource("50_vk4xe"),
+&"Lie_Idle": ExtResource("51_ggm5b"),
+&"Lie_Pose": ExtResource("52_t6buo"),
+&"Lie_StandUp": ExtResource("53_25u4q"),
+&"PickUp": ExtResource("54_nehxu"),
+&"Running_A": ExtResource("55_g5y63"),
+&"Running_B": ExtResource("56_u4lu6"),
+&"Running_C": ExtResource("57_crtsi"),
+&"Running_Strafe_Left": ExtResource("58_fo0p6"),
+&"Running_Strafe_Right": ExtResource("59_yqwhk"),
+&"Sit_Chair_Down": ExtResource("60_4nwdp"),
+&"Sit_Chair_Idle": ExtResource("61_qi8wj"),
+&"Sit_Chair_Pose": ExtResource("62_vysol"),
+&"Sit_Chair_StandUp": ExtResource("63_t287e"),
+&"Sit_Floor_Down": ExtResource("64_ue2aj"),
+&"Sit_Floor_Idle": ExtResource("65_1evei"),
+&"Sit_Floor_Pose": ExtResource("66_j61pf"),
+&"Sit_Floor_StandUp": ExtResource("67_ugrmw"),
+&"Skeleton_Inactive_Standing_Pose": ExtResource("68_osmwt"),
+&"Skeletons_Awaken_Floor": ExtResource("69_ao1kg"),
+&"Skeletons_Awaken_Floor_Long": ExtResource("70_tc0jy"),
+&"Skeletons_Awaken_Standing": ExtResource("71_jgofa"),
+&"Skeletons_Inactive_Floor_Pose": ExtResource("72_q0d7w"),
+&"Spawn_Air": ExtResource("73_e5a6n"),
+&"Spawn_Ground": ExtResource("74_sywfs"),
+&"Spawn_Ground_Skeletons": ExtResource("75_dkdur"),
+&"Spellcast_Long": ExtResource("76_817rx"),
+&"Spellcast_Raise": ExtResource("77_10nti"),
+&"Spellcast_Shoot": ExtResource("78_3qcgm"),
+&"Spellcast_Summon": ExtResource("79_onthd"),
+&"Spellcasting": ExtResource("80_bjwiy"),
+&"T-Pose": ExtResource("81_x23nb"),
+&"Taunt": ExtResource("82_6g0x8"),
+&"Taunt_Longer": ExtResource("83_ceg1d"),
+&"Throw": ExtResource("84_3vouu"),
+&"Unarmed_Idle": ExtResource("85_oq4xf"),
+&"Unarmed_Melee_Attack_Kick": ExtResource("86_t7o31"),
+&"Unarmed_Melee_Attack_Punch_A": ExtResource("87_c8w70"),
+&"Unarmed_Melee_Attack_Punch_B": ExtResource("88_h0bcg"),
+&"Unarmed_Pose": ExtResource("89_obt53"),
+&"Use_Item": ExtResource("90_1e6tg"),
+&"Walking_A": ExtResource("91_fxrbc"),
+&"Walking_B": ExtResource("92_gsa2x"),
+&"Walking_Backwards": ExtResource("93_7s2lm"),
+&"Walking_C": ExtResource("94_55iml"),
+&"Walking_D_Skeletons": ExtResource("95_jyqbd")
+}
