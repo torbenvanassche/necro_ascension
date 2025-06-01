@@ -16,10 +16,3 @@ func get_item(item_name: String) -> ItemResource:
 		return valid_items[0];
 	else:
 		return null;
-		
-func _ready() -> void:
-	for c in creatures:
-		c.validate()
-		
-	for i in items:
-		i.validate();

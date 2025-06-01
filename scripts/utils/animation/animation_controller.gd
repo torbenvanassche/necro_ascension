@@ -7,11 +7,14 @@ var animation_state: String = "";
 var _state_holder: Array[AnimationControllerState]
 var current_state: AnimationControllerState
 var anim_state: AnimationNodeStateMachinePlayback;
+var animation_prefix: String;
 
 var _on_end_callbacks: Dictionary[String, Array];
 
-func _init(anim_tree: AnimationTree) -> void:
+func _init(anim_tree: AnimationTree, anim_prefix: String) -> void:
 	animation_tree = anim_tree
+	animation_prefix = anim_prefix;
+	
 	animation_player = anim_tree.get_node(anim_tree.anim_player)
 	animation_tree.animation_finished.connect(_on_animation_completed)
 	anim_state = animation_tree.get("parameters/playback");
@@ -25,11 +28,12 @@ func add_state(state: AnimationControllerState) -> void:
 	_state_holder.append(state);
 	
 func add_animation_end_callback(animation_name: String, c: Callable) -> void:
-	if animation_tree.has_animation(animation_name):
-		if _on_end_callbacks.has(animation_name):
-			_on_end_callbacks[animation_name].append(c);
+	var prefixed_name: String = "%s/%s" % [animation_prefix, animation_name];
+	if animation_tree.has_animation(prefixed_name):
+		if _on_end_callbacks.has(prefixed_name):
+			_on_end_callbacks[prefixed_name].append(c);
 		else:
-			_on_end_callbacks.set(animation_name, [c])
+			_on_end_callbacks.set(prefixed_name, [c])
 	
 func get_animation_name_from_node(node_name: String) -> String:
 	var anim_node: AnimationRootNode = animation_tree.tree_root.get_node(node_name);

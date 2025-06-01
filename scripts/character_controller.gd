@@ -7,6 +7,10 @@ extends CharacterBody3D
 @export var camera_relative: bool = false;
 
 @export var interaction_range: Area3D;
+
+@export var attack_area: Area3D;
+@export var weapon_data: WeaponResource;
+
 @onready var animation_tree: AnimationTree = $AnimationTree;
 var player_state: String;
 
@@ -18,6 +22,8 @@ var direction: Vector3 = Vector3.ZERO;
 var animation_controller: AnimationMachine;
 @onready var creature_controller: CreatureController = $creature_holder;
 
+@onready var right_hand: BoneAttachment3D = $Necromancer/Rig/Skeleton3D/BoneAttachment3D
+
 func _init() -> void:
 	Manager.instance.player = self;
 	
@@ -26,8 +32,15 @@ func _ready() -> void:
 		interaction_range.area_entered.connect(_on_enter);
 		interaction_range.area_exited.connect(_on_leave);
 		
-	animation_controller = AnimationMachine.new(animation_tree);
+	if attack_area:
+		attack_area.area_entered.connect(_on_attack_hit);
+		
+	animation_controller = AnimationMachine.new(animation_tree, "kay_skeleton");
 	_setup_animations()
+	
+	var weapon_instance: Node3D = weapon_data.weapon_scene.instantiate();
+	right_hand.add_child(weapon_instance)
+	weapon_data.apply(weapon_instance);
 	
 func _setup_animations() -> void:
 	animation_controller.add_state(AnimationControllerState.new("IWR", "parameters/IWR/blend_position", AnimationControllerState.StateType.BLEND))
@@ -97,3 +110,8 @@ func _on_leave(body: Area3D) -> void:
 	current_triggers.erase(body);
 	if body.has_method("on_area_leave"):
 		body.on_area_leave();
+		
+func _on_attack_hit(body: Area3D) -> void:
+	var enemy: CreatureInstance = body.get_parent();
+	if enemy is CreatureInstance:
+		enemy.take_damage(weapon_data.calculate_damage());

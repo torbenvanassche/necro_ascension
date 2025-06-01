@@ -148,6 +148,11 @@ secondary_action={
 
 locale/translations=PackedStringArray("res://translations/translations.en.translation", "res://translations/translations.nl.translation")
 
+[layer_names]
+
+3d_physics/layer_1="ground"
+3d_physics/layer_2="Enemy"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

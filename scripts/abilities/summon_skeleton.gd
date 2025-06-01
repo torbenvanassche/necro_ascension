@@ -11,5 +11,6 @@ func execute(options: Dictionary = {}) -> bool:
 		if not Manager.instance.player.creature_controller.add_creature(skeleton_instance):
 			return false;
 		skeleton_instance.position = ray_result.position;
+		Manager.instance.player.do_processing = false;
 		return true;
 	return false;

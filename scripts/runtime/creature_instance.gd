@@ -10,12 +10,17 @@ var player_offset: Vector3;
 var data: CreatureResource;
 var do_processing: bool = true;
 
+signal has_died();
+
+var health: float;
+
 func _ready() -> void:
-	state_controller = AnimationMachine.new($AnimationTree);
+	state_controller = AnimationMachine.new($AnimationTree, "kay_skeleton");
 	state_controller.add_state(AnimationControllerState.new("IWR", "parameters/IWR/blend_position", AnimationControllerState.StateType.BLEND))
 	
 func setup(c_data: CreatureResource, managed_position: ManagedPosition) -> void:
 	player_offset = managed_position.position;
+	health = c_data.health;
 	data = c_data;
 
 func _physics_process(delta: float) -> void:
@@ -37,3 +42,10 @@ func _physics_process(delta: float) -> void:
 	
 func update_target(target: Vector3) -> void:
 	nav_agent.target_position = NavigationServer3D.map_get_closest_point(get_world_3d().navigation_map, target)
+	
+func take_damage(f: float) -> bool:
+	health -= f;
+	if health < 0:
+		has_died.emit();
+		return true;
+	return false;

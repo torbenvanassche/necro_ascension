@@ -108,4 +108,4 @@ states/Spellcast_Summon/node = SubResource("AnimationNodeAnimation_irmqu")
 states/Spellcast_Summon/position = Vector2(738.333, -40.2044)
 states/Start/position = Vector2(13.3333, 0.444443)
 transitions = ["Start", "IWR", SubResource("AnimationNodeStateMachineTransition_7eonc"), "IWR", "Spellcast_Summon", SubResource("AnimationNodeStateMachineTransition_lagn4"), "Spellcast_Summon", "IWR", SubResource("AnimationNodeStateMachineTransition_rbud2"), "IWR", "Death_A", SubResource("AnimationNodeStateMachineTransition_vovfy"), "IWR", "Interact", SubResource("AnimationNodeStateMachineTransition_u0pwc"), "Interact", "IWR", SubResource("AnimationNodeStateMachineTransition_cicko"), "IWR", "2H_Melee_Attack_Chop", SubResource("AnimationNodeStateMachineTransition_0lw5n"), "2H_Melee_Attack_Chop", "IWR", SubResource("AnimationNodeStateMachineTransition_2cgup"), "IWR", "Spawn_Ground_Skeletons", SubResource("AnimationNodeStateMachineTransition_cw2y8"), "Spawn_Ground_Skeletons", "IWR", SubResource("AnimationNodeStateMachineTransition_yca0w")]
-graph_offset = Vector2(-323, -201)
+graph_offset = Vector2(-428, -179)
