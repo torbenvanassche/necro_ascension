@@ -22,7 +22,7 @@ var direction: Vector3 = Vector3.ZERO;
 var animation_controller: AnimationMachine;
 @onready var creature_controller: CreatureController = $creature_holder;
 
-@onready var right_hand: BoneAttachment3D = $Necromancer/Rig/Skeleton3D/BoneAttachment3D
+@onready var right_hand: BoneAttachment3D = $Necromancer/Rig/Skeleton3D/handslot_r
 
 func _init() -> void:
 	Manager.instance.player = self;
@@ -39,7 +39,7 @@ func _ready() -> void:
 	_setup_animations()
 	
 	var weapon_instance: Node3D = weapon_data.weapon_scene.instantiate();
-	right_hand.add_child(weapon_instance)
+	right_hand.get_node(weapon_data.marker_name).add_child(weapon_instance)
 	weapon_data.apply(weapon_instance);
 	
 func _setup_animations() -> void:
@@ -110,6 +110,10 @@ func _on_leave(body: Area3D) -> void:
 	current_triggers.erase(body);
 	if body.has_method("on_area_leave"):
 		body.on_area_leave();
+		
+func on_attack_start() -> void:
+	Manager.instance.player.do_processing = false;
+	Manager.instance.player.animation_controller.set_state_on_machine("attack_chop");
 		
 func _on_attack_hit(body: Area3D) -> void:
 	var enemy: CreatureInstance = body.get_parent();

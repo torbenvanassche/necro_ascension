@@ -1,15 +1,16 @@
 [gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://b3mg6ujtq84wc"]
 
 [ext_resource type="Script" uid="uid://bnecqel7vslxu" path="res://scripts/data/weapon_resource.gd" id="1_bjrac"]
-[ext_resource type="PackedScene" uid="uid://xm0lroaskskw" path="res://scenes/weapons/skeleton_staff.tscn" id="2_mawiu"]
+[ext_resource type="PackedScene" uid="uid://bb5ego5v23vuo" path="res://scenes/weapons/weapon_scenes/skeleton_staff_weapon.tscn" id="2_mawiu"]
 
 [resource]
 script = ExtResource("1_bjrac")
+marker_name = "marker_2h"
 weapon_type = 2
 weapon_scene = ExtResource("2_mawiu")
-weapon_position = null
+weapon_position = Vector3(0, 0, 0)
 weapon_rotation = Vector3(0, 180, 0)
-damage = null
-translation_key_name = null
-translation_key_description = null
+damage = 1.0
+translation_key_name = ""
+translation_key_description = ""
 metadata/_custom_type_script = "uid://bnecqel7vslxu"

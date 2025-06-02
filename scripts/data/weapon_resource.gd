@@ -6,6 +6,7 @@ enum Type {
 	STAFF
 }
 
+@export var marker_name: String;
 @export var weapon_type: Type = Type.INVALID;
 @export var weapon_scene: PackedScene;
 @export var weapon_position: Vector3 = Vector3.ZERO

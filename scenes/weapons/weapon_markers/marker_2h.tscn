@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvwxiskfe4uvo"]
+
+[ext_resource type="Script" uid="uid://16xd0nprw7xc" path="res://scripts/animation_helpers/weapon_helper.gd" id="1_godl4"]
+
+[node name="Marker3D" type="Marker3D"]
+script = ExtResource("1_godl4")
