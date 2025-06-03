@@ -152,8 +152,3 @@ dialogue = ExtResource("13_ligp2")
 
 [node name="character" parent="game_components" instance=ExtResource("2_sf220")]
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.21147)
-
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, 0.532899, 1.46181)
-collision_layer = 3
-collision_mask = 3

@@ -152,6 +152,8 @@ locale/translations=PackedStringArray("res://translations/translations.en.transl
 
 3d_physics/layer_1="ground"
 3d_physics/layer_2="Enemy"
+3d_physics/layer_3="minion"
+avoidance/layer_4="player"
 
 [rendering]
 

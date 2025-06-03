@@ -72,7 +72,7 @@ func one_shot(state: String) -> void:
 	else:
 		Debug.message("Animation %s is not a one-shot." % s.state_name)
 		
-func simple_transition(state: String, transition_to: String) -> void:
+func set_parameter(state: String, value: Variant) -> void:
 	var s := get_state(state);
-	if s.state_type == AnimationControllerState.StateType.TRANSITION:
-		animation_tree.set(s.blend_path, transition_to)
+	if s.state_type == AnimationControllerState.StateType.PARAMETER:
+		animation_tree.set(s.blend_path, value)

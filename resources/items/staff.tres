@@ -5,12 +5,13 @@
 
 [resource]
 script = ExtResource("1_bjrac")
-marker_name = "marker_2h"
 weapon_type = 2
+damage = 1.0
+attack_speed = 0.1
+marker_name = "marker_2h"
 weapon_scene = ExtResource("2_mawiu")
 weapon_position = Vector3(0, 0, 0)
 weapon_rotation = Vector3(0, 180, 0)
-damage = 1.0
 translation_key_name = ""
 translation_key_description = ""
 metadata/_custom_type_script = "uid://bnecqel7vslxu"

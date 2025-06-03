@@ -11,8 +11,8 @@ enum StateType {
 	NONE,
 	BLEND,
 	ONESHOT,
-	TRANSITION,
-	STATE
+	STATE,
+	PARAMETER
 }
 
 func _init(id: String, blend_key: String, type: StateType) -> void:

@@ -17,6 +17,7 @@ var health: float;
 func _ready() -> void:
 	state_controller = AnimationMachine.new($AnimationTree, "kay_skeleton");
 	state_controller.add_state(AnimationControllerState.new("IWR", "parameters/IWR/blend_position", AnimationControllerState.StateType.BLEND))
+	nav_agent.velocity_computed.connect(_on_velocity_computed);
 	
 func setup(c_data: CreatureResource, managed_position: ManagedPosition) -> void:
 	player_offset = managed_position.position;
@@ -25,19 +26,21 @@ func setup(c_data: CreatureResource, managed_position: ManagedPosition) -> void:
 
 func _physics_process(delta: float) -> void:
 	update_target(Manager.instance.player.global_position + player_offset)
-	if global_position.distance_to(nav_agent.target_position) > 0.05  && data && do_processing:
+	if data && do_processing:
 		var curr_location := global_transform.origin;
 		var next_location := nav_agent.get_next_path_position()
 		var new_vel := (next_location - curr_location).normalized() * data.move_speed;
-		velocity = velocity.move_toward(new_vel, 0.25);
+		nav_agent.set_velocity(new_vel);
 		move_and_slide()
-	else:
-		velocity = Vector3.ZERO;
+	
+func _on_velocity_computed(safe_velocity: Vector3) -> void:
+	if global_position.distance_to(nav_agent.target_position) > 0.05:
+		velocity = safe_velocity;
+	
+	var horizontal_speed := Vector3(safe_velocity.x, 0, safe_velocity.z).length();
+	state_controller.blend_state("IWR", clampf(horizontal_speed, 0.0, 2.0), get_physics_process_delta_time())
 		
-	var horizontal_speed := Vector3(velocity.x, 0, velocity.z).length();
-	state_controller.blend_state("IWR", clampf(horizontal_speed, 0.0, 2.0), delta)
-		
-	var target_rotation := atan2(velocity.x, velocity.z);
+	var target_rotation := atan2(safe_velocity.x, safe_velocity.z);
 	rotation.y = lerp_angle(rotation.y, target_rotation, rotation_speed);
 	
 func update_target(target: Vector3) -> void:

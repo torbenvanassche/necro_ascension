@@ -44,6 +44,7 @@ func _ready() -> void:
 	
 func _setup_animations() -> void:
 	animation_controller.add_state(AnimationControllerState.new("IWR", "parameters/IWR/blend_position", AnimationControllerState.StateType.BLEND))
+	animation_controller.add_state(AnimationControllerState.new("speed_2h", "parameters/2H_Melee_Attack_Chop/atk_speed/scale", AnimationControllerState.StateType.PARAMETER))
 	animation_controller.add_state(AnimationControllerState.new("attack_chop", "2H_Melee_Attack_Chop", AnimationControllerState.StateType.STATE))
 	animation_controller.add_state(AnimationControllerState.new("summon", "Spellcast_Summon", AnimationControllerState.StateType.STATE))
 	animation_controller.add_state(AnimationControllerState.new("interact", "Interact", AnimationControllerState.StateType.STATE))
@@ -112,8 +113,9 @@ func _on_leave(body: Area3D) -> void:
 		body.on_area_leave();
 		
 func on_attack_start() -> void:
-	Manager.instance.player.do_processing = false;
-	Manager.instance.player.animation_controller.set_state_on_machine("attack_chop");
+	do_processing = false;
+	animation_controller.set_parameter("speed_2h", weapon_data.attack_speed)
+	animation_controller.set_state_on_machine("attack_chop");
 		
 func _on_attack_hit(body: Area3D) -> void:
 	var enemy: CreatureInstance = body.get_parent();
