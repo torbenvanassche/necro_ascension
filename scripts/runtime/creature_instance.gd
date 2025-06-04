@@ -31,11 +31,13 @@ func _physics_process(delta: float) -> void:
 		var next_location := nav_agent.get_next_path_position()
 		var new_vel := (next_location - curr_location).normalized() * data.move_speed;
 		nav_agent.set_velocity(new_vel);
-		move_and_slide()
 	
 func _on_velocity_computed(safe_velocity: Vector3) -> void:
 	if global_position.distance_to(nav_agent.target_position) > 0.05:
 		velocity = safe_velocity;
+	else:
+		velocity = Vector3.ZERO;
+	move_and_slide()
 	
 	var horizontal_speed := Vector3(safe_velocity.x, 0, safe_velocity.z).length();
 	state_controller.blend_state("IWR", clampf(horizontal_speed, 0.0, 2.0), get_physics_process_delta_time())
