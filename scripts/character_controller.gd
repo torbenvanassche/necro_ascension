@@ -4,6 +4,8 @@ extends CharacterBody3D
 @export var movement_speed: float = 1.25
 @export_range(0.1, 1, 0.1, "Higher value means snappier rotation") var rotation_speed: float = 0.1;
 
+@onready var body_parts: BodyPartReceiver = $Necromancer/Rig/Skeleton3D;
+
 @export var camera_relative: bool = false;
 
 @export var interaction_range: Area3D;
