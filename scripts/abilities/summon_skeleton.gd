@@ -2,7 +2,7 @@ extends Node
 
 var skeleton: CreatureResource = preload("res://resources/creatures/skeleton_minion.tres");
 
-func execute(options: Dictionary = {}) -> bool:
+func execute(_options: Dictionary = {}) -> bool:
 	var ray_result: Dictionary = Manager.instance.camera.get_ray_hit_from_screen_point();
 	if ray_result != {}:
 		Manager.instance.player.animation_controller.set_state_on_machine("summon");

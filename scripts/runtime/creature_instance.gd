@@ -24,7 +24,7 @@ func setup(c_data: CreatureResource, managed_position: ManagedPosition) -> void:
 	health = c_data.health;
 	data = c_data;
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	update_target(Manager.instance.player.global_position + player_offset)
 	if data && do_processing:
 		var curr_location := global_transform.origin;
