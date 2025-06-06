@@ -25,6 +25,7 @@ var animation_controller: AnimationMachine;
 @onready var creature_controller: CreatureController = $creature_holder;
 
 @onready var right_hand: BoneAttachment3D = $Necromancer/Rig/Skeleton3D/handslot_r
+@onready var look_at: LookAtModifier3D = $Necromancer/Rig/Skeleton3D/LookAtModifier3D;
 
 func _init() -> void:
 	Manager.instance.player = self;
