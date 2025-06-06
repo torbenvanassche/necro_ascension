@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=24 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="2_7mbro"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="2_sf220"]
 [ext_resource type="Resource" uid="uid://cxlhmwa4m8lf1" path="res://resources/creatures/skeleton_minion.tres" id="3_ff6ho"]
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
+[ext_resource type="PackedScene" uid="uid://crmy26pc60dws" path="res://body_part_containers/skeleton_minion_parts.tscn" id="4_c6rvn"]
 [ext_resource type="Texture2D" uid="uid://clg2jhyukgw88" path="res://sprites/cursor_none.png" id="5_daiq8"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
 [ext_resource type="Texture2D" uid="uid://c1cs43s558l6u" path="res://sprites/target_round_b.png" id="6_c6rvn"]
@@ -41,6 +42,9 @@ size = Vector3(25, 5, 25)
 [node name="resource_manager" type="Node" parent="."]
 script = ExtResource("12_qwovd")
 creatures = Array[ExtResource("2_7mbro")]([ExtResource("3_ff6ho")])
+packed_donors = Dictionary[String, PackedScene]({
+"skeleton_minion": ExtResource("4_c6rvn")
+})
 
 [node name="game_components" type="Node" parent="." node_paths=PackedStringArray("resource_manager", "navigation_region")]
 script = ExtResource("1_qqdqb")

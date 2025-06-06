@@ -44,6 +44,8 @@ func _ready() -> void:
 	right_hand.get_node(weapon_data.marker_name).add_child(weapon_instance)
 	weapon_data.apply(weapon_instance);
 	
+	body_parts.replace_mesh_instance(body_parts.get_node("Necromancer_ArmLeft"), Manager.instance.resource_manager.get_donor("skeleton_minion").get_part("ArmLeft"))
+	
 func _setup_animations() -> void:
 	animation_controller.add_state(AnimationControllerState.new("IWR", "parameters/IWR/blend_position", AnimationControllerState.StateType.BLEND))
 	animation_controller.add_state(AnimationControllerState.new("speed_2h", "parameters/2H_Melee_Attack_Chop/atk_speed/scale", AnimationControllerState.StateType.PARAMETER))
