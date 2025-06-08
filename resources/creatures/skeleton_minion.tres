@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CreatureResource" load_steps=3 format=3 uid="uid://cxlhmwa4m8lf1"]
 
 [ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="1_3va5h"]
-[ext_resource type="PackedScene" uid="uid://bsv67arenohqp" path="res://scenes/creatures/skeleton_minion.tscn" id="1_ny2ym"]
+[ext_resource type="PackedScene" uid="uid://bsv67arenohqp" path="res://scripts/body_parts/skeleton_minion.tscn" id="1_ny2ym"]
 
 [resource]
 script = ExtResource("1_3va5h")
