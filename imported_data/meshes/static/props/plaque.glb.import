@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bdhmju5pm10f"
-path="res://.godot/imported/ribcage.glb-1adb60a5c2857eaf23ea817eab07100c.scn"
+uid="uid://33l3tyif0v2i"
+path="res://.godot/imported/plaque.glb-ee6651ff8a046bd31e80e05eabe7a975.scn"
 
 [deps]
 
-source_file="res://imported_data/meshes/static/props/temp/ribcage.glb"
-dest_files=["res://.godot/imported/ribcage.glb-1adb60a5c2857eaf23ea817eab07100c.scn"]
+source_file="res://imported_data/meshes/static/props/plaque.glb"
+dest_files=["res://.godot/imported/plaque.glb-ee6651ff8a046bd31e80e05eabe7a975.scn"]
 
 [params]
 
@@ -34,15 +34,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"colormap": {
+"HalloweenBits": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
-}
-},
-"nodes": {
-"PATH:floor-small-square": {
-"generate/physics": true,
-"physics/shape_type": 0
+"use_external/path": "uid://clt2ntg7pohmn"
 }
 }
 }

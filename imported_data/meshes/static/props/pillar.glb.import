@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c63bnvxcuqxwx"
-path="res://.godot/imported/sign_left.glb-651f359df22aca0ee5216fd7591e9d20.scn"
+uid="uid://cnphvbkwos0lb"
+path="res://.godot/imported/pillar.glb-c70f5be7c9f2851ba26c88b901438caf.scn"
 
 [deps]
 
-source_file="res://imported_data/meshes/static/props/temp/sign_left.glb"
-dest_files=["res://.godot/imported/sign_left.glb-651f359df22aca0ee5216fd7591e9d20.scn"]
+source_file="res://imported_data/meshes/static/props/pillar.glb"
+dest_files=["res://.godot/imported/pillar.glb-c70f5be7c9f2851ba26c88b901438caf.scn"]
 
 [params]
 
@@ -34,15 +34,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"colormap": {
+"HalloweenBits": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
-}
-},
-"nodes": {
-"PATH:floor-small-square": {
-"generate/physics": true,
-"physics/shape_type": 0
+"use_external/path": "uid://clt2ntg7pohmn"
 }
 }
 }

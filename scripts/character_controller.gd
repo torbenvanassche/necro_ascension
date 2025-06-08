@@ -13,7 +13,6 @@ extends CharacterBody3D
 @export var attack_area: Area3D;
 @export var weapon_data: WeaponResource;
 
-@onready var animation_tree: AnimationTree = $AnimationTree;
 var player_state: String;
 
 var current_triggers: Array[Area3D];
@@ -26,6 +25,8 @@ var animation_controller: AnimationMachine;
 
 @onready var right_hand: BoneAttachment3D = $Necromancer/Rig/Skeleton3D/handslot_r
 @onready var look_at: LookAtModifier3D = $Necromancer/Rig/Skeleton3D/LookAtModifier3D;
+@onready var nav_obstacle: NavigationObstacle3D = $NavigationObstacle3D;
+@onready var animation_tree: AnimationTree = $AnimationTree;
 
 func _init() -> void:
 	Manager.instance.player = self;
@@ -37,6 +38,9 @@ func _ready() -> void:
 		
 	if attack_area:
 		attack_area.area_entered.connect(_on_attack_hit);
+		
+	if nav_obstacle:
+		nav_obstacle.visible = true;
 		
 	animation_controller = AnimationMachine.new(animation_tree, "kay_skeleton");
 	_setup_animations()

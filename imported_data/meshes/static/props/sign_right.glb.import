@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctyyowc37hn5r"
-path="res://.godot/imported/arch_gate.glb-d84b2249ceefda345804159f254bf90e.scn"
+uid="uid://d1pngfen028hv"
+path="res://.godot/imported/sign_right.glb-ec0600a94149f96035f40c47fda9ad06.scn"
 
 [deps]
 
-source_file="res://imported_data/meshes/static/props/temp/arch_gate.glb"
-dest_files=["res://.godot/imported/arch_gate.glb-d84b2249ceefda345804159f254bf90e.scn"]
+source_file="res://imported_data/meshes/static/props/sign_right.glb"
+dest_files=["res://.godot/imported/sign_right.glb-ec0600a94149f96035f40c47fda9ad06.scn"]
 
 [params]
 
@@ -34,15 +34,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"colormap": {
+"HalloweenBits": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
-}
-},
-"nodes": {
-"PATH:floor-small-square": {
-"generate/physics": true,
-"physics/shape_type": 0
+"use_external/path": "uid://clt2ntg7pohmn"
 }
 }
 }

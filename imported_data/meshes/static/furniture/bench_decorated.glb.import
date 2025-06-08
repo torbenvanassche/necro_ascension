@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c7g2sloica20m"
-path="res://.godot/imported/plaque_candles.glb-8dd9bcfcb569f1a6ec5a99b7c9aafa3b.scn"
+uid="uid://d15s1x2adb7nf"
+path="res://.godot/imported/bench_decorated.glb-2d9d021e04b06346b048139341103814.scn"
 
 [deps]
 
-source_file="res://imported_data/meshes/static/props/temp/plaque_candles.glb"
-dest_files=["res://.godot/imported/plaque_candles.glb-8dd9bcfcb569f1a6ec5a99b7c9aafa3b.scn"]
+source_file="res://imported_data/meshes/static/furniture/bench_decorated.glb"
+dest_files=["res://.godot/imported/bench_decorated.glb-2d9d021e04b06346b048139341103814.scn"]
 
 [params]
 
@@ -34,15 +34,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"colormap": {
+"HalloweenBits": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
-}
-},
-"nodes": {
-"PATH:floor-small-square": {
-"generate/physics": true,
-"physics/shape_type": 0
+"use_external/path": "uid://clt2ntg7pohmn"
 }
 }
 }
