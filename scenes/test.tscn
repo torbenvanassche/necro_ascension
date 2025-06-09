@@ -58,7 +58,7 @@ cursor_list = Dictionary[String, Texture2D]({
 [node name="camera&lights" type="Node" parent="game_components"]
 
 [node name="Camera3D" type="Camera3D" parent="game_components/camera&lights" node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.759271, 0.650774, 0, -0.650774, 0.759271, -0.129, 3.59987, 2.93786)
+transform = Transform3D(1, 0, 0, 0, 0.684789, 0.728742, 0, -0.728742, 0.684789, -0.058, 6.725, 5.719)
 current = true
 script = ExtResource("4_0gajg")
 target = NodePath("../../character")
