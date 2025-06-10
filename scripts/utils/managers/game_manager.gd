@@ -11,6 +11,8 @@ var scroll_in_use: bool = false;
 @export var navigation_region: NavigationRegion3D;
 @export var cursor_list: Dictionary[String, Texture2D];
 
+var interactable_layer: int = 1 << 4;
+
 signal input_mode_changed(is_keyboard: bool);
 var input_mode_is_keyboard: bool = true:
 	set(value):

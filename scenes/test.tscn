@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=25 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="2_7mbro"]
@@ -18,12 +18,13 @@
 [ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/abilities/ability_4.tres" id="12_n74k2"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/managers/resource_manager.gd" id="12_qwovd"]
 [ext_resource type="JSON" path="res://resources/dialogue/test.json" id="13_ligp2"]
+[ext_resource type="PackedScene" uid="uid://dwfj06q5osqrd" path="res://scenes/interactables/minion_builder.tscn" id="21_n74k2"]
 [ext_resource type="Script" uid="uid://bu6q6r4qr63yb" path="res://scripts/levels/level.gd" id="23_b83jc"]
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="24_6rwh1"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
-vertices = PackedVector3Array(-5.07898, 0.07, -2.23867, -5.07898, 0.07, 5.26133, 2.42102, 0.07, 5.26133, 2.42102, 0.07, -2.23867)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+vertices = PackedVector3Array(-5.59464, 4.09899, -10.7687, -5.59464, 4.09899, 5.73133, -4.84464, 4.09899, 5.73133, -4.84464, 4.09899, -10.7687, -4.34464, 3.09899, -10.7687, -4.34464, 3.09899, -10.2687, 0.65536, 3.09899, -10.2687, 0.65536, 3.09899, -10.7687, 9.65536, 0.0689901, -0.768673, 10.9054, 0.0689901, -1.01867, 10.9054, 0.0689901, -3.76867, 9.65536, 0.0689901, -4.01867, -4.34464, 0.0689901, 4.73133, 9.65536, 0.0689901, 4.73133, 0.90536, 0.0689901, -9.76867, -4.34464, 0.0689901, -9.76867, 4.40536, 0.0689901, -9.76867, 4.15536, 0.0689901, -10.7687, 1.15536, 0.0689901, -10.7687, 9.65536, 0.0689901, -9.76867, 4.65536, 3.09899, -10.7687, 4.65536, 3.09899, -10.2687, 10.1554, 3.09899, -10.0187, 10.9054, 3.09899, -10.5187, 10.1554, 3.09899, -4.26867, 10.9054, 3.09899, -4.26867, 10.9054, 3.09899, -0.518673, 10.1554, 3.09899, -0.518673, 9.90536, 3.09899, 5.23133, 10.9054, 3.09899, 5.73133, -4.34464, 3.09899, 5.73133, -4.34464, 3.09899, 5.23133)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(14, 8, 15), PackedInt32Array(15, 8, 13), PackedInt32Array(15, 13, 12), PackedInt32Array(18, 17, 16), PackedInt32Array(18, 16, 14), PackedInt32Array(14, 16, 11), PackedInt32Array(14, 11, 8), PackedInt32Array(16, 19, 11), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(24, 22, 25), PackedInt32Array(25, 22, 23), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 29), PackedInt32Array(31, 28, 30), PackedInt32Array(30, 28, 29)]
 geometry_parsed_geometry_type = 1
 cell_height = 0.01
 agent_height = 0.2
@@ -156,3 +157,6 @@ dialogue = ExtResource("13_ligp2")
 
 [node name="character" parent="game_components" instance=ExtResource("2_sf220")]
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.21147)
+
+[node name="minion_builder" parent="." instance=ExtResource("21_n74k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95685, 0.0500002, 1.37286)

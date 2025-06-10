@@ -38,6 +38,18 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "uid://clt2ntg7pohmn"
 }
+},
+"nodes": {
+"PATH:coffin": {
+"generate/physics": true,
+"physics/shape_type": 0
+},
+"PATH:coffin/coffin_lid": {
+"generate/physics": true,
+"physics/shape_type": 0,
+"primitive/position": Vector3(0, 0.5, 0),
+"primitive/size": Vector3(2, 0.2, 3)
+}
 }
 }
 gltf/naming_version=1
