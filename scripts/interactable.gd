@@ -1,12 +1,11 @@
 class_name Interactable extends Node3D
 
-signal primary();
-signal clicked(button_index: int);
+signal interacted(button_index: int);
 
 var click_area: Area3D;
 
 @export_group("Properties")
-@export var can_interact: bool = false;
+@export var can_interact: bool = true;
 @export var interactable_id: String;
 var last_button_index: int = 0;
 
@@ -24,12 +23,7 @@ func on_interact(btn_index: int) -> void:
 		return;
 		
 	last_button_index = btn_index;
-	_mouse_button_click(last_button_index);
-	clicked.emit(btn_index);
-	
-func _mouse_button_click(btn_index: int = 0) -> void:
-	if btn_index == 0:
-		primary.emit();
+	interacted.emit(btn_index);
 		
 func set_interactable(b: bool) -> void:
 	can_interact = b;

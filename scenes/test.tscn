@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="2_sf220"]
 [ext_resource type="Resource" uid="uid://cxlhmwa4m8lf1" path="res://resources/creatures/skeleton_minion.tres" id="3_ff6ho"]
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
-[ext_resource type="PackedScene" uid="uid://crmy26pc60dws" path="res://body_part_containers/skeleton_minion_parts.tscn" id="4_c6rvn"]
+[ext_resource type="PackedScene" uid="uid://crmy26pc60dws" path="res://scenes/body_part_containers/skeleton_minion_parts.tscn" id="4_c6rvn"]
 [ext_resource type="Texture2D" uid="uid://clg2jhyukgw88" path="res://sprites/cursor_none.png" id="5_daiq8"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
 [ext_resource type="Texture2D" uid="uid://c1cs43s558l6u" path="res://sprites/target_round_b.png" id="6_c6rvn"]
@@ -23,12 +23,11 @@
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="24_6rwh1"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
-vertices = PackedVector3Array(-5.59464, 4.09899, -10.7687, -5.59464, 4.09899, 5.73133, -4.84464, 4.09899, 5.73133, -4.84464, 4.09899, -10.7687, -4.34464, 3.09899, -10.7687, -4.34464, 3.09899, -10.2687, 0.65536, 3.09899, -10.2687, 0.65536, 3.09899, -10.7687, 9.65536, 0.0689901, -0.768673, 10.9054, 0.0689901, -1.01867, 10.9054, 0.0689901, -3.76867, 9.65536, 0.0689901, -4.01867, -4.34464, 0.0689901, 4.73133, 9.65536, 0.0689901, 4.73133, 0.90536, 0.0689901, -9.76867, -4.34464, 0.0689901, -9.76867, 4.40536, 0.0689901, -9.76867, 4.15536, 0.0689901, -10.7687, 1.15536, 0.0689901, -10.7687, 9.65536, 0.0689901, -9.76867, 4.65536, 3.09899, -10.7687, 4.65536, 3.09899, -10.2687, 10.1554, 3.09899, -10.0187, 10.9054, 3.09899, -10.5187, 10.1554, 3.09899, -4.26867, 10.9054, 3.09899, -4.26867, 10.9054, 3.09899, -0.518673, 10.1554, 3.09899, -0.518673, 9.90536, 3.09899, 5.23133, 10.9054, 3.09899, 5.73133, -4.34464, 3.09899, 5.73133, -4.34464, 3.09899, 5.23133)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(14, 8, 15), PackedInt32Array(15, 8, 13), PackedInt32Array(15, 13, 12), PackedInt32Array(18, 17, 16), PackedInt32Array(18, 16, 14), PackedInt32Array(14, 16, 11), PackedInt32Array(14, 11, 8), PackedInt32Array(16, 19, 11), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(24, 22, 25), PackedInt32Array(25, 22, 23), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 29), PackedInt32Array(31, 28, 30), PackedInt32Array(30, 28, 29)]
+vertices = PackedVector3Array(7.90536, 0.24899, -0.768673, 9.40536, 0.24899, -0.768673, 9.65536, 0.24899, -1.26867, 10.6554, 0.24899, -1.26867, 10.6554, 0.24899, -3.51867, 9.40536, 0.24899, -3.76867, 9.40536, 0.24899, -9.51867, 4.15536, 0.24899, -9.51867, 3.90536, 0.24899, -10.5187, 1.40536, 0.24899, -10.5187, 1.15536, 0.24899, -9.51867, 5.40536, 0.24899, 4.48133, 5.65536, 0.24899, 2.98133, 5.65536, 0.24899, -0.518673, -4.09464, 0.24899, -9.51867, -4.09464, 0.24899, 4.48133, 5.90536, 0.24899, 3.48133, 8.65536, 0.24899, 0.481327, 7.90536, 0.24899, 3.48133, 9.40536, 0.24899, 4.48133, 8.40536, 0.24899, 2.98133, 10.1554, 3.24899, 5.23133, 10.6554, 3.24899, 5.48133, 10.6554, 3.24899, -0.268673)
+polygons = [PackedInt32Array(0, 2, 1), PackedInt32Array(3, 2, 4), PackedInt32Array(4, 2, 5), PackedInt32Array(7, 6, 5), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 15), PackedInt32Array(13, 15, 10), PackedInt32Array(10, 15, 14), PackedInt32Array(2, 0, 5), PackedInt32Array(5, 0, 13), PackedInt32Array(5, 13, 7), PackedInt32Array(7, 13, 10), PackedInt32Array(12, 16, 11), PackedInt32Array(17, 0, 1), PackedInt32Array(16, 18, 11), PackedInt32Array(11, 18, 19), PackedInt32Array(17, 1, 20), PackedInt32Array(20, 1, 19), PackedInt32Array(19, 18, 20), PackedInt32Array(23, 22, 21)]
 geometry_parsed_geometry_type = 1
-cell_height = 0.01
-agent_height = 0.2
-agent_radius = 0.2
+cell_height = 0.1
+agent_max_climb = 0.0
 region_min_size = 1.0
 region_merge_size = 10.0
 
@@ -94,6 +93,9 @@ shape = SubResource("BoxShape3D_mwqxe")
 [node name="spawn_room" parent="game_components/Level/rooms" instance=ExtResource("24_6rwh1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32898, 0, 1.51133)
 
+[node name="minion_builder" parent="game_components/Level" instance=ExtResource("21_n74k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95685, 0.0500002, 1.37286)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="game_components"]
 
 [node name="MarginContainer" type="MarginContainer" parent="game_components/CanvasLayer"]
@@ -157,6 +159,3 @@ dialogue = ExtResource("13_ligp2")
 
 [node name="character" parent="game_components" instance=ExtResource("2_sf220")]
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.21147)
-
-[node name="minion_builder" parent="." instance=ExtResource("21_n74k2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95685, 0.0500002, 1.37286)
