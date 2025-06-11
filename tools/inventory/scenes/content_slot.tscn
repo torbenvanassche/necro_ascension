@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5ocjw6joaemy"]
 
-[ext_resource type="StyleBox" uid="uid://dyequs13mhyp3" path="res://inventory/styles/content_slot_stylebox.tres" id="1_f67vh"]
-[ext_resource type="StyleBox" uid="uid://b3yojughln6fb" path="res://inventory/styles/content_slot_stylebox_disabled.tres" id="1_pdw3o"]
-[ext_resource type="Script" uid="uid://c8weu3p2f5ayn" path="res://inventory/scripts/visual/content_slot_ui.gd" id="2_rfq8a"]
+[ext_resource type="StyleBox" uid="uid://dyequs13mhyp3" path="res://tools/inventory/styles/content_slot_stylebox.tres" id="1_f67vh"]
+[ext_resource type="StyleBox" uid="uid://b3yojughln6fb" path="res://tools/inventory/styles/content_slot_stylebox_disabled.tres" id="1_pdw3o"]
+[ext_resource type="Script" uid="uid://c8weu3p2f5ayn" path="res://tools/inventory/scripts/visual/content_slot_ui.gd" id="2_rfq8a"]
 
 [sub_resource type="Theme" id="Theme_ceefl"]
 Button/styles/disabled = ExtResource("1_pdw3o")

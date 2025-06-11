@@ -34,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func pause(pause_game: bool = !get_tree().paused) -> void:
 	get_tree().paused = pause_game
 	if pause_game:
-		SceneManager.instance.set_active_scene("paused", SceneConfig.new(false));
+		SceneManager.instance.get_or_create_scene("paused", SceneConfig.new(false));
 		
 func set_cursor(cursor: String) -> void:
 	if cursor_list.has(cursor):

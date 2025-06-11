@@ -1,14 +1,17 @@
-[gd_scene load_steps=25 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=28 format=3 uid="uid://bl0nqrte7vyns"]
 
-[ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/managers/game_manager.gd" id="1_qqdqb"]
+[ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="2_7mbro"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="2_sf220"]
 [ext_resource type="Resource" uid="uid://cxlhmwa4m8lf1" path="res://resources/creatures/skeleton_minion.tres" id="3_ff6ho"]
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
 [ext_resource type="PackedScene" uid="uid://crmy26pc60dws" path="res://scenes/body_part_containers/skeleton_minion_parts.tscn" id="4_c6rvn"]
 [ext_resource type="Texture2D" uid="uid://clg2jhyukgw88" path="res://sprites/cursor_none.png" id="5_daiq8"]
+[ext_resource type="Script" uid="uid://bjmqfmubsvlhc" path="res://tools/scene_control/scene_manager.gd" id="5_pn65j"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
 [ext_resource type="Texture2D" uid="uid://c1cs43s558l6u" path="res://sprites/target_round_b.png" id="6_c6rvn"]
+[ext_resource type="Script" uid="uid://bx0br2fpije6a" path="res://tools/scene_control/scene_info.gd" id="6_gm488"]
+[ext_resource type="Resource" uid="uid://dh8bmthxelnyk" path="res://resources/scene_info/minion_window.tres" id="7_kay4s"]
 [ext_resource type="Resource" uid="uid://50t1h1fsnuwj" path="res://resources/abilities/attack.tres" id="9_xrtyr"]
 [ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/abilities/ability_2.tres" id="10_daiq8"]
 [ext_resource type="PackedScene" uid="uid://1fur5hvgokap" path="res://scenes/fill_bar.tscn" id="10_q2euc"]
@@ -16,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cuv8y2t3rkmvx" path="res://scenes/text_container.tscn" id="11_kvsgj"]
 [ext_resource type="Script" uid="uid://lmen6e204kfe" path="res://scripts/utils/helpers/dialogue_printer.gd" id="12_4aqmg"]
 [ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/abilities/ability_4.tres" id="12_n74k2"]
-[ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/managers/resource_manager.gd" id="12_qwovd"]
+[ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="12_qwovd"]
 [ext_resource type="JSON" path="res://resources/dialogue/test.json" id="13_ligp2"]
 [ext_resource type="PackedScene" uid="uid://dwfj06q5osqrd" path="res://scenes/interactables/minion_builder.tscn" id="21_n74k2"]
 [ext_resource type="Script" uid="uid://bu6q6r4qr63yb" path="res://scripts/levels/level.gd" id="23_b83jc"]
@@ -45,6 +48,13 @@ creatures = Array[ExtResource("2_7mbro")]([ExtResource("3_ff6ho")])
 packed_donors = Dictionary[String, PackedScene]({
 "skeleton_minion": ExtResource("4_c6rvn")
 })
+
+[node name="scene_manager" type="Node" parent="." node_paths=PackedStringArray("_ui")]
+script = ExtResource("5_pn65j")
+initial_scene = ExtResource("7_kay4s")
+scenes = Array[ExtResource("6_gm488")]([ExtResource("7_kay4s")])
+_ui = NodePath("../game_components/CanvasLayer")
+metadata/_custom_type_script = "uid://bjmqfmubsvlhc"
 
 [node name="game_components" type="Node" parent="." node_paths=PackedStringArray("resource_manager", "navigation_region")]
 script = ExtResource("1_qqdqb")
@@ -98,7 +108,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95685, 0.0500002, 1.37286)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="game_components"]
 
-[node name="MarginContainer" type="MarginContainer" parent="game_components/CanvasLayer"]
+[node name="gui" type="MarginContainer" parent="game_components/CanvasLayer"]
 offset_top = 578.0
 offset_right = 500.0
 offset_bottom = 648.0
@@ -108,40 +118,40 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="game_components/CanvasLayer/MarginContainer"]
+[node name="GUI_HGroup" type="VBoxContainer" parent="game_components/CanvasLayer/gui"]
 layout_mode = 2
 alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="game_components/CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="AbilitySlots" type="HBoxContainer" parent="game_components/CanvasLayer/gui/GUI_HGroup"]
 layout_mode = 2
 
-[node name="ability_1" parent="game_components/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
+[node name="ability_1" parent="game_components/CanvasLayer/gui/GUI_HGroup/AbilitySlots" instance=ExtResource("5_rrglt")]
 layout_mode = 2
 size_flags_horizontal = 0
 ability_data = ExtResource("9_xrtyr")
 keybind_action = "ability_1"
 
-[node name="ability_2" parent="game_components/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
+[node name="ability_2" parent="game_components/CanvasLayer/gui/GUI_HGroup/AbilitySlots" instance=ExtResource("5_rrglt")]
 layout_mode = 2
 ability_data = ExtResource("10_daiq8")
 keybind_action = "ability_2"
 
-[node name="ability_3" parent="game_components/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
+[node name="ability_3" parent="game_components/CanvasLayer/gui/GUI_HGroup/AbilitySlots" instance=ExtResource("5_rrglt")]
 visible = false
 layout_mode = 2
 ability_data = ExtResource("11_c6rvn")
 keybind_action = "ability_3"
 
-[node name="ability_4" parent="game_components/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_rrglt")]
+[node name="ability_4" parent="game_components/CanvasLayer/gui/GUI_HGroup/AbilitySlots" instance=ExtResource("5_rrglt")]
 visible = false
 layout_mode = 2
 ability_data = ExtResource("12_n74k2")
 keybind_action = "ability_4"
 
-[node name="ProgressBar" parent="game_components/CanvasLayer/MarginContainer/VBoxContainer" instance=ExtResource("10_q2euc")]
+[node name="HealthBar" parent="game_components/CanvasLayer/gui/GUI_HGroup" instance=ExtResource("10_q2euc")]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="game_components/CanvasLayer"]
+[node name="text_printer_box" type="MarginContainer" parent="game_components/CanvasLayer"]
 visible = false
 anchors_preset = 10
 anchor_right = 1.0
@@ -151,7 +161,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="ColorRect" parent="game_components/CanvasLayer/MarginContainer2" instance=ExtResource("11_kvsgj")]
+[node name="ColorRect" parent="game_components/CanvasLayer/text_printer_box" instance=ExtResource("11_kvsgj")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 script = ExtResource("12_4aqmg")

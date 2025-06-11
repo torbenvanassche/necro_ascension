@@ -19,8 +19,8 @@ config/icon="res://icon.svg"
 
 Debug="*res://scripts/utils/helpers/debug.gd"
 Settings="*res://scripts/utils/helpers/settings.gd"
-InputManager="*res://scripts/utils/managers/input_manager.gd"
-Config="*res://scripts/utils/managers/config.gd"
+InputManager="*res://scripts/utils/input_manager.gd"
+Config="*res://scripts/utils/config.gd"
 
 [debug]
 
