@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpjeowy7lanr8"]
+[gd_scene load_steps=6 format=3 uid="uid://dpjeowy7lanr8"]
 
-[ext_resource type="Texture2D" uid="uid://jsrb3n6w0h8g" path="res://sprites/navigation_n.png" id="1_yp3df"]
+[ext_resource type="Script" uid="uid://d0gqj5urvnk50" path="res://inventory/scripts/visual/minion_builder_ui.gd" id="1_mrmvf"]
+[ext_resource type="Texture2D" uid="uid://jsrb3n6w0h8g" path="res://sprites/navigation_n.png" id="2_hqiwg"]
+[ext_resource type="PackedScene" uid="uid://c8xe30ldu23tq" path="res://scenes/ui/minion_builder/content_slot_with_label.tscn" id="3_mrmvf"]
+[ext_resource type="Texture2D" uid="uid://c1fahppn3xsoy" path="res://sprites/cross_large.png" id="4_hqiwg"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_hvlos"]
 color = Color(1, 1, 1, 1)
@@ -12,8 +15,14 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -452.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mrmvf")
+ui_element = ExtResource("3_mrmvf")
+angle_offset = 270
+slot_size = 100
+button_fields = Array[String](["core", "head", "body", "arm left", "arm right", "leg left", "leg right"])
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -54,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708
 pivot_offset = Vector2(36, 36)
-icon = ExtResource("1_yp3df")
+icon = ExtResource("2_hqiwg")
 flat = true
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
@@ -81,7 +90,7 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 1.5708
 pivot_offset = Vector2(36, 36)
-icon = ExtResource("1_yp3df")
+icon = ExtResource("2_hqiwg")
 flat = true
 
 [node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
@@ -91,3 +100,27 @@ theme_override_styles/separator = SubResource("StyleBoxLine_hvlos")
 [node name="PartContainer" type="Control" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="previous" type="Button" parent="Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Complete build"
+
+[node name="close" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_bottom = 72.0
+grow_horizontal = 0
+pivot_offset = Vector2(36, 36)
+size_flags_horizontal = 8
+icon = ExtResource("4_hqiwg")
+flat = true
