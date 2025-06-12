@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_owvay")
 id = "character_window"
-packed_scene = "uid://dpjeowy7lanr8"
+packed_scene = "uid://b1gjocvj7ra7q"
+type = 0
 is_ui = true
 metadata/_custom_type_script = "uid://bx0br2fpije6a"

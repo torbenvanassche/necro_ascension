@@ -4,11 +4,10 @@ extends Control
 @export var id: String = "";
 
 @onready var vp := get_viewport()
-@onready var top_bar: ColorRect = $VBoxContainer/topbar;
-@onready var close_button: Button = $VBoxContainer/topbar/HBoxContainer/Button;
-@onready var title: Label = $VBoxContainer/topbar/HBoxContainer/MarginContainer/Title;
-@onready var content_panel: ColorRect = $VBoxContainer/content;
-@onready var background_color: Color = $VBoxContainer/content.color;
+@onready var top_bar: ColorRect = $MarginContainer/VBoxContainer/topbar;
+@onready var close_button: Button = $MarginContainer/VBoxContainer/topbar/HBoxContainer/Button;
+@onready var title: Label = $MarginContainer/VBoxContainer/topbar/HBoxContainer/MarginContainer/Title;
+@onready var content_panel: ColorRect = $MarginContainer/VBoxContainer/content;
 
 @export_enum("fullscreen", "display", "no_header", "none") var display_mode: String = "display"
 @export_enum("mouse", "center", "override") var position_options: String = "center";
@@ -34,8 +33,6 @@ func _ready() -> void:
 	
 	if override_size != Vector2.ZERO:
 		self.set_deferred("size", override_size)
-		top_bar.custom_minimum_size = Vector2(override_size.x, topbar_height)
-		content_panel.custom_minimum_size = Vector2(override_size.x, override_size.y - top_bar.size.y)
 	
 func on_enable(_options: Dictionary = {}) -> void:
 	if visible:
@@ -45,15 +42,12 @@ func on_enable(_options: Dictionary = {}) -> void:
 	match display_mode:
 		"fullscreen":
 			top_bar.visible = false;
-			content_panel.color = background_color;
 			size =get_viewport_rect().size;
 		"display":
 			top_bar.visible = true;
-			content_panel.color = background_color;
 			pass
 		"no_header":
 			top_bar.visible = false;
-			content_panel.color = background_color;
 			pass
 		"none":
 			top_bar.visible = false;
