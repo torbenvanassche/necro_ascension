@@ -11,7 +11,7 @@ func _init() -> void:
 	
 	SceneManager.instance.add_child(timer)
 
-func queue(scene_info: SceneInfo) -> void:
+func queue(scene_info: SceneInfo) -> Signal:
 	if timer.is_stopped():
 		timer.start();
 	
@@ -20,6 +20,8 @@ func queue(scene_info: SceneInfo) -> void:
 	if error:
 		loading_queue.erase(scene_info)
 		Debug.err(str(error))
+		
+	return scene_info.cached;
 
 func _check_progress() -> void:
 	for loading in loading_queue:
@@ -51,3 +53,6 @@ func remove(scene_info: SceneInfo) -> void:
 		cached_scenes.erase(scene_info);
 		if scene_info.node and not scene_info.node.is_queued_for_deletion():
 			scene_info.node.queue_free();
+			
+func get_with_type(type: SceneInfo.Type) -> Array[SceneInfo]:
+	return cached_scenes.filter(func(x: SceneInfo) -> bool: return x.type == type)
