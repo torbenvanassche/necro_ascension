@@ -9,7 +9,7 @@ extends Control
 @onready var title: Label = $MarginContainer/VBoxContainer/topbar/HBoxContainer/MarginContainer/Title;
 @onready var content_panel: ColorRect = $MarginContainer/VBoxContainer/content;
 
-@export_enum("fullscreen", "display", "no_header", "none") var display_mode: String = "display"
+@export_enum("fullscreen", "display", "no_header") var display_mode: String = "display"
 @export_enum("mouse", "center", "override") var position_options: String = "center";
 var initial_position: Vector2;
 
@@ -42,16 +42,12 @@ func on_enable(_options: Dictionary = {}) -> void:
 	match display_mode:
 		"fullscreen":
 			top_bar.visible = false;
-			size =get_viewport_rect().size;
+			size = get_viewport_rect().size;
 		"display":
 			top_bar.visible = true;
 			pass
 		"no_header":
 			top_bar.visible = false;
-			pass
-		"none":
-			top_bar.visible = false;
-			content_panel.color = Color.TRANSPARENT;
 			pass
 	
 	match position_options:

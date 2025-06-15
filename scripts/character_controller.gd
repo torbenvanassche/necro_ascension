@@ -26,6 +26,8 @@ var animation_controller: AnimationMachine;
 @onready var nav_obstacle: NavigationObstacle3D = $NavigationObstacle3D;
 @onready var animation_tree: AnimationTree = $AnimationTree;
 
+@onready var body_part_inventory: Inventory = $body_parts_inventory;
+
 func _init() -> void:
 	Manager.instance.player = self;
 	

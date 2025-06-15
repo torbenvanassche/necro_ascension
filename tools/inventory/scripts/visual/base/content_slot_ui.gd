@@ -4,10 +4,11 @@ class_name ContentSlotUI extends Button
 @onready var counter: Label = $margin_container/count;
 var contentSlot: ContentSlot;
 
-@export var default_color: Color = Color(Color.WHITE)
+@export var default_color: Color;
 @export var dragging_color: Color = Color(Color.WHITE, 0.3)
 
 func _ready() -> void:
+	default_color = get_theme_color("bg_color");
 	contentSlot.changed.connect(redraw)
 	self.disabled = !contentSlot.is_unlocked;
 	counter.text = "";

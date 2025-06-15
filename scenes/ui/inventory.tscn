@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc66a8ndpbpgf"]
+
+[ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://tools/scene_control/custom_window/base_window.tscn" id="1_s6ek7"]
+[ext_resource type="PackedScene" uid="uid://g8cyqkretffu" path="res://tools/inventory/scenes/content_group.tscn" id="2_avmd0"]
+[ext_resource type="Script" uid="uid://f6lsi1d38a4c" path="res://tools/inventory/scripts/visual/minion_parts_ui.gd" id="3_xeaml"]
+[ext_resource type="Script" uid="uid://djyw2gw51je4p" path="res://scripts/ExpandingTabContainer.gd" id="4_5yy05"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ulvp7"]
+
+[node name="Window" instance=ExtResource("1_s6ek7")]
+override_size = Vector2(220, 200)
+
+[node name="Title" parent="MarginContainer/VBoxContainer/topbar/HBoxContainer/MarginContainer" index="0"]
+text = "Inventory"
+
+[node name="content" parent="MarginContainer/VBoxContainer" index="1"]
+color = Color(0.925353, 0.925353, 0.925353, 1)
+
+[node name="body_part_container" parent="MarginContainer/VBoxContainer/content" index="0" instance=ExtResource("2_avmd0")]
+visible = false
+layout_mode = 1
+script = ExtResource("3_xeaml")
+
+[node name="ExpandingTabContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/content" index="1"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 35.0
+grow_horizontal = 2
+script = ExtResource("4_5yy05")
+btngroup = SubResource("ButtonGroup_ulvp7")
+metadata/_custom_type_script = "uid://djyw2gw51je4p"
+
+[node name="valuid" type="Control" parent="MarginContainer/VBoxContainer/content/ExpandingTabContainer" index="1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/content/ExpandingTabContainer/valuid" index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+
+[node name="Test2" type="Control" parent="MarginContainer/VBoxContainer/content/ExpandingTabContainer" index="2"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/content/ExpandingTabContainer/Test2" index="0"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "2"

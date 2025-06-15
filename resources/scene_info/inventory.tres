@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SceneInfo" load_steps=2 format=3 uid="uid://b8yxompo3tinf"]
+
+[ext_resource type="Script" uid="uid://bx0br2fpije6a" path="res://tools/scene_control/scene_info.gd" id="1_a2xfh"]
+
+[resource]
+script = ExtResource("1_a2xfh")
+id = "inventory"
+packed_scene = "uid://cc66a8ndpbpgf"
+type = 2
+metadata/_custom_type_script = "uid://bx0br2fpije6a"

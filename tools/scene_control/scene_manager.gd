@@ -62,7 +62,7 @@ func get_or_create_scene(scene_name: String, scene_config: SceneConfig = SceneCo
 	return null;
 		
 func _on_scene_load(scene_info: SceneInfo, scene_config: SceneConfig) -> void:
-	if scene_info.is_ui && scene_info.node.get_parent() != _ui:
+	if scene_info.type == SceneInfo.Type.UI && scene_info.node.get_parent() != _ui:
 		_ui.add_child(scene_info.node)
 	elif self != scene_info.node.get_parent():
 		add_child(scene_info.node)
@@ -114,7 +114,7 @@ func to_previous_scene() -> void:
 			get_or_create_scene(scene_stack[scene_stack.size() - 1].id, SceneConfig.new(false, false));
 		
 func ui_is_open(exceptions: Array[String]) -> bool:
-	return get_children().all(func(x: Node) -> bool: return node_to_info(x).is_ui && x.visible && !exceptions.has(node_to_info(x).id));
+	return get_children().all(func(x: Node) -> bool: return node_to_info(x).type == SceneInfo.Type.UI && x.visible && !exceptions.has(node_to_info(x).id));
 			
 func is_active(scene_name: String) -> bool:
 	for scene_info in scenes:
