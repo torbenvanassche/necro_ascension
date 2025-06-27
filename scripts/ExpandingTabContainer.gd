@@ -13,7 +13,6 @@ class_name ExpandingTabContainer
 var hbox : HBoxContainer
 
 func _ready() -> void:
-
 	hbox = HBoxContainer.new()
 
 	for child in get_children():
@@ -24,6 +23,11 @@ func _ready() -> void:
 
 	child_entered_tree.connect(on_child_entered)
 	child_exiting_tree.connect(on_child_exited)
+	
+	theme_changed.connect(func() -> void:
+		for child: Control in hbox.get_children():
+			child.theme = theme;
+		)
 
 func on_child_entered(node: Node) -> void:
 	create_tab_button_for(node)
@@ -42,6 +46,8 @@ func create_tab_button_for(for_node: Control) -> void:
 	btn.toggle_mode = true 
 	btn.button_group = btngroup
 	btn.size_flags_horizontal = size_flags
+	
+	for_node.renamed.connect(func() -> void: btn.text = for_node.name)
 
 	for_node.visibility_changed.connect(func() -> void:
 		for button in btngroup.get_buttons():

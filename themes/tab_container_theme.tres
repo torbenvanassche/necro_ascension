@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bprbeihhag0xj"]
+
+[ext_resource type="StyleBox" uid="uid://beuhbgsv8y4u4" path="res://themes/style_boxes/tabgroup_background.tres" id="1_jttdv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jttdv"]
+
+[resource]
+BoxContainer/constants/separation = 0
+Button/styles/hover = SubResource("StyleBoxEmpty_jttdv")
+Button/styles/pressed = ExtResource("1_jttdv")
+Panel/styles/panel = ExtResource("1_jttdv")

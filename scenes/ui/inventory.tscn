@@ -1,11 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc66a8ndpbpgf"]
+[gd_scene load_steps=5 format=3 uid="uid://cc66a8ndpbpgf"]
 
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://tools/scene_control/custom_window/base_window.tscn" id="1_s6ek7"]
-[ext_resource type="PackedScene" uid="uid://g8cyqkretffu" path="res://tools/inventory/scenes/content_group.tscn" id="2_avmd0"]
-[ext_resource type="Script" uid="uid://f6lsi1d38a4c" path="res://tools/inventory/scripts/visual/minion_parts_ui.gd" id="3_xeaml"]
+[ext_resource type="Theme" uid="uid://bprbeihhag0xj" path="res://themes/tab_container_theme.tres" id="2_xeaml"]
 [ext_resource type="Script" uid="uid://djyw2gw51je4p" path="res://scripts/ExpandingTabContainer.gd" id="4_5yy05"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_ulvp7"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_avmd0"]
 
 [node name="Window" instance=ExtResource("1_s6ek7")]
 override_size = Vector2(220, 200)
@@ -16,35 +15,46 @@ text = "Inventory"
 [node name="content" parent="MarginContainer/VBoxContainer" index="1"]
 color = Color(0.925353, 0.925353, 0.925353, 1)
 
-[node name="body_part_container" parent="MarginContainer/VBoxContainer/content" index="0" instance=ExtResource("2_avmd0")]
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/content" index="0"]
 layout_mode = 1
-script = ExtResource("3_xeaml")
-
-[node name="ExpandingTabContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/content" index="1"]
-layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 35.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 5
+
+[node name="ExpandingTabContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/content/MarginContainer" index="0"]
+layout_mode = 2
+theme = ExtResource("2_xeaml")
 script = ExtResource("4_5yy05")
-btngroup = SubResource("ButtonGroup_ulvp7")
+btngroup = SubResource("ButtonGroup_avmd0")
 metadata/_custom_type_script = "uid://djyw2gw51je4p"
 
-[node name="valuid" type="Control" parent="MarginContainer/VBoxContainer/content/ExpandingTabContainer" index="1"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/content/ExpandingTabContainer/valuid" index="0"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "1"
-
-[node name="Test2" type="Control" parent="MarginContainer/VBoxContainer/content/ExpandingTabContainer" index="2"]
+[node name="Tab 1" type="Control" parent="MarginContainer/VBoxContainer/content/MarginContainer/ExpandingTabContainer" index="1"]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_xeaml")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/content/ExpandingTabContainer/Test2" index="0"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "2"
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/content/MarginContainer/ExpandingTabContainer/Tab 1" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_xeaml")
+
+[node name="Tab 2" type="Control" parent="MarginContainer/VBoxContainer/content/MarginContainer/ExpandingTabContainer" index="2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer/content/MarginContainer/ExpandingTabContainer/Tab 2" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_xeaml")
