@@ -2,10 +2,13 @@
 
 [ext_resource type="StyleBox" uid="uid://beuhbgsv8y4u4" path="res://themes/style_boxes/tabgroup_background.tres" id="1_jttdv"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jttdv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jttdv"]
 
 [resource]
 BoxContainer/constants/separation = 0
-Button/styles/hover = SubResource("StyleBoxEmpty_jttdv")
+Button/styles/focus = ExtResource("1_jttdv")
+Button/styles/hover = SubResource("StyleBoxFlat_jttdv")
+Button/styles/hover_pressed = ExtResource("1_jttdv")
+Button/styles/normal = SubResource("StyleBoxFlat_jttdv")
 Button/styles/pressed = ExtResource("1_jttdv")
 Panel/styles/panel = ExtResource("1_jttdv")

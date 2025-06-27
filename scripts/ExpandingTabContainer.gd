@@ -13,12 +13,15 @@ class_name ExpandingTabContainer
 var hbox : HBoxContainer
 
 func _ready() -> void:
-	hbox = HBoxContainer.new()
+	hbox = get_node("tabbar_container") if has_node("tabbar_container") else null
+	if not hbox:
+		hbox = HBoxContainer.new()
+		hbox.name = "tabbar_container"
+		add_child(hbox, true)
 
 	for child in get_children():
-		create_tab_button_for(child)
-
-	add_child(hbox)
+		if child != hbox:
+			create_tab_button_for(child)
 	move_child(hbox, 0)
 
 	child_entered_tree.connect(on_child_entered)
@@ -38,7 +41,7 @@ func on_child_exited(node: Node) -> void:
 			child.queue_free()
 
 func create_tab_button_for(for_node: Control) -> void:
-	if not btngroup:
+	if not btngroup or for_node == hbox:
 		return
 
 	var btn := Button.new()
@@ -49,17 +52,16 @@ func create_tab_button_for(for_node: Control) -> void:
 	
 	for_node.renamed.connect(func() -> void: btn.text = for_node.name)
 
-	for_node.visibility_changed.connect(func() -> void:
-		for button in btngroup.get_buttons():
-			btn.set_pressed_no_signal(false)
+	if for_node.is_connected("visibility_changed", _vis_changed.bind(btn, for_node)):
+		for_node.visibility_changed.connect(_vis_changed.bind(btn, for_node))
 
-		btn.button_pressed = for_node.visible
-		)
-
-	btn.toggled.connect(func(toggle: bool) -> void:
-		for_node.visible = toggle
-		)
+	btn.toggled.connect(func(toggle: bool) -> void: for_node.visible = toggle)
 
 	hbox.add_child(btn)
-
 	btn.button_pressed = true
+
+func _vis_changed(btn: Button, for_node: Control) -> void:
+	for button in btngroup.get_buttons():
+		btn.set_pressed_no_signal(false)
+
+	btn.button_pressed = for_node.visible
