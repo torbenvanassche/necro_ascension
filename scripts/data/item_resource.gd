@@ -2,3 +2,7 @@ class_name ItemResource extends Resource
 
 @export var translation_key_name: String;
 @export var translation_key_description: String;
+
+@export var name: String;
+@export var description: String;
+@export var texture: Texture2D;
