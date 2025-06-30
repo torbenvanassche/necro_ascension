@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c32ov0crjgskn"]
+
+[ext_resource type="PackedScene" uid="uid://cuv8y2t3rkmvx" path="res://scenes/text_container.tscn" id="1_54y75"]
+[ext_resource type="Script" uid="uid://lmen6e204kfe" path="res://scripts/utils/helpers/dialogue_printer.gd" id="2_f0ixm"]
+[ext_resource type="JSON" path="res://resources/dialogue/test.json" id="3_2b0g4"]
+
+[node name="text_printer_box" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" parent="." instance=ExtResource("1_54y75")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+script = ExtResource("2_f0ixm")
+dialogue = ExtResource("3_2b0g4")

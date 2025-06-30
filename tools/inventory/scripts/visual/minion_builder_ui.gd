@@ -10,8 +10,6 @@ func _ready() -> void:
 	if button_fields.is_empty():
 		return
 
-	var center := part_container.size / 2
-
 	for i in button_fields.size():
 		var part: Control = ui_element.instantiate()
 		(part as ContentSlotUI).contentSlot = ContentSlot.new();

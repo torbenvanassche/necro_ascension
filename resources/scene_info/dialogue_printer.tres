@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SceneInfo" load_steps=2 format=3 uid="uid://b57h13yvlhpo"]
+
+[ext_resource type="Script" uid="uid://bx0br2fpije6a" path="res://tools/scene_control/scene_info.gd" id="1_rs11i"]
+
+[resource]
+script = ExtResource("1_rs11i")
+id = "dialogue_box"
+packed_scene = "uid://c32ov0crjgskn"
+type = 2
+metadata/_custom_type_script = "uid://bx0br2fpije6a"

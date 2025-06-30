@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=28 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="2_7mbro"]
@@ -17,16 +17,13 @@
 [ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/abilities/ability_2.tres" id="10_daiq8"]
 [ext_resource type="PackedScene" uid="uid://1fur5hvgokap" path="res://scenes/fill_bar.tscn" id="10_q2euc"]
 [ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/abilities/ability_3.tres" id="11_c6rvn"]
-[ext_resource type="PackedScene" uid="uid://cuv8y2t3rkmvx" path="res://scenes/text_container.tscn" id="11_kvsgj"]
-[ext_resource type="Script" uid="uid://lmen6e204kfe" path="res://scripts/utils/helpers/dialogue_printer.gd" id="12_4aqmg"]
 [ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/abilities/ability_4.tres" id="12_n74k2"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="12_qwovd"]
-[ext_resource type="JSON" path="res://resources/dialogue/test.json" id="13_ligp2"]
 [ext_resource type="PackedScene" uid="uid://dwfj06q5osqrd" path="res://scenes/interactables/minion_builder.tscn" id="21_n74k2"]
+[ext_resource type="PackedScene" uid="uid://c32ov0crjgskn" path="res://scenes/ui/dialogue_printer_box.tscn" id="22_5f8cm"]
 [ext_resource type="Script" uid="uid://bu6q6r4qr63yb" path="res://scripts/levels/level.gd" id="23_b83jc"]
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="24_6rwh1"]
 [ext_resource type="Script" uid="uid://b6rgx41co3bur" path="res://tools/inventory/scripts/inventory/inventory.gd" id="25_gm488"]
-[ext_resource type="PackedScene" uid="uid://b1gjocvj7ra7q" path="res://scenes/ui/minion_builder.tscn" id="25_j7bvy"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
 vertices = PackedVector3Array(7.90536, 0.24899, -0.768673, 9.40536, 0.24899, -0.768673, 9.65536, 0.24899, -1.26867, 10.6554, 0.24899, -1.26867, 10.6554, 0.24899, -3.51867, 9.40536, 0.24899, -3.76867, 9.40536, 0.24899, -9.51867, 4.15536, 0.24899, -9.51867, 3.90536, 0.24899, -10.5187, 1.40536, 0.24899, -10.5187, 1.15536, 0.24899, -9.51867, 5.40536, 0.24899, 4.48133, 5.65536, 0.24899, 2.98133, 5.65536, 0.24899, -0.518673, -4.09464, 0.24899, -9.51867, -4.09464, 0.24899, 4.48133, 5.90536, 0.24899, 3.48133, 8.65536, 0.24899, 0.481327, 7.90536, 0.24899, 3.48133, 9.40536, 0.24899, 4.48133, 8.40536, 0.24899, 2.98133, 10.1554, 3.24899, 5.23133, 10.6554, 3.24899, 5.48133, 10.6554, 3.24899, -0.268673)
@@ -54,7 +51,7 @@ packed_donors = Dictionary[String, PackedScene]({
 
 [node name="scene_manager" type="Node" parent="." node_paths=PackedStringArray("_ui")]
 script = ExtResource("5_pn65j")
-initial_scene = ExtResource("6_kay4s")
+initial_scene = ExtResource("7_kay4s")
 scenes = Array[ExtResource("6_gm488")]([ExtResource("7_kay4s"), ExtResource("6_kay4s")])
 _ui = NodePath("../game_components/CanvasLayer")
 metadata/_custom_type_script = "uid://bjmqfmubsvlhc"
@@ -154,23 +151,7 @@ keybind_action = "ability_4"
 [node name="HealthBar" parent="game_components/CanvasLayer/gui/GUI_HGroup" instance=ExtResource("10_q2euc")]
 layout_mode = 2
 
-[node name="text_printer_box" type="MarginContainer" parent="game_components/CanvasLayer"]
-visible = false
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="ColorRect" parent="game_components/CanvasLayer/text_printer_box" instance=ExtResource("11_kvsgj")]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-script = ExtResource("12_4aqmg")
-dialogue = ExtResource("13_ligp2")
-
-[node name="Window" parent="game_components/CanvasLayer" instance=ExtResource("25_j7bvy")]
+[node name="text_printer_box" parent="game_components/CanvasLayer" instance=ExtResource("22_5f8cm")]
 
 [node name="character" parent="game_components" instance=ExtResource("2_sf220")]
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.21147)
