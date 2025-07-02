@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1fahppn3xsoy"
-path="res://.godot/imported/cross_large.png-99992b8725bc33488b5dff7a54fb8f3f.ctex"
+uid="uid://c1cs43s558l6u"
+path="res://.godot/imported/target_round_b.png-37d49f64a29b07b5a1b13f1503b459ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/cross_large.png"
-dest_files=["res://.godot/imported/cross_large.png-99992b8725bc33488b5dff7a54fb8f3f.ctex"]
+source_file="res://sprites/ui/target_round_b.png"
+dest_files=["res://.godot/imported/target_round_b.png-37d49f64a29b07b5a1b13f1503b459ca.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

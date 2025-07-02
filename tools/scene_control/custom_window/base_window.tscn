@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djfe2kdofn562" path="res://tools/scene_control/custom_window/scripts/window_base.gd" id="1_6jx1r"]
 [ext_resource type="Theme" uid="uid://o4rpu8ih4owk" path="res://themes/main_theme.tres" id="1_fpb1y"]
-[ext_resource type="Texture2D" uid="uid://c1fahppn3xsoy" path="res://sprites/cross_large.png" id="2_oddkn"]
+[ext_resource type="Texture2D" uid="uid://c1fahppn3xsoy" path="res://sprites/ui/cross_large.png" id="2_oddkn"]
 
 [node name="Window" type="Panel"]
 anchors_preset = 15

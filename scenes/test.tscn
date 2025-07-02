@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=27 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="2_7mbro"]
@@ -6,10 +6,10 @@
 [ext_resource type="Resource" uid="uid://cxlhmwa4m8lf1" path="res://resources/creatures/skeleton_minion.tres" id="3_ff6ho"]
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
 [ext_resource type="PackedScene" uid="uid://crmy26pc60dws" path="res://scenes/body_part_containers/skeleton_minion_parts.tscn" id="4_c6rvn"]
-[ext_resource type="Texture2D" uid="uid://clg2jhyukgw88" path="res://sprites/cursor_none.png" id="5_daiq8"]
+[ext_resource type="Texture2D" uid="uid://clg2jhyukgw88" path="res://sprites/ui/cursor_none.png" id="5_daiq8"]
 [ext_resource type="Script" uid="uid://bjmqfmubsvlhc" path="res://tools/scene_control/scene_manager.gd" id="5_pn65j"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
-[ext_resource type="Texture2D" uid="uid://c1cs43s558l6u" path="res://sprites/target_round_b.png" id="6_c6rvn"]
+[ext_resource type="Texture2D" uid="uid://c1cs43s558l6u" path="res://sprites/ui/target_round_b.png" id="6_c6rvn"]
 [ext_resource type="Script" uid="uid://bx0br2fpije6a" path="res://tools/scene_control/scene_info.gd" id="6_gm488"]
 [ext_resource type="Resource" uid="uid://b8yxompo3tinf" path="res://resources/scene_info/inventory.tres" id="6_kay4s"]
 [ext_resource type="Resource" uid="uid://dh8bmthxelnyk" path="res://resources/scene_info/minion_window.tres" id="7_kay4s"]
@@ -20,7 +20,6 @@
 [ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/abilities/ability_4.tres" id="12_n74k2"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="12_qwovd"]
 [ext_resource type="PackedScene" uid="uid://dwfj06q5osqrd" path="res://scenes/interactables/minion_builder.tscn" id="21_n74k2"]
-[ext_resource type="PackedScene" uid="uid://c32ov0crjgskn" path="res://scenes/ui/dialogue_printer_box.tscn" id="22_5f8cm"]
 [ext_resource type="Script" uid="uid://bu6q6r4qr63yb" path="res://scripts/levels/level.gd" id="23_b83jc"]
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="24_6rwh1"]
 [ext_resource type="Script" uid="uid://b6rgx41co3bur" path="res://tools/inventory/scripts/inventory/inventory.gd" id="25_gm488"]
@@ -150,8 +149,6 @@ keybind_action = "ability_4"
 
 [node name="HealthBar" parent="game_components/CanvasLayer/gui/GUI_HGroup" instance=ExtResource("10_q2euc")]
 layout_mode = 2
-
-[node name="text_printer_box" parent="game_components/CanvasLayer" instance=ExtResource("22_5f8cm")]
 
 [node name="character" parent="game_components" instance=ExtResource("2_sf220")]
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.21147)

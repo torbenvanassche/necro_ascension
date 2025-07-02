@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1gjocvj7ra7q"]
+[gd_scene load_steps=6 format=3 uid="uid://b1gjocvj7ra7q"]
 
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://tools/scene_control/custom_window/base_window.tscn" id="1_yp3df"]
 [ext_resource type="Script" uid="uid://d0gqj5urvnk50" path="res://tools/inventory/scripts/visual/minion_builder_ui.gd" id="2_hvlos"]
 [ext_resource type="PackedScene" uid="uid://c5ocjw6joaemy" path="res://tools/inventory/scenes/content_slot.tscn" id="3_xqu86"]
+[ext_resource type="Script" uid="uid://mkur1q33t8gc" path="res://tools/inventory/scripts/visual/minion_part_slot_ui.gd" id="4_t8joc"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_xqu86"]
 color = Color(1, 1, 1, 1)
@@ -17,12 +18,11 @@ override_size = Vector2(400, 400)
 [node name="Title" parent="MarginContainer/VBoxContainer/topbar/HBoxContainer/MarginContainer" index="0"]
 text = "Skeleton builder"
 
-[node name="content" parent="MarginContainer/VBoxContainer" index="1" node_paths=PackedStringArray("part_container")]
+[node name="content" parent="MarginContainer/VBoxContainer" index="1" node_paths=PackedStringArray("body_slot_container")]
 script = ExtResource("2_hvlos")
-part_container = NodePath("HBoxContainer/MarginContainer/VBoxContainer")
+body_slot_container = NodePath("")
 ui_element = ExtResource("3_xqu86")
 slot_size = 75
-button_fields = Array[String](["head", "body", "arm left", "arm right"])
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/content" index="0"]
 layout_mode = 1
@@ -33,15 +33,31 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/content/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/content/HBoxContainer/MarginContainer" index="0"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/content/HBoxContainer/MarginContainer" index="0"]
 layout_mode = 2
-alignment = 1
+
+[node name="head" parent="MarginContainer/VBoxContainer/content/HBoxContainer/MarginContainer/Control" index="0" instance=ExtResource("3_xqu86")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -50.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 1
+script = ExtResource("4_t8joc")
+part_type = 0
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/content/HBoxContainer" index="1"]
 layout_mode = 2
