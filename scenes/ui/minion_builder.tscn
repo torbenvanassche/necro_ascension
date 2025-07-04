@@ -20,7 +20,7 @@ text = "Skeleton builder"
 
 [node name="content" parent="MarginContainer/VBoxContainer" index="1" node_paths=PackedStringArray("body_slot_container")]
 script = ExtResource("2_hvlos")
-body_slot_container = NodePath("")
+body_slot_container = NodePath("HBoxContainer/MarginContainer/Control")
 ui_element = ExtResource("3_xqu86")
 slot_size = 75
 

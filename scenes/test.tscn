@@ -1,11 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=26 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="2_7mbro"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="2_sf220"]
 [ext_resource type="Resource" uid="uid://cxlhmwa4m8lf1" path="res://resources/creatures/skeleton_minion.tres" id="3_ff6ho"]
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
-[ext_resource type="PackedScene" uid="uid://crmy26pc60dws" path="res://scenes/body_part_containers/skeleton_minion_parts.tscn" id="4_c6rvn"]
 [ext_resource type="Texture2D" uid="uid://clg2jhyukgw88" path="res://sprites/ui/cursor_none.png" id="5_daiq8"]
 [ext_resource type="Script" uid="uid://bjmqfmubsvlhc" path="res://tools/scene_control/scene_manager.gd" id="5_pn65j"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
@@ -25,11 +24,13 @@
 [ext_resource type="Script" uid="uid://b6rgx41co3bur" path="res://tools/inventory/scripts/inventory/inventory.gd" id="25_gm488"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
-vertices = PackedVector3Array(7.90536, 0.24899, -0.768673, 9.40536, 0.24899, -0.768673, 9.65536, 0.24899, -1.26867, 10.6554, 0.24899, -1.26867, 10.6554, 0.24899, -3.51867, 9.40536, 0.24899, -3.76867, 9.40536, 0.24899, -9.51867, 4.15536, 0.24899, -9.51867, 3.90536, 0.24899, -10.5187, 1.40536, 0.24899, -10.5187, 1.15536, 0.24899, -9.51867, 5.40536, 0.24899, 4.48133, 5.65536, 0.24899, 2.98133, 5.65536, 0.24899, -0.518673, -4.09464, 0.24899, -9.51867, -4.09464, 0.24899, 4.48133, 5.90536, 0.24899, 3.48133, 8.65536, 0.24899, 0.481327, 7.90536, 0.24899, 3.48133, 9.40536, 0.24899, 4.48133, 8.40536, 0.24899, 2.98133, 10.1554, 3.24899, 5.23133, 10.6554, 3.24899, 5.48133, 10.6554, 3.24899, -0.268673)
-polygons = [PackedInt32Array(0, 2, 1), PackedInt32Array(3, 2, 4), PackedInt32Array(4, 2, 5), PackedInt32Array(7, 6, 5), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 15), PackedInt32Array(13, 15, 10), PackedInt32Array(10, 15, 14), PackedInt32Array(2, 0, 5), PackedInt32Array(5, 0, 13), PackedInt32Array(5, 13, 7), PackedInt32Array(7, 13, 10), PackedInt32Array(12, 16, 11), PackedInt32Array(17, 0, 1), PackedInt32Array(16, 18, 11), PackedInt32Array(11, 18, 19), PackedInt32Array(17, 1, 20), PackedInt32Array(20, 1, 19), PackedInt32Array(19, 18, 20), PackedInt32Array(23, 22, 21)]
+vertices = PackedVector3Array(-5.06255, 0.07, 1.0278702, -0.06255007, 0.07, 1.0278702, 0.18744993, 0.07, 0.5278702, 1.1874499, 0.07, -10.22213, -5.06255, 0.07, -10.22213, 0.93744993, 0.07, 0.5278702, 2.68745, 0.07, 2.0278702, 1.4374499, 0.07, 2.2778702, 1.4374499, 0.07, 5.27787, 10.43745, 0.07, 5.27787, 2.68745, 0.07, 0.7778702, 10.43745, 0.07, -10.22213, 0.18744993, 0.07, 2.2778702, -5.06255, 0.07, 5.27787, 0.43744993, 0.91999996, 1.0278702, 0.43744993, 0.91999996, 1.5278702, 1.1874499, 0.91999996, 1.5278702, 1.1874499, 0.91999996, 1.0278702)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(3, 5, 2), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(3, 11, 10), PackedInt32Array(10, 11, 9), PackedInt32Array(9, 6, 10), PackedInt32Array(10, 5, 3), PackedInt32Array(12, 7, 8), PackedInt32Array(0, 1, 12), PackedInt32Array(0, 12, 13), PackedInt32Array(13, 12, 8), PackedInt32Array(17, 16, 14), PackedInt32Array(14, 16, 15)]
 geometry_parsed_geometry_type = 1
-cell_height = 0.1
+cell_height = 0.01
+agent_radius = 0.25
 agent_max_climb = 0.0
+agent_max_slope = 5.0
 region_min_size = 1.0
 region_merge_size = 10.0
 
@@ -44,13 +45,9 @@ size = Vector3(25, 5, 25)
 [node name="resource_manager" type="Node" parent="."]
 script = ExtResource("12_qwovd")
 creatures = Array[ExtResource("2_7mbro")]([ExtResource("3_ff6ho")])
-packed_donors = Dictionary[String, PackedScene]({
-"skeleton_minion": ExtResource("4_c6rvn")
-})
 
 [node name="scene_manager" type="Node" parent="." node_paths=PackedStringArray("_ui")]
 script = ExtResource("5_pn65j")
-initial_scene = ExtResource("7_kay4s")
 scenes = Array[ExtResource("6_gm488")]([ExtResource("7_kay4s"), ExtResource("6_kay4s")])
 _ui = NodePath("../game_components/CanvasLayer")
 metadata/_custom_type_script = "uid://bjmqfmubsvlhc"
@@ -93,6 +90,7 @@ level_area = NodePath("room_bounds")
 room_amount = 0
 
 [node name="room_bounds" type="Area3D" parent="game_components/Level"]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="game_components/Level/room_bounds"]
 shape = SubResource("BoxShape3D_mwqxe")
@@ -103,7 +101,7 @@ shape = SubResource("BoxShape3D_mwqxe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32898, 0, 1.51133)
 
 [node name="minion_builder" parent="game_components/Level" instance=ExtResource("21_n74k2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95685, 0.0500002, 1.37286)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2191863, 0.0500002, 1.37286)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="game_components"]
 
@@ -152,6 +150,7 @@ layout_mode = 2
 
 [node name="character" parent="game_components" instance=ExtResource("2_sf220")]
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.21147)
+movement_speed = 1.5
 
 [node name="body_parts_inventory" type="Node" parent="game_components/character"]
 script = ExtResource("25_gm488")

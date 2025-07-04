@@ -9,11 +9,10 @@ var contentSlot: ContentSlot;
 
 func _ready() -> void:
 	default_color = get_theme_color("bg_color");
-	contentSlot.changed.connect(redraw)
-	self.disabled = !contentSlot.is_unlocked;
 	counter.text = "";
 	
 func redraw() -> void:
+	disabled = !contentSlot.is_unlocked;
 	textureRect.modulate = default_color;
 	var resource := contentSlot.get_content()
 	if resource is ItemResource:
@@ -35,7 +34,10 @@ func blur() -> void:
 	counter.visible = false;
 	
 func set_content(_content: ContentSlot) -> void:
-	self.contentSlot = _content;
+	if contentSlot && contentSlot.is_connected("changed", redraw):
+		contentSlot.disconnect("changed", redraw);
+	contentSlot = _content;
+	contentSlot.changed.connect(redraw)
 
 func _get_drag_data(_at_position: Vector2) -> DragData:
 	if !contentSlot.has_content(null):

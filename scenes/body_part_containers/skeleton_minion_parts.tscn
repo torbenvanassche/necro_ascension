@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://crmy26pc60dws"]
-
-[ext_resource type="PackedScene" uid="uid://cq7cmkryin58a" path="res://imported_data/meshes/animated/Skeleton_Minion.glb" id="1_e7dlc"]
-[ext_resource type="Script" uid="uid://dnwj5xv1dbe0p" path="res://scripts/body_parts/body_part_donor.gd" id="2_ebho6"]
-
-[node name="Skeleton_Minion" instance=ExtResource("1_e7dlc")]
-script = ExtResource("2_ebho6")

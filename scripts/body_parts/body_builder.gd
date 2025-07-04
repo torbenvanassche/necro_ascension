@@ -1,4 +1,4 @@
 extends Interactable
 
-func on_interact(btn_index: int) -> void:
-	super(btn_index);
+func on_interact() -> void:
+	SceneManager.instance.get_or_create_scene("minion_window");

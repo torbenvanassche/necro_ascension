@@ -1,4 +1,4 @@
-class_name Interactable extends Node3D
+abstract class_name Interactable extends Node3D
 
 signal interacted(button_index: int);
 
@@ -17,13 +17,16 @@ func _ready() -> void:
 			click_area.set_meta("interactable", self);
 		else:
 			Debug.warn("No area found for interactable %s." % interactable_id)
-	
-func on_interact(btn_index: int) -> void:
+			
+func interact(btn_index: int) -> void:
 	if !can_interact:
 		return;
 		
 	last_button_index = btn_index;
 	interacted.emit(btn_index);
+	on_interact();
+	
+abstract func on_interact() -> void;
 		
 func set_interactable(b: bool) -> void:
 	can_interact = b;

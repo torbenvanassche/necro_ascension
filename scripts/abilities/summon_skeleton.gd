@@ -1,6 +1,6 @@
 extends Node
 
-var skeleton: CreatureResource = preload("res://resources/creatures/skeleton_minion.tres");
+var skeleton: CreatureResource;
 
 func execute(_options: Dictionary = {}) -> bool:
 	var ray_result: Dictionary = Manager.instance.camera.get_ray_hit_from_screen_point();

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_owvay")
-id = "character_window"
+id = "minion_window"
 packed_scene = "uid://b1gjocvj7ra7q"
 type = 2
 metadata/_custom_type_script = "uid://bx0br2fpije6a"

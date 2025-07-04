@@ -1,12 +1,9 @@
-[gd_resource type="Resource" script_class="CreatureResource" load_steps=3 format=3 uid="uid://cxlhmwa4m8lf1"]
+[gd_resource type="Resource" script_class="CreatureResource" load_steps=2 format=3 uid="uid://cxlhmwa4m8lf1"]
 
 [ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="1_3va5h"]
-[ext_resource type="PackedScene" uid="uid://bsv67arenohqp" path="res://scenes/creatures/skeleton_minion.tscn" id="1_ny2ym"]
 
 [resource]
 script = ExtResource("1_3va5h")
 translation_key = "MINION_SKELETON"
 role = 1
-creature = ExtResource("1_ny2ym")
-move_speed = 1.0
 metadata/_custom_type_script = "uid://b15am4tlccon3"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://u174e626pg4g"]
 
-[ext_resource type="Script" path="res://scripts/runtime/ability_slot.gd" id="1_q3as8"]
-[ext_resource type="Texture2D" uid="uid://dyuycl4768s33" path="res://imported_data/textures/panel-border-005.png" id="2_t2rgx"]
+[ext_resource type="Script" uid="uid://dblbrdqcqt7wr" path="res://scripts/runtime/ability_slot.gd" id="1_q3as8"]
+[ext_resource type="Texture2D" uid="uid://dyuycl4768s33" path="res://sprites/ui/panel-border-005.png" id="2_t2rgx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rwyh"]
 bg_color = Color(0.572549, 0.572549, 0.572549, 0)

@@ -4,8 +4,6 @@ extends CharacterBody3D
 @export var movement_speed: float = 2
 @export_range(0.1, 1, 0.1, "Higher value means snappier rotation") var rotation_speed: float = 0.1;
 
-@onready var body_parts: BodyPartReceiver = $Necromancer/Rig/Skeleton3D;
-
 @export var camera_relative: bool = false;
 
 @export var interaction_range: Area3D;
@@ -21,10 +19,8 @@ var direction: Vector3 = Vector3.ZERO;
 var animation_controller: AnimationMachine;
 @onready var creature_controller: CreatureController = $creature_holder;
 
-@onready var right_hand: BoneAttachment3D = $Necromancer/Rig/Skeleton3D/handslot_r
-@onready var look_at_modifier: LookAtModifier3D = $Necromancer/Rig/Skeleton3D/LookAtModifier3D;
 @onready var nav_obstacle: NavigationObstacle3D = $NavigationObstacle3D;
-@onready var animation_tree: AnimationTree = $AnimationTree;
+@onready var animation_tree: AnimationTree = $character/AnimationTree;
 
 @onready var body_part_inventory: Inventory = $body_parts_inventory;
 
@@ -42,23 +38,11 @@ func _ready() -> void:
 	if nav_obstacle:
 		nav_obstacle.visible = true;
 		
-	animation_controller = AnimationMachine.new(animation_tree, "kay_skeleton");
+	animation_controller = AnimationMachine.new(animation_tree, "base");
 	_setup_animations()
-	
-	var weapon_instance: Node3D = weapon_data.weapon_scene.instantiate();
-	right_hand.get_node(weapon_data.marker_name).add_child(weapon_instance)
-	weapon_data.apply(weapon_instance);
 	
 func _setup_animations() -> void:
 	animation_controller.add_state(AnimationControllerState.new("IWR", "parameters/IWR/blend_position", AnimationControllerState.StateType.BLEND))
-	animation_controller.add_state(AnimationControllerState.new("speed_2h", "parameters/2H_Melee_Attack_Chop/atk_speed/scale", AnimationControllerState.StateType.PARAMETER))
-	animation_controller.add_state(AnimationControllerState.new("attack_chop", "2H_Melee_Attack_Chop", AnimationControllerState.StateType.STATE))
-	animation_controller.add_state(AnimationControllerState.new("summon", "Spellcast_Summon", AnimationControllerState.StateType.STATE))
-	animation_controller.add_state(AnimationControllerState.new("interact", "Interact", AnimationControllerState.StateType.STATE))
-
-	animation_controller.add_animation_end_callback(animation_controller.get_state("attack_chop").blend_path, update_movement.bind(true));
-	animation_controller.add_animation_end_callback(animation_controller.get_state("summon").blend_path, update_movement.bind(true));
-	animation_controller.add_animation_end_callback(animation_controller.get_state("interact").blend_path, update_movement.bind(true));
 	
 func update_movement(b: bool) -> void:
 	do_processing = b;
@@ -102,7 +86,7 @@ func interact() -> void:
 		var interactable: Interactable = current_triggers[0].get_meta("interactable");
 		if interactable.has_method("on_interact"):
 			animation_controller.set_state_on_machine("interact");
-			interactable.on_interact(-1);
+			interactable.interact(-1);
 			do_processing = false;
 	
 func sort_areas_by_distance() -> void:

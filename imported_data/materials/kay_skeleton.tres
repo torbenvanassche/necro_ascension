@@ -1,6 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://be66fuk25wfhw"]
-
-[ext_resource type="Texture2D" uid="uid://d37lom7jyyg5k" path="res://imported_data/textures/kay_character/skeleton_texture_A.png" id="1_sp1ox"]
-
-[resource]
-albedo_texture = ExtResource("1_sp1ox")
