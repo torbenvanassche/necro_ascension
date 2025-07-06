@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyuycl4768s33"
-path="res://.godot/imported/panel-border-005.png-9c607edfccd4f9a31d7ddf9a299e61c6.ctex"
+uid="uid://cb0mh72vymkco"
+path="res://.godot/imported/ICON_DarkFantasy_Inventory_LegArmor_01_Clean.png-430d9b3c719d90fed6e40a97052d4aa4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ui/panel-border-005.png"
-dest_files=["res://.godot/imported/panel-border-005.png-9c607edfccd4f9a31d7ddf9a299e61c6.ctex"]
+source_file="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_LegArmor_01_Clean.png"
+dest_files=["res://.godot/imported/ICON_DarkFantasy_Inventory_LegArmor_01_Clean.png-430d9b3c719d90fed6e40a97052d4aa4.ctex"]
 
 [params]
 

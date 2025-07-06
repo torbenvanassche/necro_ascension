@@ -1,16 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dny1dqcanlco0"]
+[gd_scene load_steps=5 format=3 uid="uid://dny1dqcanlco0"]
 
 [ext_resource type="Script" uid="uid://djfe2kdofn562" path="res://tools/scene_control/custom_window/scripts/window_base.gd" id="1_6jx1r"]
 [ext_resource type="Theme" uid="uid://o4rpu8ih4owk" path="res://themes/main_theme.tres" id="1_fpb1y"]
-[ext_resource type="Texture2D" uid="uid://c1fahppn3xsoy" path="res://sprites/ui/cross_large.png" id="2_oddkn"]
+[ext_resource type="Texture2D" uid="uid://cjmb3ha4pgrke" path="res://sprites/synty/borders/SPR_DarkFantasy_Frame_Box_Medium_11.png" id="2_svoch"]
+[ext_resource type="PackedScene" uid="uid://dhm12l4f10gsq" path="res://scenes/ui/close_button.tscn" id="3_fpb1y"]
 
-[node name="Window" type="Panel"]
+[node name="Window" type="NinePatchRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fpb1y")
+texture = ExtResource("2_svoch")
+draw_center = false
+patch_margin_left = 160
+patch_margin_top = 158
+patch_margin_right = 165
+patch_margin_bottom = 155
 script = ExtResource("1_6jx1r")
 override_size = Vector2(400, 200)
 
@@ -21,50 +28,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 37
+theme_override_constants/margin_top = 37
+theme_override_constants/margin_right = 37
+theme_override_constants/margin_bottom = 37
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer"]
+clip_children = 2
+z_index = -1
 layout_mode = 2
-theme_override_constants/separation = 0
 
-[node name="topbar" type="ColorRect" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-mouse_filter = 1
-mouse_default_cursor_shape = 13
-color = Color(0.176471, 0.176471, 0.176471, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/topbar"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/topbar/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 20
-
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/topbar/HBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 25
-text = "WINDOW TITLE"
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/topbar/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-icon = ExtResource("2_oddkn")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="content" type="ColorRect" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 3
-color = Color(0.666667, 0.666667, 0.666667, 1)
+
+[node name="close_button" parent="." instance=ExtResource("3_fpb1y")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -75.0
+offset_bottom = 75.0
+grow_horizontal = 0
+grow_vertical = 1
+size_flags_horizontal = 8
+size_flags_vertical = 0

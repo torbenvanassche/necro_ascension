@@ -17,6 +17,11 @@ signal cached(scene_info: SceneInfo);
 
 func release() -> void:
 	SceneManager.instance.scene_cache.remove(self);
+	
+func get_instance() -> Node:
+	if not node:
+		node = ResourceLoader.load_threaded_get(packed_scene).instantiate();
+	return node;
 
 func remove() -> void:
 	node.get_parent().remove_child(node);

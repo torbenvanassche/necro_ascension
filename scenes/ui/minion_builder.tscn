@@ -1,64 +1,80 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1gjocvj7ra7q"]
+[gd_scene load_steps=9 format=3 uid="uid://b1gjocvj7ra7q"]
 
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://tools/scene_control/custom_window/base_window.tscn" id="1_yp3df"]
-[ext_resource type="Script" uid="uid://d0gqj5urvnk50" path="res://tools/inventory/scripts/visual/minion_builder_ui.gd" id="2_hvlos"]
 [ext_resource type="PackedScene" uid="uid://c5ocjw6joaemy" path="res://tools/inventory/scenes/content_slot.tscn" id="3_xqu86"]
-[ext_resource type="Script" uid="uid://mkur1q33t8gc" path="res://tools/inventory/scripts/visual/minion_part_slot_ui.gd" id="4_t8joc"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_xqu86"]
-color = Color(1, 1, 1, 1)
-grow_begin = 0.0
-grow_end = 0.0
-thickness = 8
-vertical = true
+[ext_resource type="Texture2D" uid="uid://dh61te53hof5t" path="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_Helmets_01_Clean.png" id="4_cv2io"]
+[ext_resource type="Texture2D" uid="uid://ktbpb6436ctf" path="res://SPR_HUD_DarkFantasy_Example_Hero_03.png" id="4_t8joc"]
+[ext_resource type="Texture2D" uid="uid://dvcncn5uuk35q" path="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_Armor_01_Clean.png" id="5_lj4t6"]
+[ext_resource type="Texture2D" uid="uid://bpqrsv53e81fv" path="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_Gauntlets_01_Clean.png" id="6_txhwt"]
+[ext_resource type="Texture2D" uid="uid://cb0mh72vymkco" path="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_LegArmor_01_Clean.png" id="7_txhwt"]
+[ext_resource type="Texture2D" uid="uid://d1oquxk6ka5ac" path="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_Magic_03_Clean.png" id="8_jt8y0"]
 
 [node name="Window" instance=ExtResource("1_yp3df")]
-override_size = Vector2(400, 400)
+anchors_preset = -1
+anchor_right = 0.503
+anchor_bottom = 1.276
+offset_right = 0.5439453
+offset_bottom = -31.848022
+scale = Vector2(0.5, 0.5)
+mouse_filter = 1
+override_size = Vector2(580, 795)
 
-[node name="Title" parent="MarginContainer/VBoxContainer/topbar/HBoxContainer/MarginContainer" index="0"]
-text = "Skeleton builder"
+[node name="MarginContainer" parent="." index="0"]
+mouse_default_cursor_shape = 6
 
-[node name="content" parent="MarginContainer/VBoxContainer" index="1" node_paths=PackedStringArray("body_slot_container")]
-script = ExtResource("2_hvlos")
-body_slot_container = NodePath("HBoxContainer/MarginContainer/Control")
-ui_element = ExtResource("3_xqu86")
-slot_size = 75
+[node name="Panel" parent="MarginContainer" index="0"]
+mouse_filter = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/content" index="0"]
+[node name="TextureRect" parent="MarginContainer/Panel" index="0"]
+texture = ExtResource("4_t8joc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="head" parent="MarginContainer/Panel" index="1" instance=ExtResource("3_xqu86")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 321.0
+offset_top = -295.5
+offset_right = 421.0
+offset_bottom = -195.5
+placeholder_image = ExtResource("4_cv2io")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/content/HBoxContainer" index="0"]
-custom_minimum_size = Vector2(350, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/content/HBoxContainer/MarginContainer" index="0"]
-layout_mode = 2
-
-[node name="head" parent="MarginContainer/VBoxContainer/content/HBoxContainer/MarginContainer/Control" index="0" instance=ExtResource("3_xqu86")]
+[node name="hand_l" parent="MarginContainer/Panel" index="2" instance=ExtResource("3_xqu86")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_top = 0.0
-anchor_right = 0.5
-anchor_bottom = 0.0
-offset_left = -50.0
-offset_top = 0.0
-offset_right = 50.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 1
-script = ExtResource("4_t8joc")
-part_type = 0
+offset_left = 55.0
+offset_top = 10.5
+offset_right = 155.0
+offset_bottom = 110.5
+placeholder_image = ExtResource("6_txhwt")
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/content/HBoxContainer" index="1"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_xqu86")
+[node name="misc" parent="MarginContainer/Panel" index="3" instance=ExtResource("3_xqu86")]
+layout_mode = 1
+offset_left = 355.0
+offset_top = 214.5
+offset_right = 455.0
+offset_bottom = 314.5
+placeholder_image = ExtResource("8_jt8y0")
+
+[node name="body" parent="MarginContainer/Panel" index="4" instance=ExtResource("3_xqu86")]
+layout_mode = 1
+offset_left = 103.0
+offset_top = -169.5
+offset_right = 203.0
+offset_bottom = -69.5
+placeholder_image = ExtResource("5_lj4t6")
+
+[node name="legs" parent="MarginContainer/Panel" index="5" instance=ExtResource("3_xqu86")]
+layout_mode = 1
+offset_left = 209.0
+offset_top = 158.5
+offset_right = 309.0
+offset_bottom = 258.5
+placeholder_image = ExtResource("7_txhwt")
+
+[node name="arm_r" parent="MarginContainer/Panel" index="6" instance=ExtResource("3_xqu86")]
+layout_mode = 1
+offset_left = 357.0
+offset_top = -13.5
+offset_right = 457.0
+offset_bottom = 86.5
+placeholder_image = ExtResource("6_txhwt")
+flip_placeholder = true

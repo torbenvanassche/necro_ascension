@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1cs43s558l6u"
-path="res://.godot/imported/target_round_b.png-37d49f64a29b07b5a1b13f1503b459ca.ctex"
+uid="uid://d1oquxk6ka5ac"
+path="res://.godot/imported/ICON_DarkFantasy_Inventory_Magic_03_Clean.png-a30caa0fa007c416f17acd0a29b61be1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ui/target_round_b.png"
-dest_files=["res://.godot/imported/target_round_b.png-37d49f64a29b07b5a1b13f1503b459ca.ctex"]
+source_file="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_Magic_03_Clean.png"
+dest_files=["res://.godot/imported/ICON_DarkFantasy_Inventory_Magic_03_Clean.png-a30caa0fa007c416f17acd0a29b61be1.ctex"]
 
 [params]
 

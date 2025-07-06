@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://doncbds0y75it"]
+
+[ext_resource type="PackedScene" uid="uid://c5ocjw6joaemy" path="res://tools/inventory/scenes/content_slot.tscn" id="1_x57yu"]
+[ext_resource type="Texture2D" uid="uid://p2qsyxkaatfr" path="res://sprites/synty/backgrounds/SPR_HUD_DarkFantasy_Box_Medium_Parchment_02.png" id="2_bpgql"]
+
+[node name="item" instance=ExtResource("1_x57yu")]
+texture_normal = ExtResource("2_bpgql")
+
+[node name="rescaler" parent="margin_container/TextureRect" index="0"]
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="item_bg_icon" parent="margin_container/TextureRect/rescaler" index="0"]
+z_index = 1

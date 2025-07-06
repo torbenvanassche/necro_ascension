@@ -29,8 +29,6 @@ gdscript/warnings/untyped_declaration=2
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
-mouse_cursor/custom_image="uid://clg2jhyukgw88"
 
 [editor_plugins]
 

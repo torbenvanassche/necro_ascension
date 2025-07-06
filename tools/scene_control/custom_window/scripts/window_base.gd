@@ -4,12 +4,10 @@ extends Control
 @export var id: String = "";
 
 @onready var vp := get_viewport()
-@onready var top_bar: ColorRect = $MarginContainer/VBoxContainer/topbar;
-@onready var close_button: Button = $MarginContainer/VBoxContainer/topbar/HBoxContainer/Button;
-@onready var title: Label = $MarginContainer/VBoxContainer/topbar/HBoxContainer/MarginContainer/Title;
-@onready var content_panel: ColorRect = $MarginContainer/VBoxContainer/content;
+@onready var draggable_area: MarginContainer = $MarginContainer;
+@onready var close_button: Button = $close_button;
+@onready var content_panel: Panel = $MarginContainer/Panel;
 
-@export_enum("fullscreen", "display", "no_header") var display_mode: String = "display"
 @export_enum("mouse", "center", "override") var position_options: String = "center";
 var initial_position: Vector2;
 
@@ -20,16 +18,17 @@ var initial_position: Vector2;
 @export var topbar_height: int = 50;
 
 signal close_requested();
-signal change_title(name: String);
 
 var dragging := false
 var stored_position:Vector2;
+var drag_offset: Vector2;
 
 func _ready() -> void:
+	vp = get_viewport();
+	
 	close_button.pressed.connect(close_window);
 	close_requested.connect(close_window)
-	top_bar.gui_input.connect(handle_input)
-	change_title.connect(_change_title)
+	draggable_area.gui_input.connect(handle_input)
 	
 	if override_size != Vector2.ZERO:
 		self.set_deferred("size", override_size)
@@ -38,17 +37,6 @@ func on_enable(_options: Dictionary = {}) -> void:
 	if visible:
 		return
 	visible = true;
-		
-	match display_mode:
-		"fullscreen":
-			top_bar.visible = false;
-			size = get_viewport_rect().size;
-		"display":
-			top_bar.visible = true;
-			pass
-		"no_header":
-			top_bar.visible = false;
-			pass
 	
 	match position_options:
 		"mouse":
@@ -62,14 +50,12 @@ func on_enable(_options: Dictionary = {}) -> void:
 	if store_position:
 		position = stored_position;
 
-func _change_title(s: String) -> void:
-	title.text = s;
-
 func handle_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		dragging = event.pressed
+		drag_offset = get_viewport().get_mouse_position() - global_position;
 	elif dragging and event is InputEventMouseMotion:
-		position += event.relative
+		global_position = get_viewport().get_mouse_position() - drag_offset;
 	else:
 		return
 	vp.set_input_as_handled()

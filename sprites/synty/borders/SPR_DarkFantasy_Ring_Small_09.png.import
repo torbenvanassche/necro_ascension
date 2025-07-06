@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jsrb3n6w0h8g"
-path="res://.godot/imported/navigation_n.png-6c8d042b2ef91df483504da13b3bbd23.ctex"
+uid="uid://c3xwptl8wjcft"
+path="res://.godot/imported/SPR_DarkFantasy_Ring_Small_09.png-74271f8d36801618c6c938a03a2af9a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ui/navigation_n.png"
-dest_files=["res://.godot/imported/navigation_n.png-6c8d042b2ef91df483504da13b3bbd23.ctex"]
+source_file="res://sprites/synty/borders/SPR_DarkFantasy_Ring_Small_09.png"
+dest_files=["res://.godot/imported/SPR_DarkFantasy_Ring_Small_09.png-74271f8d36801618c6c938a03a2af9a8.ctex"]
 
 [params]
 

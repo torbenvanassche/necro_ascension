@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clg2jhyukgw88"
-path="res://.godot/imported/cursor_none.png-12515d3a7e005e1b042a74ced2926a75.ctex"
+uid="uid://xtstx567b3e8"
+path="res://.godot/imported/ICON_DarkFantasy_Inventory_Staves_01_Clean.png-292c1146586c80e24986518551f9c4cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ui/cursor_none.png"
-dest_files=["res://.godot/imported/cursor_none.png-12515d3a7e005e1b042a74ced2926a75.ctex"]
+source_file="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_Staves_01_Clean.png"
+dest_files=["res://.godot/imported/ICON_DarkFantasy_Inventory_Staves_01_Clean.png-292c1146586c80e24986518551f9c4cb.ctex"]
 
 [params]
 

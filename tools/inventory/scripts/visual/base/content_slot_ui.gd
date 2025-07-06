@@ -1,14 +1,28 @@
-class_name ContentSlotUI extends Button
+class_name ContentSlotUI extends TextureButton
 
 @onready var textureRect: TextureRect = $margin_container/item_sprite;
-@onready var counter: Label = $margin_container/count;
-var contentSlot: ContentSlot;
+@onready var backgroundElement: TextureRect = $margin_container/TextureRect;
+@onready var placeholderImage: TextureRect = $margin_container/TextureRect/rescaler/item_bg_icon;
+@onready var counter: Label = $count;
 
+@export var background_gradient: Texture2D;
+@export var placeholder_image: Texture2D;
+@export var flip_placeholder: bool = false; 
+@export var show_amount: bool = true;
+
+@export_group("Drag Settings")
 @export var default_color: Color;
 @export var dragging_color: Color = Color(Color.WHITE, 0.3)
 
+var contentSlot: ContentSlot;
+
 func _ready() -> void:
 	default_color = get_theme_color("bg_color");
+	backgroundElement.texture = background_gradient;
+	placeholderImage.texture = placeholder_image;
+	placeholderImage.flip_h = flip_placeholder;
+	
+	counter.visible = show_amount;
 	counter.text = "";
 	
 func redraw() -> void:
@@ -18,16 +32,11 @@ func redraw() -> void:
 	if resource is ItemResource:
 		if "texture" in resource:
 			textureRect.texture = resource.texture;
-		counter.visible = true;
+		counter.visible = show_amount;
 		counter.text = str(contentSlot.count);
 	else:
 		textureRect.texture = null;
 		counter.text = "";
-
-var show_amount: bool = true:
-	set(value):
-		counter.visible = value;
-		show_amount = value;
 
 func blur() -> void:
 	textureRect.modulate = dragging_color;
