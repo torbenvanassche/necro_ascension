@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c8k0s1tktd4ld"
+uid="uid://cted67ckbxvqt"
 path="res://.godot/imported/SM_Bld_Base_Pillar_05.glb-b2a58ae612a8d2ee891270f567ffd644.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

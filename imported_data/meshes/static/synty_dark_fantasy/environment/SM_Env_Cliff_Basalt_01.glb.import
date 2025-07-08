@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://pbsp1unfho11"
+uid="uid://8rdx8r42wjwy"
 path="res://.godot/imported/SM_Env_Cliff_Basalt_01.glb-3d226caa15e35fce7eabf073b9c523d3.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

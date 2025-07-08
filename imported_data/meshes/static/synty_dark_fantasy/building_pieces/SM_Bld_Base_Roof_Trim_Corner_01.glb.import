@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://gc1rsgp61228"
+uid="uid://cp4vaq8wh2m1t"
 path="res://.godot/imported/SM_Bld_Base_Roof_Trim_Corner_01.glb-b5ed8f0edac70e6fb0b6a40d3e0f5272.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://6qxup6jx2am6"
+uid="uid://bny44ni5psstx"
 path="res://.godot/imported/SM_Bld_Roof_Cap_Angle_Half_01.glb-2592dbae6a259e901c3a19e7da37a975.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

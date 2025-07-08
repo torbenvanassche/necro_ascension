@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b0bkn6o0sbh31"
+uid="uid://dqxypj6tdtjrg"
 path="res://.godot/imported/SM_Env_BackgroundHill_01.glb-b55f6be32e5b7217bb240aec8e070793.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cnr2xvwoc4owy"
+uid="uid://b3w3vs5robw0g"
 path="res://.godot/imported/SM_Env_Tree_Trunk_01.glb-fdaf1802454b799104e42331efdb11b7.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

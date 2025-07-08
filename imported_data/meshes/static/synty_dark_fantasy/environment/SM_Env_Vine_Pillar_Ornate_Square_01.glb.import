@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cyvv11rdv21ri"
+uid="uid://cxqh0qmkq5dov"
 path="res://.godot/imported/SM_Env_Vine_Pillar_Ornate_Square_01.glb-b0cb3d0b895e81dc0d1d7b392b693b44.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

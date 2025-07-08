@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d07jgl8u7yl1v"
+uid="uid://dxlelxe5csk10"
 path="res://.godot/imported/SM_Bld_Alcove_01.glb-137bdf86869dacef391409e917a5ebf4.scn"
 
 [deps]
@@ -33,21 +33,26 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"colormap": {
+"MAT_01A": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
-}
+"use_external/fallback_path": "res://imported_data/materials/synty_dark_fantasy.tres",
+"use_external/path": "uid://dxct617ondkne"
 },
-"nodes": {
-"PATH:floor-small-square": {
-"generate/physics": true,
-"physics/shape_type": 0
+"Roof_MAT": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/Roof_01.tres",
+"use_external/path": "uid://cmpxj3mc5kd2q"
+},
+"placeholder.024": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/brick_large_01.tres",
+"use_external/path": "uid://bmdosiiwli1of"
 }
 }
 }

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ocjngbsrsic5"
+uid="uid://b6usa0svdxo3v"
 path="res://.godot/imported/SM_Env_Vine_Draped_01.glb-23ccb5c1f3ad343d5cf2d59886f1f309.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
