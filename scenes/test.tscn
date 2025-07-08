@@ -1,14 +1,12 @@
-[gd_scene load_steps=26 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=24 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="2_7mbro"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="2_sf220"]
 [ext_resource type="Resource" uid="uid://cxlhmwa4m8lf1" path="res://resources/creatures/skeleton_minion.tres" id="3_ff6ho"]
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
-[ext_resource type="Texture2D" uid="uid://clg2jhyukgw88" path="res://sprites/ui/cursor_none.png" id="5_daiq8"]
 [ext_resource type="Script" uid="uid://bjmqfmubsvlhc" path="res://tools/scene_control/scene_manager.gd" id="5_pn65j"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
-[ext_resource type="Texture2D" uid="uid://c1cs43s558l6u" path="res://sprites/ui/target_round_b.png" id="6_c6rvn"]
 [ext_resource type="Script" uid="uid://bx0br2fpije6a" path="res://tools/scene_control/scene_info.gd" id="6_gm488"]
 [ext_resource type="Resource" uid="uid://b8yxompo3tinf" path="res://resources/scene_info/inventory.tres" id="6_kay4s"]
 [ext_resource type="Resource" uid="uid://dh8bmthxelnyk" path="res://resources/scene_info/minion_window.tres" id="7_kay4s"]
@@ -56,10 +54,6 @@ metadata/_custom_type_script = "uid://bjmqfmubsvlhc"
 script = ExtResource("1_qqdqb")
 resource_manager = NodePath("../resource_manager")
 navigation_region = NodePath("Level")
-cursor_list = Dictionary[String, Texture2D]({
-"default": ExtResource("5_daiq8"),
-"ground_marker": ExtResource("6_c6rvn")
-})
 
 [node name="camera&lights" type="Node" parent="game_components"]
 

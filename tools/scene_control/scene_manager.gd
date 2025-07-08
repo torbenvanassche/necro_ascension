@@ -34,7 +34,7 @@ func _ready() -> void:
 	if initial_scene:
 		get_or_create_scene(initial_scene.id, SceneConfig.new(true))
 			
-func get_or_create_scene(scene_name: String, scene_config: SceneConfig = SceneConfig.new()) -> Node:
+func get_or_create_scene(scene_name: String, scene_config: SceneConfig = SceneConfig.new()) -> SceneInfo:
 	var previous_scene_info: SceneInfo = null;
 	if _active_scene != null:
 		previous_scene_info = node_to_info(_active_scene);
@@ -50,13 +50,13 @@ func get_or_create_scene(scene_name: String, scene_config: SceneConfig = SceneCo
 		var scene_info: SceneInfo = filtered[0];
 		if is_instance_valid(scene_info.node):
 			_on_scene_load(scene_info, scene_config);
-			return scene_info.node;
 		else:
 			if scene_cache.get_from_cache(scene_info) != null:
 				_on_scene_load(scene_info, scene_config);
 			else:
 				if !scene_info.cached.is_connected(_on_scene_load.bind(scene_config)):
 					scene_info.cached.connect(_on_scene_load.bind(scene_config))
+		return scene_info;
 	else:
 		Debug.err(scene_name + " was invalid. Found more than one resource referencing the scene.")
 	return null;

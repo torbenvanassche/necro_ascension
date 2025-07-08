@@ -17,6 +17,8 @@ var initial_position: Vector2;
 @export var return_on_close: bool = true;
 @export var topbar_height: int = 50;
 
+@export var element: CanvasItem;
+
 signal close_requested();
 
 var dragging := false

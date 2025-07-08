@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AbilityResource" load_steps=4 format=3 uid="uid://dufidrrdpcb5l"]
 
-[ext_resource type="Script" path="res://scripts/abilities/attack.gd" id="1_rofj2"]
-[ext_resource type="Script" path="res://scripts/data/ability_resource.gd" id="2_u71te"]
+[ext_resource type="Script" uid="uid://clvm8v2onyeqv" path="res://scripts/abilities/attack.gd" id="1_rofj2"]
+[ext_resource type="Script" uid="uid://c5v345y5jck2e" path="res://scripts/data/ability_resource.gd" id="2_u71te"]
 [ext_resource type="Texture2D" uid="uid://c3ac7mfp5mfrm" path="res://sprites/abilities/tile_0276.png" id="3_7w3iw"]
 
 [resource]

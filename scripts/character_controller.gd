@@ -80,14 +80,17 @@ func _physics_process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		interact();
+	elif event.is_action_pressed("inventory"):
+		var inventoryUI: SceneInfo = SceneManager.instance.get_or_create_scene("inventory");
+		inventoryUI.cached.connect(func(info: SceneInfo) -> void: info.node.element.inventory = body_part_inventory, CONNECT_ONE_SHOT)
+		
 	
 func interact() -> void:
 	if current_triggers.size() != 0:
 		var interactable: Interactable = current_triggers[0].get_meta("interactable");
 		if interactable.has_method("on_interact"):
-			animation_controller.set_state_on_machine("interact");
+			do_processing = not animation_controller.set_state_on_machine("interact");
 			interactable.interact(-1);
-			do_processing = false;
 	
 func sort_areas_by_distance() -> void:
 	current_triggers.sort_custom(func(a: Node3D, b: Node3D) -> float: return global_position.distance_squared_to(a.global_position) > global_position.distance_squared_to(b.global_position));
@@ -106,7 +109,6 @@ func _on_leave(body: Area3D) -> void:
 		
 func on_attack_start() -> void:
 	do_processing = false;
-	animation_controller.set_parameter("speed_2h", weapon_data.attack_speed)
 	animation_controller.set_state_on_machine("attack_chop");
 		
 func _on_attack_hit(body: Area3D) -> void:

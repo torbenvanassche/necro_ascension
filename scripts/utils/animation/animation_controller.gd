@@ -48,10 +48,12 @@ func search_state_by_meta(meta_id: String, to_match: Variant) -> AnimationContro
 			return s;
 	return null;
 	
-func set_state_on_machine(state: String) -> void:
+func set_state_on_machine(state: String) -> bool:
 	var s := get_state(state);
 	if s && s.state_type == AnimationControllerState.StateType.STATE:
 		anim_state.travel(s.blend_path)
+		return true;
+	return false;
 
 func get_state(state: String = animation_state) -> AnimationControllerState:
 	var items := _state_holder.filter(func(x: AnimationControllerState) -> bool: return x.state_name == state)

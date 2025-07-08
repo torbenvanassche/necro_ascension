@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://u174e626pg4g"]
 
 [ext_resource type="Script" uid="uid://dblbrdqcqt7wr" path="res://scripts/runtime/ability_slot.gd" id="1_q3as8"]
-[ext_resource type="Texture2D" uid="uid://dyuycl4768s33" path="res://sprites/ui/panel-border-005.png" id="2_t2rgx"]
+[ext_resource type="Texture2D" uid="uid://bq8a57srmg0or" path="res://sprites/synty/borders/SPR_DarkFantasy_Frame_Box_Small_01.png" id="2_smjc0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rwyh"]
 bg_color = Color(0.572549, 0.572549, 0.572549, 0)
@@ -23,7 +23,7 @@ script = ExtResource("1_q3as8")
 
 [node name="ability_texture" type="TextureRect" parent="."]
 clip_children = 2
-layout_mode = 2
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
@@ -60,5 +60,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
-texture = ExtResource("2_t2rgx")
+texture = ExtResource("2_smjc0")
 expand_mode = 3

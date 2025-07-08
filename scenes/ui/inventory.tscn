@@ -1,12 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc66a8ndpbpgf"]
+[gd_scene load_steps=4 format=3 uid="uid://cc66a8ndpbpgf"]
 
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://tools/scene_control/custom_window/base_window.tscn" id="1_s6ek7"]
+[ext_resource type="Script" uid="uid://5flpgwnxnsjt" path="res://tools/inventory/scripts/visual/base/inventory_ui.gd" id="2_xeaml"]
+[ext_resource type="PackedScene" uid="uid://doncbds0y75it" path="res://scenes/ui/inventory_slot_ui.tscn" id="3_5yy05"]
 
-[node name="Window" instance=ExtResource("1_s6ek7")]
+[node name="Window" node_paths=PackedStringArray("element") instance=ExtResource("1_s6ek7")]
 override_size = Vector2(220, 200)
+element = NodePath("MarginContainer/Panel/TextureRect/MarginContainer/GridContainer")
 
-[node name="Title" parent="MarginContainer/VBoxContainer/topbar/HBoxContainer/MarginContainer" index="0"]
-text = "Inventory"
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/TextureRect" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="content" parent="MarginContainer/VBoxContainer" index="1"]
-color = Color(0.925353, 0.925353, 0.925353, 1)
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Panel/TextureRect/MarginContainer" index="0"]
+layout_mode = 2
+script = ExtResource("2_xeaml")
+packed_slot = ExtResource("3_5yy05")

@@ -1,31 +1,27 @@
 class_name InventoryUI
-extends Control
+extends GridContainer
 
-@export var inventory: Inventory
+@export var inventory: Inventory:
+	set(value):
+		inventory = value;
+		if value:
+			for element in inventory.data:
+				add(element)
+			_control_size();
 @export var packed_slot: PackedScene
-
-@onready var root: GridContainer = $CenterContainer/GridContainer
 
 var selected_slot: ContentSlotUI
 
 func _ready() -> void:
-	root.resized.connect(_control_size, CONNECT_DEFERRED)
-
-	if inventory:
-		for element in inventory.data:
-			add(element)
-
-	await get_tree().process_frame
-	_control_size()
+	resized.connect(_control_size, CONNECT_DEFERRED)
 
 func _control_size() -> void:
 	var container_width := size.x
-	var columns := maxi(root.columns, 1)
-	var h_separation := root.get_theme_constant("h_separation")
+	var h_separation := get_theme_constant("h_separation")
 
 	var container_size_x: int = clamp((container_width / columns) - h_separation, 15, 50)
 
-	for e: Control in root.get_children():
+	for e: Control in get_children():
 		e.custom_minimum_size.x = container_size_x
 		e.custom_minimum_size.y = container_size_x
 
@@ -33,7 +29,7 @@ func add(content: ContentSlot) -> ContentSlotUI:
 	var container: ContentSlotUI = packed_slot.instantiate() as ContentSlotUI
 	container.button_up.connect(_set_selected.bind(container))
 	container.set_content(content)
-	root.add_child(container)
+	add_child(container)
 	return container
 
 func _set_selected(slot: ContentSlotUI) -> void:
