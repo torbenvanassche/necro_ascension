@@ -39,15 +39,15 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"colormap": {
+"WALL_1_MAT.011": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
-}
+"use_external/fallback_path": "res://imported_data/materials/Roof_01.tres",
+"use_external/path": "uid://cmpxj3mc5kd2q"
 },
-"nodes": {
-"PATH:floor-small-square": {
-"generate/physics": true,
-"physics/shape_type": 0
+"placeholder.024": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/synty_dark_fantasy.tres",
+"use_external/path": "uid://dxct617ondkne"
 }
 }
 }

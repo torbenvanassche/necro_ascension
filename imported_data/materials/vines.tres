@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cfd6v88ueuquk"]
+
+[ext_resource type="Texture2D" uid="uid://cmmaxujsnt7y4" path="res://imported_data/textures/tileable/albedo/Vines_Diffuse.png" id="1_xth24"]
+[ext_resource type="Texture2D" uid="uid://da7wom4sa44wy" path="res://imported_data/textures/tileable/normal/Vines_Normal.png" id="2_7mqmi"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_xth24")
+normal_enabled = true
+normal_texture = ExtResource("2_7mqmi")
