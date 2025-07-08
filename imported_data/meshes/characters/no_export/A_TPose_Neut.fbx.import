@@ -41,7 +41,7 @@ _subresources={
 "animations": {
 "A_TPose_Neut": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://imported_data/meshes/characters/animation_resources/A_TPose_Neut.res",
+"save_to_file/fallback_path": "res://imported_data/meshes/characters/animations/A_TPose_Neut.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://bt3tg1yv04f23",
 "settings/loop_mode": 0,
@@ -2097,7 +2097,7 @@ _subresources={
 },
 "RESET": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://imported_data/meshes/characters/animation_resources/RESET.res",
+"save_to_file/fallback_path": "res://imported_data/meshes/characters/animations/RESET.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://dy7k7tvxfoedk",
 "settings/loop_mode": 0,
