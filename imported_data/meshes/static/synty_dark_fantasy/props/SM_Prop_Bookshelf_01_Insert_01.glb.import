@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cy1xc8s1siulg"
+uid="uid://iwril10l3lbw"
 path="res://.godot/imported/SM_Prop_Bookshelf_01_Insert_01.glb-9632ad7ca72d1a5a9aad23cbd5b21984.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

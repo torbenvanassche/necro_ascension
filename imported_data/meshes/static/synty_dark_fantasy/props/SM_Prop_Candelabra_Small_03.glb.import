@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cccdw7xqr73dd"
+uid="uid://cdqddfdol3uvo"
 path="res://.godot/imported/SM_Prop_Candelabra_Small_03.glb-de2925c4c04f3880ab6914329a81e703.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

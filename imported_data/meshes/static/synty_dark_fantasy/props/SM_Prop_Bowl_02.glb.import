@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cl5grpt6yjhky"
+uid="uid://dw5rl0wn11q4a"
 path="res://.godot/imported/SM_Prop_Bowl_02.glb-9cbd89ca35186c8096a9fe6a475ec06f.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

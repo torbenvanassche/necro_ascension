@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dlt1ukwjfuekg"
+uid="uid://bvpkv0gjuxjo2"
 path="res://.godot/imported/SM_Prop_Altar_Table_01.glb-de48567d2d9fd04d1bd89c7e540fac8e.scn"
 
 [deps]
@@ -33,22 +33,21 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"placeholder.024": {
+"colormap": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://imported_data/materials/synty_dark_fantasy.tres",
-"use_external/path": "uid://dxct617ondkne"
+"use_external/path": "res://imported_data/materials/base_material.tres"
 }
 },
 "nodes": {
-"PATH:SM_Prop_Altar_Table_01": {
+"PATH:floor-small-square": {
 "generate/physics": true,
-"physics/shape_type": 1
+"physics/shape_type": 0
 }
 }
 }

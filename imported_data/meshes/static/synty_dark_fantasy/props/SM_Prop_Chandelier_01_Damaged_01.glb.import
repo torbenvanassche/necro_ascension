@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d0o6ui4whot7r"
+uid="uid://wn7ply00be3m"
 path="res://.godot/imported/SM_Prop_Chandelier_01_Damaged_01.glb-dc82d16b76f6ded38e7420f59191e7f4.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

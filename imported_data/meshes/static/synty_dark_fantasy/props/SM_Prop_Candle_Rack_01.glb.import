@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://oql30f4g8o60"
+uid="uid://dai2m65qhbd1d"
 path="res://.godot/imported/SM_Prop_Candle_Rack_01.glb-dd0dbad5e46b961b6eaa2d647e5126ce.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

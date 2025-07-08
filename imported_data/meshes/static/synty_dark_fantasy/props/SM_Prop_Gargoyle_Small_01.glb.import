@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://btuj1bw3iv67t"
+uid="uid://c2vlp3eay654u"
 path="res://.godot/imported/SM_Prop_Gargoyle_Small_01.glb-a3923d32f7882f58406e2fede7bb3ecd.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

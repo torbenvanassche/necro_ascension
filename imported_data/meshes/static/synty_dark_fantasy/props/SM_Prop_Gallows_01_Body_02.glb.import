@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://xf6y3uvrrnv1"
+uid="uid://dm6ka0if13tmi"
 path="res://.godot/imported/SM_Prop_Gallows_01_Body_02.glb-1cb8de6d3d960b199a3c093e185eff60.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

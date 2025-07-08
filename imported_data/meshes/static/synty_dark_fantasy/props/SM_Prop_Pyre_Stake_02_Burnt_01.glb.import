@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://63jxh3cu2k8g"
+uid="uid://bc3n51656revh"
 path="res://.godot/imported/SM_Prop_Pyre_Stake_02_Burnt_01.glb-1565c2bc0857f2266644490eb7807023.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

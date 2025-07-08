@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dnpg4bxrytfx7"
+uid="uid://bqqdclbh3xg2u"
 path="res://.godot/imported/SM_Prop_Counter_Bar_01.glb-a18168f4465351bd17efc9a6e3895559.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

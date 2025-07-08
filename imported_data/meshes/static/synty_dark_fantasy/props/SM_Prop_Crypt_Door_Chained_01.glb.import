@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://0e133l3v5qp0"
+uid="uid://2flm4b8vg3j1"
 path="res://.godot/imported/SM_Prop_Crypt_Door_Chained_01.glb-8f4d0e842496a461dc37e7e659af1938.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

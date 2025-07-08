@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://drdw243dwt1xk"
+uid="uid://3vdloj7lb388"
 path="res://.godot/imported/SM_Prop_Fire_Pit_01_Rotisserie_01.glb-c6bddad7ee9be1d29ad60919184c7cd6.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

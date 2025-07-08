@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dcn1whq4e5cqg"
+uid="uid://dt4piyxtefauv"
 path="res://.godot/imported/SM_Prop_Flag_Dark_01.glb-4e3e6d3377edd6de35a69f21786ef761.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

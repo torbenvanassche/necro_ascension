@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dv2uux05isui8"
+uid="uid://btasitdwnxgh5"
 path="res://.godot/imported/SM_Prop_Flag_Hero_Damaged_02.glb-cc8770b5185cfe31ef72ea76e3d40f61.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://hpqqyor11dhp"
+uid="uid://p8kkh5lkorhs"
 path="res://.godot/imported/SM_Prop_Bread_Slice_Rotten_01.glb-fc8dceaf1920542859376a00cbcdc6db.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

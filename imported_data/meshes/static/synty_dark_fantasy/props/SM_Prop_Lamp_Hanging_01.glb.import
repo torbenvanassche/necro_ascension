@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctfmkcvrkl5o"
+uid="uid://ctuf6i05bj0o3"
 path="res://.godot/imported/SM_Prop_Lamp_Hanging_01.glb-88ca4b2aba9c49b1888450e66e583caf.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cneirhcgpelhh"
+uid="uid://de738cmnt5vgu"
 path="res://.godot/imported/SM_Prop_Noose_Bundle_01.glb-b6ad33b7760cc02daf0dec0aead7dcf9.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

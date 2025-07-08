@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://7ureaaim7wtn"
+uid="uid://s6v1ixiiet48"
 path="res://.godot/imported/SM_Prop_Pew_Large_01_Damaged_03.glb-e8924a74de66d3f8f88a5dc47346b2f9.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

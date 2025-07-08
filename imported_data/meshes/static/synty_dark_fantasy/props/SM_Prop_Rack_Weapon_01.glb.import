@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1j8t4ycnl0fn"
+uid="uid://cerdv2u1cwafl"
 path="res://.godot/imported/SM_Prop_Rack_Weapon_01.glb-03bec90f9d812c3d85b61dc6c6521f5f.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

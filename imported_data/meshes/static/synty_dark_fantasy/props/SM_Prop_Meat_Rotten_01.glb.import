@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dg6y0nod7lb03"
+uid="uid://dqk67q4pdhrpm"
 path="res://.godot/imported/SM_Prop_Meat_Rotten_01.glb-cabcaf1259f11651098a2aed8613aab7.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

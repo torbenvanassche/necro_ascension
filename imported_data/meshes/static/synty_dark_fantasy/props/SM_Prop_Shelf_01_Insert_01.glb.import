@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b7xqqbqktlpfh"
+uid="uid://cunip751o7fx5"
 path="res://.godot/imported/SM_Prop_Shelf_01_Insert_01.glb-119c730e8095afb38b7a4932ffc60c25.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bkvookckptju2"
+uid="uid://dk008rv53umt7"
 path="res://.godot/imported/SM_Prop_Tomb_02.glb-fde0f7ab92b6d3b4fa9e0d5187c7294d.scn"
 
 [deps]
@@ -33,28 +33,21 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"placeholder.024": {
+"colormap": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://imported_data/materials/synty_dark_fantasy.tres",
-"use_external/path": "uid://dxct617ondkne"
+"use_external/path": "res://imported_data/materials/base_material.tres"
 }
 },
 "nodes": {
-"PATH:SM_Prop_Tomb_02": {
+"PATH:floor-small-square": {
 "generate/physics": true,
 "physics/shape_type": 0
-},
-"PATH:SM_Prop_Tomb_02/SM_Prop_Tomb_02_Lid_01": {
-"physics/body_type": 2,
-"physics/shape_type": 3,
-"primitive/position": Vector3(0, 0, -100),
-"primitive/size": Vector3(120, 275, 50)
 }
 }
 }

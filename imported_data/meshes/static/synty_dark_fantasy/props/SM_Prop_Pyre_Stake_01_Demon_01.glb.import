@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dw6eat031n6d5"
+uid="uid://bnsjpejqirtsn"
 path="res://.godot/imported/SM_Prop_Pyre_Stake_01_Demon_01.glb-da869c3e9d61c3dac8a53e6b4c371fab.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

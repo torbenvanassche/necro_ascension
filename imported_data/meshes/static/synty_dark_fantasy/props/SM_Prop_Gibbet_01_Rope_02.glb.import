@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ccd636300pxns"
+uid="uid://bf4aqooqnsv1a"
 path="res://.godot/imported/SM_Prop_Gibbet_01_Rope_02.glb-f8cd50c4441f3a4307de7c3e6e5cbe63.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

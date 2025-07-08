@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cg5b3jba55soh"
+uid="uid://slsjhrxtw74k"
 path="res://.godot/imported/SM_Prop_Pyre_01_Burnt_01.glb-c3da0c591a6a28e2611c0e91f931dcf3.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

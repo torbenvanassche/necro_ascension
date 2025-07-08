@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://co2iepuijydq2"
+uid="uid://bj74w8clfkmso"
 path="res://.godot/imported/SM_Prop_Rubble_Pile_Burnt_01.glb-b2adac06814f9a138042fe2076c4528f.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c2vsqkt3n1sgf"
+uid="uid://dq3clqo4wb2c3"
 path="res://.godot/imported/SM_Prop_Statue_People_Damaged_02.glb-a6802a7ae78863366b8ed603701ef650.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

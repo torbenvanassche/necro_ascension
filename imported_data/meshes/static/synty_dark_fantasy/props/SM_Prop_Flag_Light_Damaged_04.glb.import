@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bel5ur06mtwcn"
+uid="uid://c4icxd1k25hke"
 path="res://.godot/imported/SM_Prop_Flag_Light_Damaged_04.glb-99b6e560c2433317a09624f4cd43b230.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cs4bls6b64dyc"
+uid="uid://boer4wdxcxyu0"
 path="res://.godot/imported/SM_Prop_Stage_Wooden_01.glb-1684979d79a9fb680d8f929a8191b5db.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
