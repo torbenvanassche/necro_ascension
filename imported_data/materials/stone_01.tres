@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b5ss4hubw0mxf"]
+
+[ext_resource type="Texture2D" uid="uid://cs3yennhwqglt" path="res://imported_data/textures/tileable/albedo/stonewall_Texture_02.png" id="1_xjii0"]
+[ext_resource type="Texture2D" uid="uid://20sb1fhqvlvs" path="res://imported_data/textures/tileable/normal/stonewall2_normals.png" id="2_ljq6a"]
+
+[resource]
+albedo_texture = ExtResource("1_xjii0")
+normal_enabled = true
+normal_texture = ExtResource("2_ljq6a")

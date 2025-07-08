@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ihma1q1j3nd7"]
+
+[ext_resource type="Texture2D" uid="uid://djf67rekgjt0x" path="res://imported_data/textures/tileable/albedo/Stucco_Brown_01.png" id="1_66y0t"]
+[ext_resource type="Texture2D" uid="uid://csdaf47s280i5" path="res://imported_data/textures/tileable/normal/Stucco_Normals_01.png" id="2_q601h"]
+
+[resource]
+albedo_texture = ExtResource("1_66y0t")
+normal_enabled = true
+normal_texture = ExtResource("2_q601h")
