@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgakhxogrjn2u"]
+[gd_scene load_steps=6 format=3 uid="uid://bgakhxogrjn2u"]
 
 [ext_resource type="Script" uid="uid://3vu8c3mlwv01" path="res://scripts/levels/room.gd" id="1_tjvsl"]
+[ext_resource type="PackedScene" uid="uid://b1xd03763lnkb" path="res://imported_data/meshes/static/synty_dark_fantasy/building_pieces/SM_Bld_Base_Floor_01.glb" id="2_4iyd2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0n5n"]
 size = Vector3(9.39953, 2, 9.46129)
@@ -35,3 +36,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01643, 0, -3.98346)
 shape = SubResource("BoxShape3D_act6e")
 
 [node name="walls" type="Node3D" parent="."]
+
+[node name="SM_Bld_Base_Floor_012" parent="." instance=ExtResource("2_4iyd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="SM_Bld_Base_Floor_013" parent="." instance=ExtResource("2_4iyd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.499992, 0, -5)
