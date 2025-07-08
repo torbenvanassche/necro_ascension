@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b5sblcdo844fo"
+uid="uid://b7lfeveaj6rg5"
 path="res://.godot/imported/SM_Env_Vine_06.glb-21d34ba13853deb016d5588ef9a23311.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

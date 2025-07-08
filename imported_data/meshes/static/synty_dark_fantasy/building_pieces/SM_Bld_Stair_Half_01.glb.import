@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://mcr0ni0f54qa"
+uid="uid://bah65fu3u3hnp"
 path="res://.godot/imported/SM_Bld_Stair_Half_01.glb-1884d9ee7129bb42e5aed3ebe847456e.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

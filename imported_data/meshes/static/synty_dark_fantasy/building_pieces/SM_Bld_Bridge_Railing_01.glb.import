@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dexno2r5d8yn6"
+uid="uid://diurf4wuwnrkv"
 path="res://.godot/imported/SM_Bld_Bridge_Railing_01.glb-e2d76bb5b967c4fba53cd6c18933d37c.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bvu1n5geyi3n1"
+uid="uid://boni2gucnyfh5"
 path="res://.godot/imported/SM_Bld_Base_Stairs_01.glb-823f8f5b618c5ea5b73e52627f08482b.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

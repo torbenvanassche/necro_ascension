@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://joae8phqikbo"
+uid="uid://b0u0bj8wujigx"
 path="res://.godot/imported/SM_Bld_Decoration_01.glb-2d028f9b5e5f7448ed2c2a44df96f0eb.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

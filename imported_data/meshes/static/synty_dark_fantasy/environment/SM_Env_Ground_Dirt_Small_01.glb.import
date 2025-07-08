@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c34or7341p2gk"
+uid="uid://cqsffyaliv2eh"
 path="res://.godot/imported/SM_Env_Ground_Dirt_Small_01.glb-b4d7d4d032e5c8ff4318037648e936a6.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1fki00smh5s5"
+uid="uid://dfcf4n5pmbmpe"
 path="res://.godot/imported/SM_Env_Rock_Cliff_Arch_01.glb-3ab2b4583687f7d7c22cf03f5f3dedc2.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

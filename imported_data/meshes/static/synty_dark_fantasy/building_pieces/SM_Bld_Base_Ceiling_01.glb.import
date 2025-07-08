@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bfxk67ia1d4oj"
+uid="uid://b44vvr3xjkda8"
 path="res://.godot/imported/SM_Bld_Base_Ceiling_01.glb-4d9d2e7471914c75a6a493d81a8610aa.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

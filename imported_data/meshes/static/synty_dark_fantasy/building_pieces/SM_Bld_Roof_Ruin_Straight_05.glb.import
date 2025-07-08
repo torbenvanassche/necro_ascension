@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dte1lpscq8jjo"
+uid="uid://hiv4b2horofp"
 path="res://.godot/imported/SM_Bld_Roof_Ruin_Straight_05.glb-ac41abc959834110e7eaf99b073b0aeb.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

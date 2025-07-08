@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dp0xcyxjmeo8s"
+uid="uid://c40su8wuidfxf"
 path="res://.godot/imported/SM_Bld_Wall_Archway_02_Cap_Single_01.glb-42b5ade600684bb95e9bcc0b0e32113f.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

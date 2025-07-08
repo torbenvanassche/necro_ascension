@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cm3ps17ixnr3w"
+uid="uid://v7fw16auepxh"
 path="res://.godot/imported/SM_Bld_Wall_Door_01.glb-4e2e45adade8ade29d9bff853b88b2ce.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

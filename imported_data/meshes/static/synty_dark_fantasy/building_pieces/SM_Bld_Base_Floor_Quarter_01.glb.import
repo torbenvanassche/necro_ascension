@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://f780ickvjvr6"
+uid="uid://cud6e8tnhwnn5"
 path="res://.godot/imported/SM_Bld_Base_Floor_Quarter_01.glb-124107af9cc1d8f47eee5251666387c2.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

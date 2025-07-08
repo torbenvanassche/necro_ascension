@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://nyeafrm5pft6"
+uid="uid://dsamx6nerllgl"
 path="res://.godot/imported/SM_Bld_Wall_Ruin_End_01.glb-4ea6e90a46ba86f4c845244d6850a9ab.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

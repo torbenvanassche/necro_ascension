@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cmpxj3mc5kd2q"]
+
+[ext_resource type="Texture2D" uid="uid://lstybjkjfhbs" path="res://imported_data/textures/tileable/albedo/Roof_01.png" id="1_76n23"]
+[ext_resource type="Texture2D" uid="uid://wxtkisieq3bk" path="res://imported_data/textures/tileable/normal/roof_normals.png" id="2_p04uk"]
+
+[resource]
+albedo_texture = ExtResource("1_76n23")
+normal_enabled = true
+normal_texture = ExtResource("2_p04uk")

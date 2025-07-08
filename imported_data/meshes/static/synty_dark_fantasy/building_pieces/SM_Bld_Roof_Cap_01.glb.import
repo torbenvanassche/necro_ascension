@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dcnx4t1vamq6k"
+uid="uid://bfrc1v8yvxnhy"
 path="res://.godot/imported/SM_Bld_Roof_Cap_01.glb-924989e37e362b28a21f8de1e2d4134a.scn"
 
 [deps]
@@ -33,7 +33,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="uid://dreq7pm6on7m6"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
