@@ -1,4 +1,4 @@
-abstract class_name Interactable extends Node3D
+@abstract class_name Interactable extends Node3D
 
 signal interacted(button_index: int);
 
@@ -26,7 +26,7 @@ func interact(btn_index: int) -> void:
 	interacted.emit(btn_index);
 	on_interact();
 	
-abstract func on_interact() -> void;
+@abstract func on_interact() -> void;
 		
 func set_interactable(b: bool) -> void:
 	can_interact = b;
