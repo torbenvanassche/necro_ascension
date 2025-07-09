@@ -9,6 +9,7 @@ extends GridContainer
 				add(element)
 			_control_size();
 @export var packed_slot: PackedScene
+@export var max_slot_size: int = 50;
 
 var selected_slot: ContentSlotUI
 
@@ -19,7 +20,7 @@ func _control_size() -> void:
 	var container_width := size.x
 	var h_separation := get_theme_constant("h_separation")
 
-	var container_size_x: int = clamp((container_width / columns) - h_separation, 15, 50)
+	var container_size_x: int = clamp((container_width / columns) - h_separation, 15, max_slot_size)
 
 	for e: Control in get_children():
 		e.custom_minimum_size.x = container_size_x

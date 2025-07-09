@@ -148,6 +148,6 @@ movement_speed = 1.5
 
 [node name="body_parts_inventory" type="Node" parent="game_components/character"]
 script = ExtResource("25_gm488")
-unlocked_slots = 6
-max_slots = 6
+unlocked_slots = 9
+max_slots = 9
 metadata/_custom_type_script = "uid://b6rgx41co3bur"

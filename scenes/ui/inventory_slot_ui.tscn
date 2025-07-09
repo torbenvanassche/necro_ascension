@@ -5,6 +5,7 @@
 
 [node name="item" instance=ExtResource("1_x57yu")]
 texture_normal = ExtResource("2_bpgql")
+background_gradient = null
 
 [node name="rescaler" parent="margin_container/TextureRect" index="0"]
 theme_override_constants/margin_left = 3

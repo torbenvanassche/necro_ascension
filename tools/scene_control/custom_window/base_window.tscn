@@ -5,12 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://cjmb3ha4pgrke" path="res://sprites/synty/borders/SPR_DarkFantasy_Frame_Box_Medium_11.png" id="2_svoch"]
 [ext_resource type="PackedScene" uid="uid://dhm12l4f10gsq" path="res://scenes/ui/close_button.tscn" id="3_fpb1y"]
 
-[node name="Window" type="NinePatchRect"]
+[node name="Window2" type="NinePatchRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 13
 theme = ExtResource("1_fpb1y")
 texture = ExtResource("2_svoch")
 draw_center = false
