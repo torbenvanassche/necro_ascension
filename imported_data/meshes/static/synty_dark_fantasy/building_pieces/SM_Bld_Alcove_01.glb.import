@@ -46,18 +46,18 @@ _subresources={
 },
 "Roof_MAT": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://imported_data/materials/roof_01.tres",
+"use_external/fallback_path": "res://imported_data/materials/Roof_01.tres",
 "use_external/path": "uid://cmpxj3mc5kd2q"
 },
 "lambert1": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://imported_data/materials/look_through.tres",
-"use_external/path": "uid://bv8xh3oa0m3m4"
+"use_external/fallback_path": "res://imported_data/materials/floor_tiles_01.tres",
+"use_external/path": "uid://d3ip4xtogdlp7"
 },
-"placeholder.024": {
+"roof": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://imported_data/materials/brick_large_01.tres",
-"use_external/path": "uid://bmdosiiwli1of"
+"use_external/fallback_path": "res://imported_data/materials/floor_tiles_01.tres",
+"use_external/path": "uid://d3ip4xtogdlp7"
 }
 }
 }

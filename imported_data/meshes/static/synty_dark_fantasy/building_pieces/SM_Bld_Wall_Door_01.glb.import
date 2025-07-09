@@ -39,15 +39,30 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"colormap": {
+"A_Wall42": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
-}
+"use_external/fallback_path": "res://imported_data/materials/brick_large_01.tres",
+"use_external/path": "uid://bmdosiiwli1of"
 },
-"nodes": {
-"PATH:floor-small-square": {
-"generate/physics": true,
-"physics/shape_type": 0
+"Gothic.013": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/house_wall_01.tres",
+"use_external/path": "uid://bo1wffbrswqjc"
+},
+"doors": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/synty_dark_fantasy.tres",
+"use_external/path": "uid://dxct617ondkne"
+},
+"glass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/window.tres",
+"use_external/path": "uid://dx1wdqfpau2wr"
+},
+"placeholder.003": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/house_wall_01.tres",
+"use_external/path": "uid://bo1wffbrswqjc"
 }
 }
 }

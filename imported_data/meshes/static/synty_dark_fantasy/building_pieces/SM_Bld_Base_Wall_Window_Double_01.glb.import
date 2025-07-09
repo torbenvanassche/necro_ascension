@@ -39,15 +39,25 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"colormap": {
+"A_Wall26": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
-}
+"use_external/fallback_path": "res://imported_data/materials/brick_small_01.tres",
+"use_external/path": "uid://1ccepqbcin3p"
 },
-"nodes": {
-"PATH:floor-small-square": {
-"generate/physics": true,
-"physics/shape_type": 0
+"lambert1692": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/brick_small_01.tres",
+"use_external/path": "uid://1ccepqbcin3p"
+},
+"placeholder.002": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/window.tres",
+"use_external/path": "uid://dx1wdqfpau2wr"
+},
+"placeholder.003": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/brick_small_01.tres",
+"use_external/path": "uid://1ccepqbcin3p"
 }
 }
 }

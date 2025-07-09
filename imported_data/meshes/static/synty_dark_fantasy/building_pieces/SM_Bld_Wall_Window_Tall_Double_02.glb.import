@@ -41,18 +41,23 @@ _subresources={
 "materials": {
 "A_Wall01": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://imported_data/materials/brick_small_01.tres",
-"use_external/path": "uid://1ccepqbcin3p"
+"use_external/fallback_path": "res://imported_data/materials/brick_large_01.tres",
+"use_external/path": "uid://bmdosiiwli1of"
 },
 "MAT_01A.024": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://imported_data/materials/synty_dark_fantasy.tres",
 "use_external/path": "uid://dxct617ondkne"
 },
-"placeholder.024": {
+"placeholder.022": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://imported_data/materials/look_through.tres",
-"use_external/path": "uid://bv8xh3oa0m3m4"
+"use_external/fallback_path": "res://imported_data/materials/window_glasswork.tres",
+"use_external/path": "uid://ycbd0gmysmhj"
+},
+"placeholder.023": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/brick_large_01.tres",
+"use_external/path": "uid://bmdosiiwli1of"
 }
 }
 }

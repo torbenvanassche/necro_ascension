@@ -39,15 +39,15 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"colormap": {
+"STAIRS_MAT.005": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
-}
+"use_external/fallback_path": "res://imported_data/materials/stone_flat_01.tres",
+"use_external/path": "uid://xwm4b6yu7awy"
 },
-"nodes": {
-"PATH:floor-small-square": {
-"generate/physics": true,
-"physics/shape_type": 0
+"placeholder.024": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/stone_flat_01.tres",
+"use_external/path": "uid://xwm4b6yu7awy"
 }
 }
 }

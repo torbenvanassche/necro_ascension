@@ -16,7 +16,7 @@
 [ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/abilities/ability_3.tres" id="11_c6rvn"]
 [ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/abilities/ability_4.tres" id="12_n74k2"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="12_qwovd"]
-[ext_resource type="PackedScene" uid="uid://dwfj06q5osqrd" path="res://scenes/interactables/minion_builder.tscn" id="21_n74k2"]
+[ext_resource type="PackedScene" uid="uid://dwfj06q5osqrd" path="res://scenes/interactables/minion_builder_interactable.tscn" id="21_n74k2"]
 [ext_resource type="Script" uid="uid://bu6q6r4qr63yb" path="res://scripts/levels/level.gd" id="23_b83jc"]
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="24_6rwh1"]
 [ext_resource type="Script" uid="uid://b6rgx41co3bur" path="res://tools/inventory/scripts/inventory/inventory.gd" id="25_gm488"]

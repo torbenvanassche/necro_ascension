@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dx1wdqfpau2wr"]
+
+[ext_resource type="Texture2D" uid="uid://dgxe4l6cmlm4g" path="res://imported_data/textures/tileable/metallic/PolygonDarkFantasy_Window_Metallic_01.png" id="1_akngb"]
+[ext_resource type="Texture2D" uid="uid://bmsksn41uryda" path="res://imported_data/textures/tileable/normal/PolygonDarkFantasy_Window_Normal_01.png" id="2_0p1ye"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_akngb")
+normal_enabled = true
+normal_texture = ExtResource("2_0p1ye")

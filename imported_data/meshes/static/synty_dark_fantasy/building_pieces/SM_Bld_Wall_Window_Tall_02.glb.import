@@ -39,15 +39,25 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"colormap": {
+"A_Wall35": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
-}
+"use_external/fallback_path": "res://imported_data/materials/brick_large_01.tres",
+"use_external/path": "uid://bmdosiiwli1of"
 },
-"nodes": {
-"PATH:floor-small-square": {
-"generate/physics": true,
-"physics/shape_type": 0
+"MAT_01A.021": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/brick_large_01.tres",
+"use_external/path": "uid://bmdosiiwli1of"
+},
+"placeholder.015": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/window_glasswork.tres",
+"use_external/path": "uid://ycbd0gmysmhj"
+},
+"placeholder.017": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/brick_large_01.tres",
+"use_external/path": "uid://bmdosiiwli1of"
 }
 }
 }

@@ -39,15 +39,20 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"colormap": {
+"A_Wall32.002": {
 "use_external/enabled": true,
-"use_external/path": "res://imported_data/materials/base_material.tres"
-}
+"use_external/fallback_path": "res://imported_data/materials/house_wall_01.tres",
+"use_external/path": "uid://bo1wffbrswqjc"
 },
-"nodes": {
-"PATH:floor-small-square": {
-"generate/physics": true,
-"physics/shape_type": 0
+"HorrorSHD": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/synty_dark_fantasy.tres",
+"use_external/path": "uid://dxct617ondkne"
+},
+"placeholder.024": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/brick_large_01.tres",
+"use_external/path": "uid://bmdosiiwli1of"
 }
 }
 }

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://ycbd0gmysmhj"]
+
+[ext_resource type="Texture2D" uid="uid://ddihnwcosd4wv" path="res://imported_data/textures/tileable/albedo/PolygonDarkFantasy_Window_02.tga" id="1_jytvx"]
+[ext_resource type="Texture2D" uid="uid://dgxe4l6cmlm4g" path="res://imported_data/textures/tileable/metallic/PolygonDarkFantasy_Window_Metallic_01.png" id="2_wtdbi"]
+[ext_resource type="Texture2D" uid="uid://bmsksn41uryda" path="res://imported_data/textures/tileable/normal/PolygonDarkFantasy_Window_Normal_01.png" id="3_7x7lt"]
+
+[resource]
+albedo_texture = ExtResource("1_jytvx")
+metallic = 1.0
+metallic_texture = ExtResource("2_wtdbi")
+normal_enabled = true
+normal_texture = ExtResource("3_7x7lt")

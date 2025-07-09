@@ -41,18 +41,23 @@ _subresources={
 "materials": {
 "A_Wall39.006": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://imported_data/materials/brick_small_01.tres",
-"use_external/path": "uid://1ccepqbcin3p"
+"use_external/fallback_path": "res://imported_data/materials/brick_large_01.tres",
+"use_external/path": "uid://bmdosiiwli1of"
 },
 "lambert1705.006": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://imported_data/materials/brick_small_01.tres",
-"use_external/path": "uid://1ccepqbcin3p"
+"use_external/fallback_path": "res://imported_data/materials/brick_large_01.tres",
+"use_external/path": "uid://bmdosiiwli1of"
 },
-"placeholder.024": {
-"use_external/enabled": false,
-"use_external/fallback_path": "res://imported_data/materials/synty_dark_fantasy.tres",
-"use_external/path": "uid://dxct617ondkne"
+"placeholder.018": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/window_glasswork.tres",
+"use_external/path": "uid://ycbd0gmysmhj"
+},
+"placeholder.019": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/brick_large_01.tres",
+"use_external/path": "uid://bmdosiiwli1of"
 }
 }
 }

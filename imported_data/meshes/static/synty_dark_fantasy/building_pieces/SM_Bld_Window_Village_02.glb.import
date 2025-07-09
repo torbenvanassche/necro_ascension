@@ -49,10 +49,15 @@ _subresources={
 "use_external/fallback_path": "res://imported_data/materials/stucco_01.tres",
 "use_external/path": "uid://ihma1q1j3nd7"
 },
-"placeholder.024": {
+"placeholder.027": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://imported_data/materials/synty_dark_fantasy.tres",
 "use_external/path": "uid://dxct617ondkne"
+},
+"placeholder.028": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/stucco_01.tres",
+"use_external/path": "uid://ihma1q1j3nd7"
 }
 }
 }
