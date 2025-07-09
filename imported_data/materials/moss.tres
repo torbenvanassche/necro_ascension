@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cpqjg55jrf5vf"]
 
-[ext_resource type="Texture2D" uid="uid://cbd7c5qr53aoj" path="res://imported_data/textures/tileable/albedo/Grunge_Diffuse.png" id="1_raaoi"]
-[ext_resource type="Texture2D" uid="uid://bd5ysyfjfh7q1" path="res://imported_data/textures/tileable/normal/GrungeNormal.png" id="2_2nkx7"]
+[ext_resource type="Texture2D" uid="uid://y5xi2ibohfrt" path="res://imported_data/textures/tileable/albedo/Moss.png" id="1_raaoi"]
+[ext_resource type="Texture2D" uid="uid://bjouje11lcf1o" path="res://imported_data/textures/tileable/normal/moss_normals.png" id="2_2nkx7"]
 
 [resource]
 transparency = 1
