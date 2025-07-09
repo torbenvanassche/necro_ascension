@@ -1,8 +1,7 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://xwm4b6yu7awy"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://xwm4b6yu7awy"]
 
-[ext_resource type="Texture2D" uid="uid://cxhlkjqwcro1f" path="res://imported_data/textures/tileable/albedo/PolygonDarkFantasy_Stone_04.png" id="1_gs0wt"]
-[ext_resource type="Texture2D" uid="uid://bsi5abwr05tkg" path="res://imported_data/textures/tileable/normal/Stonewall_Normals_01.png" id="2_xjii0"]
+[ext_resource type="Texture2D" uid="uid://cxhlkjqwcro1f" path="res://imported_data/textures/tileable/albedo/PolygonDarkFantasy_Stone_04.png" id="1_lf8v6"]
 
 [resource]
-albedo_texture = ExtResource("1_gs0wt")
-normal_texture = ExtResource("2_xjii0")
+albedo_texture = ExtResource("1_lf8v6")
+normal_enabled = true
