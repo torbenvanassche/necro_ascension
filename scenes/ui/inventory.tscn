@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://doncbds0y75it" path="res://scenes/ui/inventory_slot_ui.tscn" id="3_5yy05"]
 
 [node name="Window" node_paths=PackedStringArray("element") instance=ExtResource("1_s6ek7")]
+offset_right = 1152.0
+offset_bottom = 648.0
+scale = Vector2(0.5, 0.5)
 override_size = Vector2(220, 200)
 element = NodePath("MarginContainer/Panel/TextureRect/MarginContainer/GridContainer")
 
