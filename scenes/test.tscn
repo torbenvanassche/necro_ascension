@@ -1,14 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=28 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="2_7mbro"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="2_sf220"]
 [ext_resource type="Resource" uid="uid://cxlhmwa4m8lf1" path="res://resources/creatures/skeleton_minion.tres" id="3_ff6ho"]
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="4_0gajg"]
+[ext_resource type="Script" uid="uid://q0pxj7po324k" path="res://scripts/data/item_resource.gd" id="4_si7kk"]
+[ext_resource type="Resource" uid="uid://dx6qylsoxpw0k" path="res://resources/body_parts/head_fleshy.tres" id="5_5f8cm"]
 [ext_resource type="Script" uid="uid://bjmqfmubsvlhc" path="res://tools/scene_control/scene_manager.gd" id="5_pn65j"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="5_rrglt"]
 [ext_resource type="Script" uid="uid://bx0br2fpije6a" path="res://tools/scene_control/scene_info.gd" id="6_gm488"]
 [ext_resource type="Resource" uid="uid://b8yxompo3tinf" path="res://resources/scene_info/inventory.tres" id="6_kay4s"]
+[ext_resource type="PackedScene" uid="uid://cdto4hd73gj2b" path="res://imported_data/meshes/characters/skelly_fleshy.glb" id="6_pn65j"]
 [ext_resource type="Resource" uid="uid://dh8bmthxelnyk" path="res://resources/scene_info/minion_window.tres" id="7_kay4s"]
 [ext_resource type="Resource" uid="uid://50t1h1fsnuwj" path="res://resources/abilities/attack.tres" id="9_xrtyr"]
 [ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/abilities/ability_2.tres" id="10_daiq8"]
@@ -16,14 +19,15 @@
 [ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/abilities/ability_3.tres" id="11_c6rvn"]
 [ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/abilities/ability_4.tres" id="12_n74k2"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="12_qwovd"]
+[ext_resource type="PackedScene" uid="uid://c4wn2xe6cbeo1" path="res://scenes/rooms/procedural/basic_cellar_1.tscn" id="15_5f8cm"]
 [ext_resource type="PackedScene" uid="uid://dwfj06q5osqrd" path="res://scenes/interactables/minion_builder_interactable.tscn" id="21_n74k2"]
 [ext_resource type="Script" uid="uid://bu6q6r4qr63yb" path="res://scripts/levels/level.gd" id="23_b83jc"]
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="24_6rwh1"]
 [ext_resource type="Script" uid="uid://b6rgx41co3bur" path="res://tools/inventory/scripts/inventory/inventory.gd" id="25_gm488"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
-vertices = PackedVector3Array(-5.06255, 0.07, 1.0278702, -0.06255007, 0.07, 1.0278702, 0.18744993, 0.07, 0.5278702, 1.1874499, 0.07, -10.22213, -5.06255, 0.07, -10.22213, 0.93744993, 0.07, 0.5278702, 2.68745, 0.07, 2.0278702, 1.4374499, 0.07, 2.2778702, 1.4374499, 0.07, 5.27787, 10.43745, 0.07, 5.27787, 2.68745, 0.07, 0.7778702, 10.43745, 0.07, -10.22213, 0.18744993, 0.07, 2.2778702, -5.06255, 0.07, 5.27787, 0.43744993, 0.91999996, 1.0278702, 0.43744993, 0.91999996, 1.5278702, 1.1874499, 0.91999996, 1.5278702, 1.1874499, 0.91999996, 1.0278702)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(3, 5, 2), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(3, 11, 10), PackedInt32Array(10, 11, 9), PackedInt32Array(9, 6, 10), PackedInt32Array(10, 5, 3), PackedInt32Array(12, 7, 8), PackedInt32Array(0, 1, 12), PackedInt32Array(0, 12, 13), PackedInt32Array(13, 12, 8), PackedInt32Array(17, 16, 14), PackedInt32Array(14, 16, 15)]
+vertices = PackedVector3Array(-5.06255, 0.07, -10.22213, -5.06255, 0.07, 5.27787, 10.43745, 0.07, 5.27787, 10.43745, 0.07, -10.22213)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 geometry_parsed_geometry_type = 1
 cell_height = 0.01
 agent_radius = 0.25
@@ -43,6 +47,10 @@ size = Vector3(25, 5, 25)
 [node name="resource_manager" type="Node" parent="."]
 script = ExtResource("12_qwovd")
 creatures = Array[ExtResource("2_7mbro")]([ExtResource("3_ff6ho")])
+items = Array[ExtResource("4_si7kk")]([ExtResource("5_5f8cm")])
+packed_donors = Dictionary[String, PackedScene]({
+"fleshy": ExtResource("6_pn65j")
+})
 
 [node name="scene_manager" type="Node" parent="." node_paths=PackedStringArray("_ui")]
 script = ExtResource("5_pn65j")
@@ -93,6 +101,10 @@ shape = SubResource("BoxShape3D_mwqxe")
 
 [node name="spawn_room" parent="game_components/Level/rooms" instance=ExtResource("24_6rwh1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32898, 0, 1.51133)
+visible = false
+
+[node name="Root" parent="game_components/Level/rooms" instance=ExtResource("15_5f8cm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.064852, 0, -2.4118652)
 
 [node name="minion_builder" parent="game_components/Level" instance=ExtResource("21_n74k2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2191863, 0.0500002, 1.37286)

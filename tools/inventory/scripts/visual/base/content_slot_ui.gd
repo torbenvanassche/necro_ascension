@@ -25,13 +25,19 @@ func _ready() -> void:
 	counter.visible = show_amount;
 	counter.text = "";
 	
+	if contentSlot:
+		redraw();
+	
 func redraw() -> void:
+	if contentSlot == null:
+		return;
+	
 	disabled = !contentSlot.is_unlocked;
-	textureRect.modulate = default_color;
 	var resource := contentSlot.get_content()
 	if resource is ItemResource:
 		if "texture" in resource:
 			textureRect.texture = resource.texture;
+			textureRect.modulate = default_color;
 		counter.visible = show_amount;
 		counter.text = str(contentSlot.count);
 	else:
@@ -47,6 +53,12 @@ func set_content(_content: ContentSlot) -> void:
 		contentSlot.disconnect("changed", redraw);
 	contentSlot = _content;
 	contentSlot.changed.connect(redraw)
+	
+	if _content:
+		if is_node_ready():
+			redraw();
+		else:
+			ready.connect(redraw, CONNECT_ONE_SHOT);
 
 func _get_drag_data(_at_position: Vector2) -> DragData:
 	if !contentSlot.has_content(null):
@@ -62,7 +74,7 @@ func _get_drag_data(_at_position: Vector2) -> DragData:
 	return null;
 	
 func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
-	return contentSlot.is_unlocked;
+	return contentSlot && contentSlot.is_unlocked;
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var src_slot: ContentSlot = (data as DragData).slot.contentSlot

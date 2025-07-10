@@ -1,10 +1,13 @@
 class_name BodyPart extends ItemResource;
 
-enum TYPE {
+enum Type {
+	UNDEFINED,
 	HEAD,
-	ARM_LEFT,
-	ARM_RIGHT,
+	MAIN_HAND,
+	OFF_HAND,
 	BODY,
-	LEG_LEFT,
-	LEG_RIGHT
+	LEGS,
+	CORE
 }
+
+@export var type: Type = Type.UNDEFINED;

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BodyPart" load_steps=4 format=3 uid="uid://dx6qylsoxpw0k"]
+
+[ext_resource type="Script" uid="uid://m77xux5p3yt6" path="res://scripts/body_parts/body_part_item.gd" id="1_8wnxa"]
+
+[sub_resource type="Gradient" id="Gradient_8wnxa"]
+offsets = PackedFloat32Array(0, 0.5289855, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mdkuu"]
+gradient = SubResource("Gradient_8wnxa")
+
+[resource]
+script = ExtResource("1_8wnxa")
+type = 1
+unique_id = "flesh_head"
+translation_key_name = "NAME_HEAD_FLESH"
+translation_key_description = "DESC_HEAD_FLESH"
+texture = SubResource("GradientTexture1D_mdkuu")
+metadata/_custom_type_script = "uid://m77xux5p3yt6"

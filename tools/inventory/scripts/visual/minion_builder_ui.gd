@@ -1,7 +1,11 @@
-extends Control
+class_name BodyBuilderUI extends ContentGroup
 
-@export var body_slot_container: Control;
+var parts: Array[MinionPartSlotUI];
 
-@export var ui_element: PackedScene
-@export var slot_size: int = 50
-@export var body_parts: Array[ContentSlotUI]
+func _ready() -> void:
+	parts.assign(get_children().filter(func(child: Node)-> bool: return child is MinionPartSlotUI));
+	for part in parts:
+		var c: ContentSlot = ContentSlot.new();
+		part.contentSlot = c;
+		data.append(c)
+		

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwfj06q5osqrd"]
 
-[ext_resource type="Script" uid="uid://2yn210xhgcqy" path="res://scripts/body_parts/body_builder.gd" id="1_hhg6f"]
+[ext_resource type="Script" uid="uid://2yn210xhgcqy" path="res://scripts/body_parts/body_builder_interactable.gd" id="1_hhg6f"]
 [ext_resource type="PackedScene" uid="uid://bvpkv0gjuxjo2" path="res://imported_data/meshes/static/synty_dark_fantasy/props/SM_Prop_Altar_Table_01.glb" id="2_hhg6f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hhg6f"]

@@ -7,6 +7,16 @@
 texture_normal = ExtResource("2_bpgql")
 background_gradient = null
 
+[node name="margin_container" parent="." index="0"]
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="item_sprite" parent="margin_container" index="0"]
+z_index = 1
+expand_mode = 1
+
 [node name="rescaler" parent="margin_container/TextureRect" index="0"]
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3

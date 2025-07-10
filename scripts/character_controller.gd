@@ -41,6 +41,8 @@ func _ready() -> void:
 	animation_controller = AnimationMachine.new(animation_tree, "base");
 	_setup_animations()
 	
+	body_part_inventory.add(Manager.instance.resource_manager.get_item("flesh_head"))
+	
 func _setup_animations() -> void:
 	animation_controller.add_state(AnimationControllerState.new("IWR", "parameters/IWR/blend_position", AnimationControllerState.StateType.BLEND))
 	

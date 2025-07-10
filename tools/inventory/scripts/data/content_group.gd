@@ -2,15 +2,9 @@ class_name ContentGroup extends Node
 
 var data: Array[ContentSlot] = [];
 
-@export var unlocked_slots: int = 1;
-@export var max_slots: int = 1;
 @export var stack_size: int = 1;
 
 signal changed();
-
-func _ready() -> void:
-	for i in range(max_slots):
-		data.append(ContentSlot.new(0, null, stack_size, i < unlocked_slots))
 		
 func get_available_slots(content: Resource, exclude_full: bool = false) -> Array[ContentSlot]:
 	return data.filter(func(slot: ContentSlot) -> bool: 
@@ -26,6 +20,9 @@ func create_or_unlock_slot() -> ContentSlot:
 	return new_slot;
 	
 func add(content: Resource, amount: int = 1, can_exceed_capacity: bool = false) -> int:
+	if content == null:
+		Debug.message("Trying to add a null object to the inventory!");
+	
 	var remaining_amount: int = amount;
 	var call_amount: int = data.size();
 	while remaining_amount > 0 && call_amount > 0:
