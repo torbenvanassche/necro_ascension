@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bd5ysyfjfh7q1" path="res://imported_data/textures/tileable/normal/GrungeNormal.png" id="2_kygkt"]
 
 [resource]
+transparency = 1
+albedo_color = Color(0.2, 0.14450002, 0.110000014, 0.81960785)
 albedo_texture = ExtResource("1_jwpxp")
 normal_enabled = true
 normal_texture = ExtResource("2_kygkt")
