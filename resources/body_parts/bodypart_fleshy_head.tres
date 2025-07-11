@@ -7,7 +7,7 @@
 script = ExtResource("1_8wnxa")
 type = 1
 scene_info = ExtResource("1_mdkuu")
-unique_id = "flesh_head"
+unique_id = "skeleton_flesh_head"
 translation_key_name = "NAME_HEAD_FLESH"
 translation_key_description = "DESC_HEAD_FLESH"
 metadata/_custom_type_script = "uid://m77xux5p3yt6"

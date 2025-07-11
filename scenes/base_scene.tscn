@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="3_0xy4o"]
 [ext_resource type="Resource" uid="uid://cxlhmwa4m8lf1" path="res://resources/creatures/skeleton_minion.tres" id="4_kfhhx"]
 [ext_resource type="Script" uid="uid://q0pxj7po324k" path="res://scripts/data/item_resource.gd" id="5_nsaf0"]
-[ext_resource type="Resource" uid="uid://dx6qylsoxpw0k" path="res://resources/body_parts/head_fleshy.tres" id="6_knile"]
+[ext_resource type="Resource" uid="uid://dx6qylsoxpw0k" path="res://resources/body_parts/bodypart_fleshy_head.tres" id="6_knile"]
 [ext_resource type="PackedScene" uid="uid://cdto4hd73gj2b" path="res://imported_data/meshes/characters/part_containers/skeleton_fleshy.glb" id="7_gd3uu"]
 [ext_resource type="Script" uid="uid://bjmqfmubsvlhc" path="res://tools/scene_control/scene_manager.gd" id="8_4pen5"]
 [ext_resource type="Script" uid="uid://bx0br2fpije6a" path="res://tools/scene_control/scene_info.gd" id="9_ocdnp"]
