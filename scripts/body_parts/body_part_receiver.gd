@@ -1,8 +1,6 @@
 class_name BodyPartReceiver
 extends Skeleton3D
 
-@export var donor: PackedScene
-
 func replace_mesh_instance(to_remove: MeshInstance3D, to_add: MeshInstance3D) -> void:
 	var original_global_transform := to_remove.global_transform
 

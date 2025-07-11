@@ -3,7 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://dyequs13mhyp3" path="res://tools/inventory/styles/content_slot_stylebox.tres" id="1_f67vh"]
 [ext_resource type="StyleBox" uid="uid://b3yojughln6fb" path="res://tools/inventory/styles/content_slot_stylebox_disabled.tres" id="1_pdw3o"]
 [ext_resource type="Script" uid="uid://c8weu3p2f5ayn" path="res://tools/inventory/scripts/visual/base/content_slot_ui.gd" id="2_rfq8a"]
-[ext_resource type="Texture2D" uid="uid://elqf4klw68pq" path="res://sprites/synty/borders/SPR_DarkFantasy_Frame_Box_Medium_05_Variant_01.png" id="3_nc0ld"]
+[ext_resource type="Texture2D" uid="uid://elqf4klw68pq" path="res://sprites/borders/SPR_DarkFantasy_Frame_Box_Medium_05_Variant_01.png" id="3_nc0ld"]
 [ext_resource type="Texture2D" uid="uid://c7hxe1bn3vvdm" path="res://themes/gradients/blue_to_black.tres" id="5_nc0ld"]
 
 [sub_resource type="Theme" id="Theme_ceefl"]

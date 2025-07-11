@@ -3,13 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://tools/scene_control/custom_window/base_window.tscn" id="1_yp3df"]
 [ext_resource type="Script" uid="uid://d0gqj5urvnk50" path="res://tools/inventory/scripts/visual/minion_builder_ui.gd" id="2_jt8y0"]
 [ext_resource type="PackedScene" uid="uid://c5ocjw6joaemy" path="res://tools/inventory/scenes/content_slot.tscn" id="3_xqu86"]
-[ext_resource type="Texture2D" uid="uid://dh61te53hof5t" path="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_Helmets_01_Clean.png" id="4_cv2io"]
+[ext_resource type="Texture2D" uid="uid://dh61te53hof5t" path="res://sprites/icons/ICON_DarkFantasy_Inventory_Helmets_01_Clean.png" id="4_cv2io"]
 [ext_resource type="Texture2D" uid="uid://ktbpb6436ctf" path="res://SPR_HUD_DarkFantasy_Example_Hero_03.png" id="4_t8joc"]
 [ext_resource type="Script" uid="uid://mkur1q33t8gc" path="res://tools/inventory/scripts/visual/minion_part_slot_ui.gd" id="4_txhwt"]
-[ext_resource type="Texture2D" uid="uid://dvcncn5uuk35q" path="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_Armor_01_Clean.png" id="5_lj4t6"]
-[ext_resource type="Texture2D" uid="uid://bpqrsv53e81fv" path="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_Gauntlets_01_Clean.png" id="6_txhwt"]
-[ext_resource type="Texture2D" uid="uid://cb0mh72vymkco" path="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_LegArmor_01_Clean.png" id="7_txhwt"]
-[ext_resource type="Texture2D" uid="uid://d1oquxk6ka5ac" path="res://sprites/synty/icons/ICON_DarkFantasy_Inventory_Magic_03_Clean.png" id="8_jt8y0"]
+[ext_resource type="Texture2D" uid="uid://dvcncn5uuk35q" path="res://sprites/icons/ICON_DarkFantasy_Inventory_Armor_01_Clean.png" id="5_lj4t6"]
+[ext_resource type="Texture2D" uid="uid://bpqrsv53e81fv" path="res://sprites/icons/ICON_DarkFantasy_Inventory_Gauntlets_01_Clean.png" id="6_txhwt"]
+[ext_resource type="Texture2D" uid="uid://cb0mh72vymkco" path="res://sprites/icons/ICON_DarkFantasy_Inventory_LegArmor_01_Clean.png" id="7_txhwt"]
+[ext_resource type="Texture2D" uid="uid://d1oquxk6ka5ac" path="res://sprites/icons/ICON_DarkFantasy_Inventory_Magic_03_Clean.png" id="8_jt8y0"]
 
 [node name="Window" node_paths=PackedStringArray("element") instance=ExtResource("1_yp3df")]
 anchors_preset = -1

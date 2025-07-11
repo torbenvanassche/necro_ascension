@@ -10,7 +10,7 @@ var scroll_in_use: bool = false;
 @export var resource_manager: ResourceManager;
 @export var navigation_region: NavigationRegion3D;
 @export var cursor_list: Dictionary[String, Texture2D];
-@export var object_pool: Node3D;
+var object_pool: Node3D;
 
 var interactable_layer: int = 1 << 4;
 
@@ -19,6 +19,10 @@ var input_mode_is_keyboard: bool = true:
 	set(value):
 		input_mode_is_keyboard = value;
 		input_mode_changed.emit(value)
+		
+func _ready() -> void:
+	object_pool = Node3D.new();
+	get_parent().add_child.call_deferred(object_pool);
 
 func _init() -> void:
 	Manager.instance = self;
@@ -40,3 +44,5 @@ func pause(pause_game: bool = !get_tree().paused) -> void:
 func set_cursor(cursor: String) -> void:
 	if cursor_list.has(cursor):
 		Input.set_custom_mouse_cursor(cursor_list[cursor]);
+	else:
+		Debug.message("No cursor was found with identifier %s." % cursor)

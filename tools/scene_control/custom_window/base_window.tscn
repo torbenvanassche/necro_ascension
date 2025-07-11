@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djfe2kdofn562" path="res://tools/scene_control/custom_window/scripts/window_base.gd" id="1_6jx1r"]
 [ext_resource type="Theme" uid="uid://o4rpu8ih4owk" path="res://themes/main_theme.tres" id="1_fpb1y"]
-[ext_resource type="Texture2D" uid="uid://cjmb3ha4pgrke" path="res://sprites/synty/borders/SPR_DarkFantasy_Frame_Box_Medium_11.png" id="2_svoch"]
+[ext_resource type="Texture2D" uid="uid://cjmb3ha4pgrke" path="res://sprites/borders/SPR_DarkFantasy_Frame_Box_Medium_11.png" id="2_svoch"]
 [ext_resource type="PackedScene" uid="uid://dhm12l4f10gsq" path="res://scenes/ui/close_button.tscn" id="3_fpb1y"]
 
 [node name="Window2" type="NinePatchRect"]

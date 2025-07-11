@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=32 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="1_56yci"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="2_xpf1y"]
@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://cxlhmwa4m8lf1" path="res://resources/creatures/skeleton_minion.tres" id="4_kfhhx"]
 [ext_resource type="Script" uid="uid://q0pxj7po324k" path="res://scripts/data/item_resource.gd" id="5_nsaf0"]
 [ext_resource type="Resource" uid="uid://dx6qylsoxpw0k" path="res://resources/body_parts/head_fleshy.tres" id="6_knile"]
-[ext_resource type="PackedScene" uid="uid://cdto4hd73gj2b" path="res://imported_data/meshes/characters/skeleton_fleshy.glb" id="7_gd3uu"]
+[ext_resource type="PackedScene" uid="uid://cdto4hd73gj2b" path="res://imported_data/meshes/characters/part_containers/skeleton_fleshy.glb" id="7_gd3uu"]
 [ext_resource type="Script" uid="uid://bjmqfmubsvlhc" path="res://tools/scene_control/scene_manager.gd" id="8_4pen5"]
 [ext_resource type="Script" uid="uid://bx0br2fpije6a" path="res://tools/scene_control/scene_info.gd" id="9_ocdnp"]
 [ext_resource type="Resource" uid="uid://dh8bmthxelnyk" path="res://resources/scene_info/minion_window.tres" id="10_hm2du"]
@@ -18,7 +18,7 @@
 [ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/abilities/ability_2.tres" id="16_0oubr"]
 [ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/abilities/ability_3.tres" id="17_utvto"]
 [ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/abilities/ability_4.tres" id="18_m78ms"]
-[ext_resource type="PackedScene" uid="uid://1fur5hvgokap" path="res://scenes/fill_bar.tscn" id="19_3lbqn"]
+[ext_resource type="Script" uid="uid://dpwf48yd888cn" path="res://tools/custom_components/fill_bar.gd" id="19_56yci"]
 [ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/game_manager.gd" id="20_8yfd0"]
 [ext_resource type="Script" uid="uid://bu6q6r4qr63yb" path="res://scripts/levels/level.gd" id="21_nelk5"]
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="22_wvjpm"]
@@ -26,6 +26,20 @@
 [ext_resource type="PackedScene" uid="uid://dwfj06q5osqrd" path="res://scenes/interactables/minion_builder_interactable.tscn" id="24_nvphh"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="25_mhhfu"]
 [ext_resource type="Script" uid="uid://b6rgx41co3bur" path="res://tools/inventory/scripts/inventory/inventory.gd" id="26_6sbc0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlxgy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo8e1"]
+bg_color = Color(0.639216, 0.14902, 0.164706, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_bottom = 5
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
 vertices = PackedVector3Array(-5.06255, 0.07, -10.22213, -5.06255, 0.07, 5.27787, 10.43745, 0.07, 5.27787, 10.43745, 0.07, -10.22213)
@@ -63,9 +77,6 @@ shadow_enabled = true
 
 [node name="Camera3D2" type="Camera3D" parent="camera&lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
-visible = false
-
-[node name="object_pool" type="Node3D" parent="."]
 visible = false
 
 [node name="resource_manager" type="Node" parent="."]
@@ -124,14 +135,20 @@ layout_mode = 2
 ability_data = ExtResource("18_m78ms")
 keybind_action = "ability_4"
 
-[node name="HealthBar" parent="ui_canvas/gui/GUI_HGroup" instance=ExtResource("19_3lbqn")]
+[node name="HealthBar" type="ProgressBar" parent="ui_canvas/gui/GUI_HGroup"]
+custom_minimum_size = Vector2(500, 20)
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_jlxgy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uo8e1")
+step = 1.0
+value = 99.0
+show_percentage = false
+script = ExtResource("19_56yci")
 
-[node name="game_components" type="Node" parent="." node_paths=PackedStringArray("resource_manager", "navigation_region", "object_pool")]
+[node name="game_components" type="Node" parent="." node_paths=PackedStringArray("resource_manager", "navigation_region")]
 script = ExtResource("20_8yfd0")
 resource_manager = NodePath("../resource_manager")
 navigation_region = NodePath("Level")
-object_pool = NodePath("../object_pool")
 
 [node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("starting_room", "level_area")]
 navigation_mesh = SubResource("NavigationMesh_klivp")
@@ -169,3 +186,8 @@ script = ExtResource("26_6sbc0")
 unlocked_slots = 9
 max_slots = 9
 metadata/_custom_type_script = "uid://b6rgx41co3bur"
+
+[node name="skeleton_fleshy" parent="." instance=ExtResource("7_gd3uu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4398761, 0, 0)
+
+[editable path="skeleton_fleshy"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://dc1qxbru5n4ek"]
 
-[ext_resource type="Script" uid="uid://b4wkanyvxmbvk" path="res://scripts/character_controller.gd" id="1_0gv8e"]
+[ext_resource type="Script" uid="uid://b4wkanyvxmbvk" path="res://scripts/character_scripts/character_controller.gd" id="1_0gv8e"]
 [ext_resource type="Resource" uid="uid://b3mg6ujtq84wc" path="res://resources/items/staff.tres" id="2_2cgup"]
 [ext_resource type="PackedScene" uid="uid://b2hu5ng2m1k8f" path="res://imported_data/meshes/characters/player.glb" id="3_4nitn"]
 [ext_resource type="AnimationLibrary" uid="uid://dymc3x34dpyus" path="res://imported_data/meshes/characters/core_data/anim_base.res" id="4_4nitn"]
-[ext_resource type="Script" uid="uid://cu7derv5j3odh" path="res://scripts/creature_controller.gd" id="5_dp8ca"]
+[ext_resource type="Script" uid="uid://cu7derv5j3odh" path="res://scripts/character_scripts/creature_controller.gd" id="5_dp8ca"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrhn5"]
 radius = 0.31396484

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cc66a8ndpbpgf"]
 
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://tools/scene_control/custom_window/base_window.tscn" id="1_s6ek7"]
-[ext_resource type="Texture2D" uid="uid://c2ylda4ll351c" path="res://sprites/synty/borders/SPR_DarkFantasy_Frame_Box_Medium_11_Half.png" id="2_ulvp7"]
+[ext_resource type="Texture2D" uid="uid://c2ylda4ll351c" path="res://sprites/borders/SPR_DarkFantasy_Frame_Box_Medium_11_Half.png" id="2_ulvp7"]
 [ext_resource type="Script" uid="uid://5flpgwnxnsjt" path="res://tools/inventory/scripts/visual/base/inventory_ui.gd" id="2_xeaml"]
 [ext_resource type="PackedScene" uid="uid://doncbds0y75it" path="res://scenes/ui/inventory_slot_ui.tscn" id="3_5yy05"]
 

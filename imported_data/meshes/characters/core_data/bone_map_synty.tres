@@ -1,6 +1,6 @@
 [gd_resource type="BoneMap" load_steps=2 format=3 uid="uid://cj6u1p75mb1ce"]
 
-[ext_resource type="SkeletonProfileHumanoid" uid="uid://dxr1uyrauc34t" path="res://imported_data/meshes/characters/core_data/synty_skeleton_profile.tres" id="1_l16fv"]
+[ext_resource type="SkeletonProfileHumanoid" uid="uid://dxr1uyrauc34t" path="res://imported_data/meshes/characters/core_data/synty_rig_profile.tres" id="1_l16fv"]
 
 [resource]
 profile = ExtResource("1_l16fv")
