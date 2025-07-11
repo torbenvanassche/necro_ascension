@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cdto4hd73gj2b"
-path="res://.godot/imported/skelly_fleshy.glb-9259abbd87500961a5b690721fd31aba.scn"
+path="res://.godot/imported/skeleton_fleshy.glb-f7bed37b3521a4a22cb04e8f7449ea42.scn"
 
 [deps]
 
-source_file="res://imported_data/meshes/characters/skelly_fleshy.glb"
-dest_files=["res://.godot/imported/skelly_fleshy.glb-9259abbd87500961a5b690721fd31aba.scn"]
+source_file="res://imported_data/meshes/characters/skeleton_fleshy.glb"
+dest_files=["res://.godot/imported/skeleton_fleshy.glb-f7bed37b3521a4a22cb04e8f7449ea42.scn"]
 
 [params]
 
@@ -38,6 +38,13 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://imported_data/materials/synty_dark_fantasy.tres",
+"use_external/path": "uid://dxct617ondkne"
+}
+},
 "nodes": {
 "PATH:Armature/Skeleton3D": {
 "rest_pose/external_animation_library": null,

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b88dnia0odejw"
-path="res://.godot/imported/skelly.glb-b151bafe0be3f75ef2c291b33cf40b46.scn"
+path="res://.godot/imported/minion_base.glb-a5cb95e62dc68d382cb8d9382fe61404.scn"
 
 [deps]
 
-source_file="res://imported_data/meshes/characters/skelly.glb"
-dest_files=["res://.godot/imported/skelly.glb-b151bafe0be3f75ef2c291b33cf40b46.scn"]
+source_file="res://imported_data/meshes/characters/minion_base.glb"
+dest_files=["res://.godot/imported/minion_base.glb-a5cb95e62dc68d382cb8d9382fe61404.scn"]
 
 [params]
 
@@ -40,7 +40,7 @@ materials/extract_path=""
 _subresources={
 "materials": {
 "CharactersOnly_Gothic.001": {
-"use_external/enabled": false,
+"use_external/enabled": true,
 "use_external/fallback_path": "res://imported_data/materials/synty_dark_fantasy.tres",
 "use_external/path": "uid://dxct617ondkne"
 }
