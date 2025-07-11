@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="BodyPart" load_steps=4 format=3 uid="uid://dx6qylsoxpw0k"]
+[gd_resource type="Resource" script_class="BodyPart" load_steps=5 format=3 uid="uid://dx6qylsoxpw0k"]
 
 [ext_resource type="Script" uid="uid://m77xux5p3yt6" path="res://scripts/body_parts/body_part_item.gd" id="1_8wnxa"]
+[ext_resource type="Resource" uid="uid://vvh4fe785u3f" path="res://resources/scene_info/body_parts/skeleton_fleshy.tres" id="1_mdkuu"]
 
 [sub_resource type="Gradient" id="Gradient_8wnxa"]
 offsets = PackedFloat32Array(0, 0.5289855, 1)
@@ -12,6 +13,7 @@ gradient = SubResource("Gradient_8wnxa")
 [resource]
 script = ExtResource("1_8wnxa")
 type = 1
+scene_info = ExtResource("1_mdkuu")
 unique_id = "flesh_head"
 translation_key_name = "NAME_HEAD_FLESH"
 translation_key_description = "DESC_HEAD_FLESH"

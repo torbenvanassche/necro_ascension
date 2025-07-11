@@ -61,7 +61,7 @@ offset_top = 214.5
 offset_right = 455.0
 offset_bottom = 314.5
 script = ExtResource("4_txhwt")
-part_type = 0
+part_type = 6
 placeholder_image = ExtResource("8_jt8y0")
 
 [node name="core" parent="MarginContainer/Panel" index="4" instance=ExtResource("3_xqu86")]
@@ -71,7 +71,7 @@ offset_top = -169.5
 offset_right = 203.0
 offset_bottom = -69.5
 script = ExtResource("4_txhwt")
-part_type = 0
+part_type = 7
 placeholder_image = ExtResource("5_lj4t6")
 
 [node name="legs" parent="MarginContainer/Panel" index="5" instance=ExtResource("3_xqu86")]
@@ -81,7 +81,7 @@ offset_top = 158.5
 offset_right = 309.0
 offset_bottom = 258.5
 script = ExtResource("4_txhwt")
-part_type = 0
+part_type = 5
 placeholder_image = ExtResource("7_txhwt")
 
 [node name="arm_r" parent="MarginContainer/Panel" index="6" instance=ExtResource("3_xqu86")]
@@ -91,6 +91,6 @@ offset_top = -13.5
 offset_right = 457.0
 offset_bottom = 86.5
 script = ExtResource("4_txhwt")
-part_type = 0
+part_type = 2
 placeholder_image = ExtResource("6_txhwt")
 flip_placeholder = true

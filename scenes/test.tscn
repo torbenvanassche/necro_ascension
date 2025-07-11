@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=30 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/game_manager.gd" id="1_qqdqb"]
 [ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="2_7mbro"]
@@ -17,6 +17,8 @@
 [ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/abilities/ability_2.tres" id="10_daiq8"]
 [ext_resource type="PackedScene" uid="uid://1fur5hvgokap" path="res://scenes/fill_bar.tscn" id="10_q2euc"]
 [ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/abilities/ability_3.tres" id="11_c6rvn"]
+[ext_resource type="Resource" uid="uid://dtvooh1ao7cas" path="res://resources/scene_info/base_skeleton.tres" id="11_gm488"]
+[ext_resource type="Resource" uid="uid://vvh4fe785u3f" path="res://resources/scene_info/body_parts/skeleton_fleshy.tres" id="12_kay4s"]
 [ext_resource type="Resource" uid="uid://dufidrrdpcb5l" path="res://resources/abilities/ability_4.tres" id="12_n74k2"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="12_qwovd"]
 [ext_resource type="PackedScene" uid="uid://c4wn2xe6cbeo1" path="res://scenes/rooms/procedural/basic_cellar_1.tscn" id="15_5f8cm"]
@@ -44,6 +46,28 @@ size = Vector3(25, 5, 25)
 
 [node name="root" type="Node"]
 
+[node name="camera&lights" type="Node" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="camera&lights" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.684789, 0.728742, 0, -0.728742, 0.684789, -0.058, 6.725, 5.719)
+current = true
+script = ExtResource("4_0gajg")
+target = NodePath("../../game_components/character")
+follow_speed = 10.0
+rotation_speed = 0.1
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="camera&lights"]
+transform = Transform3D(0.953743, 0, 0.300623, -0.138109, 0.888225, 0.438158, -0.26702, -0.459409, 0.847139, 2.38291, 2.08883, 2.74318)
+light_energy = 0.667
+shadow_enabled = true
+
+[node name="Camera3D2" type="Camera3D" parent="camera&lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
+visible = false
+
+[node name="object_pool" type="Node3D" parent="."]
+visible = false
+
 [node name="resource_manager" type="Node" parent="."]
 script = ExtResource("12_qwovd")
 creatures = Array[ExtResource("2_7mbro")]([ExtResource("3_ff6ho")])
@@ -52,35 +76,62 @@ packed_donors = Dictionary[String, PackedScene]({
 "fleshy": ExtResource("6_pn65j")
 })
 
-[node name="scene_manager" type="Node" parent="." node_paths=PackedStringArray("_ui")]
+[node name="scene_manager" type="Node" parent="." node_paths=PackedStringArray("_ui_container")]
 script = ExtResource("5_pn65j")
-scenes = Array[ExtResource("6_gm488")]([ExtResource("7_kay4s"), ExtResource("6_kay4s")])
-_ui = NodePath("../game_components/CanvasLayer")
+scenes = Array[ExtResource("6_gm488")]([ExtResource("7_kay4s"), ExtResource("6_kay4s"), ExtResource("11_gm488"), ExtResource("12_kay4s")])
+_ui_container = NodePath("../ui_canvas")
 metadata/_custom_type_script = "uid://bjmqfmubsvlhc"
 
-[node name="game_components" type="Node" parent="." node_paths=PackedStringArray("resource_manager", "navigation_region")]
+[node name="ui_canvas" type="CanvasLayer" parent="."]
+
+[node name="gui" type="MarginContainer" parent="ui_canvas"]
+offset_top = 578.0
+offset_right = 500.0
+offset_bottom = 648.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GUI_HGroup" type="VBoxContainer" parent="ui_canvas/gui"]
+layout_mode = 2
+alignment = 2
+
+[node name="AbilitySlots" type="HBoxContainer" parent="ui_canvas/gui/GUI_HGroup"]
+layout_mode = 2
+
+[node name="ability_1" parent="ui_canvas/gui/GUI_HGroup/AbilitySlots" instance=ExtResource("5_rrglt")]
+layout_mode = 2
+size_flags_horizontal = 0
+ability_data = ExtResource("9_xrtyr")
+keybind_action = "ability_1"
+
+[node name="ability_2" parent="ui_canvas/gui/GUI_HGroup/AbilitySlots" instance=ExtResource("5_rrglt")]
+layout_mode = 2
+ability_data = ExtResource("10_daiq8")
+keybind_action = "ability_2"
+
+[node name="ability_3" parent="ui_canvas/gui/GUI_HGroup/AbilitySlots" instance=ExtResource("5_rrglt")]
+visible = false
+layout_mode = 2
+ability_data = ExtResource("11_c6rvn")
+keybind_action = "ability_3"
+
+[node name="ability_4" parent="ui_canvas/gui/GUI_HGroup/AbilitySlots" instance=ExtResource("5_rrglt")]
+visible = false
+layout_mode = 2
+ability_data = ExtResource("12_n74k2")
+keybind_action = "ability_4"
+
+[node name="HealthBar" parent="ui_canvas/gui/GUI_HGroup" instance=ExtResource("10_q2euc")]
+layout_mode = 2
+
+[node name="game_components" type="Node" parent="." node_paths=PackedStringArray("resource_manager", "navigation_region", "object_pool")]
 script = ExtResource("1_qqdqb")
 resource_manager = NodePath("../resource_manager")
 navigation_region = NodePath("Level")
-
-[node name="camera&lights" type="Node" parent="game_components"]
-
-[node name="Camera3D" type="Camera3D" parent="game_components/camera&lights" node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.684789, 0.728742, 0, -0.728742, 0.684789, -0.058, 6.725, 5.719)
-current = true
-script = ExtResource("4_0gajg")
-target = NodePath("../../character")
-follow_speed = 10.0
-rotation_speed = 0.1
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="game_components/camera&lights"]
-transform = Transform3D(0.953743, 0, 0.300623, -0.138109, 0.888225, 0.438158, -0.26702, -0.459409, 0.847139, 2.38291, 2.08883, 2.74318)
-light_energy = 0.667
-shadow_enabled = true
-
-[node name="Camera3D2" type="Camera3D" parent="game_components/camera&lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
-visible = false
+object_pool = NodePath("../object_pool")
 
 [node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("starting_room", "level_area")]
 navigation_mesh = SubResource("NavigationMesh_klivp")
@@ -108,51 +159,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.064852, 0, -2.4118652)
 
 [node name="minion_builder" parent="game_components/Level" instance=ExtResource("21_n74k2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2191863, 0.0500002, 1.37286)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="game_components"]
-
-[node name="gui" type="MarginContainer" parent="game_components/CanvasLayer"]
-offset_top = 578.0
-offset_right = 500.0
-offset_bottom = 648.0
-grow_vertical = 0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="GUI_HGroup" type="VBoxContainer" parent="game_components/CanvasLayer/gui"]
-layout_mode = 2
-alignment = 2
-
-[node name="AbilitySlots" type="HBoxContainer" parent="game_components/CanvasLayer/gui/GUI_HGroup"]
-layout_mode = 2
-
-[node name="ability_1" parent="game_components/CanvasLayer/gui/GUI_HGroup/AbilitySlots" instance=ExtResource("5_rrglt")]
-layout_mode = 2
-size_flags_horizontal = 0
-ability_data = ExtResource("9_xrtyr")
-keybind_action = "ability_1"
-
-[node name="ability_2" parent="game_components/CanvasLayer/gui/GUI_HGroup/AbilitySlots" instance=ExtResource("5_rrglt")]
-layout_mode = 2
-ability_data = ExtResource("10_daiq8")
-keybind_action = "ability_2"
-
-[node name="ability_3" parent="game_components/CanvasLayer/gui/GUI_HGroup/AbilitySlots" instance=ExtResource("5_rrglt")]
-visible = false
-layout_mode = 2
-ability_data = ExtResource("11_c6rvn")
-keybind_action = "ability_3"
-
-[node name="ability_4" parent="game_components/CanvasLayer/gui/GUI_HGroup/AbilitySlots" instance=ExtResource("5_rrglt")]
-visible = false
-layout_mode = 2
-ability_data = ExtResource("12_n74k2")
-keybind_action = "ability_4"
-
-[node name="HealthBar" parent="game_components/CanvasLayer/gui/GUI_HGroup" instance=ExtResource("10_q2euc")]
-layout_mode = 2
 
 [node name="character" parent="game_components" instance=ExtResource("2_sf220")]
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.21147)

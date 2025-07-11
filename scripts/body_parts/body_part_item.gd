@@ -7,7 +7,9 @@ enum Type {
 	OFF_HAND,
 	BODY,
 	LEGS,
+	MISC,
 	CORE
 }
 
 @export var type: Type = Type.UNDEFINED;
+@export var scene_info: SceneInfo;

@@ -83,10 +83,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		interact();
 	elif event.is_action_pressed("inventory"):
-		var inventoryUI: SceneInfo = SceneManager.instance.get_or_create_scene("inventory");
-		inventoryUI.cached.connect(func(info: SceneInfo) -> void: info.node.element.inventory = body_part_inventory, CONNECT_ONE_SHOT)
+		SceneManager.instance.get_scene_info("inventory").try_call(_open_inventory);
+			
+func _open_inventory(sI: SceneInfo) -> void:
+	sI.get_instance().element.inventory = body_part_inventory;
+	SceneManager.instance.add(sI)
 		
-	
 func interact() -> void:
 	if current_triggers.size() != 0:
 		var interactable: Interactable = current_triggers[0].get_meta("interactable");

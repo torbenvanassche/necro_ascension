@@ -1,4 +1,9 @@
 extends Interactable
 
+@export var scene_info: SceneInfo;
+
 func on_interact() -> void:
-	SceneManager.instance.get_or_create_scene("minion_window");
+	scene_info.try_call(_on_cached)
+	
+func _on_cached(sI: SceneInfo) -> void:
+	SceneManager.instance.add(sI)

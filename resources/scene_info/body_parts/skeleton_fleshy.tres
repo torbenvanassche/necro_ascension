@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SceneInfo" load_steps=2 format=3 uid="uid://vvh4fe785u3f"]
+
+[ext_resource type="Script" uid="uid://bx0br2fpije6a" path="res://tools/scene_control/scene_info.gd" id="1_6btkr"]
+
+[resource]
+script = ExtResource("1_6btkr")
+id = "skeleton_fleshy"
+packed_scene = "uid://u0ylwx4a2syn"
+type = 1
+metadata/_custom_type_script = "uid://bx0br2fpije6a"

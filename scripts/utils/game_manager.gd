@@ -10,6 +10,7 @@ var scroll_in_use: bool = false;
 @export var resource_manager: ResourceManager;
 @export var navigation_region: NavigationRegion3D;
 @export var cursor_list: Dictionary[String, Texture2D];
+@export var object_pool: Node3D;
 
 var interactable_layer: int = 1 << 4;
 

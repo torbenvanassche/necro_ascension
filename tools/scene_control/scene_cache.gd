@@ -16,6 +16,7 @@ func queue(scene_info: SceneInfo) -> Signal:
 		timer.start();
 	
 	loading_queue.append(scene_info);
+	scene_info.is_queued = true;
 	var error: Error = ResourceLoader.load_threaded_request(scene_info.packed_scene, type_string(typeof(PackedScene)))
 	if error:
 		loading_queue.erase(scene_info)
@@ -26,9 +27,10 @@ func queue(scene_info: SceneInfo) -> Signal:
 func _check_progress() -> void:
 	for loading in loading_queue:
 		if ResourceLoader.load_threaded_get_status(loading.packed_scene) == ResourceLoader.THREAD_LOAD_LOADED:
-			loading.node = ResourceLoader.load_threaded_get(loading.packed_scene).instantiate();
 			cached_scenes.append(loading)
 			loading_queue.erase(loading)
+			loading.is_cached = true;
+			loading.is_queued = false;
 			loading.cached.emit(loading);
 			
 			if loading_queue.size() == 0:

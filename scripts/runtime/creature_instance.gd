@@ -15,7 +15,7 @@ signal has_died();
 var health: float;
 
 func _ready() -> void:
-	state_controller = AnimationMachine.new($AnimationTree, "kay_skeleton");
+	state_controller = AnimationMachine.new($AnimationTree, "base");
 	state_controller.add_state(AnimationControllerState.new("IWR", "parameters/IWR/blend_position", AnimationControllerState.StateType.BLEND))
 	nav_agent.velocity_computed.connect(_on_velocity_computed);
 	
