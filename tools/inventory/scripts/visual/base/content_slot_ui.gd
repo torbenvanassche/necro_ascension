@@ -11,13 +11,12 @@ class_name ContentSlotUI extends TextureButton
 @export var show_amount: bool = true;
 
 @export_group("Drag Settings")
-@export var default_color: Color;
+@export var default_color: Color = Color.WHITE;
 @export var dragging_color: Color = Color(Color.WHITE, 0.3)
 
 var contentSlot: ContentSlot;
 
 func _ready() -> void:
-	default_color = get_theme_color("bg_color");
 	backgroundElement.texture = background_gradient;
 	placeholderImage.texture = placeholder_image;
 	placeholderImage.flip_h = flip_placeholder;
