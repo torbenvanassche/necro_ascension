@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://dmqseiy6njyjb"]
+[gd_scene load_steps=96 format=3 uid="uid://dmqseiy6njyjb"]
 
 [ext_resource type="PackedScene" uid="uid://8sdfrkwlo4yd" path="res://imported_data/meshes/static/synty_dark_fantasy/building_pieces/SM_Bld_Base_Floor_Combined_01.glb" id="1_8lnd7"]
 [ext_resource type="PackedScene" uid="uid://d2y0arnn1olsb" path="res://imported_data/meshes/static/synty_dark_fantasy/building_pieces/SM_Bld_Wall_Brick_Greeble_01.glb" id="2_kk0do"]
@@ -88,6 +88,13 @@
 [ext_resource type="PackedScene" uid="uid://b7mxl5313se0k" path="res://imported_data/meshes/static/synty_dark_fantasy/environment/SM_Env_Grunge_05.glb" id="86_wep06"]
 [ext_resource type="PackedScene" uid="uid://dj2fq2qvjub4g" path="res://imported_data/meshes/static/synty_dark_fantasy/environment/SM_Env_Grunge_07.glb" id="87_lbidj"]
 [ext_resource type="PackedScene" uid="uid://ds6em5eab7n1" path="res://imported_data/meshes/static/synty_dark_fantasy/building_pieces/SM_Bld_Base_Wall_01.glb" id="88_st5f2"]
+[ext_resource type="PackedScene" uid="uid://1og7tlhgx4q6" path="res://imported_data/meshes/static/synty_dark_fantasy/props/SM_Prop_Pew_01_Damaged_01.glb" id="89_vfx2u"]
+[ext_resource type="PackedScene" uid="uid://cnpc0dprcbj3s" path="res://imported_data/meshes/static/synty_dark_fantasy/props/SM_Prop_Pew_01.glb" id="90_p12bg"]
+[ext_resource type="PackedScene" uid="uid://bsi61d1ve3s8u" path="res://imported_data/meshes/static/synty_dark_fantasy/props/SM_Prop_Desk_Reading_01.glb" id="91_d6nkr"]
+[ext_resource type="PackedScene" uid="uid://dt4piyxtefauv" path="res://imported_data/meshes/static/synty_dark_fantasy/props/SM_Prop_Flag_Dark_01.glb" id="92_couxy"]
+[ext_resource type="PackedScene" uid="uid://204i6apxyubb" path="res://imported_data/meshes/static/synty_dark_fantasy/props/SM_Prop_Flag_Dark_02.glb" id="93_sk4aj"]
+[ext_resource type="PackedScene" uid="uid://dbpwceqgnoj0a" path="res://imported_data/meshes/static/synty_dark_fantasy/props/SM_Prop_Torch_01.glb" id="94_d6nkr"]
+[ext_resource type="PackedScene" uid="uid://3vo35rhupt85" path="res://imported_data/meshes/static/synty_dark_fantasy/props/SM_Prop_Brazier_01.glb" id="95_couxy"]
 
 [node name="Root" type="Node3D"]
 
@@ -439,12 +446,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.77
 [node name="SM_Prop_Shelf_01_Insert_012" parent="Props" instance=ExtResource("38_vsil8")]
 transform = Transform3D(-4.371139e-08, 0, 1.215748, 0, 1, 0, -1, 0, -5.314203e-08, 0.7711345, 0, 3.9334185)
 
-[node name="SM_Prop_Shelf_013" parent="Props" instance=ExtResource("37_qj86y")]
-transform = Transform3D(-0.14451168, 0, 0.9895031, 0, 1, 0, -0.9895031, 0, -0.14451168, 0.7711345, 0, 1.6962969)
-
-[node name="SM_Prop_Shelf_01_Insert_013" parent="Props" instance=ExtResource("38_vsil8")]
-transform = Transform3D(-0.14451168, 0, 1.2029864, 0, 1, 0, -0.9895031, 0, -0.17568979, 0.7711345, 0, 1.6962969)
-
 [node name="SM_Prop_Chandelier_01_Damaged_012" parent="Props" instance=ExtResource("39_ucggi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.314344, 0, 21.178146)
 
@@ -737,3 +738,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
 
 [node name="SM_Bld_Base_Wall_023" parent="Walls" instance=ExtResource("88_st5f2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 5)
+
+[node name="SM_Prop_Pew_01_Damaged_012" parent="." instance=ExtResource("89_vfx2u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.474611, 0, 29.616901)
+
+[node name="SM_Prop_Pew_012" parent="." instance=ExtResource("90_p12bg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.258432, 0, 29.607573)
+
+[node name="SM_Prop_Desk_Reading_012" parent="." instance=ExtResource("91_d6nkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1946, 0, 28.7626)
+
+[node name="SM_Prop_Flag_Dark_012" parent="." instance=ExtResource("92_couxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.11336, 0, 25.781649)
+
+[node name="SM_Prop_Flag_Dark_022" parent="." instance=ExtResource("93_sk4aj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.20625, 0, 24.054106)
+
+[node name="SM_Prop_Torch_012" parent="." instance=ExtResource("94_d6nkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.186794, -9.536743e-07, 23.377644)
+
+[node name="SM_Prop_Brazier_012" parent="." instance=ExtResource("95_couxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.899612, -9.536743e-07, 23.519056)
