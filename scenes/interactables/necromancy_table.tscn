@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwfj06q5osqrd"]
+[gd_scene load_steps=7 format=3 uid="uid://dwfj06q5osqrd"]
 
 [ext_resource type="Script" uid="uid://2yn210xhgcqy" path="res://scripts/body_parts/body_builder_interactable.gd" id="1_hhg6f"]
 [ext_resource type="PackedScene" uid="uid://bvpkv0gjuxjo2" path="res://imported_data/meshes/static/synty_dark_fantasy/props/SM_Prop_Altar_Table_01.glb" id="2_hhg6f"]
 [ext_resource type="Resource" uid="uid://dh8bmthxelnyk" path="res://resources/scene_info/minion_window.tres" id="2_wxefe"]
+[ext_resource type="PackedScene" uid="uid://w88yurmde5kn" path="res://imported_data/meshes/static/synty_dark_fantasy/building_pieces/SM_Bld_Base_Floor_Half_01.glb" id="4_5vmwl"]
+[ext_resource type="PackedScene" uid="uid://8sdfrkwlo4yd" path="res://imported_data/meshes/static/synty_dark_fantasy/building_pieces/SM_Bld_Base_Floor_Combined_01.glb" id="5_kwnh7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hhg6f"]
 size = Vector3(3.51345, 1.1591, 2)
@@ -13,6 +15,7 @@ scene_info = ExtResource("2_wxefe")
 interactable_id = "coffin"
 
 [node name="clickable_area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7513474, 0, -0.38243908)
 collision_layer = 8
 collision_mask = 8
 
@@ -22,3 +25,10 @@ shape = SubResource("BoxShape3D_hhg6f")
 debug_color = Color(0.954647, 0, 0.54734, 0.42)
 
 [node name="SM_Prop_Altar_Table_012" parent="." instance=ExtResource("2_hhg6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7513474, 0, -0.38243908)
+
+[node name="SM_Bld_Base_Floor_Half_012" parent="." instance=ExtResource("4_5vmwl")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.4999919, 0.09251599, 1.5)
+
+[node name="SM_Bld_Base_Floor_Combined_012" parent="." instance=ExtResource("5_kwnh7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9999999, 0.09251599, -1)

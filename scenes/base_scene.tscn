@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=31 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="1_56yci"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="2_xpf1y"]
@@ -22,8 +22,7 @@
 [ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/game_manager.gd" id="20_8yfd0"]
 [ext_resource type="Script" uid="uid://bu6q6r4qr63yb" path="res://scripts/levels/level.gd" id="21_nelk5"]
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="22_wvjpm"]
-[ext_resource type="PackedScene" uid="uid://c4wn2xe6cbeo1" path="res://scenes/rooms/procedural/basic_cellar_1.tscn" id="23_wnr40"]
-[ext_resource type="PackedScene" uid="uid://dwfj06q5osqrd" path="res://scenes/interactables/minion_builder_interactable.tscn" id="24_nvphh"]
+[ext_resource type="PackedScene" uid="uid://dwfj06q5osqrd" path="res://scenes/interactables/necromancy_table.tscn" id="24_nvphh"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="25_mhhfu"]
 [ext_resource type="Script" uid="uid://b6rgx41co3bur" path="res://tools/inventory/scripts/inventory/inventory.gd" id="26_6sbc0"]
 
@@ -171,11 +170,8 @@ shape = SubResource("BoxShape3D_mwqxe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32898, 0, 1.51133)
 visible = false
 
-[node name="Root" parent="game_components/Level/rooms" instance=ExtResource("23_wnr40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.064852, 0, -2.4118652)
-
 [node name="minion_builder" parent="game_components/Level" instance=ExtResource("24_nvphh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2191863, 0.0500002, 1.37286)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.7808137, 0.0500002, 0.37285995)
 
 [node name="character" parent="game_components" instance=ExtResource("25_mhhfu")]
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.21147)
@@ -186,8 +182,3 @@ script = ExtResource("26_6sbc0")
 unlocked_slots = 9
 max_slots = 9
 metadata/_custom_type_script = "uid://b6rgx41co3bur"
-
-[node name="skeleton_fleshy" parent="." instance=ExtResource("7_gd3uu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4398761, 0, 0)
-
-[editable path="skeleton_fleshy"]
