@@ -32,7 +32,8 @@ func _init() -> void:
 		
 func _ready() -> void:
 	if initial_scene:
-		get_or_create_scene(initial_scene.id, SceneConfig.new(true))
+		get_or_create_scene(initial_scene.id).ready.connect(
+			func(info: SceneInfo) -> void: root.add_child(info.get_instance()))
 			
 func get_or_create_scene(scene_name: String, scene_config: SceneConfig = SceneConfig.new()) -> SceneInfo:
 	var previous_scene_info: SceneInfo = null;

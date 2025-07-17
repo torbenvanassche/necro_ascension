@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SceneInfo" load_steps=2 format=3 uid="uid://b0f7xtkkndjtv"]
+
+[ext_resource type="Script" uid="uid://bx0br2fpije6a" path="res://tools/scene_control/scene_info.gd" id="1_m2uns"]
+
+[resource]
+script = ExtResource("1_m2uns")
+id = "necromancy_table"
+packed_scene = "uid://dwfj06q5osqrd"
+type = 3
+metadata/_custom_type_script = "uid://bx0br2fpije6a"

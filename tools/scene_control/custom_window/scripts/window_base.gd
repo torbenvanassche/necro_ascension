@@ -27,13 +27,12 @@ var drag_offset: Vector2;
 
 func _ready() -> void:
 	vp = get_viewport();
-	
 	close_button.pressed.connect(close_window);
 	close_requested.connect(close_window)
 	draggable_area.gui_input.connect(handle_input)
 	
 	if override_size != Vector2.ZERO:
-		self.set_deferred("size", override_size)
+		self.set_deferred("size", override_size);
 	
 func on_enable(_options: Dictionary = {}) -> void:
 	if visible:

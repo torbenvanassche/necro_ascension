@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2yn210xhgcqy" path="res://scripts/body_parts/body_builder_interactable.gd" id="1_hhg6f"]
 [ext_resource type="PackedScene" uid="uid://bvpkv0gjuxjo2" path="res://imported_data/meshes/static/synty_dark_fantasy/props/SM_Prop_Altar_Table_01.glb" id="2_hhg6f"]
-[ext_resource type="Resource" uid="uid://dh8bmthxelnyk" path="res://resources/scene_info/minion_window.tres" id="2_wxefe"]
+[ext_resource type="Resource" uid="uid://dh8bmthxelnyk" path="res://resources/scene_info/ui/minion_window.tres" id="2_wxefe"]
 [ext_resource type="PackedScene" uid="uid://w88yurmde5kn" path="res://imported_data/meshes/static/synty_dark_fantasy/building_pieces/SM_Bld_Base_Floor_Half_01.glb" id="4_5vmwl"]
 [ext_resource type="PackedScene" uid="uid://8sdfrkwlo4yd" path="res://imported_data/meshes/static/synty_dark_fantasy/building_pieces/SM_Bld_Base_Floor_Combined_01.glb" id="5_kwnh7"]
 
@@ -32,3 +32,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.49
 
 [node name="SM_Bld_Base_Floor_Combined_012" parent="." instance=ExtResource("5_kwnh7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9999999, 0.09251599, -1)
+
+[node name="minion_constructor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0377622, 0.286695, -0.3982618)

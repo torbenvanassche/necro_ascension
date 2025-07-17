@@ -8,9 +8,10 @@
 [ext_resource type="Resource" uid="uid://dx6qylsoxpw0k" path="res://resources/body_parts/bodypart_fleshy_head.tres" id="6_knile"]
 [ext_resource type="PackedScene" uid="uid://cdto4hd73gj2b" path="res://imported_data/meshes/characters/part_containers/skeleton_fleshy.glb" id="7_gd3uu"]
 [ext_resource type="Script" uid="uid://bjmqfmubsvlhc" path="res://tools/scene_control/scene_manager.gd" id="8_4pen5"]
+[ext_resource type="Resource" uid="uid://b0f7xtkkndjtv" path="res://resources/scene_info/level_components/necromancy_table.tres" id="9_56yci"]
 [ext_resource type="Script" uid="uid://bx0br2fpije6a" path="res://tools/scene_control/scene_info.gd" id="9_ocdnp"]
-[ext_resource type="Resource" uid="uid://dh8bmthxelnyk" path="res://resources/scene_info/minion_window.tres" id="10_hm2du"]
-[ext_resource type="Resource" uid="uid://b8yxompo3tinf" path="res://resources/scene_info/inventory.tres" id="11_l21uh"]
+[ext_resource type="Resource" uid="uid://dh8bmthxelnyk" path="res://resources/scene_info/ui/minion_window.tres" id="10_hm2du"]
+[ext_resource type="Resource" uid="uid://b8yxompo3tinf" path="res://resources/scene_info/ui/inventory.tres" id="11_l21uh"]
 [ext_resource type="Resource" uid="uid://dtvooh1ao7cas" path="res://resources/scene_info/base_skeleton.tres" id="12_x6mqh"]
 [ext_resource type="Resource" uid="uid://vvh4fe785u3f" path="res://resources/scene_info/body_parts/skeleton_fleshy.tres" id="13_1bfix"]
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="14_odlif"]
@@ -22,7 +23,6 @@
 [ext_resource type="Script" uid="uid://cs18d2lrk2v0l" path="res://scripts/utils/game_manager.gd" id="20_8yfd0"]
 [ext_resource type="Script" uid="uid://bu6q6r4qr63yb" path="res://scripts/levels/level.gd" id="21_nelk5"]
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="22_wvjpm"]
-[ext_resource type="PackedScene" uid="uid://dwfj06q5osqrd" path="res://scenes/interactables/necromancy_table.tscn" id="24_nvphh"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="25_mhhfu"]
 [ext_resource type="Script" uid="uid://b6rgx41co3bur" path="res://tools/inventory/scripts/inventory/inventory.gd" id="26_6sbc0"]
 
@@ -62,7 +62,7 @@ size = Vector3(25, 5, 25)
 [node name="camera&lights" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="camera&lights" node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.684789, 0.728742, 0, -0.728742, 0.684789, -0.058, 6.725, 5.719)
+transform = Transform3D(1, 0, 0, 0, 0.6847887, 0.72874165, 0, -0.72874165, 0.6847887, -0.058, 6.725, 5.0959225)
 current = true
 script = ExtResource("1_56yci")
 target = NodePath("../../game_components/character")
@@ -88,7 +88,8 @@ packed_donors = Dictionary[String, PackedScene]({
 
 [node name="scene_manager" type="Node" parent="." node_paths=PackedStringArray("_ui_container")]
 script = ExtResource("8_4pen5")
-scenes = Array[ExtResource("9_ocdnp")]([ExtResource("10_hm2du"), ExtResource("11_l21uh"), ExtResource("12_x6mqh"), ExtResource("13_1bfix")])
+initial_scene = ExtResource("9_56yci")
+scenes = Array[ExtResource("9_ocdnp")]([ExtResource("10_hm2du"), ExtResource("11_l21uh"), ExtResource("12_x6mqh"), ExtResource("13_1bfix"), ExtResource("9_56yci")])
 _ui_container = NodePath("../ui_canvas")
 metadata/_custom_type_script = "uid://bjmqfmubsvlhc"
 
@@ -170,11 +171,8 @@ shape = SubResource("BoxShape3D_mwqxe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32898, 0, 1.51133)
 visible = false
 
-[node name="minion_builder" parent="game_components/Level" instance=ExtResource("24_nvphh")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.7808137, 0.0500002, 0.37285995)
-
 [node name="character" parent="game_components" instance=ExtResource("25_mhhfu")]
-transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.21147)
+transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.8345474)
 movement_speed = 1.5
 
 [node name="body_parts_inventory" type="Node" parent="game_components/character"]

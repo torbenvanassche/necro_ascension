@@ -4,7 +4,8 @@ extends Resource
 enum Type {
 	LEVEL,
 	BODY_PART,
-	UI
+	UI,
+	INJECTABLE
 }
 
 @export var id:String
@@ -14,6 +15,7 @@ var node: Node;
 
 @warning_ignore("unused_signal") #false positive
 signal cached(scene_info: SceneInfo);
+signal ready(scene_info: SceneInfo);
 
 var is_cached: bool = false;
 var is_queued: bool = false;
@@ -26,7 +28,7 @@ func get_instance() -> Node:
 	if not node:
 		if is_cached:
 			node = ResourceLoader.load_threaded_get(packed_scene).instantiate();
-			cached.emit(self);
+			ready.emit(self);
 		else:
 			SceneManager.instance.get_or_create_scene(id)
 	return node;

@@ -15,7 +15,7 @@ func _ready() -> void:
 		
 func _on_minion_ready(scene_info: SceneInfo) -> void:
 	minion = scene_info.get_instance()
-	Manager.instance.object_pool.add_child(minion)
+	
 		
 func _data_changed() -> void:
 	var minion_parts := parts.map(func(slot: MinionPartSlotUI) -> BodyPart: return slot.contentSlot.get_content());
