@@ -86,8 +86,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		SceneManager.instance.get_scene_info("inventory").try_call(_open_inventory);
 			
 func _open_inventory(sI: SceneInfo) -> void:
-	sI.get_instance().element.inventory = body_part_inventory;
-	SceneManager.instance.add(sI)
+	if SceneManager.instance.add(sI):
+		sI.get_instance().element.inventory = body_part_inventory;
 		
 func interact() -> void:
 	if current_triggers.size() != 0:

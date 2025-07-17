@@ -32,7 +32,7 @@ func _ready() -> void:
 	draggable_area.gui_input.connect(handle_input)
 	
 	if override_size != Vector2.ZERO:
-		self.set_deferred("size", override_size);
+		set_deferred.call_deferred("size", override_size);
 	
 func on_enable(_options: Dictionary = {}) -> void:
 	if visible:

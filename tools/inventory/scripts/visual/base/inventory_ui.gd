@@ -1,12 +1,17 @@
 class_name InventoryUI
 extends GridContainer
 
+var elements: Array[Node];
+
 @export var inventory: Inventory:
 	set(value):
 		inventory = value;
 		if value:
+			for element in elements:
+				element.queue_free()
 			for element in inventory.data:
 				add(element)
+			elements.assign(self.get_children())
 			_control_size();
 @export var packed_slot: PackedScene
 @export var max_slot_size: int = 50;

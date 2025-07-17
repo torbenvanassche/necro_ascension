@@ -117,6 +117,8 @@ func is_active(scene_name: String) -> bool:
 			return true;
 	return false;
 	
-func add(n: SceneInfo) -> void:
-	if n.type == SceneInfo.Type.UI && not _ui_container.get_children().any(func(c: Node) -> bool: return c == n):
+func add(n: SceneInfo) -> bool:
+	if n.type == SceneInfo.Type.UI && not n.get_instance().get_parent() == _ui_container:
 		_ui_container.add_child(n.get_instance());
+		return true;
+	return false;
