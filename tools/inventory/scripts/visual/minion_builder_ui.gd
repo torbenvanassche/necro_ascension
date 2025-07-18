@@ -15,7 +15,8 @@ func _ready() -> void:
 		
 func _on_minion_ready(scene_info: SceneInfo) -> void:
 	minion = scene_info.get_instance()
-	
+	SceneManager.instance.get_scene_info("necromancy_table").try_call(
+		func(scene: SceneInfo) -> void: (scene.get_instance() as BodyBuilderInteractable).set_buildable(minion))
 		
 func _data_changed() -> void:
 	var minion_parts := parts.map(func(slot: MinionPartSlotUI) -> BodyPart: return slot.contentSlot.get_content());
