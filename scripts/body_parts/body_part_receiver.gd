@@ -10,12 +10,9 @@ func replace_mesh_instance(to_remove: MeshInstance3D, to_add: MeshInstance3D) ->
 
 	if is_instance_valid(to_add) and to_add.get_parent():
 		to_add.get_parent().remove_child(to_add)
-
-	to_add.owner = null
-	add_child(to_add)
-	to_add.owner = self
-	to_add.skeleton = get_path()
+		
 	to_add.global_transform = original_global_transform
+	add_piece(to_add)
 
 func add_piece(to_add: MeshInstance3D) -> void:
 	if is_instance_valid(to_add) and to_add.get_parent():
@@ -23,8 +20,10 @@ func add_piece(to_add: MeshInstance3D) -> void:
 
 	to_add.owner = null
 	add_child(to_add)
+	
 	to_add.owner = self
 	to_add.skeleton = get_path()
+	to_add.position = Vector3.ZERO;
 
 func add_or_replace_piece(to_add: MeshInstance3D) -> void:
 	if not is_instance_valid(to_add):

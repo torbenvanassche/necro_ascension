@@ -9,4 +9,4 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var src_slot: ContentSlot = (data as DragData).slot.contentSlot
 	var dest_slot: ContentSlot = contentSlot
 	
-	dest_slot.set_content(src_slot.get_content());
+	dest_slot.set_content(src_slot.get_content().duplicate(false));

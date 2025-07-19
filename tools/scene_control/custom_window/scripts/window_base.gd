@@ -21,7 +21,7 @@ var initial_position: Vector2;
 
 signal close_requested();
 
-var dragging := false
+var dragging := false 
 var stored_position:Vector2;
 var drag_offset: Vector2;
 

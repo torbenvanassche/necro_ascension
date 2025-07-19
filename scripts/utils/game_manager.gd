@@ -23,6 +23,8 @@ var input_mode_is_keyboard: bool = true:
 func _ready() -> void:
 	object_pool = Node3D.new();
 	get_parent().add_child.call_deferred(object_pool);
+	object_pool.name = "object_pool";
+	object_pool.visible = false;
 
 func _init() -> void:
 	Manager.instance = self;
