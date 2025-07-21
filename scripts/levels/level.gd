@@ -13,8 +13,7 @@ extends Node
 
 var rooms: Array[Room] = [];
 var pathfinder: PathGenerator;
-	
-#function that will create and connect the rooms. carving; not random placing and connecting
+
 func _generate_rooms() -> void:
 	pass
 	

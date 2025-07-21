@@ -13,9 +13,7 @@ enum Type {
 @export var type: Type;
 var node: Node;
 
-@warning_ignore("unused_signal") #false positive
 signal cached(scene_info: SceneInfo);
-signal ready(scene_info: SceneInfo);
 
 var is_cached: bool = false;
 var is_queued: bool = false;
@@ -28,12 +26,12 @@ func get_instance() -> Node:
 	if not node:
 		if is_cached:
 			node = ResourceLoader.load_threaded_get(packed_scene).instantiate();
-			ready.emit(self);
 		else:
 			SceneManager.instance.get_or_create_scene(id)
 	return node;
 	
-func try_call(c: Callable) -> void:
+##Will execute the callable, this will cache the scene if it is unloaded.
+func queue(c: Callable) -> void:
 	if is_cached:
 		c.call(self);
 	elif not cached.is_connected(c):
@@ -41,8 +39,6 @@ func try_call(c: Callable) -> void:
 			
 	if not is_queued && not is_cached:
 		SceneManager.instance.get_or_create_scene(id);
-		try_call(c)
-		
 
 func remove() -> void:
 	node.get_parent().remove_child(node);

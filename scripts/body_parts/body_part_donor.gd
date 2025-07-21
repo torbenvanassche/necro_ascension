@@ -10,4 +10,4 @@ func _ready() -> void:
 				parts.set(child.name, child);
 
 func get_part(part_name: String) -> MeshInstance3D:
-	return parts.get(part_name);
+	return parts.get(part_name).duplicate();

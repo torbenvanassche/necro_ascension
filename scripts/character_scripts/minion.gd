@@ -7,7 +7,7 @@ func _ready() -> void:
 	update_processing(false);
 	
 func apply_part(_part_name: String, part: MeshInstance3D) -> void:
-	body_part_receiver.add_or_replace_piece(part)
+	body_part_receiver.add_or_replace_piece(_part_name, part)
 		
 func update_processing(b: bool) -> void:
 	do_processing = b;

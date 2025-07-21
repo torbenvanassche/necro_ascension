@@ -2,6 +2,9 @@ class_name BodyPartReceiver
 extends Skeleton3D
 
 func replace_mesh_instance(to_remove: MeshInstance3D, to_add: MeshInstance3D) -> void:
+	if to_remove == to_add:
+		return;
+	
 	var original_global_transform := to_remove.global_transform
 
 	if is_instance_valid(to_remove) and to_remove.get_parent() == self:
@@ -25,11 +28,11 @@ func add_piece(to_add: MeshInstance3D) -> void:
 	to_add.skeleton = get_path()
 	to_add.position = Vector3.ZERO;
 
-func add_or_replace_piece(to_add: MeshInstance3D) -> void:
+func add_or_replace_piece(id: String, to_add: MeshInstance3D) -> void:
 	if not is_instance_valid(to_add):
 		return
 	
-	var existing_piece := get_node_or_null(to_add.get_path())
+	var existing_piece := get_node_or_null(id)
 	if existing_piece and existing_piece is MeshInstance3D:
 		replace_mesh_instance(existing_piece, to_add)
 	else:

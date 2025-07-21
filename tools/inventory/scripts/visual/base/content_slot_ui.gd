@@ -1,6 +1,6 @@
 class_name ContentSlotUI extends TextureButton
 
-@onready var textureRect: TextureRect = $margin_container/item_sprite;
+@onready var textureRect: TextureRect = $margin_container/TextureRect/MarginContainer/item_sprite;
 @onready var backgroundElement: TextureRect = $margin_container/TextureRect;
 @onready var placeholderImage: TextureRect = $margin_container/TextureRect/rescaler/item_bg_icon;
 @onready var counter: Label = $count;
@@ -39,7 +39,9 @@ func redraw() -> void:
 			textureRect.modulate = default_color;
 		counter.visible = show_amount;
 		counter.text = str(contentSlot.count);
+		placeholderImage.visible = false;
 	else:
+		placeholderImage.visible = true;
 		textureRect.texture = null;
 		counter.text = "";
 
@@ -48,10 +50,11 @@ func blur() -> void:
 	counter.visible = false;
 	
 func set_content(_content: ContentSlot) -> void:
-	if contentSlot && contentSlot.is_connected("changed", redraw):
-		contentSlot.disconnect("changed", redraw);
+	if contentSlot && contentSlot.changed.is_connected(redraw):
+		contentSlot.changed.disconnect(redraw);
 	contentSlot = _content;
 	contentSlot.changed.connect(redraw)
+	is_queued_for_deletion()
 	
 	if _content:
 		if is_node_ready():
@@ -66,6 +69,7 @@ func _get_drag_data(_at_position: Vector2) -> DragData:
 		var preview := TextureRect.new();
 		preview.texture = self.textureRect.texture;
 		preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		preview.z_index = 100;
 		preview.size = Vector2(50, 50);
 		set_drag_preview(preview)
 		

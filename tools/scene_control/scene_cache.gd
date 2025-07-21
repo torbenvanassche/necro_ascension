@@ -32,7 +32,6 @@ func _check_progress() -> void:
 			loading.is_cached = true;
 			loading.is_queued = false;
 			loading.cached.emit(loading);
-			
 			if loading_queue.size() == 0:
 				timer.stop();
 

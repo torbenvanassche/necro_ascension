@@ -83,7 +83,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		interact();
 	elif event.is_action_pressed("inventory"):
-		SceneManager.instance.get_scene_info("inventory").try_call(_open_inventory);
+		SceneManager.instance.get_scene_info("inventory").queue(_open_inventory);
 			
 func _open_inventory(sI: SceneInfo) -> void:
 	if SceneManager.instance.add(sI):

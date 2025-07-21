@@ -1,4 +1,13 @@
+@tool
 class_name ResourceManager extends Node
+
+@export_tool_button("Get data") var get_data_action: Callable = get_data
+func get_data() -> void:
+	items.clear();
+	creatures.clear();
+	Helpers.recursive_list("res://resources/items", items, ".tres")
+	Helpers.recursive_list("res://resources/creatures", creatures, ".tres")
+	notify_property_list_changed();
 
 @export var creatures: Array[CreatureResource];
 @export var items: Array[ItemResource];

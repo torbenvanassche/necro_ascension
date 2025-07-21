@@ -10,7 +10,7 @@ var scroll_in_use: bool = false;
 @export var resource_manager: ResourceManager;
 @export var navigation_region: NavigationRegion3D;
 @export var cursor_list: Dictionary[String, Texture2D];
-var object_pool: Node3D;
+var object_pool: ObjectPool;
 
 var interactable_layer: int = 1 << 4;
 
@@ -21,7 +21,7 @@ var input_mode_is_keyboard: bool = true:
 		input_mode_changed.emit(value)
 		
 func _ready() -> void:
-	object_pool = Node3D.new();
+	object_pool = ObjectPool.new();
 	get_parent().add_child.call_deferred(object_pool);
 	object_pool.name = "object_pool";
 	object_pool.visible = false;

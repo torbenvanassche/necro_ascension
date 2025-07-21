@@ -15,7 +15,7 @@ static func flatten_hierarchy(node: Node, internal: bool = false) -> Array[Node]
 static func vector2_to_id(vector: Vector2) -> int:
 	var scaled_x: int = int(round(vector.x * 1000))
 	var scaled_y: int = int(round(vector.y * 1000))
-	var unique_id: int = (scaled_x * 31_622_776) + scaled_y  # Using a prime number multiplier for x
+	var unique_id: int = (scaled_x * 31_622_776) + scaled_y
 
 	if unique_id < 0:
 		unique_id = abs(unique_id)
@@ -39,3 +39,12 @@ static func get_random_position_within_aabb(aabb: AABB) -> Vector3:
 	
 static func get_shape_aabb(shape: BoxShape3D) -> AABB:
 	return AABB(-shape.extents, shape.extents * 2)
+	
+static func recursive_list(path: String, out: Array, pattern := ".tres") -> void:
+	for file in DirAccess.get_files_at(path):
+		var child := path.path_join(file)
+		if file.ends_with(pattern): 
+			out.append(load(child))
+		for dir in DirAccess.get_directories_at(path):
+			child = path.path_join(dir)
+			recursive_list(child, out, pattern)

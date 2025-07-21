@@ -1,11 +1,13 @@
-[gd_scene load_steps=31 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=33 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="1_56yci"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="2_xpf1y"]
-[ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="3_0xy4o"]
-[ext_resource type="Resource" uid="uid://cxlhmwa4m8lf1" path="res://resources/creatures/skeleton_minion.tres" id="4_kfhhx"]
+[ext_resource type="Script" uid="uid://b15am4tlccon3" path="res://scripts/data/creature_resource.gd" id="3_m503p"]
+[ext_resource type="Resource" uid="uid://cxlhmwa4m8lf1" path="res://resources/creatures/skeleton_minion.tres" id="4_56yci"]
+[ext_resource type="Resource" uid="uid://ciai2xd31ef7u" path="res://resources/items/body_parts/bodypart_fleshy_body.tres" id="4_pnc6k"]
 [ext_resource type="Script" uid="uid://q0pxj7po324k" path="res://scripts/data/item_resource.gd" id="5_nsaf0"]
-[ext_resource type="Resource" uid="uid://dx6qylsoxpw0k" path="res://resources/body_parts/bodypart_fleshy_head.tres" id="6_knile"]
+[ext_resource type="Resource" uid="uid://dx6qylsoxpw0k" path="res://resources/items/body_parts/bodypart_fleshy_head.tres" id="6_knile"]
+[ext_resource type="Resource" uid="uid://b3mg6ujtq84wc" path="res://resources/items/staff.tres" id="6_xpf1y"]
 [ext_resource type="PackedScene" uid="uid://cdto4hd73gj2b" path="res://imported_data/meshes/characters/part_containers/skeleton_fleshy.glb" id="7_gd3uu"]
 [ext_resource type="Script" uid="uid://bjmqfmubsvlhc" path="res://tools/scene_control/scene_manager.gd" id="8_4pen5"]
 [ext_resource type="Resource" uid="uid://b0f7xtkkndjtv" path="res://resources/scene_info/level_components/necromancy_table.tres" id="9_56yci"]
@@ -41,8 +43,6 @@ border_width_top = 5
 border_width_bottom = 5
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_klivp"]
-vertices = PackedVector3Array(-5.06255, 0.07, -10.22213, -5.06255, 0.07, 5.27787, 10.43745, 0.07, 5.27787, 10.43745, 0.07, -10.22213)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 geometry_parsed_geometry_type = 1
 cell_height = 0.01
 agent_radius = 0.25
@@ -80,8 +80,8 @@ visible = false
 
 [node name="resource_manager" type="Node" parent="."]
 script = ExtResource("2_xpf1y")
-creatures = Array[ExtResource("3_0xy4o")]([ExtResource("4_kfhhx")])
-items = Array[ExtResource("5_nsaf0")]([ExtResource("6_knile")])
+creatures = Array[ExtResource("3_m503p")]([ExtResource("4_56yci")])
+items = Array[ExtResource("5_nsaf0")]([ExtResource("6_xpf1y"), ExtResource("4_pnc6k"), ExtResource("6_knile")])
 packed_donors = Dictionary[String, PackedScene]({
 "fleshy": ExtResource("7_gd3uu")
 })
@@ -150,26 +150,21 @@ script = ExtResource("20_8yfd0")
 resource_manager = NodePath("../resource_manager")
 navigation_region = NodePath("Level")
 
-[node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("starting_room", "level_area")]
+[node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("level_area")]
 navigation_mesh = SubResource("NavigationMesh_klivp")
 script = ExtResource("21_nelk5")
-starting_room = NodePath("rooms/spawn_room")
 room_options = Array[PackedScene]([ExtResource("22_wvjpm")])
 floor_tile = SubResource("Resource_ghpyy")
 level_area = NodePath("room_bounds")
 room_amount = 0
 
 [node name="room_bounds" type="Area3D" parent="game_components/Level"]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="game_components/Level/room_bounds"]
+visible = false
 shape = SubResource("BoxShape3D_mwqxe")
 
 [node name="rooms" type="Node3D" parent="game_components/Level"]
-
-[node name="spawn_room" parent="game_components/Level/rooms" instance=ExtResource("22_wvjpm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32898, 0, 1.51133)
-visible = false
 
 [node name="character" parent="game_components" instance=ExtResource("25_mhhfu")]
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.8345474)
