@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BodyPart" load_steps=4 format=3 uid="uid://c0w51bm03iddg"]
+
+[ext_resource type="Resource" uid="uid://vvh4fe785u3f" path="res://resources/scene_info/body_parts/skeleton_fleshy.tres" id="1_vtxia"]
+[ext_resource type="Script" uid="uid://m77xux5p3yt6" path="res://scripts/body_parts/body_part_item.gd" id="2_ynlrk"]
+[ext_resource type="Texture2D" uid="uid://ctqitqbu2sblq" path="res://sprites/item_sprites/SM_Chr_Skeleton_Flesh.ArmRight_.png" id="3_vtxia"]
+
+[resource]
+script = ExtResource("2_ynlrk")
+type = 3
+scene_info = ExtResource("1_vtxia")
+unique_id = "skeleton_flesh_head"
+translation_key_name = "NAME_ARM_FLESH"
+translation_key_description = "DESC_ARM_FLESH"
+texture = ExtResource("3_vtxia")
+metadata/_custom_type_script = "uid://m77xux5p3yt6"
