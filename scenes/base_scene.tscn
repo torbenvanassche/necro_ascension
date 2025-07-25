@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=44 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="1_56yci"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="2_xpf1y"]
@@ -31,6 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="22_wvjpm"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="25_mhhfu"]
 [ext_resource type="Script" uid="uid://b6rgx41co3bur" path="res://tools/inventory/scripts/inventory/inventory.gd" id="26_6sbc0"]
+[ext_resource type="Shader" uid="uid://c1sujheskvlix" path="res://scenes/walls_seethrough.gdshader" id="30_4pen5"]
+[ext_resource type="Shader" uid="uid://d3fao7mo6pr2q" path="res://scenes/see_through.gdshader" id="32_gd3uu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlxgy"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -64,6 +66,18 @@ size = Vector3(25, 5, 25)
 [sub_resource type="PlaneMesh" id="PlaneMesh_4pen5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ocdnp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hm2du"]
+render_priority = 0
+shader = ExtResource("30_4pen5")
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4pen5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ocdnp"]
+render_priority = 0
+shader = ExtResource("32_gd3uu")
+shader_parameter/visibility = 0.0
 
 [node name="root" type="Node"]
 
@@ -181,6 +195,7 @@ mesh = SubResource("PlaneMesh_4pen5")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="game_components/Level"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1.2041113, 0, 2.1772568, 0.8732052)
 mesh = SubResource("BoxMesh_ocdnp")
+surface_material_override/0 = SubResource("ShaderMaterial_hm2du")
 
 [node name="character" parent="game_components" instance=ExtResource("25_mhhfu")]
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.8345474)
@@ -191,3 +206,8 @@ script = ExtResource("26_6sbc0")
 unlocked_slots = 9
 max_slots = 9
 metadata/_custom_type_script = "uid://b6rgx41co3bur"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="game_components/character"]
+transform = Transform3D(2.4475675, 0, 0, 0, 2.447567, 0, 0, 0, 2.4475675, 0, 0.96796876, 0)
+mesh = SubResource("SphereMesh_4pen5")
+surface_material_override/0 = SubResource("ShaderMaterial_ocdnp")
