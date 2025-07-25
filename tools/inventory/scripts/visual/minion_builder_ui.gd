@@ -26,5 +26,6 @@ func _data_changed() -> void:
 func _assign_part(scene_info: SceneInfo, part: BodyPart) -> void:
 	if not Manager.instance.object_pool.has_scene(scene_info):
 		Manager.instance.object_pool.add_scene(scene_info)
-	var to_add: Node = (part.scene_info.get_instance() as BodyPartDonor).get_part("head");
-	(minion as Skeleton).apply_part("head", to_add)
+	var part_type: String = part.type_as_string().to_lower();
+	var to_add: Node = (part.scene_info.get_instance() as BodyPartDonor).get_part(part_type);
+	(minion as Skeleton).apply_part(part_type, to_add)

@@ -13,3 +13,9 @@ enum Type {
 
 @export var type: Type = Type.UNDEFINED;
 @export var scene_info: SceneInfo;
+
+func type_as_string() -> String:
+	for name:String in Type.keys():
+		if Type[name] == type:
+			return name;
+	return "UNDEFINED"

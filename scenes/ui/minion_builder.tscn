@@ -71,7 +71,7 @@ offset_top = -169.5
 offset_right = 203.0
 offset_bottom = -69.5
 script = ExtResource("4_txhwt")
-part_type = 7
+part_type = 4
 placeholder_image = ExtResource("5_lj4t6")
 
 [node name="legs" parent="MarginContainer/Panel" index="5" instance=ExtResource("3_xqu86")]
