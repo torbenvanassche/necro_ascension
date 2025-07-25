@@ -1,6 +1,20 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cqhqkj53x0j1v"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cqhqkj53x0j1v"]
 
 [ext_resource type="Texture2D" uid="uid://crprebpy2mql8" path="res://imported_data/textures/albedo/T_Polygon_Dummy_01.png" id="1_3aerc"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ch76"]
+render_priority = 1
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
 [resource]
+next_pass = SubResource("StandardMaterial3D_8ch76")
 albedo_texture = ExtResource("1_3aerc")
+stencil_mode = 2
+stencil_flags = 2
