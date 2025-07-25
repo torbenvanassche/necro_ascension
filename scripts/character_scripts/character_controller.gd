@@ -23,9 +23,6 @@ var animation_controller: AnimationMachine;
 @onready var animation_tree: AnimationTree = $character/AnimationTree;
 
 @onready var body_part_inventory: Inventory = $body_parts_inventory;
-
-func _init() -> void:
-	Manager.instance.player = self;
 	
 func _ready() -> void:
 	if interaction_range:

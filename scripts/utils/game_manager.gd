@@ -1,7 +1,7 @@
 extends Node
 class_name Manager
 
-var player: Player;
+@onready var player: Player = %character;
 var camera: Camera3D;
 
 static var instance: Manager;

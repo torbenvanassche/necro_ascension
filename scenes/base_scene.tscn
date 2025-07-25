@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=42 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="1_56yci"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="2_xpf1y"]
@@ -31,8 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="22_wvjpm"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="25_mhhfu"]
 [ext_resource type="Script" uid="uid://b6rgx41co3bur" path="res://tools/inventory/scripts/inventory/inventory.gd" id="26_6sbc0"]
-[ext_resource type="Shader" uid="uid://c1sujheskvlix" path="res://scenes/walls_seethrough.gdshader" id="30_4pen5"]
-[ext_resource type="Shader" uid="uid://d3fao7mo6pr2q" path="res://scenes/see_through.gdshader" id="32_gd3uu"]
+[ext_resource type="Shader" uid="uid://bil2lgnevro7r" path="res://shaders/outline_postprocessing.gdshader" id="30_gd3uu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlxgy"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -67,38 +66,23 @@ size = Vector3(25, 5, 25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ocdnp"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hm2du"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gd3uu"]
 render_priority = 0
-shader = ExtResource("30_4pen5")
-shader_parameter/color = Color(0, 0, 0, 1)
+shader = ExtResource("30_gd3uu")
+shader_parameter/depth_threshold = 0.05
+shader_parameter/reverse_depth_threshold = 0.25
+shader_parameter/normal_threshold = 0.6
+shader_parameter/darken_amount = 0.3
+shader_parameter/lighten_amount = 1.5
+shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
+shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
 
-[sub_resource type="SphereMesh" id="SphereMesh_4pen5"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ocdnp"]
-render_priority = 0
-shader = ExtResource("32_gd3uu")
-shader_parameter/visibility = 0.0
+[sub_resource type="QuadMesh" id="QuadMesh_4pen5"]
+material = SubResource("ShaderMaterial_gd3uu")
+flip_faces = true
+size = Vector2(2, 2)
 
 [node name="root" type="Node"]
-
-[node name="camera&lights" type="Node" parent="."]
-
-[node name="Camera3D" type="Camera3D" parent="camera&lights" node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.6847887, 0.72874165, 0, -0.72874165, 0.6847887, -0.058, 6.725, 5.0959225)
-current = true
-script = ExtResource("1_56yci")
-target = NodePath("../../game_components/character")
-follow_speed = 10.0
-rotation_speed = 0.1
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="camera&lights"]
-transform = Transform3D(0.953743, 0, 0.300623, -0.138109, 0.888225, 0.438158, -0.26702, -0.459409, 0.847139, 2.38291, 2.08883, 2.74318)
-light_energy = 0.667
-shadow_enabled = true
-
-[node name="Camera3D2" type="Camera3D" parent="camera&lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
-visible = false
 
 [node name="resource_manager" type="Node" parent="."]
 script = ExtResource("2_xpf1y")
@@ -167,12 +151,23 @@ value = 99.0
 show_percentage = false
 script = ExtResource("19_56yci")
 
-[node name="game_components" type="Node" parent="." node_paths=PackedStringArray("resource_manager", "navigation_region")]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." node_paths=PackedStringArray("resource_manager", "navigation_region")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("20_8yfd0")
 resource_manager = NodePath("../resource_manager")
-navigation_region = NodePath("Level")
+navigation_region = NodePath("SubViewport/Level")
 
-[node name="Level" type="NavigationRegion3D" parent="game_components" node_paths=PackedStringArray("level_area")]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Level" type="NavigationRegion3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("level_area")]
+unique_name_in_owner = true
 navigation_mesh = SubResource("NavigationMesh_klivp")
 script = ExtResource("21_nelk5")
 room_options = Array[PackedScene]([ExtResource("22_wvjpm")])
@@ -180,34 +175,49 @@ floor_tile = SubResource("Resource_ghpyy")
 level_area = NodePath("room_bounds")
 room_amount = 0
 
-[node name="room_bounds" type="Area3D" parent="game_components/Level"]
+[node name="room_bounds" type="Area3D" parent="SubViewportContainer/SubViewport/Level"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game_components/Level/room_bounds"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Level/room_bounds"]
 visible = false
 shape = SubResource("BoxShape3D_mwqxe")
 
-[node name="rooms" type="Node3D" parent="game_components/Level"]
+[node name="rooms" type="Node3D" parent="SubViewportContainer/SubViewport/Level"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="game_components/Level"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 mesh = SubResource("PlaneMesh_4pen5")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="game_components/Level"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1.2041113, 0, 2.1772568, 0.8732052)
 mesh = SubResource("BoxMesh_ocdnp")
-surface_material_override/0 = SubResource("ShaderMaterial_hm2du")
 
-[node name="character" parent="game_components" instance=ExtResource("25_mhhfu")]
+[node name="character" parent="SubViewportContainer/SubViewport" instance=ExtResource("25_mhhfu")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.8345474)
 movement_speed = 1.5
 
-[node name="body_parts_inventory" type="Node" parent="game_components/character"]
+[node name="body_parts_inventory" type="Node" parent="SubViewportContainer/SubViewport/character"]
 script = ExtResource("26_6sbc0")
 unlocked_slots = 9
 max_slots = 9
 metadata/_custom_type_script = "uid://b6rgx41co3bur"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="game_components/character"]
-transform = Transform3D(2.4475675, 0, 0, 0, 2.447567, 0, 0, 0, 2.4475675, 0, 0.96796876, 0)
-mesh = SubResource("SphereMesh_4pen5")
-surface_material_override/0 = SubResource("ShaderMaterial_ocdnp")
+[node name="camera&lights" type="Node" parent="SubViewportContainer/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/camera&lights" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.6847887, 0.72874165, 0, -0.72874165, 0.6847887, -0.058, 6.725, 5.0959225)
+projection = 1
+current = true
+size = 8.0
+script = ExtResource("1_56yci")
+target = NodePath("../../character")
+follow_speed = 10.0
+rotation_speed = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/camera&lights/Camera3D"]
+mesh = SubResource("QuadMesh_4pen5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/camera&lights"]
+transform = Transform3D(0.953743, 0, 0.300623, -0.138109, 0.888225, 0.438158, -0.26702, -0.459409, 0.847139, 2.38291, 2.08883, 2.74318)
+light_energy = 0.667
+shadow_enabled = true

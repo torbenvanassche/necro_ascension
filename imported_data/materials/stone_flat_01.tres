@@ -5,3 +5,4 @@
 [resource]
 albedo_texture = ExtResource("1_lf8v6")
 normal_enabled = true
+stencil_flags = 2

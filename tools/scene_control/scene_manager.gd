@@ -2,7 +2,7 @@ class_name SceneManager
 extends Node
 
 @export var initial_scene: SceneInfo;
-@onready var root: Node = $"../game_components/Level";
+@onready var root: Node = %"Level";
 static var instance: SceneManager;
 
 var scene_stack: Array[SceneInfo] = [];
