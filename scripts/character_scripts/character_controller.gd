@@ -51,7 +51,16 @@ func _physics_process(delta: float) -> void:
 	player_state = "idle"
 	var input_dir := Input.get_vector("left", "right", "back", "forward").normalized()
 	if camera_relative:
-		direction = (Manager.instance.camera.global_basis * Vector3(input_dir.x, 0, -input_dir.y)).normalized()
+		var cam_transform := Manager.instance.camera.global_transform
+		var cam_forward := -cam_transform.basis.z
+		cam_forward.y = 0
+		cam_forward = cam_forward.normalized()
+
+		var cam_right := cam_transform.basis.x
+		cam_right.y = 0
+		cam_right = cam_right.normalized()
+
+		direction = (cam_forward * input_dir.y + cam_right * input_dir.x).normalized()
 	else:
 		direction = Vector3(input_dir.x, 0, -input_dir.y).normalized()
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=44 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="1_56yci"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="2_xpf1y"]
@@ -31,7 +31,28 @@
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="22_wvjpm"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="25_mhhfu"]
 [ext_resource type="Script" uid="uid://b6rgx41co3bur" path="res://tools/inventory/scripts/inventory/inventory.gd" id="26_6sbc0"]
+[ext_resource type="PackedScene" uid="uid://hgynr4c2lbf7" path="res://scenes/rooms/procedural/basic_cellar_2.tscn" id="29_4pen5"]
 [ext_resource type="Shader" uid="uid://bil2lgnevro7r" path="res://shaders/outline_postprocessing.gdshader" id="30_gd3uu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4pen5"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ocdnp"]
+sky_material = SubResource("ProceduralSkyMaterial_4pen5")
+
+[sub_resource type="Environment" id="Environment_hm2du"]
+background_mode = 2
+sky = SubResource("Sky_ocdnp")
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 1.82
+ssao_intensity = 1.87
+ssao_power = 2.196129
+ssao_light_affect = 1.0
+ssao_ao_channel_affect = 1.0
+sdfgi_probe_bias = 4.82
+glow_enabled = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlxgy"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -62,10 +83,6 @@ metadata/__load_path__ = "res://imported_data/meshes/floor-small-square.glb"
 [sub_resource type="BoxShape3D" id="BoxShape3D_mwqxe"]
 size = Vector3(25, 5, 25)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_4pen5"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_ocdnp"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gd3uu"]
 render_priority = 0
 shader = ExtResource("30_gd3uu")
@@ -83,6 +100,9 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [node name="root" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hm2du")
 
 [node name="resource_manager" type="Node" parent="."]
 script = ExtResource("2_xpf1y")
@@ -157,13 +177,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
+stretch_shrink = 2
 script = ExtResource("20_8yfd0")
 resource_manager = NodePath("../resource_manager")
 navigation_region = NodePath("SubViewport/Level")
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="Level" type="NavigationRegion3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("level_area")]
@@ -183,18 +205,13 @@ shape = SubResource("BoxShape3D_mwqxe")
 
 [node name="rooms" type="Node3D" parent="SubViewportContainer/SubViewport/Level"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-mesh = SubResource("PlaneMesh_4pen5")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1.2041113, 0, 2.1772568, 0.8732052)
-mesh = SubResource("BoxMesh_ocdnp")
+[node name="Root" parent="SubViewportContainer/SubViewport/Level" instance=ExtResource("29_4pen5")]
 
 [node name="character" parent="SubViewportContainer/SubViewport" instance=ExtResource("25_mhhfu")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.8345474)
 movement_speed = 1.5
+camera_relative = true
 
 [node name="body_parts_inventory" type="Node" parent="SubViewportContainer/SubViewport/character"]
 script = ExtResource("26_6sbc0")
@@ -205,10 +222,10 @@ metadata/_custom_type_script = "uid://b6rgx41co3bur"
 [node name="camera&lights" type="Node" parent="SubViewportContainer/SubViewport"]
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/camera&lights" node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.6847887, 0.72874165, 0, -0.72874165, 0.6847887, -0.058, 6.725, 5.0959225)
+transform = Transform3D(0.8377187, -0.39809117, 0.3738325, 0, 0.6845471, 0.7289686, -0.5461019, -0.6106707, 0.57345796, -0.058, 6.725, 5.0959225)
 projection = 1
 current = true
-size = 8.0
+size = 12.0
 script = ExtResource("1_56yci")
 target = NodePath("../../character")
 follow_speed = 10.0
@@ -219,5 +236,6 @@ mesh = SubResource("QuadMesh_4pen5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/camera&lights"]
 transform = Transform3D(0.953743, 0, 0.300623, -0.138109, 0.888225, 0.438158, -0.26702, -0.459409, 0.847139, 2.38291, 2.08883, 2.74318)
-light_energy = 0.667
 shadow_enabled = true
+shadow_blur = 0.5
+directional_shadow_mode = 1
