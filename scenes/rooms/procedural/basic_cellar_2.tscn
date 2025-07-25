@@ -690,5 +690,3 @@ transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -7.5
 
 [node name="SM_Bld_Base_Wall_068" parent="Walls" instance=ExtResource("88_rvkx2")]
 transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -10, 0, 9.999999)
-
-[editable path="Walls/SM_Bld_Base_Wall_073"]

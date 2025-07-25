@@ -3,11 +3,8 @@ render_mode depth_draw_never, depth_test_disabled;
 stencil_mode read, compare_not_equal, 1;
 uniform vec3 color:source_color;
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
 void fragment() {
+	ALBEDO = color;
     ALPHA = 1.0;
 }
 
