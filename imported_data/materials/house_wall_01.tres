@@ -6,5 +6,4 @@
 [resource]
 albedo_texture = ExtResource("1_pntv3")
 emission_enabled = true
-normal_enabled = true
 normal_texture = ExtResource("2_wglly")
