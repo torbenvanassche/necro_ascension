@@ -12,6 +12,8 @@ var scroll_in_use: bool = false;
 @export var cursor_list: Dictionary[String, Texture2D];
 var object_pool: ObjectPool;
 
+@export var load_with_pixelation: bool = false;
+
 var interactable_layer: int = 1 << 4;
 
 signal input_mode_changed(is_keyboard: bool);
@@ -25,6 +27,12 @@ func _ready() -> void:
 	get_parent().add_child.call_deferred(object_pool);
 	object_pool.name = "object_pool";
 	object_pool.visible = false;
+	
+	$SubViewportContainer.visible = load_with_pixelation;
+	if not load_with_pixelation:
+		navigation_region.get_parent().reparent(self)
+	else:
+		navigation_region.get_parent().reparent($SubViewportContainer/SubViewport)
 
 func _init() -> void:
 	Manager.instance = self;

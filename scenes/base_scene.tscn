@@ -171,24 +171,27 @@ value = 99.0
 show_percentage = false
 script = ExtResource("19_56yci")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." node_paths=PackedStringArray("resource_manager", "navigation_region")]
+[node name="Manager" type="Node" parent="." node_paths=PackedStringArray("resource_manager", "navigation_region")]
+script = ExtResource("20_8yfd0")
+resource_manager = NodePath("../resource_manager")
+navigation_region = NodePath("container/Level")
+metadata/_custom_type_script = "uid://cs18d2lrk2v0l"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Manager"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch = true
-stretch_shrink = 2
-script = ExtResource("20_8yfd0")
-resource_manager = NodePath("../resource_manager")
-navigation_region = NodePath("SubViewport/Level")
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Manager/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(576, 324)
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="Level" type="NavigationRegion3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("level_area")]
+[node name="container" type="Node" parent="Manager"]
+
+[node name="Level" type="NavigationRegion3D" parent="Manager/container" node_paths=PackedStringArray("level_area")]
 unique_name_in_owner = true
 navigation_mesh = SubResource("NavigationMesh_klivp")
 script = ExtResource("21_nelk5")
@@ -197,32 +200,32 @@ floor_tile = SubResource("Resource_ghpyy")
 level_area = NodePath("room_bounds")
 room_amount = 0
 
-[node name="room_bounds" type="Area3D" parent="SubViewportContainer/SubViewport/Level"]
+[node name="room_bounds" type="Area3D" parent="Manager/container/Level"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Level/room_bounds"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Manager/container/Level/room_bounds"]
 visible = false
 shape = SubResource("BoxShape3D_mwqxe")
 
-[node name="rooms" type="Node3D" parent="SubViewportContainer/SubViewport/Level"]
+[node name="rooms" type="Node3D" parent="Manager/container/Level"]
 
-[node name="Root" parent="SubViewportContainer/SubViewport/Level" instance=ExtResource("29_4pen5")]
+[node name="Root" parent="Manager/container/Level" instance=ExtResource("29_4pen5")]
 
-[node name="character" parent="SubViewportContainer/SubViewport" instance=ExtResource("25_mhhfu")]
+[node name="character" parent="Manager/container" instance=ExtResource("25_mhhfu")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.8345474)
 movement_speed = 1.5
 camera_relative = true
 
-[node name="body_parts_inventory" type="Node" parent="SubViewportContainer/SubViewport/character"]
+[node name="body_parts_inventory" type="Node" parent="Manager/container/character"]
 script = ExtResource("26_6sbc0")
 unlocked_slots = 9
 max_slots = 9
 metadata/_custom_type_script = "uid://b6rgx41co3bur"
 
-[node name="camera&lights" type="Node" parent="SubViewportContainer/SubViewport"]
+[node name="camera&lights" type="Node" parent="Manager/container"]
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/camera&lights" node_paths=PackedStringArray("target")]
-transform = Transform3D(0.8377187, -0.39809117, 0.3738325, 0, 0.6845471, 0.7289686, -0.5461019, -0.6106707, 0.57345796, -0.058, 6.725, 5.0959225)
+[node name="Camera3D" type="Camera3D" parent="Manager/container/camera&lights" node_paths=PackedStringArray("target")]
+transform = Transform3D(0.8377187, -0.39809117, 0.37383252, 0, 0.6845471, 0.7289686, -0.5461019, -0.6106707, 0.57345796, 2.776473, 6.725, 3.7818334)
 projection = 1
 current = true
 size = 12.0
@@ -232,11 +235,11 @@ target = NodePath("../../character")
 follow_speed = 10.0
 rotation_speed = 0.1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/camera&lights/Camera3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Manager/container/camera&lights/Camera3D"]
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_4pen5")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/camera&lights"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Manager/container/camera&lights"]
 transform = Transform3D(0.953743, 0, 0.300623, -0.138109, 0.888225, 0.438158, -0.26702, -0.459409, 0.847139, 2.38291, 2.08883, 2.74318)
 shadow_enabled = true
 shadow_blur = 0.5
