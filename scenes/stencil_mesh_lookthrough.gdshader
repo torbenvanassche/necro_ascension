@@ -1,8 +1,9 @@
 shader_type spatial;
-render_mode unshaded, depth_draw_never, depth_test_disabled, cull_disabled;
 
-stencil_mode read, compare_equal, 1;
+stencil_mode read, 1, compare_not_equal;
+render_mode unshaded, cull_disabled, blend_mix, depth_draw_never;
 
 void fragment() {
-    discard;
+    ALBEDO = vec3(1.0, 0.0, 0.0);
+	ALPHA = 1.0;
 }

@@ -84,7 +84,7 @@ metadata/__load_path__ = "res://imported_data/meshes/floor-small-square.glb"
 size = Vector3(25, 5, 25)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gd3uu"]
-render_priority = 0
+render_priority = -128
 shader = ExtResource("30_gd3uu")
 shader_parameter/depth_threshold = 0.05
 shader_parameter/reverse_depth_threshold = 0.25
