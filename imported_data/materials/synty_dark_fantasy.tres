@@ -1,9 +1,15 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dxct617ondkne"]
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dxct617ondkne"]
 
 [ext_resource type="Texture2D" uid="uid://cpy4khdjm1pgx" path="res://imported_data/textures/albedo/PolygonDarkFantasy_Texture_01_A.png" id="1_0te1k"]
 [ext_resource type="Texture2D" uid="uid://dhm8ab75attcl" path="res://imported_data/textures/emissive/PolygonDarkFantasy_Emissive_01_A.png" id="2_wksnv"]
+[ext_resource type="Shader" uid="uid://c1sujheskvlix" path="res://scenes/stencil_mesh_lookthrough.gdshader" id="3_wksnv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8e67a"]
+render_priority = 0
+shader = ExtResource("3_wksnv")
 
 [resource]
+next_pass = SubResource("ShaderMaterial_8e67a")
 albedo_texture = ExtResource("1_0te1k")
 emission_enabled = true
 emission_texture = ExtResource("2_wksnv")
