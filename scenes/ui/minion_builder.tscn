@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1gjocvj7ra7q"]
+[gd_scene load_steps=12 format=3 uid="uid://b1gjocvj7ra7q"]
 
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://tools/scene_control/custom_window/base_window.tscn" id="1_yp3df"]
 [ext_resource type="Script" uid="uid://d0gqj5urvnk50" path="res://tools/inventory/scripts/visual/minion_builder_ui.gd" id="2_jt8y0"]
@@ -10,12 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://bpqrsv53e81fv" path="res://sprites/icons/ICON_DarkFantasy_Inventory_Gauntlets_01_Clean.png" id="6_txhwt"]
 [ext_resource type="Texture2D" uid="uid://cb0mh72vymkco" path="res://sprites/icons/ICON_DarkFantasy_Inventory_LegArmor_01_Clean.png" id="7_txhwt"]
 [ext_resource type="Texture2D" uid="uid://d1oquxk6ka5ac" path="res://sprites/icons/ICON_DarkFantasy_Inventory_Magic_03_Clean.png" id="8_jt8y0"]
+[ext_resource type="Texture2D" uid="uid://8ljghmqnuf1e" path="res://sprites/borders/SPR_DarkFantasy_Frame_Bar_Notch_02.png" id="11_vanmn"]
 
 [node name="Window" node_paths=PackedStringArray("element") instance=ExtResource("1_yp3df")]
 anchors_preset = -1
 anchor_right = 0.503
 anchor_bottom = 1.276
-offset_right = 0.5439453
+offset_right = 360.54395
 offset_bottom = -31.848022
 scale = Vector2(0.5, 0.5)
 mouse_filter = 1
@@ -29,68 +30,150 @@ mouse_default_cursor_shape = 6
 mouse_filter = 1
 script = ExtResource("2_jt8y0")
 
-[node name="TextureRect" parent="MarginContainer/Panel" index="0"]
+[node name="bg_image" parent="MarginContainer/Panel" index="0"]
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="left" type="Control" parent="MarginContainer/Panel/MarginContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(399, 0)
+layout_mode = 2
+
+[node name="bg_image" type="TextureRect" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/left" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
 texture = ExtResource("4_t8joc")
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 4
 
-[node name="head" parent="MarginContainer/Panel" index="1" instance=ExtResource("3_xqu86")]
+[node name="head" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/left" index="1" instance=ExtResource("3_xqu86")]
 layout_mode = 1
-offset_left = 321.0
-offset_top = -295.5
-offset_right = 421.0
-offset_bottom = -195.5
+offset_left = 227.0
+offset_top = -297.5
+offset_right = 327.0
+offset_bottom = -197.5
 script = ExtResource("4_txhwt")
 part_type = 1
 placeholder_image = ExtResource("4_cv2io")
 
-[node name="hand_l" parent="MarginContainer/Panel" index="2" instance=ExtResource("3_xqu86")]
+[node name="hand_l" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/left" index="2" instance=ExtResource("3_xqu86")]
 layout_mode = 1
-offset_left = 55.0
-offset_top = 10.5
-offset_right = 155.0
-offset_bottom = 110.5
+offset_left = 59.0
+offset_top = -17.5
+offset_right = 159.0
+offset_bottom = 82.5
 script = ExtResource("4_txhwt")
 part_type = 3
 placeholder_image = ExtResource("6_txhwt")
 
-[node name="misc" parent="MarginContainer/Panel" index="3" instance=ExtResource("3_xqu86")]
+[node name="misc" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/left" index="3" instance=ExtResource("3_xqu86")]
 layout_mode = 1
-offset_left = 355.0
-offset_top = 214.5
-offset_right = 455.0
-offset_bottom = 314.5
+offset_left = 305.0
+offset_top = 216.5
+offset_right = 405.0
+offset_bottom = 316.5
 script = ExtResource("4_txhwt")
 part_type = 6
 placeholder_image = ExtResource("8_jt8y0")
 
-[node name="core" parent="MarginContainer/Panel" index="4" instance=ExtResource("3_xqu86")]
+[node name="core" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/left" index="4" instance=ExtResource("3_xqu86")]
 layout_mode = 1
-offset_left = 103.0
-offset_top = -169.5
-offset_right = 203.0
-offset_bottom = -69.5
+offset_left = 49.0
+offset_top = -195.5
+offset_right = 149.0
+offset_bottom = -95.5
 script = ExtResource("4_txhwt")
 part_type = 4
 placeholder_image = ExtResource("5_lj4t6")
 
-[node name="legs" parent="MarginContainer/Panel" index="5" instance=ExtResource("3_xqu86")]
+[node name="legs" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/left" index="5" instance=ExtResource("3_xqu86")]
 layout_mode = 1
-offset_left = 209.0
-offset_top = 158.5
-offset_right = 309.0
-offset_bottom = 258.5
+offset_left = 179.0
+offset_top = 100.5
+offset_right = 279.0
+offset_bottom = 200.5
 script = ExtResource("4_txhwt")
 part_type = 5
 placeholder_image = ExtResource("7_txhwt")
 
-[node name="arm_r" parent="MarginContainer/Panel" index="6" instance=ExtResource("3_xqu86")]
+[node name="arm_r" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/left" index="6" instance=ExtResource("3_xqu86")]
 layout_mode = 1
-offset_left = 357.0
-offset_top = -13.5
-offset_right = 457.0
-offset_bottom = 86.5
+offset_left = 269.0
+offset_top = -71.5
+offset_right = 369.0
+offset_bottom = 28.5
 script = ExtResource("4_txhwt")
 part_type = 2
 placeholder_image = ExtResource("6_txhwt")
 flip_placeholder = true
+
+[node name="separator" type="NinePatchRect" parent="MarginContainer/Panel/MarginContainer/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("11_vanmn")
+region_rect = Rect2(0, 66.5, 64, 146)
+
+[node name="right" type="Control" parent="MarginContainer/Panel/MarginContainer/HBoxContainer" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/right" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Base skeleton" type="Label" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/right/VBoxContainer" index="0"]
+layout_mode = 2
+text = "Base skeleton"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/right/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="item" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/right/VBoxContainer/HBoxContainer" index="0" instance=ExtResource("3_xqu86")]
+layout_mode = 2
+
+[node name="item2" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/right/VBoxContainer/HBoxContainer" index="1" instance=ExtResource("3_xqu86")]
+layout_mode = 2
+
+[node name="item3" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/right/VBoxContainer/HBoxContainer" index="2" instance=ExtResource("3_xqu86")]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/right/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="Base skeleton2" type="Label" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/right/VBoxContainer" index="3"]
+layout_mode = 2
+text = "Fleshy Skeleton"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/right/VBoxContainer" index="4"]
+layout_mode = 2
+
+[node name="item" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/right/VBoxContainer/HBoxContainer2" index="0" instance=ExtResource("3_xqu86")]
+layout_mode = 2
+
+[node name="item2" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/right/VBoxContainer/HBoxContainer2" index="1" instance=ExtResource("3_xqu86")]
+layout_mode = 2
+
+[node name="item3" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/right/VBoxContainer/HBoxContainer2" index="2" instance=ExtResource("3_xqu86")]
+layout_mode = 2

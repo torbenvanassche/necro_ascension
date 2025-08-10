@@ -9,6 +9,7 @@ class_name ContentSlotUI extends TextureButton
 @export var placeholder_image: Texture2D;
 @export var flip_placeholder: bool = false; 
 @export var show_amount: bool = true;
+@export var max_size: int = 0;
 
 @export_group("Drag Settings")
 @export var default_color: Color = Color.WHITE;
@@ -26,6 +27,11 @@ func _ready() -> void:
 	
 	if contentSlot:
 		redraw();
+		
+func _draw() -> void:
+	if max_size > 0:
+		size.x = minf(max_size, size.x)
+		size.y = minf(max_size, size.y)
 	
 func redraw() -> void:
 	if contentSlot == null:

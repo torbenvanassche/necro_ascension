@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci1k4q2so362p"]
+
+[ext_resource type="PackedScene" uid="uid://c5ocjw6joaemy" path="res://tools/inventory/scenes/content_slot.tscn" id="1_8orx5"]
+[ext_resource type="Script" uid="uid://c883keotprw61" path="res://tools/inventory/scripts/visual/body_part_row_ui.gd" id="1_41re6"]
+
+[node name="Control" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_41re6")
+
+[node name="Base skeleton" type="Label" parent="."]
+layout_mode = 2
+text = "Base skeleton"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="item" parent="HBoxContainer" instance=ExtResource("1_8orx5")]
+layout_mode = 2
+max_size = 50
+
+[node name="item2" parent="HBoxContainer" instance=ExtResource("1_8orx5")]
+layout_mode = 2
+max_size = 50
+
+[node name="item3" parent="HBoxContainer" instance=ExtResource("1_8orx5")]
+layout_mode = 2
+max_size = 50
+
+[node name="item4" parent="HBoxContainer" instance=ExtResource("1_8orx5")]
+layout_mode = 2
+max_size = 50
+
+[node name="item5" parent="HBoxContainer" instance=ExtResource("1_8orx5")]
+layout_mode = 2
+max_size = 50
+
+[node name="item6" parent="HBoxContainer" instance=ExtResource("1_8orx5")]
+layout_mode = 2
+background_gradient = null
+max_size = 50

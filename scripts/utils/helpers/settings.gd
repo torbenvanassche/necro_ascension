@@ -1,8 +1,10 @@
 extends Node
-	
-#camera sensitivity
+
 var camera_rotation_sensitivity: float = 0.01;
 var camera_zoom_sensitivity: float = 0.5;
+
+var pixelation_factor: int = 1;
+var enable_outlines: bool = true;
 
 #menu options
 var close_context_on_mouse_exit: bool = true;

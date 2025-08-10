@@ -12,7 +12,8 @@ var scroll_in_use: bool = false;
 @export var cursor_list: Dictionary[String, Texture2D];
 var object_pool: ObjectPool;
 
-@export var load_with_pixelation: bool = false;
+@onready var vpContainer: SubViewportContainer = $SubViewportContainer;
+@onready var outline_shader_element: MeshInstance3D = $"container/camera&lights/Camera3D/MeshInstance3D";
 
 var interactable_layer: int = 1 << 4;
 
@@ -28,11 +29,15 @@ func _ready() -> void:
 	object_pool.name = "object_pool";
 	object_pool.visible = false;
 	
-	$SubViewportContainer.visible = load_with_pixelation;
-	if not load_with_pixelation:
+	vpContainer.visible = Settings.pixelation_factor != 0;
+	if Settings.pixelation_factor == 0:
 		navigation_region.get_parent().reparent(self)
 	else:
-		navigation_region.get_parent().reparent($SubViewportContainer/SubViewport)
+		navigation_region.get_parent().reparent($SubViewportContainer/SubViewport);
+		vpContainer.stretch_shrink = Settings.pixelation_factor;
+		vpContainer.stretch = true;
+		
+	outline_shader_element.visible = Settings.enable_outlines;
 
 func _init() -> void:
 	Manager.instance = self;

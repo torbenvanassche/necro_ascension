@@ -175,6 +175,9 @@ script = ExtResource("19_56yci")
 script = ExtResource("20_8yfd0")
 resource_manager = NodePath("../resource_manager")
 navigation_region = NodePath("container/Level")
+cursor_list = null
+pixelation_factor = 4
+enable_outlines = true
 metadata/_custom_type_script = "uid://cs18d2lrk2v0l"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Manager"]

@@ -6,9 +6,8 @@
 [sub_resource type="Shader" id="Shader_0te1k"]
 code = "shader_type spatial;
 
-stencil_mode read, 1, compare_equal;
-
-render_mode depth_prepass_alpha, depth_draw_never, cull_back, diffuse_burley, specular_schlick_ggx;
+//stencil_mode read, 1, compare_not_equal;
+render_mode depth_prepass_alpha, depth_draw_always, blend_premul_alpha, cull_back, diffuse_burley, specular_schlick_ggx;
 
 uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
@@ -52,8 +51,7 @@ void fragment() {
 
 	vec3 emission_tex = texture(texture_emission, base_uv).rgb;
 	EMISSION = (emission.rgb + emission_tex) * emission_energy;
-}
-"
+}"
 
 [resource]
 render_priority = 0
