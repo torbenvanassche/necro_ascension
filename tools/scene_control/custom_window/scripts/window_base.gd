@@ -13,7 +13,6 @@ var initial_position: Vector2;
 
 @export var store_position: bool = false;
 @export var override_position: Vector2;
-@export var override_size: Vector2;
 @export var return_on_close: bool = true;
 @export var topbar_height: int = 50;
 
@@ -30,9 +29,6 @@ func _ready() -> void:
 	close_button.pressed.connect(close_window);
 	close_requested.connect(close_window)
 	draggable_area.gui_input.connect(handle_input)
-	
-	if override_size != Vector2.ZERO:
-		set_deferred.call_deferred("size", override_size);
 	
 func on_enable(_options: Dictionary = {}) -> void:
 	if visible:

@@ -1,6 +1,11 @@
 class_name Player
 extends CharacterBody3D
 
+@onready var creature_controller: CreatureController = $creature_holder;
+@onready var nav_obstacle: NavigationObstacle3D = $NavigationObstacle3D;
+@onready var animation_tree: AnimationTree = $character/AnimationTree;
+@onready var body_part_inventory: Inventory = $body_parts_inventory;
+
 @export var movement_speed: float = 2
 @export_range(0.1, 1, 0.1, "Higher value means snappier rotation") var rotation_speed: float = 0.1;
 
@@ -17,12 +22,6 @@ var do_processing: bool = true;
 var direction: Vector3 = Vector3.ZERO;
 
 var animation_controller: AnimationMachine;
-@onready var creature_controller: CreatureController = $creature_holder;
-
-@onready var nav_obstacle: NavigationObstacle3D = $NavigationObstacle3D;
-@onready var animation_tree: AnimationTree = $character/AnimationTree;
-
-@onready var body_part_inventory: Inventory = $body_parts_inventory;
 
 func _init() -> void:
 	Manager.instance.player = self;
