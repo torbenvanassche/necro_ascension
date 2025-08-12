@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd40rut0r64ge"]
+
+[ext_resource type="PackedScene" uid="uid://c5ocjw6joaemy" path="res://tools/inventory/scenes/content_slot.tscn" id="1_o1kk0"]
+[ext_resource type="Texture2D" uid="uid://bf0yg5yqcetkm" path="res://sprites/borders/SPR_DarkFantasy_Frame_Box_Medium_18.png" id="2_21shc"]
+
+[node name="item" instance=ExtResource("1_o1kk0")]
+texture_normal = ExtResource("2_21shc")

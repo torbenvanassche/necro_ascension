@@ -6,7 +6,7 @@ class_name ContentSlotUI extends TextureButton
 @onready var mainMarginContainer: MarginContainer = $margin_container;
 @onready var counter: Label = $count;
 
-@export_group("test")
+@export_group("Properties")
 @export var background_gradient: Texture2D;
 @export var placeholder_image: Texture2D;
 @export var flip_placeholder: bool = false; 
