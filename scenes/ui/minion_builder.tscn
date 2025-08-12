@@ -19,7 +19,6 @@ offset_right = 0.5439453
 offset_bottom = -31.848022
 scale = Vector2(0.5, 0.5)
 mouse_filter = 1
-override_size = Vector2(580, 795)
 element = NodePath("MarginContainer/Panel")
 
 [node name="MarginContainer" parent="." index="0"]
