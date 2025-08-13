@@ -1,4 +1,4 @@
-class_name MinionPartSlotUI extends ContentSlotUI
+class_name MinionEquipmentSlotUI extends ContentSlotUI
 
 @export var part_type: BodyPart.Type;
 

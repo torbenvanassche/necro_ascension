@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd40rut0r64ge"]
+
+[ext_resource type="PackedScene" uid="uid://c5ocjw6joaemy" path="res://tools/inventory/scenes/content_slot.tscn" id="1_bdxi5"]
+[ext_resource type="Texture2D" uid="uid://bf0yg5yqcetkm" path="res://sprites/borders/SPR_DarkFantasy_Frame_Box_Medium_18.png" id="2_m70de"]
+[ext_resource type="Script" uid="uid://mkur1q33t8gc" path="res://tools/inventory/scripts/visual/minion_equipment_slot_ui.gd" id="3_88636"]
+
+[node name="item" instance=ExtResource("1_bdxi5")]
+texture_normal = ExtResource("2_m70de")
+script = ExtResource("3_88636")
+part_type = 0
