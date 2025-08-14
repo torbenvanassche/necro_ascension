@@ -1,10 +1,10 @@
 class_name BodyBuilderUI extends ContentGroup
 
-var parts: Array[MinionPartSlotUI];
+var parts: Array[MinionEquipmentSlotUI];
 var minion: CreatureInstance;
 
 func _ready() -> void:
-	parts.assign(get_children().filter(func(child: Node)-> bool: return child is MinionPartSlotUI));
+	parts.assign(get_children().filter(func(child: Node)-> bool: return child is MinionEquipmentSlotUI));
 	for part in parts:
 		var c: ContentSlot = ContentSlot.new();
 		part.set_content(c)
@@ -19,7 +19,7 @@ func _on_minion_ready(scene_info: SceneInfo) -> void:
 		func(scene: SceneInfo) -> void: (scene.get_instance() as BodyBuilderInteractable).set_buildable(minion))
 		
 func _data_changed() -> void:
-	var minion_parts := parts.map(func(slot: MinionPartSlotUI) -> BodyPart: return slot.contentSlot.get_content());
+	var minion_parts := parts.map(func(slot: MinionEquipmentSlotUI) -> BodyPart: return slot.contentSlot.get_content());
 	for part: BodyPart in minion_parts.filter(func(p: Resource) -> bool: return p != null):
 		part.scene_info.queue(_assign_part.bind(part))
 		
