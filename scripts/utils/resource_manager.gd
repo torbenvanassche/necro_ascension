@@ -5,12 +5,16 @@ class_name ResourceManager extends Node
 func get_data() -> void:
 	items.clear();
 	creatures.clear();
+	scenes.clear();
+	
 	Helpers.recursive_list("res://resources/items", items, ".tres")
 	Helpers.recursive_list("res://resources/creatures", creatures, ".tres")
+	Helpers.recursive_list("res://resources/scene_info", scenes, ".tres")
 	notify_property_list_changed();
 
 @export var creatures: Array[CreatureResource];
 @export var items: Array[ItemResource];
+@export var scenes: Array[SceneInfo];
 
 @export var packed_donors: Dictionary[String, PackedScene];
 var donors: Dictionary[String, Node3D];

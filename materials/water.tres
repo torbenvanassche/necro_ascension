@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bryes4o2e64sl"]
+
+[ext_resource type="Shader" uid="uid://dv4mgkqnnh1ht" path="res://shaders/water.gdshader" id="1_6gfwt"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6gfwt")
+shader_parameter/out_color = Color(0, 0.2, 1, 0.84705883)
+shader_parameter/amount = 0.02400000114

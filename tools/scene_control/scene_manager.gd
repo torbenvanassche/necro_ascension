@@ -4,8 +4,7 @@ extends Node
 @export var initial_scene: SceneInfo;
 
 @export_group("Data Setup") 
-@export var scenes: Array[SceneInfo];
-@onready var root: Node = $"../game_components/Level";
+@onready var root: Node = %Level;
 static var instance: SceneManager;
 
 var scene_stack: Array[SceneInfo] = [];
@@ -44,7 +43,7 @@ func get_or_create_scene(scene_name: String, scene_config: SceneConfig = SceneCo
 		if scene_config.disable_processing:
 			_active_scene.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	
-	var filtered: Array = scenes.filter(func(scene: SceneInfo) -> bool: return scene != null && scene.id == scene_name);
+	var filtered: Array = Manager.instance.resource_manager.scenes.filter(func(scene: SceneInfo) -> bool: return scene != null && scene.id == scene_name);
 	if filtered.size() == 0:
 		Debug.err(scene_name + " was not found, unable to instantiate!")
 	elif filtered.size() == 1:
@@ -70,14 +69,14 @@ func _on_scene_load(scene_info: SceneInfo, scene_config: SceneConfig) -> void:
 		scene_stack.append(scene_info)
 			
 func node_to_info(node: Node) -> SceneInfo:
-	var filtered: Array[SceneInfo] = scenes.filter(func(x: SceneInfo) -> bool: return x.node == node);
+	var filtered: Array[SceneInfo] = Manager.instance.resource_manager.scenes.filter(func(x: SceneInfo) -> bool: return x.node == node);
 	if filtered.size() == 1:
 		return filtered[0];
 	Debug.err("Could not find " + node.name + " in scenes.")
 	return null
 	
 func get_scene_info(id: String) -> SceneInfo:
-	var filtered: Array[SceneInfo] = scenes.filter(func(x: SceneInfo) -> bool: return x.id == id);
+	var filtered: Array[SceneInfo] = Manager.instance.resource_manager.scenes.filter(func(x: SceneInfo) -> bool: return x.id == id);
 	if filtered.size() == 1:
 		return filtered[0];
 	Debug.err("Could not find " + id + " in scenes.")
@@ -87,7 +86,7 @@ func set_scene_reference(id: String, target: Node) -> void:
 	get_scene_info(id).node = target;
 	
 func reset_to_scene(scene_name: String) -> void:
-	for scene_info in scenes:
+	for scene_info in Manager.instance.resource_manager.scenes:
 		if scene_info.id != scene_name && scene_info.node != null:
 			scene_info.node.queue_free()
 	get_or_create_scene(scene_name, SceneConfig.new())
@@ -112,7 +111,7 @@ func ui_is_open(exceptions: Array[String]) -> bool:
 	return get_children().all(func(x: Node) -> bool: return node_to_info(x).type == SceneInfo.Type.UI && x.visible && !exceptions.has(node_to_info(x).id));
 			
 func is_active(scene_name: String) -> bool:
-	for scene_info in scenes:
+	for scene_info in Manager.instance.resource_manager.scenes:
 		if scene_info.id != scene_name && scene_info.node != null && scene_info.node.visible == true:
 			return true;
 	return false;
