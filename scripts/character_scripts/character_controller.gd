@@ -9,9 +9,13 @@ extends CharacterBody3D
 @export var movement_speed: float = 2
 @export_range(0.1, 1, 0.1, "Higher value means snappier rotation") var rotation_speed: float = 0.1;
 
+##Whether or not the player input should be relative to the camera direction.
 @export var camera_relative: bool = false;
 
+##The Area3D describing the area the player can interact with.
 @export var interaction_range: Area3D;
+
+##The current equiped weapon for the player.
 @export var weapon_data: WeaponResource;
 
 var player_state: String;

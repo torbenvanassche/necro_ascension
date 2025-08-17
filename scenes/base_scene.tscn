@@ -177,10 +177,9 @@ value = 99.0
 show_percentage = false
 script = ExtResource("19_56yci")
 
-[node name="Manager" type="Node" parent="." node_paths=PackedStringArray("resource_manager", "navigation_region")]
+[node name="Manager" type="Node" parent="." node_paths=PackedStringArray("resource_manager")]
 script = ExtResource("20_8yfd0")
 resource_manager = NodePath("../resource_manager")
-navigation_region = NodePath("container/Level")
 pixelation_factor = 0
 metadata/_custom_type_script = "uid://cs18d2lrk2v0l"
 

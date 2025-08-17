@@ -3,17 +3,21 @@ class_name Manager
 
 @onready var player: Player = %character;
 @onready var subViewC: SubViewportContainer = $SubViewportContainer;
+@onready var navigation_region: NavigationRegion3D = %Level;
 
 var camera: Camera3D;
 
 static var instance: Manager;
 var scroll_in_use: bool = false;
 
+##Runtime resource access/storage object 
 @export var resource_manager: ResourceManager;
-@export var navigation_region: NavigationRegion3D;
+
+##List of cursors that can be picked from as replacement for the main pointer
 @export var cursor_list: Dictionary[String, Texture2D];
 var object_pool: ObjectPool;
 
+##Amount to downscale the pixelation effect
 @export var pixelation_factor: int = 2;
 
 var interactable_layer: int = 1 << 4;
