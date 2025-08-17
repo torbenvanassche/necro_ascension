@@ -2,6 +2,8 @@ extends Node
 class_name Manager
 
 @onready var player: Player = %character;
+@onready var subViewC: SubViewportContainer = $SubViewportContainer;
+
 var camera: Camera3D;
 
 static var instance: Manager;
@@ -12,7 +14,7 @@ var scroll_in_use: bool = false;
 @export var cursor_list: Dictionary[String, Texture2D];
 var object_pool: ObjectPool;
 
-@export var load_with_pixelation: bool = false;
+@export var pixelation_factor: int = 2;
 
 var interactable_layer: int = 1 << 4;
 
@@ -28,11 +30,13 @@ func _ready() -> void:
 	object_pool.name = "object_pool";
 	object_pool.visible = false;
 	
-	$SubViewportContainer.visible = load_with_pixelation;
-	if not load_with_pixelation:
+	subViewC.visible = pixelation_factor != 0;
+	if pixelation_factor == 0:
 		navigation_region.get_parent().reparent(self)
 	else:
 		navigation_region.get_parent().reparent($SubViewportContainer/SubViewport)
+		subViewC.stretch_shrink = pixelation_factor;
+		subViewC.stretch = true;
 
 func _init() -> void:
 	Manager.instance = self;
