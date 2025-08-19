@@ -18,13 +18,13 @@ extends CharacterBody3D
 ##The current equiped weapon for the player.
 @export var weapon_data: WeaponResource;
 
-var player_state: String;
+@export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+@export var jump_velocity: float = 6.0
 
+var player_state: String;
 var current_triggers: Array[Area3D];
 var do_processing: bool = true;
-
 var direction: Vector3 = Vector3.ZERO;
-
 var animation_controller: AnimationMachine;
 
 func _init() -> void:
@@ -54,6 +54,13 @@ func update_movement(b: bool) -> void:
 
 func _physics_process(delta: float) -> void: 
 	player_state = "idle"
+	
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	else:
+		if InputMap.has_action("jump") and Input.is_action_just_pressed("jump"):
+			velocity.y = jump_velocity
+	
 	var input_dir := Input.get_vector("left", "right", "back", "forward").normalized()
 	if camera_relative:
 		direction = (Manager.instance.camera.global_basis * Vector3(input_dir.x, 0, -input_dir.y)).normalized()

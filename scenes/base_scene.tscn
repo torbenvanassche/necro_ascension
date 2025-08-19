@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bl0nqrte7vyns"]
+[gd_scene load_steps=44 format=3 uid="uid://bl0nqrte7vyns"]
 
 [ext_resource type="Script" uid="uid://d2frf16cwvbr3" path="res://scripts/utils/helpers/camera.gd" id="1_56yci"]
 [ext_resource type="Script" uid="uid://vxg7f6vrpgwi" path="res://scripts/utils/resource_manager.gd" id="2_xpf1y"]
@@ -31,8 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://bgakhxogrjn2u" path="res://scenes/rooms/general/room_square_small_4_paths.tscn" id="22_wvjpm"]
 [ext_resource type="PackedScene" uid="uid://dc1qxbru5n4ek" path="res://scenes/creatures/character.tscn" id="25_mhhfu"]
 [ext_resource type="Script" uid="uid://b6rgx41co3bur" path="res://tools/inventory/scripts/inventory/inventory.gd" id="26_6sbc0"]
+[ext_resource type="PackedScene" uid="uid://ck72bhan76hav" path="res://scenes/rooms/unique/hub.tscn" id="29_4pen5"]
 [ext_resource type="Shader" uid="uid://qolsgsd8i7k7" path="res://shaders/outline_postprocessing.gdshader" id="30_gd3uu"]
-[ext_resource type="Material" uid="uid://bryes4o2e64sl" path="res://materials/water.tres" id="33_4pen5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4pen5"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -98,12 +98,6 @@ shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
 material = SubResource("ShaderMaterial_gd3uu")
 flip_faces = true
 size = Vector2(2, 2)
-
-[sub_resource type="QuadMesh" id="QuadMesh_ocdnp"]
-size = Vector2(2, 2)
-subdivide_width = 50
-subdivide_depth = 50
-orientation = 1
 
 [node name="root" type="Node"]
 
@@ -216,6 +210,9 @@ shape = SubResource("BoxShape3D_mwqxe")
 
 [node name="rooms" type="Node3D" parent="Manager/container/Level"]
 
+[node name="Node3D" parent="Manager/container/Level" instance=ExtResource("29_4pen5")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 3.0076885)
+
 [node name="character" parent="Manager/container" instance=ExtResource("25_mhhfu")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.8345474)
@@ -250,8 +247,3 @@ transform = Transform3D(0.953743, 0, 0.300623, -0.138109, 0.888225, 0.438158, -0
 shadow_enabled = true
 shadow_blur = 0.5
 directional_shadow_mode = 1
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Manager/container"]
-transform = Transform3D(15.361646, 0, 0, 0, 1, 0, 0, 0, 15.361646, 0, 0, 0)
-mesh = SubResource("QuadMesh_ocdnp")
-surface_material_override/0 = ExtResource("33_4pen5")
