@@ -174,7 +174,6 @@ script = ExtResource("19_56yci")
 [node name="Manager" type="Node" parent="." node_paths=PackedStringArray("resource_manager")]
 script = ExtResource("20_8yfd0")
 resource_manager = NodePath("../resource_manager")
-pixelation_factor = 0
 metadata/_custom_type_script = "uid://cs18d2lrk2v0l"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Manager"]
@@ -211,7 +210,7 @@ shape = SubResource("BoxShape3D_mwqxe")
 [node name="rooms" type="Node3D" parent="Manager/container/Level"]
 
 [node name="Node3D" parent="Manager/container/Level" instance=ExtResource("29_4pen5")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 3.0076885)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0076885)
 
 [node name="character" parent="Manager/container" instance=ExtResource("25_mhhfu")]
 unique_name_in_owner = true
