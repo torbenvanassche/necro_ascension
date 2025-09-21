@@ -217,7 +217,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0076885)
 [node name="character" parent="Manager/container" instance=ExtResource("25_mhhfu")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0.000802851, 0, 1, 0, -0.000802851, 0, 1, -0.0582407, 0.0162383, -0.8345474)
-movement_speed = 1.5
+movement_speed = 3.0
+rotation_speed = 0.2
 camera_relative = true
 
 [node name="body_parts_inventory" type="Node" parent="Manager/container/character"]

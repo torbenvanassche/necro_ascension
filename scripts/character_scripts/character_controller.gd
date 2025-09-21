@@ -6,7 +6,7 @@ extends CharacterBody3D
 @onready var animation_tree: AnimationTree = $character/AnimationTree;
 @onready var body_part_inventory: Inventory = $body_parts_inventory;
 
-@export var movement_speed: float = 2
+@export var movement_speed: float = 10
 @export_range(0.1, 1, 0.1, "Higher value means snappier rotation") var rotation_speed: float = 0.1;
 
 ##Whether or not the player input should be relative to the camera direction.
