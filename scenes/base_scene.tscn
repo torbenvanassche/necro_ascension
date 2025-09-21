@@ -81,7 +81,7 @@ region_merge_size = 10.0
 metadata/__load_path__ = "res://imported_data/meshes/floor-small-square.glb"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mwqxe"]
-size = Vector3(25, 5, 25)
+size = Vector3(69.872986, 14.938477, 65.33911)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gd3uu"]
 render_priority = -1
@@ -202,9 +202,10 @@ level_area = NodePath("room_bounds")
 room_amount = 0
 
 [node name="room_bounds" type="Area3D" parent="Manager/container/Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10778618, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Manager/container/Level/room_bounds"]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6443863, 1.6479149, 8.7799225)
 shape = SubResource("BoxShape3D_mwqxe")
 
 [node name="rooms" type="Node3D" parent="Manager/container/Level"]
@@ -238,6 +239,7 @@ follow_speed = 10.0
 rotation_speed = 0.1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Manager/container/camera&lights/Camera3D"]
+visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_4pen5")
 

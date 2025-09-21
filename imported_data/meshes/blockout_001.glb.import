@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dr4c41g7x82h1"
-path="res://.godot/imported/SM_Bld_Base_Roof_Quarter_01.glb-3f7e50f0fac5dfb62398516a85419889.scn"
+uid="uid://bj5wubpkogj70"
+path="res://.godot/imported/blockout_001.glb-64df06b74ab6c77c4c2e999bb81d85d8.scn"
 
 [deps]
 
-source_file="res://imported_data/meshes/static/synty_dark_fantasy/building_pieces/SM_Bld_Base_Roof_Quarter_01.glb"
-dest_files=["res://.godot/imported/SM_Bld_Base_Roof_Quarter_01.glb-3f7e50f0fac5dfb62398516a85419889.scn"]
+source_file="res://imported_data/meshes/blockout_001.glb"
+dest_files=["res://.godot/imported/blockout_001.glb-64df06b74ab6c77c4c2e999bb81d85d8.scn"]
 
 [params]
 
@@ -39,20 +39,15 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"A_Wall.004": {
+"colormap": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://imported_data/materials/Roof_01.tres",
-"use_external/path": "uid://cmpxj3mc5kd2q"
+"use_external/path": "res://imported_data/materials/base_material.tres"
+}
 },
-"lambert1.004": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://imported_data/materials/stucco_01.tres",
-"use_external/path": "uid://ihma1q1j3nd7"
-},
-"placeholder.024": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://imported_data/materials/stucco_01.tres",
-"use_external/path": "uid://ihma1q1j3nd7"
+"nodes": {
+"PATH:floor-small-square": {
+"generate/physics": true,
+"physics/shape_type": 0
 }
 }
 }
