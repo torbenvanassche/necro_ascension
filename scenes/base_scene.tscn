@@ -202,15 +202,16 @@ level_area = NodePath("room_bounds")
 room_amount = 0
 
 [node name="room_bounds" type="Area3D" parent="Manager/container/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10778618, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10778618, 8.660306, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Manager/container/Level/room_bounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6443863, 1.6479149, 8.7799225)
 shape = SubResource("BoxShape3D_mwqxe")
 
 [node name="rooms" type="Node3D" parent="Manager/container/Level"]
+visible = false
 
-[node name="Node3D" parent="Manager/container/Level" instance=ExtResource("29_4pen5")]
+[node name="Hub_Room" parent="Manager/container/Level" instance=ExtResource("29_4pen5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0076885)
 
 [node name="character" parent="Manager/container" instance=ExtResource("25_mhhfu")]
