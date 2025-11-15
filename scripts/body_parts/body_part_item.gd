@@ -13,3 +13,7 @@ enum Type {
 
 @export var type: Type = Type.UNDEFINED;
 @export var scene_info: SceneInfo;
+var runtime_mesh: MeshInstance3D;
+
+func type_as_string() -> String:
+	return Type.find_key(type)

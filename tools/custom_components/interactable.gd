@@ -7,7 +7,7 @@ var click_area: Area3D;
 @export_group("Properties")
 @export var can_interact: bool = true;
 @export var interactable_id: String;
-var last_button_index: int = 0;
+var last_button_index: int = MouseButton.MOUSE_BUTTON_NONE;
 
 func _ready() -> void:
 	click_area = $clickable_area;

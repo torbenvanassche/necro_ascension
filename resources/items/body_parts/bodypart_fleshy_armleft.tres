@@ -8,7 +8,7 @@
 script = ExtResource("2_ynlrk")
 type = 3
 scene_info = ExtResource("1_vtxia")
-unique_id = "skeleton_flesh_head"
+unique_id = "skeleton_flesh_offhand"
 translation_key_name = "NAME_ARM_FLESH"
 translation_key_description = "DESC_ARM_FLESH"
 texture = ExtResource("3_vtxia")

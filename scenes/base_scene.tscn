@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://u174e626pg4g" path="res://scenes/ability_ui.tscn" id="14_odlif"]
 [ext_resource type="Resource" uid="uid://50t1h1fsnuwj" path="res://resources/abilities/attack.tres" id="15_cpat0"]
 [ext_resource type="Resource" uid="uid://b57h13yvlhpo" path="res://resources/scene_info/ui/dialogue_printer.tres" id="15_l21uh"]
-[ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/abilities/ability_2.tres" id="16_0oubr"]
+[ext_resource type="Resource" uid="uid://wyhqsvxtfrpk" path="res://resources/abilities/summon_melee.tres" id="16_0oubr"]
 [ext_resource type="Resource" uid="uid://b8yxompo3tinf" path="res://resources/scene_info/ui/inventory.tres" id="16_x6mqh"]
 [ext_resource type="Resource" uid="uid://dh8bmthxelnyk" path="res://resources/scene_info/ui/minion_window.tres" id="17_1bfix"]
 [ext_resource type="Resource" uid="uid://vr4lsqfomkkn" path="res://resources/abilities/ability_3.tres" id="17_utvto"]
@@ -174,6 +174,7 @@ script = ExtResource("19_56yci")
 [node name="Manager" type="Node" parent="." node_paths=PackedStringArray("resource_manager")]
 script = ExtResource("20_8yfd0")
 resource_manager = NodePath("../resource_manager")
+pixelation_factor = 0
 metadata/_custom_type_script = "uid://cs18d2lrk2v0l"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Manager"]

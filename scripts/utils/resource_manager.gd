@@ -30,9 +30,18 @@ func get_item(key: String) -> ItemResource:
 	var valid_items := items.filter(func(x: ItemResource) -> bool: return x.unique_id == key);
 	if valid_items.size() == 1:
 		return valid_items[0];
+	elif valid_items.size() == 0:
+		Debug.err("No item was found with key: %s" % key)
 	else:
-		Debug.message("No item was found with key: %s" % key)
-		return null;
+		Debug.err("Multiple items found with key: %s" % key)
+	return null;
+	
+func get_body_parts_by_scene_info(scene_info: SceneInfo, type: BodyPart.Type = BodyPart.Type.UNDEFINED) -> Array[BodyPart]:
+	var returnValue: Array[BodyPart];
+	returnValue.assign(items.filter(func(x: ItemResource) -> bool: return x is BodyPart && x.scene_info == scene_info));
+	if type != BodyPart.Type.UNDEFINED:
+		returnValue = returnValue.filter(func(x: BodyPart) -> bool: return x.type == type);
+	return returnValue;
 
 func get_donor(donor_name: String) -> Node3D:
 	if donors.has(donor_name):

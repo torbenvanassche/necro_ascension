@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SummonMinionAbilityResource" load_steps=5 format=3 uid="uid://wyhqsvxtfrpk"]
+
+[ext_resource type="Script" uid="uid://c0rintt62vfok" path="res://scripts/abilities/summon_skeleton.gd" id="1_713i8"]
+[ext_resource type="Script" uid="uid://cidct62o8b87g" path="res://scripts/data/summon_minion_ability_resource.gd" id="1_foh0p"]
+[ext_resource type="Resource" uid="uid://cxlhmwa4m8lf1" path="res://resources/creatures/skeleton_minion.tres" id="2_v3g1c"]
+[ext_resource type="Texture2D" uid="uid://dnkvflu6wdf0d" path="res://sprites/abilities/tile_0273.png" id="4_8fph1"]
+
+[resource]
+script = ExtResource("1_foh0p")
+creature_resource = ExtResource("2_v3g1c")
+cooldown = 1.0
+ui_sprite = ExtResource("4_8fph1")
+ability_script = ExtResource("1_713i8")
+metadata/_custom_type_script = "uid://cidct62o8b87g"

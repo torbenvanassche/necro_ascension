@@ -44,8 +44,6 @@ func _ready() -> void:
 	animation_controller = AnimationMachine.new(animation_tree, "base");
 	_setup_animations()
 	
-	body_part_inventory.add(Manager.instance.resource_manager.get_item("skeleton_flesh_head"))
-	
 func _setup_animations() -> void:
 	animation_controller.add_state(AnimationControllerState.new("IWR", "parameters/IWR/blend_position", AnimationControllerState.StateType.BLEND))
 	
@@ -104,7 +102,7 @@ func interact() -> void:
 		var interactable: Interactable = current_triggers[0].get_meta("interactable");
 		if interactable.has_method("on_interact"):
 			do_processing = not animation_controller.set_state_on_machine("interact");
-			interactable.interact(-1);
+			interactable.interact(MouseButton.MOUSE_BUTTON_NONE);
 	
 func sort_areas_by_distance() -> void:
 	current_triggers.sort_custom(func(a: Node3D, b: Node3D) -> float: return global_position.distance_squared_to(a.global_position) > global_position.distance_squared_to(b.global_position));

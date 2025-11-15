@@ -82,10 +82,17 @@ func get_scene_info(id: String) -> SceneInfo:
 	Debug.err("Could not find " + id + " in scenes.")
 	return null;
 
+func get_scene_info_from_instance(node: Node) -> SceneInfo:
+	var filtered: Array[SceneInfo] = Manager.instance.resource_manager.scenes.filter(func(x: SceneInfo) -> bool: return x.node == node);
+	if filtered.size() == 1:
+		return filtered[0];
+	Debug.err("Could not find " + node.name + " in scenes.")
+	return null;
+
 func set_scene_reference(id: String, target: Node) -> void:
 	get_scene_info(id).node = target;
 	
-func reset_to_scene(scene_name: String) -> void:
+func w(scene_name: String) -> void:
 	for scene_info in Manager.instance.resource_manager.scenes:
 		if scene_info.id != scene_name && scene_info.node != null:
 			scene_info.node.queue_free()

@@ -1,14 +1,14 @@
 class_name AbilityRuntime extends Node
 
 var ui_element: TextureRect;
-var data: AbilityResource;
+var data: BaseAbilityResource;
 
 var cooldown_timer: Timer = null;
 var _action: Node;
 
 signal executed();
 
-func _init(resource: AbilityResource = null) -> void:
+func _init(resource: BaseAbilityResource = null) -> void:
 	if resource != null:
 		data = resource.duplicate();
 		if resource.cooldown != 0:

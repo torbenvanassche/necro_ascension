@@ -1,6 +1,6 @@
 class_name AbilitySlot extends Button
 
-@export var ability_data: AbilityResource:
+@export var ability_data: BaseAbilityResource:
 	set(value):
 		if value != null:
 			ability_data = value;
@@ -31,4 +31,4 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(keybind_action):
-		ability_runtime.execute()
+		ability_runtime.execute({ "ability_data": ability_data })
