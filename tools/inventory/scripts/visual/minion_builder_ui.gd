@@ -11,20 +11,14 @@ func _ready() -> void:
 		data.append(c)
 		c.changed.connect(_data_changed)
 		
-	#Load the base rig for simple skeleton meshes
-	SceneManager.instance.get_scene_info("base_skeleton").queue(_on_base_rig_loaded)
-		
-func _on_base_rig_loaded(base_rig: SceneInfo) -> void:
-	var sI: SceneInfo = SceneManager.instance.get_scene_info("necromancy_table");
-	sI.queue(_on_ui_ready.bind(base_rig))
-		
-func _on_ui_ready(builder: SceneInfo, base_rig: SceneInfo) -> void:
-	builder.get_instance().set_buildable(base_rig.get_instance())
-	SceneManager.instance.get_scene_info("skeleton_fleshy").queue(_test_load.bind(base_rig))
+	var necro_table: SceneInfo = SceneManager.instance.get_scene_info("necromancy_table");
+	var skeleton_fleshy: SceneInfo = SceneManager.instance.get_scene_info("skeleton_fleshy");
+	var base_skeleton: SceneInfo = SceneManager.instance.get_scene_info("base_skeleton");
 
-func _test_load(fleshy: SceneInfo, base_rig: SceneInfo) -> void:
-	var body_parts := fleshy.get_instance() as BodyPartDonor;
-	_assign_part(base_rig, body_parts.get_part("head"))
+	SceneManager.instance.cache_scenes([
+		necro_table, skeleton_fleshy, base_skeleton], func(_loaded_scenes: Array[SceneInfo]) -> void: 
+			necro_table.get_instance().set_buildable(base_skeleton.get_instance());
+			_assign_part(base_skeleton, (skeleton_fleshy.get_instance() as BodyPartDonor).get_part("head")))
 	
 func _data_changed() -> void:
 	var minion_parts := parts.map(func(slot: MinionEquipmentSlotUI) -> BodyPart: return slot.contentSlot.get_content());

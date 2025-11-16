@@ -61,7 +61,22 @@ func get_or_create_scene(scene_name: String, scene_config: SceneConfig = SceneCo
 	else:
 		Debug.err(scene_name + " was invalid. Found more than one resource referencing the scene.")
 	return null;
+	
+func cache_scenes(to_load: Array[SceneInfo], c: Callable = Callable()) -> void:
+	if _check_loaded(to_load):
+		c.call(to_load);
+		return
+	
+	for s_info in to_load:
+		var loader: SceneInfo = get_or_create_scene(s_info.id)
+		loader.cached.connect(func(_loaded: SceneInfo) -> void:
+			if _check_loaded:
+				c.call(to_load)
+		)
 		
+func _check_loaded(to_load: Array[SceneInfo]) -> bool:
+	return to_load.all(func(scene: SceneInfo) -> bool: return scene.is_cached)
+
 func _on_scene_load(scene_info: SceneInfo, scene_config: SceneConfig) -> void:
 	_active_scene = scene_info.get_instance();
 	_active_scene.visible = true;
@@ -91,12 +106,6 @@ func get_scene_info_from_instance(node: Node) -> SceneInfo:
 
 func set_scene_reference(id: String, target: Node) -> void:
 	get_scene_info(id).node = target;
-	
-func w(scene_name: String) -> void:
-	for scene_info in Manager.instance.resource_manager.scenes:
-		if scene_info.id != scene_name && scene_info.node != null:
-			scene_info.node.queue_free()
-	get_or_create_scene(scene_name, SceneConfig.new())
 	
 func remove_scene(info: SceneInfo, permanent: bool = false) -> void:
 	if info.node != null:
